@@ -1,24 +1,29 @@
 import {useIntersection} from "stimulus-use";
+import {IntersectionOptions} from "stimulus-use/dist/use-intersection/use-intersection";
 import {AsyncBlockController} from "./async_block_controller";
 
 export class LazyBlockController extends AsyncBlockController {
 
-  private unobserve = null;
+  declare observe: () => void;
+  declare unobserve: () => void;
+  declare options: IntersectionOptions;
+  declare isVisible: boolean;
+  declare disappear : () => void;
 
   connect() {
     let element = this.element;
+    this.options = {element, threshold: 0.3};
 
     if ("IntersectionObserver" in window) {
-      let [observe, unobserve] = useIntersection(this, {element, threshold: 0.3});
-      this.unobserve = unobserve;
+      [this.observe, this.unobserve] = useIntersection(this, this.options);
     } else {
       // Client doesn't support intersection observer, fallback to pre-loading
       this.loadContent();
     }
   }
 
-  private appear(entry) {
-    let element = this.element;
+  appear(entry: IntersectionObserverEntry) {
+    let element = this.element as HTMLImageElement;
     if (element.src !== "") {
       return;
     }

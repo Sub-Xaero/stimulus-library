@@ -20,7 +20,9 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-[no-values](../_partials/no-values.md ':include')
+| Value | Purpose | Default |
+| --- | --- | --- |
+| `endpoint` | The URL to fetch content from | - |
 
 ## Events
 
@@ -38,7 +40,7 @@ None
 
 ```html
 
-<div data-controller="async-block" data-endpoint="/cats/mr-tibbins" data-async-block-target="replace">
+<div data-controller="async-block" data-async-block-endpoint-value="/cats/mr-tibbins" data-async-block-target="replace">
   <i class="fas fa-spinner fa-spin mr-10"></i>
   Loading, please wait ...
 </div>

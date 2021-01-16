@@ -20,7 +20,10 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-[no-values](../_partials/no-values.md ':include')
+| Value | Purpose | Default |
+| --- | --- | --- |
+| `endpoint` | The URL to fetch content from | - |
+
 
 ## Events
 
@@ -38,7 +41,7 @@ None
 
 ```html
 
-<div data-controller="lazy-block" data-endpoint="/cats/mr-tibbins" data-lazy-block-target="replace">
+<div data-controller="lazy-block" data-lazy-block-endpoint-value="/cats/mr-tibbins" data-lazy-block-target="replace">
   <i class="fas fa-spinner fa-spin mr-10"></i>
   Loading, please wait .......
 </div>

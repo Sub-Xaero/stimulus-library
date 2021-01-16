@@ -2,9 +2,12 @@ import {Controller} from "stimulus";
 
 export class AsyncBlockController extends Controller {
   static targets = ["replace"];
+  static values = {endpoint: String};
 
   declare readonly replaceTarget: HTMLElement;
   declare readonly hasReplaceTarget: boolean;
+  declare readonly endpointValue: string;
+
 
   // This is a simple controller to load a block of content when the page loads.
   // It should be used to give a quick initial response before calling out to an
@@ -15,7 +18,7 @@ export class AsyncBlockController extends Controller {
 
   loadContent() {
     let el = (this.hasReplaceTarget ? this.replaceTarget : this.element) as HTMLElement;
-    fetch(el.dataset.endpoint!)
+    fetch(this.endpointValue)
     .then((response) => response.text())
     .then((html) => {
       let newEl = document.createElement("div");
