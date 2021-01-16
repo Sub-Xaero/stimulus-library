@@ -1,0 +1,19 @@
+{
+  "name": "stimulus-library",
+  "version": "0.1.0",
+  "source": "src/index.ts",
+  "main": "dist/stimulus-library.js",
+  "exports": "dist/stimulus-library.modern.js",
+  "module": "dist/stimulus-library.module.js",
+  "unpkg": "dist/stimulus-library.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "dependencies": {
+    "docsify": "^4.11.6",
+    "stimulus": "^2.0.0",
+    "stimulus-use": "^0.22.0-1",
+    "microbundle": "^0.13.0"
+  }
+}
