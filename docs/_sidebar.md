@@ -1,5 +1,5 @@
 <!-- docs/_sidebar.md -->
-* [Installation](/)
+* [Stimulus Library - Installation](/)
 ---
 * Controllers
 ** [AsyncBlockController](./controllers/async_block_controller.md)
