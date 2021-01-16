@@ -10,12 +10,16 @@
   "scripts": {
     "docs": "docsify serve docs",
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "test:treeshake": "agadoo dist stimulus-library.js"
   },
   "dependencies": {
     "docsify": "^4.11.6",
     "stimulus": "^2.0.0",
-    "stimulus-use": "^0.22.0-1",
+    "stimulus-use": "^0.22.0-1"
+  },
+  "devDependencies": {
+    "agadoo": "^2.0.0",
     "microbundle": "^0.13.0"
   }
 }
