@@ -6,6 +6,7 @@
   "exports": "dist/stimulus-library.modern.js",
   "module": "dist/stimulus-library.module.js",
   "unpkg": "dist/stimulus-library.umd.js",
+  "license": "MIT",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
