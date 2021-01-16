@@ -1,9 +1,11 @@
 import {Controller} from "stimulus";
 import {useWindowResize} from "stimulus-use";
 
-export class  AutosizeController extends Controller {
+export class AutosizeController extends Controller {
 
   private boundHandler = this.handler.bind(this);
+  declare observe: () => void;
+  declare unobserve: () => void;
 
   connect() {
     let target = this.element as HTMLTextAreaElement;
@@ -17,12 +19,9 @@ export class  AutosizeController extends Controller {
     target.addEventListener("focus", this.boundHandler);
   }
 
-  private windowResize() {
+  windowResize() {
     this.handler();
   }
-
-  private observe(){}
-  private unobserve(){}
 
   private handler() {
     this.autosize(this.element as HTMLTextAreaElement);
