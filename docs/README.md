@@ -1,4 +1,6 @@
-# Installation
+# Stimulus-Library
+
+## Installation
 
 To get started, you'll need to add the `stimulus-library` package to your project.  
 
@@ -19,5 +21,5 @@ Then, to get started import and register the controllers you want to use
 ```js
 import {AutosizeController} from "stimulus-library";
 
-Application.register(AutosizeController);
+Application.register("autosize", AutosizeController);
 ```

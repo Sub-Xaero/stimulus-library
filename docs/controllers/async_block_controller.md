@@ -4,27 +4,33 @@
 
 AJAX load heavy content after the initial page load, while showing a placeholder.
 
-## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<!-- tabs:start -->
+## ** Actions **
+#### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 [no-actions](../_partials/no-actions.md ':include')
 
-## [Targets](https://stimulus.hotwire.dev/reference/targets)
+## ** Targets **
+#### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 | Target | Purpose | Default |
 | --- | --- | --- |
 | `replace` | The element to replace when the fetch request succeed | The element the controller is mounted on |
 
-## [Classes](https://stimulus.hotwire.dev/reference/classes)
+## ** Classes **
+#### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 [no-classes](../_partials/no-classes.md ':include')
 
-## [Values](https://stimulus.hotwire.dev/reference/values)
+## ** Values **
+#### [Values](https://stimulus.hotwire.dev/reference/values)
 
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
 | `endpoint` | String | The URL to fetch content from | - |
 
-## Events
+## ** Events **
+#### Events
 
 | Event | When | `event.detail` |
 | --- | --- |--- |
@@ -32,11 +38,12 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 |`ajax:error` | When the block fails to get a response from the endpoint | - |
 |`ajax:complete` | When the request finishes, regardless of success or failure | - |
 
-## Side Effects
+## ** Side Effects **
 
 None
 
-## How to Use
+<!-- tabs:end -->
+# How to Use
 
 ```html
 

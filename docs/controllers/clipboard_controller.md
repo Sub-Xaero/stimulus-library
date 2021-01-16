@@ -11,14 +11,17 @@ If 'copy' is NOT supported by the browser the controller will simply select the 
 You can also wire up the controller to have a copy button, and an optional fallback button (i.e. "Select this text") to show if clipboard controls are not supported by the user's browser. Setting
 the `removeUnused` value to `true` will make the controller remove whichever target is unused.
 
-## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<!-- tabs:start -->
+## ** Actions **
+#### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 | Action | Purpose |
 | --- | --- |
 | `select` | Selects the content of the `source` target |
 | `copy` | Selects the content of the `source` target, and executes a copy, if supported |
 
-## [Targets](https://stimulus.hotwire.dev/reference/targets)
+## ** Targets **
+#### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 | Target | Purpose | Default |
 | --- | --- | --- |
@@ -26,24 +29,28 @@ the `removeUnused` value to `true` will make the controller remove whichever tar
 | `copy` (Optional) | The element to remove if `removeUnused`  value is `true` and copy **is** supported | - |
 | `fallback` (Optional) | The element to remove if `removeUnused` value  is `true` and copy is **not** supported | - |
 
-## [Classes](https://stimulus.hotwire.dev/reference/classes)
+## ** Classes **
+#### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 [no-classes](../_partials/no-classes.md ':include')
 
-## [Values](https://stimulus.hotwire.dev/reference/values)
+## ** Values **
+#### [Values](https://stimulus.hotwire.dev/reference/values)
 
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
 | `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false |
 
-## Events
+## ** Events **
+#### Events
 
 [no-events](../_partials/no-events.md ':include')
 
-## Side Effects
+## ** Side Effects **
 
 None
 
+<!-- tabs:end -->
 # How to Use
 
 ```html
