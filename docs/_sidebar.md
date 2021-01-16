@@ -2,3 +2,4 @@
 * [Installation](/)
 ---
 * Controllers
+** [AutosizeController](./controllers/autosize_controller.md)
