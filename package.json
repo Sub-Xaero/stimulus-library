@@ -8,6 +8,7 @@
   "unpkg": "dist/stimulus-library.umd.js",
   "license": "MIT",
   "scripts": {
+    "docs": "docsify serve docs",
     "build": "microbundle",
     "dev": "microbundle watch"
   },
