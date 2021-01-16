@@ -2,10 +2,10 @@
 
 ## Purpose
 
-Auto-resize text areas when the amount of content inside them changes.
+Auto-resize text-areas when the amount of content inside them changes. Attach it to a textarea that you want to autosize, and forget about it.
 
 **Note:**
-Only works for user-initiated changes, if changes are made in JavaScript and events are not emitted.
+Only works for user-initiated changes, if changes are made in JavaScript and `input` events are not emitted then the resize may not trigger.
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
