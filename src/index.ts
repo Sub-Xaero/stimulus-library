@@ -6,4 +6,4 @@ export {AutosizeController} from "./autosize_controller";
 export {ClipboardController} from "./clipboard_controller";
 export {ConfirmNavigationController} from "./confirm_navigation_controller";
 export {LazyBlockController} from "./lazy_block_controller";
-
+export {DetectDirtyController} from "./detect_dirty_controller";

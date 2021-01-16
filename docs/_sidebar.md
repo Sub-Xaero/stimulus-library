@@ -9,4 +9,5 @@
 ** [AutosizeController](./controllers/autosize_controller.md)
 ** [ClipboardController](./controllers/clipboard_controller.md)
 ** [ConfirmNavigationController](./controllers/confirm_navigation_controller.md)
+** [DetectDirtyController](./controllers/detect_dirty_controller.md)
 ** [LazyBlockController](./controllers/lazy_block_controller.md)
