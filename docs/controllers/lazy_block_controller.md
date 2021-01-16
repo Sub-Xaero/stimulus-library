@@ -5,12 +5,15 @@
 AJAX load content, only when it comes into view, while showing a placeholder.
 
 <!-- tabs:start -->
+
 ## ** Actions **
+
 #### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 [no-actions](../_partials/no-actions.md ':include')
 
 ## ** Targets **
+
 #### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 | Target | Purpose | Default |
@@ -18,19 +21,21 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 | `replace` | The element to replace when the fetch request succeed | The element the controller is mounted on |
 
 ## ** Classes **
+
 #### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 [no-classes](../_partials/no-classes.md ':include')
 
 ## ** Values **
+
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
 | `endpoint` | String | The URL to fetch content from | - |
 
-
 ## ** Events **
+
 #### Events
 
 | Event | When | `event.detail` |
@@ -44,6 +49,7 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 None
 
 <!-- tabs:end -->
+
 # How to Use
 
 ```html

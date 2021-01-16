@@ -7,7 +7,9 @@ Track whether an `<input>`, `<textarea>` or `<select>` has changed their value f
 Adds `data-dirty` to the input being watched if it changes value, and removes it if it returns to its initial value.
 
 <!-- tabs:start -->
+
 ## ** Actions **
+
 #### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 | Action | Purpose |
@@ -15,21 +17,25 @@ Adds `data-dirty` to the input being watched if it changes value, and removes it
 | `restore` | Return the input to its original value |
 
 ## ** Targets **
+
 #### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 [no-targets](../_partials/no-targets.md ':include')
 
 ## ** Classes **
+
 #### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 [no-classes](../_partials/no-classes.md ':include')
 
 ## ** Values **
+
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
 [no-values](../_partials/no-values.md ':include')
 
 ## ** Events **
+
 #### Events
 
 [no-events](../_partials/no-events.md ':include')
@@ -39,11 +45,13 @@ Adds `data-dirty` to the input being watched if it changes value, and removes it
 Adds `input` and `change` event listeners to the attached input.
 
 <!-- tabs:end -->
+
 # How to Use
 
 ### Tracking dirty inputs
 
 ```html
+
 <input type="text" data-controller="dirty"/>
 ```
 
@@ -53,7 +61,7 @@ Adds `input` and `change` event listeners to the attached input.
 
 ```css
 input[data-dirty], textarea[data-dirty], select[data-dirty] {
-    border-color: red;
+  border-color: red;
 }
 ```
 

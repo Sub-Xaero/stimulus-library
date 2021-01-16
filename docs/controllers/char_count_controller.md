@@ -5,12 +5,15 @@
 Add a visual count of the number of characters in a textarea/string input, with an option for highlighting min/max characters.
 
 <!-- tabs:start -->
+
 ## ** Actions **
+
 #### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 [no-actions](../_partials/no-actions.md ':include')
 
 ## ** Targets **
+
 #### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 | Target | Purpose | Default |
@@ -19,6 +22,7 @@ Add a visual count of the number of characters in a textarea/string input, with 
 | `output` | The place where the characters count will be output | - |
 
 ## ** Classes **
+
 #### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 | Action | Purpose |
@@ -26,6 +30,7 @@ Add a visual count of the number of characters in a textarea/string input, with 
 | `error` (Optional) | The class to apply if the user does not meet the min/max characters (if specified) |
 
 ## ** Values **
+
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
 | Value | Type | Purpose | Default |
@@ -34,6 +39,7 @@ Add a visual count of the number of characters in a textarea/string input, with 
 | `max` | Number | The maximum number of character. This will add an `error` class (See: Classes) to the input if the max character are exceeded | 99,999 |
 
 ## ** Events **
+
 #### Events
 
 [no-events](../_partials/no-events.md ':include')
@@ -43,6 +49,7 @@ Add a visual count of the number of characters in a textarea/string input, with 
 The controller will add an event listener for `input` to the `input` target.
 
 <!-- tabs:end -->
+
 # How to Use
 
 ```html

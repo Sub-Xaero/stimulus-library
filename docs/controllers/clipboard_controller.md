@@ -8,11 +8,12 @@ If 'copy' is supported, the controller will select the contents of the given inp
 
 If 'copy' is NOT supported by the browser the controller will simply select the contents of the given input for the user to be able to copy manually.
 
-You can also wire up the controller to have a copy button, and an optional fallback button (i.e. "Select this text") to show if clipboard controls are not supported by the user's browser. Setting
-the `removeUnused` value to `true` will make the controller remove whichever target is unused.
+You can also wire up the controller to have a copy button, and an optional fallback button (i.e. "Select this text") to show if clipboard controls are not supported by the user's browser. Setting the `removeUnused` value to `true` will make the controller remove whichever target is unused.
 
 <!-- tabs:start -->
+
 ## ** Actions **
+
 #### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 | Action | Purpose |
@@ -21,6 +22,7 @@ the `removeUnused` value to `true` will make the controller remove whichever tar
 | `copy` | Selects the content of the `source` target, and executes a copy, if supported |
 
 ## ** Targets **
+
 #### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 | Target | Purpose | Default |
@@ -30,11 +32,13 @@ the `removeUnused` value to `true` will make the controller remove whichever tar
 | `fallback` (Optional) | The element to remove if `removeUnused` value  is `true` and copy is **not** supported | - |
 
 ## ** Classes **
+
 #### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 [no-classes](../_partials/no-classes.md ':include')
 
 ## ** Values **
+
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
 | Value | Type | Purpose | Default |
@@ -42,6 +46,7 @@ the `removeUnused` value to `true` will make the controller remove whichever tar
 | `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false |
 
 ## ** Events **
+
 #### Events
 
 [no-events](../_partials/no-events.md ':include')
@@ -51,6 +56,7 @@ the `removeUnused` value to `true` will make the controller remove whichever tar
 None
 
 <!-- tabs:end -->
+
 # How to Use
 
 ```html

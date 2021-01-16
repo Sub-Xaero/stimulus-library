@@ -8,27 +8,33 @@ Auto-resize text-areas when the amount of content inside them changes. Attach it
 Only works for user-initiated changes, if changes are made in JavaScript and `input` events are not emitted then the resize may not trigger.
 
 <!-- tabs:start -->
+
 ## ** Actions **
+
 #### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
 [no-actions](../_partials/no-actions.md ':include')
 
 ## ** Targets **
+
 #### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 [no-targets](../_partials/no-targets.md ':include')
 
 ## ** Classes **
+
 #### [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 [no-classes](../_partials/no-classes.md ':include')
 
 ## ** Values **
+
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
 [no-values](../_partials/no-values.md ':include')
 
 ## ** Events **
+
 #### Events
 
 [no-events](../_partials/no-events.md ':include')
@@ -40,6 +46,7 @@ Only works for user-initiated changes, if changes are made in JavaScript and `in
 - Sets the `style.height` property on the element to the calculated height of the content.
 
 <!-- tabs:end -->
+
 # How to Use
 
 ```html
