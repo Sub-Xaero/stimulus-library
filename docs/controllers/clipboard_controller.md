@@ -32,9 +32,9 @@ the `removeUnused` value to `true` will make the controller remove whichever tar
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Purpose | Default |
-| --- | --- | --- |
-| `removeUnusedValue` | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false |
+| Value | Type | Purpose | Default |
+| --- | --- | --- | --- |
+| `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false |
 
 ## Events
 

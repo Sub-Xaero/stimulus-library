@@ -1,3 +1,3 @@
-| Value | Purpose | Default |
-| --- | --- | --- |
-| `-` | - | - |
+| Value | Type | Purpose | Default |
+| --- | --- | --- | --- |
+| `-` | - | - | - |

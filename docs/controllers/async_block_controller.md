@@ -20,9 +20,9 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Purpose | Default |
-| --- | --- | --- |
-| `endpoint` | The URL to fetch content from | - |
+| Value | Type | Purpose | Default |
+| --- | --- | --- | --- |
+| `endpoint` | String | The URL to fetch content from | - |
 
 ## Events
 

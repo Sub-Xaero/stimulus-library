@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Add a visual count of the number of characters in a textarea/string input, with a option for highlighting min/max characters.
+Add a visual count of the number of characters in a textarea/string input, with an option for highlighting min/max characters.
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
@@ -12,21 +12,21 @@ Add a visual count of the number of characters in a textarea/string input, with 
 
 | Target | Purpose | Default |
 | --- | --- | --- |
-| `input` | The `<input>` or `<textarea>` to count words on | - |
-| `output` | The place where the word count will be output | - |
+| `input` | The `<input>` or `<textarea>` to count characters on | - |
+| `output` | The place where the characters count will be output | - |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
 | Action | Purpose |
 | --- | --- |
-| `error` (Optional) | The class to apply if the user does not meet the min/max words (if specified) |
+| `error` (Optional) | The class to apply if the user does not meet the min/max characters (if specified) |
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Purpose | Default |
-| --- | --- | --- |
-| `min` | The minimum number of words. This will add an `error` class (See: Classes) to the input if the min words are not met | - |
-| `max` | The maximum number of words. This will add an `error` class (See: Classes) to the input if the max words are exceeded | - |
+| Value | Type | Purpose | Default |
+| --- | --- | --- | --- |
+| `min` | Number | The minimum number of character. This will add an `error` class (See: Classes) to the input if the min character are not met | 0 |
+| `max` | Number | The maximum number of character. This will add an `error` class (See: Classes) to the input if the max character are exceeded | 99,999 |
 
 ## Events
 

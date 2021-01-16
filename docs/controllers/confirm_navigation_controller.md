@@ -19,9 +19,9 @@ confirmation dialogue.
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Purpose | Default |
-| --- | --- | --- |
-| `message` | The message to show to the user (if supported by the browser) | The native browser `are you sure?` dialogue |
+| Value | Type | Purpose | Default |
+| --- | --- | --- | --- |
+| `message` | String | The message to show to the user (if supported by the browser) | The native browser `are you sure?` dialogue |
 
 ## Events
 
