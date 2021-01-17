@@ -6,8 +6,8 @@ To make seamless, responsive iframes that resize themselves to the size of their
 
 This behaviour uses two controllers.
 
-- `iframe-responsive-body-controller`
-- `iframe-responsive-wrapper-controller`
+1. `ResponsiveIframeWrapperController`
+1. `ResponsiveIframeBodyController`
 
 <!-- tabs:start -->
 
@@ -43,13 +43,13 @@ This behaviour uses two controllers.
 
 ## ** Side Effects **
 
-`responsive-iframe-wrapper-controller`
+`ResponsiveIframeWrapperController`
 
 - Adds an event listener for `message` on the `window` for messages posted on the iframe it is attached to.
 
 ---
 
-`responsive-frame-body-controller`
+`ResponsiveIframeBodyController`
 
 - Uses a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to observe the inner iframe `window` size.
 - Passes `messages` to the iframe document's `window.parent` to get messages from the iframe body, to the outer document.

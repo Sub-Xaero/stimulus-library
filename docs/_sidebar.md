@@ -17,7 +17,7 @@
 ** [LimitedSelectionCheckboxesController](./controllers/limited_selection_checkboxes_controller.md "Stimulus Library - LimitedSelectionCheckboxesController")
 ** [PasswordConfirmController](./controllers/password_confirm_controller.md "Stimulus Library - PasswordConfirmController")
 ** [PasswordPeekController](./controllers/password_peek_controller.md "Stimulus Library - PasswordPeekController")
-** [ResponsiveIFrameController](./controllers/responsive-iframe.md "Stimulus Library - ResponsiveIFrame")
+** [ResponsiveIFrameController](controllers/responsive_iframe_controller.md "Stimulus Library - ResponsiveIFrame")
 ** [SelfDestructController](./controllers/self_destruct_controller.md "Stimulus Library - SelfDestructController")
 ** [TeleportController](./controllers/teleport_controller.md "Stimulus Library - TeleportController")
 ** [WordCountController](./controllers/word_count_controller.md "Stimulus Library - WordCountController")
