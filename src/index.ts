@@ -11,5 +11,6 @@ export {EnableInputsController} from "./enable_inputs_controller";
 export {FallbackImageController} from "./fallback_image_controller";
 export {LazyBlockController} from "./lazy_block_controller";
 export {LimitedSelectionCheckboxesController} from "./limited_selection_checkboxes_controller";
+export {ResponsiveIframeBodyController, ResponsiveIframeWrapperController} from "./responsive_iframe_controller";
 export {SelfDestructController} from "./self_destruct_controller";
 export {WordCountController} from "./word_count_controller";
