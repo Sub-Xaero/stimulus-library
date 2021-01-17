@@ -43,9 +43,9 @@ Transport an element from one place in the DOM, to another.
 #### Events
 
 
-| Event | When | `event.detail` |
-| --- | --- | --- |
-| `teleport:error` | When the controller cannot find the target destination from the given selector  | - |
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `teleport:error` | When the controller cannot find the target destination from the given selector | The controller element | - |
 
 
 ## ** Side Effects **

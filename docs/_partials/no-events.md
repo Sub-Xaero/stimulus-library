@@ -1,3 +1,3 @@
-| Event | When | `event.detail` |
-| --- | --- | --- |
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
 | `-` | - | - |
