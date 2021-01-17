@@ -20,7 +20,10 @@ Toggle a password input between `type="password"` and `type="text"` to allow the
 
 #### [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-[no-targets](../_partials/no-targets.md ':include')
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `password` | The password input to allow peeking on | - |
+
 
 ## ** Classes **
 
