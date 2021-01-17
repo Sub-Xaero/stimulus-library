@@ -14,4 +14,5 @@
 ** [EnableInputsController](./controllers/enable_inputs_controller.md "Stimulus Library - EnableInputsController")
 ** [FallbackImageController](./controllers/fallback_image_controller.md "Stimulus Library - FallbackImageController")
 ** [LazyBlockController](./controllers/lazy_block_controller.md "Stimulus Library - LazyBlockController")
+** [SelfDestructController](./controllers/self_destruct_controller.md "Stimulus Library - SelfDestructController")
 ** [WordCountController](./controllers/word_count_controller.md "Stimulus Library - WordCountController")
