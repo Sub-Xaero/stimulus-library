@@ -18,4 +18,5 @@
 ** [PasswordPeekController](./controllers/password_peek_controller.md "Stimulus Library - PasswordPeekController")
 ** [ResponsiveIFrame](./controllers/responsive-iframe.md "Stimulus Library - ResponsiveIFrame")
 ** [SelfDestructController](./controllers/self_destruct_controller.md "Stimulus Library - SelfDestructController")
+** [TeleportController](./controllers/teleport_controller.md "Stimulus Library - TeleportController")
 ** [WordCountController](./controllers/word_count_controller.md "Stimulus Library - WordCountController")

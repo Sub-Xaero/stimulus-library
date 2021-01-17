@@ -14,4 +14,5 @@ export {LimitedSelectionCheckboxesController} from "./limited_selection_checkbox
 export {PasswordPeekController} from "./password_peek_controller";
 export {ResponsiveIframeBodyController, ResponsiveIframeWrapperController} from "./responsive_iframe_controller";
 export {SelfDestructController} from "./self_destruct_controller";
+export {TeleportController} from "./teleport_controller";
 export {WordCountController} from "./word_count_controller";
