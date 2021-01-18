@@ -16,4 +16,5 @@ export {PasswordPeekController} from "./password_peek_controller";
 export {ResponsiveIframeBodyController, ResponsiveIframeWrapperController} from "./responsive_iframe_controller";
 export {SelfDestructController} from "./self_destruct_controller";
 export {TeleportController} from "./teleport_controller";
+export {ToggleClassController} from "./toggle_class_controller";
 export {WordCountController} from "./word_count_controller";
