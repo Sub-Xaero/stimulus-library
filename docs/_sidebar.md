@@ -11,6 +11,7 @@
 ** [DetectDirtyController](./controllers/detect_dirty_controller.md "Stimulus Library - DetectDirtyController")
 ** [DisableInputsController](./controllers/disable_inputs_controller.md "Stimulus Library - DisableInputsController")
 ** [DismissableController](./controllers/dismissable_controller.md "Stimulus Library - DismissableController")
+** [EmptyDomController](./controllers/empty_dom_controller.md "Stimulus Library - EmptyDomController")
 ** [EnableInputsController](./controllers/enable_inputs_controller.md "Stimulus Library - EnableInputsController")
 ** [FallbackImageController](./controllers/fallback_image_controller.md "Stimulus Library - FallbackImageController")
 ** [LazyBlockController](./controllers/lazy_block_controller.md "Stimulus Library - LazyBlockController")

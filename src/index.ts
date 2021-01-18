@@ -7,6 +7,7 @@ export {ConfirmNavigationController} from "./confirm_navigation_controller";
 export {DetectDirtyController} from "./detect_dirty_controller";
 export {DisableInputsController} from "./disable_inputs_controller";
 export {DismissableController} from "./dismissable_controller";
+export {EmptyDomController} from "./empty_dom_controller";
 export {EnableInputsController} from "./enable_inputs_controller";
 export {FallbackImageController} from "./fallback_image_controller";
 export {LazyBlockController} from "./lazy_block_controller";
