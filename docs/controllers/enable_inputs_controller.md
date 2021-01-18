@@ -46,23 +46,7 @@ None
 
 Example - preventing inputs until T&Cs are checked
 
-```html
-
-<div data-controller="disable-inputs">
-  <label>
-    I agree to the terms and conditions of use
-    <input type="checkbox" name="agree_to_terms" data-disable-inputs-target="disabler"/>
-  </label>
-  <label>
-    Some Other Input>
-    <input type="text" name="some_other_input" data-enable-inputs-target="enable"/>
-  </label>
-  <label>
-    Some Other Input 2
-    <input type="text" name="some_other_input_2" data-enable-inputs-target="enable">
-  </label>
-</div>
-```
+[example](../examples/enable_inputs_controller.html ':include :type=code')
 
 # See also
 

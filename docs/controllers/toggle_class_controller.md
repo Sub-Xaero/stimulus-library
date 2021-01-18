@@ -61,52 +61,12 @@ None
 
 ### Example - showing a dropdown menu on a click, and hiding it again if the user clicks away.
 
-```html
-
-<div
-  data-controller="toggle-class"
-  data-toggle-class-class-value="hidden"
-  data-toggle-class-click-away-value="true"
-  data-toggle-class-initial-value="on"
->
-  <button id="user-menu" class="navbar-button" data-action="click->toggle-class#toggle">
-    <i class="far fa-bell"></i>
-    <span class="hidden dropdown" data-toggle-class-target="toggle">
-      <a href="/profile" class="dropdown-link">Your Profile</a>
-      <a href="/settings" class="dropdown-link">Settings</a>
-      <a href="/sign-out" class="dropdown-link">Sign Out</a>
-    </span>
-  </button>
-</div>
-
-```
+[example](../examples/toggle_class_controller_click.html ':include :type=code')
 
 ![ezgif-3-697e3a644da7](https://user-images.githubusercontent.com/9960703/104182368-450ec700-5408-11eb-920b-becec527311d.gif)
 
 ### Example, showing an action button on hover
 
-```html
-
-<div id="calendar" class="grid grid-cols-7">
-  <!-- ...-->
-  <div
-    class="calendar-cell"
-    data-controller="toggle-class"
-    data-toggle-class-class-value="invisible"
-    data-toggle-class-mouse-enter-value="off"
-    data-toggle-class-mouse-leave-value="on"
-    data-toggle-class-initial-value="on"
-  >
-    <span class="cell-heading">4th</span>
-    <div class="cell-body">
-      <div class="text-center invisible" data-toggle-class-target="toggle">
-        <a class="btn btn-primary" href="/events/new">+ New event</a>
-      </div>
-    </div>
-  </div>
-  <!-- ...-->
-</div>
-
-```
+[example](../examples/toggle_class_controller_hover.html ':include :type=code')
 
 ![ezgif-3-dd9317a73732](https://user-images.githubusercontent.com/9960703/104182370-45a75d80-5408-11eb-8b3d-8feae48bbc5a.gif)

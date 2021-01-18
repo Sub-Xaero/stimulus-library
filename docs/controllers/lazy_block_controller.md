@@ -52,13 +52,7 @@ None
 
 # How to Use
 
-```html
-
-<div data-controller="lazy-block" data-lazy-block-endpoint-value="/cats/mr-tibbins" data-lazy-block-target="replace">
-  <i class="fas fa-spinner fa-spin mr-10"></i>
-  Loading, please wait .......
-</div>
-```
+[example](../examples/lazy_block_controller.html ':include :type=code')
 
 If the client browser supports IntersectionObserver, the controller will send out a Fetch request when the user scrolls near the element.
 

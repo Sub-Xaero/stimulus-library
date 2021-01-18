@@ -48,12 +48,4 @@ Adds event listeners for `input` and `change` to all `<input>` `<textarea>` and 
 
 # How to Use
 
-```html
-
-<form action="" data-controller="auto-submit">
-  <label>
-    What is your quest?
-    <textarea name="user[quest]"></textarea>
-  </label>
-</form>
-```
+[example](../examples/auto_submit_form_controller.html ':include :type=code')

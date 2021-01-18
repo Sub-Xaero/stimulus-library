@@ -52,18 +52,4 @@ The controller will add an event listener for `input` to the `input` target.
 
 # How to Use
 
-```html
-
-<label>
-  <abbr title="required" class="required">*</abbr>
-  What is your quest?
-  We suggest at least 250 characters, but no more than 2000 characters.
-</label>
-<div data-controller="char-count" data-char-count-min-value="250" data-char-count-max-value="2000">
-  <textarea name="quest" data-char-count-target="input"></textarea>
-  <div class="text-right">
-    <span data-char-count-target="output"></span>
-    <span data-char-count-target="output">/2000</span>
-  </div>
-</div>
-```
+[example](../examples/char_count_controller.html ':include :type=code')

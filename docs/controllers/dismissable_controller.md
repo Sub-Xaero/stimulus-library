@@ -48,15 +48,7 @@ None
 
 A good example is a flash message, rather than it staying on the page forever, allowing the user to dismiss it with a little 'X' in the corner.
 
-```html
-
-<div class="flash-alert notice" data-controller="dismissable" role="notice">
-  <div class="col-start-3 col-span-8 text-center"> Something went wrong, batten down the hatches</div>
-  <div class="col-span-2 text-right">
-    <a class="btn secondary tiny mr-2" data-action="dismissable#dismiss">X</a>
-  </div>
-</div>
-```
+[example](../examples/dismissable_controller.html ':include :type=code')
 
 # Browser support / Necessary polyfills
 

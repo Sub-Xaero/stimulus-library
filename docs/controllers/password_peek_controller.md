@@ -54,21 +54,4 @@ None
 Within a wrapper that loads the controller, add an `input[type="password"]` with a `data-password-peek-target='password'`
 and an adjacent button/link with `data-password-peek-target='button'`
 
-```html
-
-<label for="email">
-  Email:
-  <input id="email" type="email">
-</label>
-
-<div class="input-group" data-controller="password-peek">
-  <label for="password" class="input-group-label">
-    Enter your password:
-  </label>
-  <input class="input-group-field" type="password" id="password" data-password-peek-target="password">
-  <a href="" class="button input-group-button" data-action="password-peek#toggle">
-    <i class="far fa-eye-slash"></i>
-  </a>
-</div>
-
-```
+[example](../examples/password_peek_controller.html ':include :type=code')

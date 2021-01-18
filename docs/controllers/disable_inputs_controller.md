@@ -46,19 +46,7 @@ None
 
 Example - when creating an event that can have the `end_time` turned off with a boolean:
 
-```html
-
-<div class="cell medium-6" data-controller="disable-inputs">
-  <label>
-    What time does the event end?
-    <input type="date" name="end_time" data-disable-inputs-target="disable"/>
-  </label>
-  <label>
-    This event does not have an end time
-    <input type="checkbox" data-disable-inputs-target="disabler"/>
-  </label>
-</div>
-```
+[example](../examples/disable_inputs_controller.html ':include :type=code')
 
 # See also
 

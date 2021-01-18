@@ -64,14 +64,4 @@ If the user then corrects an input, the process runs again - any applied `error`
 
 ### Example
 
-```html
-
-<div data-controller="password-confirm" data-action="password-confirm:no-match->errors#do-something">
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" autocomplete="new-password" data-password-confirm-target="password">
-
-  <label for="password_confirmation">Password Confirmation</label>
-  <input id="password_confirmation" type="password" name="password_confirmation" autocomplete="new-password" data-password-confirm-target="password">
-</div>
-
-```
+[example](../examples/password_confirm_controller.html ':include :type=code')

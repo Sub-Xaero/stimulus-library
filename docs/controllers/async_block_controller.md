@@ -51,13 +51,7 @@ None
 <!-- tabs:end -->
 # How to Use
 
-```html
-
-<div data-controller="async-block" data-async-block-endpoint-value="/cats/mr-tibbins" data-async-block-target="replace">
-  <i class="fas fa-spinner fa-spin mr-10"></i>
-  Loading, please wait ...
-</div>
-```
+[example](../examples/async_block_controller.html ':include :type=code')
 
 The controller will send out a fetch request, and on success will replace the block with the HTML content of the response.
 

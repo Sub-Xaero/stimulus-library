@@ -56,35 +56,4 @@ None
 
 # How to Use
 
-
-```html
-
-<div>
-  <div data-controller="teleport" data-teleport-target-value="#blue-portal" data-teleport-insert-value="replaceInner">
-    Aperture Science Experiment #11616
-  </div>
-
-  <div id="blue-portal">
-    The cake is a lie.
-  </div>
-</div>
-
-
-```
-
-Results in
-
-```html
-
-<div>
-
-  <div id="blue-portal">
-    <div>
-      Aperture Science Experiment #11616
-    </div>
-  </div>
-
-</div>
-
-
-```
+[example](../examples/teleport_controller.html ':include :type=code')

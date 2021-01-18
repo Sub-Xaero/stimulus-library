@@ -62,25 +62,11 @@ You need to have access to both the frame content, and the parent iframe.
 
 On the parent iframe
 
-```html
-
-<iframe src="/iframe/content/path" frameborder="0" data-controller="iframe--responsive-wrapper">
-</iframe>
-
-```
+[example](../examples/responsive_iframe_wrapper_controller.html ':include :type=code')
 
 In the content page
 
-```html
-
-<html lang="en">
-  <head>
-    <meta data-controller="iframe--responsive-body"/>
-  </head>
-  ...
-</html>
-
-```
+[example](../examples/responsive_iframe_body_controller.html ':include :type=code')
 
 The `responsive-body` controller then installs a resize observer that uses the message-passing ability of the browser to pass messages to the enclosing parent document. Every time the document inside the iframe gets resized, it will report the recalculated size to the parent scope.
 

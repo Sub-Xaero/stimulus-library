@@ -49,8 +49,5 @@ Only works for user-initiated changes, if changes are made in JavaScript and `in
 
 # How to Use
 
-```html
-
-<textarea name="autosize"></textarea>
-```
+[example](../examples/autosize_controller.html ':include :type=code')
 

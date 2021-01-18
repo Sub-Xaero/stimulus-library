@@ -52,18 +52,4 @@ The controller will add an event listener for `input` to the `input` target.
 
 # How to Use
 
-```html
-
-<label>
-  <abbr title="required" class="required">*</abbr>
-  What is your quest?
-  We suggest at least 250 words, but no more than 2000 words.
-</label>
-<div data-controller="word-count" data-word-count-min-value="250" data-word-count-max-value="2000">
-  <textarea name="quest" data-word-count-target="input"></textarea>
-  <div class="text-right">
-    <span data-word-count-target="output"></span>
-    <span data-word-count-target="output">/2000</span>
-  </div>
-</div>
-```
+[example](../examples/word_count_controller.html ':include :type=code')

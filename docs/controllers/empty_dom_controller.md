@@ -57,23 +57,7 @@ None
 
 The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty. Use those events to hook up other Stimulus actions. This particular example toggles the hide/show of a nice status message when the container is empty.
 
-```erb
-<div 
-  data-controller="toggle-class" 
-  data-action="dom:not-empty->toggle-class#on dom:empty->toggle-class#off" 
-  data-toggle-class-class-value="hidden"
->
-  <h2>Recently completed tasks</h2>
-  <div class="hide" data-toggle-class-target="toggle">
-    <p> You haven't completed any tasks yet.</p>
-  </div>
-  <%= turbo_stream_from [current_user, "complete_tasks"] %>
-  <%= turbo_frame_tag "complete_tasks", data-controller='empty-dom' } do %>
-    <%= render @complete_tasks %>
-  <% end %>
-</div>
-
-```
+[example](../examples/empty_dom_controller.html.erb ':include :type=code')
 
 ## Advanced Case
 
@@ -82,21 +66,4 @@ You can scope what the controller watches for inside the container using a CSS s
 The selector you specify will be used to `querySelectorAll` the children/subtree of the container you attach the controller too, and fire the
 `dom:empty` and `dom:not-empty` events when the results of the query are empty/not empty.
 
-```
-<div 
-  data-controller="toggle-class" 
-  data-action="dom:not-empty->toggle-class#on dom:empty->toggle-class#off" 
-  data-toggle-class-class-value="hidden"
->
-  <h2>Recently completed tasks</h2>
-  <div class="hide" data-toggle-class-target="toggle">
-    <p> You haven't completed any tasks yet.</p>
-  </div>
-  <%= turbo_stream_from [current_user, "complete_tasks"] %>
-  <%= turbo_frame_tag "complete_tasks", data: { controller: 'empty-dom', empty_dom: { scope_selector_value: 'task' } } do %>
-    <input type="hidden" value="Some other thing that definitely isn't a task but will break the count">
-    <%= render @complete_tasks %>
-  <% end %>
-</div>
-
-```
+[example](../examples/empty_dom_controller_advanced.html.erb ':include :type=code')

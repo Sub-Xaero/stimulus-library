@@ -50,27 +50,8 @@ Shows a native confirmation dialogue using `window.onbeforeunload` to the user w
 
 On pages where you apply changes that might get lost.
 
-```html
-
-<meta data-controller="confirm-navigation"/> 
-```
-
-```html
-
-<form action="" data-controller="confirm-navigation">
-  <p> Lorem ipsum</p>
-</form> 
-```
-
-```html
-
-<div data-controller="confirm-navigation">
-  <p> Lorem ipsum</p>
-</div>  
-```
+[example](../examples/confirm_navigation_controller.html ':include :type=code')
 
 Or if you are applying changes using Javascript that might get lost, you could add the following to prevent lost changes.
 
-```javascript
-document.body.dataset.controller += ' confirm-navigation '
-```
+[example](../examples/confirm_navigation_controller.js ':include :type=code')

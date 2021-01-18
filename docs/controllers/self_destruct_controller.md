@@ -48,10 +48,4 @@ The element the controller is installed on will be removed from the DOM after th
 
 # How to Use
 
-```html
-
-<div class="callout success" data-controller="self-destruct" data-self-destruct-seconds-value="5">
-  <!-- Flash message, will disappear after 5 seconds -->
-  Saved successfully!
-</div>
-```
+[example](../examples/self_destruct_controller.html ':include :type=code')

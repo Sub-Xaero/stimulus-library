@@ -50,29 +50,14 @@ Adds `input` and `change` event listeners to the attached input.
 
 ### Tracking dirty inputs
 
-```html
-
-<input type="text" data-controller="dirty"/>
-```
+[example](../examples/detect_dirty_controller.html ':include :type=code')
 
 ### Build behaviours / style around dirty attributes
 
 #### CSS
 
-```css
-input[data-dirty], textarea[data-dirty], select[data-dirty] {
-  border-color: red;
-}
-```
+[example](../examples/detect_dirty_controller_css.css ':include :type=code')
 
 #### JS
 
-```js
-import {isDirty} from '../shared/detect_dirty_controller';
-
-if (isDirty(element)) {
-  console.log("Keep your hands off");
-  element.controller.restore();
-}
-
-```
+[example](../examples/detect_dirty_controller_js.js ':include :type=code')
