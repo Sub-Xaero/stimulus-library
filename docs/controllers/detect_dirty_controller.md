@@ -50,7 +50,12 @@ Adds `input` and `change` event listeners to the attached input.
 
 ### Tracking dirty inputs
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/detect_dirty_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/detect_dirty_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 ### Build behaviours / style around dirty attributes
 

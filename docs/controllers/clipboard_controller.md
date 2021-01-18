@@ -59,6 +59,11 @@ None
 
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/clipboard_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/clipboard_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 

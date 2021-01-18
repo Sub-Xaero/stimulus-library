@@ -46,7 +46,12 @@ None
 
 Example - when creating an event that can have the `end_time` turned off with a boolean:
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/disable_inputs_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/disable_inputs_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 # See also
 

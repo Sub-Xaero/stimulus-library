@@ -53,4 +53,9 @@ None
 
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/limited_selection_checkboxes_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/limited_selection_checkboxes_controller.haml ':include :type=code')
+<!-- tabs:end -->

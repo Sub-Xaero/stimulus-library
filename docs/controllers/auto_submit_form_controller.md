@@ -48,4 +48,9 @@ Adds event listeners for `input` and `change` to all `<input>` `<textarea>` and 
 
 # How to Use
 
-[example](../examples/auto_submit_form_controller.html ':include :type=code')
+<!-- tabs:start -->
+## ** HTML **
+[example](../examples/auto_submit_form_controller.html ':include :type=code') 
+## ** HAML **
+[example](../examples/auto_submit_form_controller.haml ':include :type=code')
+<!-- tabs:end -->

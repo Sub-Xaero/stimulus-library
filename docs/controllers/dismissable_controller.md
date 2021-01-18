@@ -48,7 +48,12 @@ None
 
 A good example is a flash message, rather than it staying on the page forever, allowing the user to dismiss it with a little 'X' in the corner.
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/dismissable_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/dismissable_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 # Browser support / Necessary polyfills
 

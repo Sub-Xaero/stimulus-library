@@ -50,7 +50,12 @@ Shows a native confirmation dialogue using `window.onbeforeunload` to the user w
 
 On pages where you apply changes that might get lost.
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/confirm_navigation_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/confirm_navigation_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 Or if you are applying changes using Javascript that might get lost, you could add the following to prevent lost changes.
 

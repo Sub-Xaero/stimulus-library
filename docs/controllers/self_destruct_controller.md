@@ -48,4 +48,9 @@ The element the controller is installed on will be removed from the DOM after th
 
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/self_destruct_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/self_destruct_controller.haml ':include :type=code')
+<!-- tabs:end -->

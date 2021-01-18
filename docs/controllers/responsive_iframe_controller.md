@@ -62,11 +62,21 @@ You need to have access to both the frame content, and the parent iframe.
 
 On the parent iframe
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/responsive_iframe_wrapper_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/responsive_iframe_wrapper_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 In the content page
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/responsive_iframe_body_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/responsive_iframe_body_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 The `responsive-body` controller then installs a resize observer that uses the message-passing ability of the browser to pass messages to the enclosing parent document. Every time the document inside the iframe gets resized, it will report the recalculated size to the parent scope.
 

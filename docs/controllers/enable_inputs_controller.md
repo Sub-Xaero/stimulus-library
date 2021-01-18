@@ -46,7 +46,12 @@ None
 
 Example - preventing inputs until T&Cs are checked
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/enable_inputs_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/enable_inputs_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 # See also
 

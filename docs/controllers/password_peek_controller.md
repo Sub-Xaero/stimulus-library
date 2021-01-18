@@ -54,4 +54,9 @@ None
 Within a wrapper that loads the controller, add an `input[type="password"]` with a `data-password-peek-target='password'`
 and an adjacent button/link with `data-password-peek-target='button'`
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/password_peek_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/password_peek_controller.haml ':include :type=code')
+<!-- tabs:end -->

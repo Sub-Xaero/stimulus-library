@@ -52,7 +52,12 @@ None
 
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/lazy_block_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/lazy_block_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 If the client browser supports IntersectionObserver, the controller will send out a Fetch request when the user scrolls near the element.
 

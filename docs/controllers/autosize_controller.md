@@ -48,6 +48,9 @@ Only works for user-initiated changes, if changes are made in JavaScript and `in
 <!-- tabs:end -->
 
 # How to Use
-
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/autosize_controller.html ':include :type=code')
-
+## ** HAML **
+[example](../examples/autosize_controller.haml ':include :type=code')
+<!-- tabs:end -->

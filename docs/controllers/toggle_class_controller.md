@@ -61,12 +61,22 @@ None
 
 ### Example - showing a dropdown menu on a click, and hiding it again if the user clicks away.
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/toggle_class_controller_click.html ':include :type=code')
+## ** HAML **
+[example](../examples/toggle_class_controller_click.haml ':include :type=code')
+<!-- tabs:end -->
 
 ![ezgif-3-697e3a644da7](https://user-images.githubusercontent.com/9960703/104182368-450ec700-5408-11eb-920b-becec527311d.gif)
 
 ### Example, showing an action button on hover
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/toggle_class_controller_hover.html ':include :type=code')
+## ** HAML **
+[example](../examples/toggle_class_controller_hover.haml ':include :type=code')
+<!-- tabs:end -->
 
 ![ezgif-3-dd9317a73732](https://user-images.githubusercontent.com/9960703/104182370-45a75d80-5408-11eb-8b3d-8feae48bbc5a.gif)

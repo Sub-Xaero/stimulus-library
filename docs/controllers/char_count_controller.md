@@ -52,4 +52,9 @@ The controller will add an event listener for `input` to the `input` target.
 
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/char_count_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/char_count_controller.haml ':include :type=code')
+<!-- tabs:end -->

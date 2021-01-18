@@ -57,7 +57,13 @@ None
 
 The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty. Use those events to hook up other Stimulus actions. This particular example toggles the hide/show of a nice status message when the container is empty.
 
+
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/empty_dom_controller.html.erb ':include :type=code')
+## ** HAML **
+[example](../examples/empty_dom_controller.html.haml ':include :type=code')
+<!-- tabs:end -->
 
 ## Advanced Case
 
@@ -66,4 +72,9 @@ You can scope what the controller watches for inside the container using a CSS s
 The selector you specify will be used to `querySelectorAll` the children/subtree of the container you attach the controller too, and fire the
 `dom:empty` and `dom:not-empty` events when the results of the query are empty/not empty.
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/empty_dom_controller_advanced.html.erb ':include :type=code')
+## ** HAML **
+[example](../examples/empty_dom_controller_advanced.html.haml ':include :type=code')
+<!-- tabs:end -->

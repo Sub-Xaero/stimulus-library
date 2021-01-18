@@ -56,4 +56,9 @@ None
 
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/teleport_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/teleport_controller.haml ':include :type=code')
+<!-- tabs:end -->

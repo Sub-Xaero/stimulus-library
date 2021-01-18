@@ -51,7 +51,12 @@ None
 <!-- tabs:end -->
 # How to Use
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/async_block_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/async_block_controller.haml ':include :type=code')
+<!-- tabs:end -->
 
 The controller will send out a fetch request, and on success will replace the block with the HTML content of the response.
 

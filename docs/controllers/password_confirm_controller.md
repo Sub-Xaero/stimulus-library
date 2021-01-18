@@ -64,4 +64,9 @@ If the user then corrects an input, the process runs again - any applied `error`
 
 ### Example
 
+<!-- tabs:start -->
+## ** HTML **
 [example](../examples/password_confirm_controller.html ':include :type=code')
+## ** HAML **
+[example](../examples/password_confirm_controller.haml ':include :type=code')
+<!-- tabs:end -->
