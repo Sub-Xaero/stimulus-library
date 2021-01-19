@@ -6,6 +6,8 @@ export declare class EmptyDomController extends Controller {
     };
     hasEmptyClass: boolean;
     emptyClass: string;
+    hasNotEmptyClass: boolean;
+    notEmptyClass: string;
     hasScopeSelectorValue: boolean;
     scopeSelectorValue: string;
     connect(): void;

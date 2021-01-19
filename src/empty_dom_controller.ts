@@ -3,11 +3,13 @@ import {useMutation} from "stimulus-use";
 
 export class EmptyDomController extends Controller {
 
-  static classes = ["empty"];
+  static classes = ["empty", "notEmpty"];
   static values = {scopeSelector: String};
 
   declare hasEmptyClass: boolean;
   declare emptyClass: string;
+  declare hasNotEmptyClass: boolean;
+  declare notEmptyClass: string;
 
   declare hasScopeSelectorValue: boolean;
   declare scopeSelectorValue: string;
@@ -25,11 +27,17 @@ export class EmptyDomController extends Controller {
     }
 
     if (children.length === 0) {
+      if (this.hasNotEmptyClass) {
+        this.element.classList.remove(this.notEmptyClass);
+      }
       if (this.hasEmptyClass) {
         this.element.classList.add(this.emptyClass);
       }
       this.element.dispatchEvent(new CustomEvent("dom:empty", {bubbles: true, cancelable: true}));
     } else {
+      if (this.hasNotEmptyClass) {
+        this.element.classList.add(this.notEmptyClass);
+      }
       if (this.hasEmptyClass) {
         this.element.classList.remove(this.emptyClass);
       }

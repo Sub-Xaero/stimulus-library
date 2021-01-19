@@ -27,6 +27,7 @@ You can then style the controller, or show a nice placeholder when the container
 | Class | Purpose | Default |
 | --- | --- | --- | 
 | `empty` (Optional) | The class to apply to the attached element when it is empty | `-` |
+| `notEmpty` (Optional) | The class to apply to the attached element when it is **not** empty | `-` |
 
 ## ** Values **
 
