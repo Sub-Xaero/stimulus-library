@@ -3096,10 +3096,10 @@ stable@^0.1.8:
   resolved "https://registry.yarnpkg.com/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
   integrity sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==
 
-stimulus-use@^0.22.0:
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.22.0.tgz#b70f93ab41f11cd5c641560eb3529682caf910ed"
-  integrity sha512-6qBcfWDwDC5jjybV0WenZAkIrhbXpt4OJNG0RS8dfumvWJJgcGXTkKlaQIo+Fi/hYI2jG3kgEtsaWW49iImxGA==
+stimulus-use@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.22.1.tgz#a46381fb31b7047910556862d2025ed19a7d068a"
+  integrity sha512-kmye/OHND5JLsKfryodJTCk0ALWAlCvfJRsHs2I2eXbhNbn1wb7zkSZfI0u0EuJPsUiZVl/SPmeVIOre1PqeLw==
 
 stimulus@^2.0.0:
   version "2.0.0"

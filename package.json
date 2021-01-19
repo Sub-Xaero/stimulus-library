@@ -17,7 +17,7 @@
   "dependencies": {
     "docsify": "^4.11.6",
     "stimulus": "^2.0.0",
-    "stimulus-use": "^0.22.0"
+    "stimulus-use": "^0.22.1"
   },
   "devDependencies": {
     "agadoo": "^2.0.0",
