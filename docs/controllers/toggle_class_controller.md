@@ -41,7 +41,7 @@ To toggle a class on an element, based on various optional interactions i.e. On 
 | `mouseEnter` (Optional) | String | One of `on`, `off`, or `toggle`, what to do when the user's mouse enters the controller scope | `-` |
 | `mouseLeave` (Optional) | String | One of `on`, `off`, or `toggle`, what to do when the user's mouse leaves the controller scope | `-` |
 | `clickAway` (Optional) | Boolean | When the user clicks outside of the controller scope, should any previously toggled classes be toggled back | `-` |
-| `initial` (Optional) | Boolean | If `true`, the controller will ensure the class is always present when the controller connects. If `false`, it will ensure the class is **not** present on `connect`. If the option is not specified then the class will be left as it is in the DOM | `-` |
+| `initial` (Optional) | String | Either `on`: the controller will ensure the class is always present when the controller connects. Or `off`: it will ensure the class is **not** present on `connect`. If the option is not specified then the class will be left as it is in the DOM | `-` |
 
 **Note**: If you use Turbo/Turbolinks, it's best to specify a value for `initial`, otherwise the Turbo(links) cache can put the class into a strange state and the toggle will be inverted.
 

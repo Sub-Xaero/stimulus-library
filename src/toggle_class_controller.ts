@@ -80,10 +80,10 @@ export class ToggleClassController extends Controller {
     if (this.hasMouseLeaveValue) {
       switch (this.mouseLeaveValue) {
         case "on":
-          this.off(); // Reverse behaviour when hover state ends
+          this.on();
           break;
         case "off":
-          this.on(); // Reverse behaviour when hover state ends
+          this.off();
           break;
         case "toggle":
           this.toggle();
