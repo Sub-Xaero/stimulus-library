@@ -7,7 +7,7 @@ export declare class ToggleClassController extends Controller {
         mouseEnter: StringConstructor;
         mouseLeave: StringConstructor;
         clickAway: BooleanConstructor;
-        initial: BooleanConstructor;
+        initial: StringConstructor;
     };
     readonly toggleTargets: HTMLElement[];
     readonly classValue: string;
