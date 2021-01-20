@@ -28,18 +28,22 @@ export class EmptyDomController extends Controller {
 
     if (children.length === 0) {
       if (this.hasNotEmptyClass) {
-        this.element.classList.remove(this.notEmptyClass);
+        let classes = this.notEmptyClass.split(" ");
+        classes.forEach(klass => this.element.classList.remove(klass));
       }
       if (this.hasEmptyClass) {
-        this.element.classList.add(this.emptyClass);
+        let classes = this.emptyClass.split(" ");
+        classes.forEach(klass => this.element.classList.add(klass));
       }
       this.element.dispatchEvent(new CustomEvent("dom:empty", {bubbles: true, cancelable: true}));
     } else {
       if (this.hasNotEmptyClass) {
-        this.element.classList.add(this.notEmptyClass);
+        let classes = this.notEmptyClass.split(" ");
+        classes.forEach(klass => this.element.classList.add(klass));
       }
       if (this.hasEmptyClass) {
-        this.element.classList.remove(this.emptyClass);
+        let classes = this.emptyClass.split(" ");
+        classes.forEach(klass => this.element.classList.remove(klass));
       }
       this.element.dispatchEvent(new CustomEvent("dom:not-empty", {bubbles: true, cancelable: true}));
     }
