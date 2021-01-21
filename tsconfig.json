@@ -4,6 +4,7 @@
     "declaration": true,
     "declarationMap": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "module": "ESNext",
     "target": "ESNext",
     "sourceMap": true,
