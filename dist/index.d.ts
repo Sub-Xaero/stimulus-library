@@ -16,6 +16,7 @@ export { LimitedSelectionCheckboxesController } from "./limited_selection_checkb
 export { PasswordConfirmController } from "./password_confirm_controller";
 export { PasswordPeekController } from "./password_peek_controller";
 export { ResponsiveIframeBodyController, ResponsiveIframeWrapperController } from "./responsive_iframe_controller";
+export { ScrollIntoFocusController } from "./scroll_into_focus_controller";
 export { SelfDestructController } from "./self_destruct_controller";
 export { TeleportController } from "./teleport_controller";
 export { ToggleClassController } from "./toggle_class_controller";
