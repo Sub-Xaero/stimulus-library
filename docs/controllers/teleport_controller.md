@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Transport an element from one place in the DOM, to another.
+Transport an element from one place in the DOM, to another. 
+
+[no-targets](../_partials/ephemeral.md ':include')
 
 <!-- tabs:start -->
 
@@ -10,7 +12,9 @@ Transport an element from one place in the DOM, to another.
 
 #### [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-[no-actions](../_partials/no-actions.md ':include')
+| Action | Purpose |
+| --- | --- |
+| `execute` | Perform the moving of the element |
 
 ## ** Targets **
 
@@ -30,6 +34,7 @@ Transport an element from one place in the DOM, to another.
 
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
+| `immediate` | Boolean | Set to `true` to immediately teleport the element on controller `connect` | `false` |
 | `target` | String | The CSS selector corresponding to the desired position in the DOM | - |
 | `insert` | String | How to add the element to the DOM. Possible values: | - |
 | | | Any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | - |  
@@ -42,11 +47,9 @@ Transport an element from one place in the DOM, to another.
 
 #### Events
 
-
 | Event | When | Dispatched on | `event.detail` |
 | --- | --- | --- | --- |
 | `teleport:error` | When the controller cannot find the target destination from the given selector | The controller element | - |
-
 
 ## ** Side Effects **
 
@@ -57,8 +60,12 @@ None
 # How to Use
 
 <!-- tabs:start -->
+
 ## ** HTML **
+
 [example](../examples/teleport_controller.html ':include :type=code')
+
 ## ** HAML **
+
 [example](../examples/teleport_controller.haml ':include :type=code')
 <!-- tabs:end -->

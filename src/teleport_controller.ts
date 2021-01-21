@@ -1,13 +1,31 @@
-// IDEA: A controller that copies the DOM element, inserts it elsewhere, then removes itself, stripping out the controller from the copied element.
-import {Controller} from "stimulus";
+import {EphemeralController} from "./utilities/ephemeral_controller";
 
-export class TeleportController extends Controller {
+export class TeleportController extends EphemeralController {
 
-  static values = {target: String, insert: String};
+  static values = {target: String, insert: String, immediate: Boolean};
+
+  declare readonly immediateValue: boolean;
+  declare readonly hasImmediateValue: boolean;
   declare readonly targetValue: string;
+  declare readonly hasInsertValue: boolean;
   declare readonly insertValue: InsertPosition | "replaceOuter" | "replaceInner" | "prepend" | "append";
 
   connect() {
+    if (!this.hasInsertValue) {
+      throw new Error("`insert` value was not specified");
+    }
+
+    requestAnimationFrame(() => {
+      if (this.hasImmediateValue && this.immediateValue) {
+        this.execute();
+      }
+    });
+  }
+
+  execute(event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
     let destination = document.querySelector(this.targetValue);
 
     if (destination == null) {
@@ -16,12 +34,7 @@ export class TeleportController extends Controller {
     }
 
     let copy = this.element.cloneNode(true) as HTMLElement;
-    copy.removeAttribute(`${this.identifier}-insert-adjacent-html-value`);
-    copy.setAttribute(
-      "data-controller",
-      copy.getAttribute("data-controller")?.replace(new RegExp(`(^|\s)${this.identifier}($|\s)`), "") || "",
-    );
-    copy.removeAttribute(`data-controller${this.identifier}-insert-adjacent-html-value`);
+    this.cleanup(copy);
 
     switch (this.insertValue) {
       case "beforebegin":
@@ -42,7 +55,11 @@ export class TeleportController extends Controller {
       case "append":
         destination.insertAdjacentHTML("beforeend", copy.outerHTML);
         break;
+      default:
+        throw new Error("`insert` value was not specified");
+
     }
+    this.element.remove();
   }
 
 }
