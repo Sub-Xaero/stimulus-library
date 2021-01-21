@@ -11,12 +11,10 @@ export class AutosizeController extends Controller {
     let target = this.element as HTMLTextAreaElement;
     target.style.resize = "none";
     target.style.boxSizing = "border-box";
-
-    useWindowResize(this);
-
-    setTimeout(this.boundHandler, 1000);
     target.addEventListener("input", this.boundHandler);
     target.addEventListener("focus", this.boundHandler);
+    useWindowResize(this);
+    requestAnimationFrame(this.boundHandler);
   }
 
   windowResize() {
