@@ -1,26 +1,39 @@
 {
   "name": "stimulus-library",
-  "version": "0.1.0",
+  "description": "A library of useful controllers for Stimulus",
+  "version": "0.1.1",
+  "license": "MIT",
+  "author": "@Sub-Xaero",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sub-Xaero/stimulus-library"
+  },
   "source": "src/index.ts",
   "main": "dist/stimulus-library.js",
   "exports": "dist/stimulus-library.modern.js",
   "module": "dist/stimulus-library.module.js",
   "unpkg": "dist/stimulus-library.umd.js",
-  "license": "MIT",
   "scripts": {
     "examples:haml": "find ./docs/examples -regex \".*\\.\\(html\\|erb\\)\" -print | sed -E 'p;s/\\.(html|erb)$/.haml/' | xargs -n2 html2haml --ruby19-attributes",
     "docs": "docsify serve docs",
-    "build": "microbundle",
+    "clean": "rimraf dist ",
+    "build": "rimraf dist && microbundle",
     "dev": "microbundle watch",
     "test:treeshake": "agadoo dist stimulus-library.js"
   },
   "dependencies": {
-    "docsify": "^4.11.6",
-    "stimulus": "^2.0.0",
-    "stimulus-use": "^0.22.1"
+    "@types/lodash.camelcase": "^4.3.6",
+    "lodash.camelcase": "^4.3.0"
+  },
+  "peerDependencies": {
+    "stimulus": "^2.0.0"
   },
   "devDependencies": {
     "agadoo": "^2.0.0",
-    "microbundle": "^0.13.0"
+    "docsify": "^4.11.6",
+    "microbundle": "^0.13.0",
+    "rimraf": "^3.0.2",
+    "stimulus": "^2.0.0",
+    "stimulus-use": "^0.22.1"
   }
 }
