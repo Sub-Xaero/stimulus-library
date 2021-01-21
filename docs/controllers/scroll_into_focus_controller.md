@@ -36,9 +36,9 @@ See [scrollIntoView documentation](https://developer.mozilla.org/en-US/docs/Web/
 
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
-| `behaviour` | String | On of `auto`, `smooth` | `auto` |
-| `block` | String | On of `center`, `end`, `nearest`, `start` | `start` |
-| `inline` | String | On of `center`, `end`, `nearest`, `start` | `nearest` |
+| `behaviour` | String | One of `auto`, `smooth` | `auto` |
+| `block` | String | One of `center`, `end`, `nearest`, `start` | `start` |
+| `inline` | String | One of `center`, `end`, `nearest`, `start` | `nearest` |
 
 ## ** Events **
 
