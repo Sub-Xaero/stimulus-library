@@ -16,9 +16,14 @@ export class EmptyDomController extends Controller {
 
   connect() {
     useMutation(this, {element: this.element, childList: true});
+    this.checkEmpty();
   }
 
   mutate(entries: MutationRecord[]) {
+    this.checkEmpty();
+  }
+
+  checkEmpty() {
     let children;
     if (this.hasScopeSelectorValue) {
       children = this.element.querySelectorAll(this.scopeSelectorValue);

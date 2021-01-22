@@ -12,5 +12,6 @@ export declare class EmptyDomController extends Controller {
     scopeSelectorValue: string;
     connect(): void;
     mutate(entries: MutationRecord[]): void;
+    checkEmpty(): void;
 }
 //# sourceMappingURL=empty_dom_controller.d.ts.map
