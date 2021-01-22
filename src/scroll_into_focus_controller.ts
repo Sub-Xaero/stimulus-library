@@ -1,4 +1,5 @@
 import {EphemeralController} from "./utilities/ephemeral_controller";
+import {scrollToElement} from "./utilities/scroll";
 
 export class ScrollIntoFocusController extends EphemeralController {
 
@@ -17,17 +18,15 @@ export class ScrollIntoFocusController extends EphemeralController {
 
   connect() {
     requestAnimationFrame(() => {
-      try {
-        // Attempt smooth scrolling
-        this.element.scrollIntoView({
+      // Attempt smooth scrolling, with polyfill
+      scrollToElement(
+        this.element,
+        {
           behavior: this.hasBehaviorValue ? this.behaviorValue : "smooth",
           block: this.hasBlockValue ? this.blockValue : "center",
           inline: this.hasInlineValue ? this.inlineValue : "center",
-        });
-      } catch {
-        // Fallback to snap-scrolling
-        this.element.scrollIntoView();
-      }
+        },
+      ).catch(() => this.element.scrollIntoView()); // Fallback to snap-scrolling
       this.cleanupSelf();
     });
   }

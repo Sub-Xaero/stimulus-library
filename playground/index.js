@@ -1,8 +1,8 @@
 import {Application} from "stimulus";
 import {
   AsyncBlockController,
-  AutosizeController,
   AutoSubmitFormController,
+  AutosizeController,
   CharCountController,
   ClipboardController,
   ConfirmNavigationController,
@@ -19,6 +19,8 @@ import {
   PasswordPeekController,
   ResponsiveIframeBodyController,
   ScrollIntoFocusController,
+  ScrollToBottomController,
+  ScrollToTopController,
   SelfDestructController,
   TeleportController,
   ToggleClassController,
@@ -46,6 +48,8 @@ application.register("password-confirm", PasswordConfirmController);
 application.register("password-peek", PasswordPeekController);
 application.register("responsive-iframe", ResponsiveIframeBodyController);
 application.register("scroll-into-focus", ScrollIntoFocusController);
+application.register("scroll-to-bottom", ScrollToBottomController);
+application.register("scroll-to-top", ScrollToTopController);
 application.register("self-destruct", SelfDestructController);
 application.register("teleport", TeleportController);
 application.register("toggle-class", ToggleClassController);
