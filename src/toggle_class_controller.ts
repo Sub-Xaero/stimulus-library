@@ -29,12 +29,15 @@ export class ToggleClassController extends Controller {
   declare readonly hasClickAwayValue: boolean;
 
   declare readonly initialValue: "on" | "off";
+  declare readonly hasInitialValue: boolean;
 
   connect() {
-    if (this.initialValue === "on") {
-      this.toggleTargets.forEach((target) => this.elementOn(target));
-    } else {
-      this.toggleTargets.forEach((target) => this.elementOff(target));
+    if (this.hasInitialValue) {
+      if (this.initialValue === "on") {
+        this.toggleTargets.forEach((target) => this.elementOn(target));
+      } else {
+        this.toggleTargets.forEach((target) => this.elementOff(target));
+      }
     }
 
     if (this.hasMouseEnterValue || this.hasMouseLeaveValue) {

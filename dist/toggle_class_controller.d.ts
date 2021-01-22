@@ -19,6 +19,7 @@ export declare class ToggleClassController extends Controller {
     readonly clickAwayValue: boolean;
     readonly hasClickAwayValue: boolean;
     readonly initialValue: "on" | "off";
+    readonly hasInitialValue: boolean;
     connect(): void;
     clickOutside(): void;
     mouseEnter(): {};
