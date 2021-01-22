@@ -6,7 +6,7 @@ export class DebugController extends Controller {
   declare testTargets: HTMLElement[];
 
   connect() {
-    console.log('Debug Controller', this, this.testTargets);
+    console.log("Debug Controller", this, this.testTargets);
   }
 
 }

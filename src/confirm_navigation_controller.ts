@@ -2,7 +2,7 @@ import {Controller} from "stimulus";
 
 export class ConfirmNavigationController extends Controller {
 
-  static values = {message: String}
+  static values = {message: String};
 
   declare readonly messageValue: string;
 

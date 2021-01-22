@@ -8,7 +8,7 @@ export class LazyBlockController extends AsyncBlockController {
   declare unobserve: () => void;
   declare options: IntersectionOptions;
   declare isVisible: boolean;
-  declare disappear : () => void;
+  declare disappear: () => void;
 
   connect() {
     let element = this.element;

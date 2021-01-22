@@ -4,8 +4,6 @@ import {useWindowResize} from "stimulus-use";
 export class AutosizeController extends Controller {
 
   private boundHandler = this.handler.bind(this);
-  declare observe: () => void;
-  declare unobserve: () => void;
 
   connect() {
     let target = this.element as HTMLTextAreaElement;

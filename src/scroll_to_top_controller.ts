@@ -27,7 +27,7 @@ export class ScrollToTopController extends Controller {
     if (target == null) {
       return;
     }
-    scrollToElement(target!, {behavior: "smooth", block: "start",}).catch(() => target!.scrollIntoView(false));
+    scrollToElement(target!, {behavior: "smooth", block: "start"}).catch(() => target!.scrollIntoView(false));
   }
 
 }
