@@ -1,7 +1,7 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 import {getScrollParent, scrollToElement} from "./utilities/scroll";
 
-export class ScrollToBottomController extends Controller {
+export class ScrollToBottomController extends BaseController {
 
   static values = {
     mode: String,
@@ -10,8 +10,6 @@ export class ScrollToBottomController extends Controller {
   declare modeValue: "nearest" | "document";
   declare hasModeValue: boolean;
 
-  connect() {
-  }
 
   scroll(event?: Event) {
     if (event) {

@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class DebugController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class DebugController extends BaseController {
     static targets: string[];
     testTargets: HTMLElement[];
     connect(): void;

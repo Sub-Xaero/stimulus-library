@@ -1,9 +1,9 @@
-import {Controller} from "stimulus";
 import {useClickOutside, useHover} from "stimulus-use";
+import {BaseController} from "./base_controller";
 
 export type ToggleClassMode = "on" | "off" | "toggle"
 
-export class ToggleClassController extends Controller {
+export class ToggleClassController extends BaseController {
 
   static targets = ["toggle"];
   static values = {
@@ -32,12 +32,8 @@ export class ToggleClassController extends Controller {
   declare readonly hasInitialValue: boolean;
 
   connect() {
-    if (this.hasInitialValue) {
-      if (this.initialValue === "on") {
-        this.toggleTargets.forEach((target) => this.elementOn(target));
-      } else {
-        this.toggleTargets.forEach((target) => this.elementOff(target));
-      }
+    if (!this.hasClassValue) {
+      throw new Error("data-toggle-class-class-value must not be empty");
     }
 
     if (this.hasMouseEnterValue || this.hasMouseLeaveValue) {
@@ -48,9 +44,15 @@ export class ToggleClassController extends Controller {
       useClickOutside(this);
     }
 
-    if (!this.hasClassValue) {
-      throw new Error("data-toggle-class-class-value must not be empty");
-    }
+    requestAnimationFrame(() => {
+      if (this.hasInitialValue) {
+        if (this.initialValue === "on") {
+          this.toggleTargets.forEach((target) => this.elementOn(target));
+        } else {
+          this.toggleTargets.forEach((target) => this.elementOff(target));
+        }
+      }
+    });
   }
 
   clickOutside() {

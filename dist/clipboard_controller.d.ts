@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class ClipboardController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class ClipboardController extends BaseController {
     static targets: string[];
     static values: {
         removeUnused: BooleanConstructor;

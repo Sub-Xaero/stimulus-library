@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class AsyncBlockController extends Controller {
+export class AsyncBlockController extends BaseController {
   static targets = ["replace"];
   static values = {endpoint: String};
 

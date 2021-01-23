@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class PasswordConfirmController extends Controller {
+export class PasswordConfirmController extends BaseController {
 
   static targets = ["password"];
   static classes = ["error"];

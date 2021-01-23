@@ -1,7 +1,7 @@
-import {Controller} from "stimulus";
 import {useMutation} from "stimulus-use";
+import {BaseController} from "./base_controller";
 
-export class EmptyDomController extends Controller {
+export class EmptyDomController extends BaseController {
 
   static classes = ["empty", "notEmpty"];
   static values = {scopeSelector: String};

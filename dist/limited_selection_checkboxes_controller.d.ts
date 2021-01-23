@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class LimitedSelectionCheckboxesController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class LimitedSelectionCheckboxesController extends BaseController {
     static targets: string[];
     static values: {
         max: NumberConstructor;

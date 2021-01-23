@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class FallbackImageController extends Controller {
+export class FallbackImageController extends BaseController {
 
   static values = {placeholder: String};
 

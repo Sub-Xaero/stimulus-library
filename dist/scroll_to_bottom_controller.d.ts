@@ -1,11 +1,10 @@
-import { Controller } from "stimulus";
-export declare class ScrollToBottomController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class ScrollToBottomController extends BaseController {
     static values: {
         mode: StringConstructor;
     };
     modeValue: "nearest" | "document";
     hasModeValue: boolean;
-    connect(): void;
     scroll(event?: Event): void;
 }
 //# sourceMappingURL=scroll_to_bottom_controller.d.ts.map

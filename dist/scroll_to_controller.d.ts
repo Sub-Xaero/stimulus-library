@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class ScrollToController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class ScrollToController extends BaseController {
     static values: {
         selector: StringConstructor;
         behavior: StringConstructor;
@@ -13,7 +13,6 @@ export declare class ScrollToController extends Controller {
     hasBlockValue: boolean;
     inlineValue: ScrollLogicalPosition;
     hasInlineValue: boolean;
-    connect(): void;
     scroll(): void;
 }
 //# sourceMappingURL=scroll_to_controller.d.ts.map

@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class EmptyDomController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class EmptyDomController extends BaseController {
     static classes: string[];
     static values: {
         scopeSelector: StringConstructor;

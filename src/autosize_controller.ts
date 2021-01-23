@@ -1,7 +1,7 @@
-import {Controller} from "stimulus";
 import {useWindowResize} from "stimulus-use";
+import {BaseController} from "./base_controller";
 
-export class AutosizeController extends Controller {
+export class AutosizeController extends BaseController {
 
   private boundHandler = this.handler.bind(this);
 

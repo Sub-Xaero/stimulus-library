@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class AutoSubmitFormController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class AutoSubmitFormController extends BaseController {
     private boundHandler;
     connect(): void;
     disconnect(): void;

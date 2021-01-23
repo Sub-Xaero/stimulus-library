@@ -1,6 +1,6 @@
-import { Controller } from "stimulus";
+import { BaseController } from "./base_controller";
 export declare type ToggleClassMode = "on" | "off" | "toggle";
-export declare class ToggleClassController extends Controller {
+export declare class ToggleClassController extends BaseController {
     static targets: string[];
     static values: {
         class: StringConstructor;

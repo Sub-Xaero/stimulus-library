@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class ConfirmNavigationController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class ConfirmNavigationController extends BaseController {
     static values: {
         message: StringConstructor;
     };

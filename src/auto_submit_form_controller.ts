@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class AutoSubmitFormController extends Controller {
+export class AutoSubmitFormController extends BaseController {
 
   private boundHandler = this.handler.bind(this);
 

@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class DisableInputsController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class DisableInputsController extends BaseController {
     static targets: string[];
     readonly hasDisablerTarget: boolean;
     readonly disablerTarget: HTMLInputElement;

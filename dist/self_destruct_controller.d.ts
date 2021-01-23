@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class SelfDestructController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class SelfDestructController extends BaseController {
     static values: {
         seconds: NumberConstructor;
     };

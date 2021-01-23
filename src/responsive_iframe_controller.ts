@@ -1,13 +1,13 @@
-import {Controller} from "stimulus";
 import {useDebounce, useWindowResize} from "stimulus-use";
 import {WindowResizePayload} from "stimulus-use/dist/use-window-resize/use-window-resize";
+import {BaseController} from "./base_controller";
 
 interface ResponsiveIframeMessage {
   name: string,
   height: number,
 }
 
-export class ResponsiveIframeWrapperController extends Controller {
+export class ResponsiveIframeWrapperController extends BaseController {
 
   boundMessageReceived = this.messageReceived.bind(this);
 
@@ -32,7 +32,7 @@ export class ResponsiveIframeWrapperController extends Controller {
 
 }
 
-export class ResponsiveIframeBodyController extends Controller {
+export class ResponsiveIframeBodyController extends BaseController {
 
   static debounces = ["postUpdate"];
 

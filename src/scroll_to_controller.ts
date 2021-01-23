@@ -1,7 +1,7 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 import {scrollToElement} from "./utilities/scroll";
 
-export class ScrollToController extends Controller {
+export class ScrollToController extends BaseController {
 
   static values = {
     selector: String,
@@ -18,8 +18,6 @@ export class ScrollToController extends Controller {
   declare inlineValue: ScrollLogicalPosition;
   declare hasInlineValue: boolean;
 
-  connect() {
-  }
 
   scroll() {
     let target = document.querySelector(this.selectorValue);

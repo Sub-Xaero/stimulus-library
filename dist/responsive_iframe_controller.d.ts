@@ -1,17 +1,17 @@
-import { Controller } from "stimulus";
 import { WindowResizePayload } from "stimulus-use/dist/use-window-resize/use-window-resize";
+import { BaseController } from "./base_controller";
 interface ResponsiveIframeMessage {
     name: string;
     height: number;
 }
-export declare class ResponsiveIframeWrapperController extends Controller {
+export declare class ResponsiveIframeWrapperController extends BaseController {
     boundMessageReceived: (message: MessageEvent<ResponsiveIframeMessage>) => void;
     connect(): void;
     disconnect(): void;
     messageReceived(message: MessageEvent<ResponsiveIframeMessage>): void;
     resize(height: number): void;
 }
-export declare class ResponsiveIframeBodyController extends Controller {
+export declare class ResponsiveIframeBodyController extends BaseController {
     static debounces: string[];
     observe: () => void;
     unobserve: () => void;

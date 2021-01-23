@@ -1,1 +1,1 @@
-{"version":3,"file":"debug_controller.d.ts","sourceRoot":"","sources":["../src/debug_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,UAAU,EAAC,MAAM,UAAU,CAAC;AAEpC,qBAAa,eAAgB,SAAQ,UAAU;IAE7C,MAAM,CAAC,OAAO,WAAY;IAClB,WAAW,EAAE,WAAW,EAAE,CAAC;IAEnC,OAAO;CAIR"}
+{"version":3,"file":"debug_controller.d.ts","sourceRoot":"","sources":["../src/debug_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,mBAAmB,CAAC;AAEjD,qBAAa,eAAgB,SAAQ,cAAc;IAEjD,MAAM,CAAC,OAAO,WAAY;IAClB,WAAW,EAAE,WAAW,EAAE,CAAC;IAEnC,OAAO;CAGR"}

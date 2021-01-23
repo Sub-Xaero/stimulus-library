@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class DebugController extends Controller {
+export class DebugController extends BaseController {
 
   static targets = ["test"];
   declare testTargets: HTMLElement[];
@@ -8,5 +8,4 @@ export class DebugController extends Controller {
   connect() {
     console.log("Debug Controller", this, this.testTargets);
   }
-
 }

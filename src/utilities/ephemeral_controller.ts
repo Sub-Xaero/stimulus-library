@@ -1,7 +1,7 @@
 import camelCase from "lodash.camelcase";
-import {Controller} from "stimulus";
+import {BaseController} from "../base_controller";
 
-export class EphemeralController extends Controller {
+export class EphemeralController extends BaseController {
 
   cleanupSelf() {
     this.cleanup(this.element as HTMLElement);

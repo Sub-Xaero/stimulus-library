@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class DisableInputsController extends Controller {
+export class DisableInputsController extends BaseController {
 
   static targets = ["disabler", "disable"];
 

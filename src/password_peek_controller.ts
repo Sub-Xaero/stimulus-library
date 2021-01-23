@@ -1,13 +1,11 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class PasswordPeekController extends Controller {
+export class PasswordPeekController extends BaseController {
 
   static targets = ["password"];
 
   declare readonly passwordTarget: HTMLInputElement;
 
-  connect() {
-  }
 
   peak(event?: Event) {
     if (event) {
@@ -33,6 +31,4 @@ export class PasswordPeekController extends Controller {
       this.hide();
     }
   }
-
-
 }

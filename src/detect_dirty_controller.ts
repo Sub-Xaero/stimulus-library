@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class DetectDirtyController extends Controller {
+export class DetectDirtyController extends BaseController {
 
   initialValue: string | boolean | null = null;
 

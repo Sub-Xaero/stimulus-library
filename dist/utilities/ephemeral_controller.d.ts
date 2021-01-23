@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class EphemeralController extends Controller {
+import { BaseController } from "../base_controller";
+export declare class EphemeralController extends BaseController {
     cleanupSelf(): void;
     cleanup(element: HTMLElement): void;
 }

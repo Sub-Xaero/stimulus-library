@@ -1,5 +1,5 @@
-import { Controller } from "stimulus";
-export declare class DetectDirtyController extends Controller {
+import { BaseController } from "./base_controller";
+export declare class DetectDirtyController extends BaseController {
     initialValue: string | boolean | null;
     boundHandler: (event?: Event | undefined) => void;
     connect(): void;

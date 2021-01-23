@@ -1,6 +1,6 @@
-import {Controller} from "stimulus";
+import {BaseController} from "./base_controller";
 
-export class CharCountController extends Controller {
+export class CharCountController extends BaseController {
 
   static targets = ["input", "output"];
   static values = {min: Number, max: Number};
