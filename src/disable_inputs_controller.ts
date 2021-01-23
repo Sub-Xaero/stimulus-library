@@ -4,9 +4,15 @@ export class DisableInputsController extends BaseController {
 
   static targets = ["disabler", "disable"];
 
+  static values = {
+    clear: Boolean,
+  };
+
   declare readonly hasDisablerTarget: boolean;
   declare readonly disablerTarget: HTMLInputElement;
   declare readonly disableTargets: Array<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
+  declare readonly clearValue: boolean;
+  declare readonly hasClearValue: boolean;
 
   connect() {
     this.toggle();
@@ -21,7 +27,11 @@ export class DisableInputsController extends BaseController {
   }
 
   disableInputs() {
+    let shouldClear = this.hasClearValue && this.clearValue;
     this.disableTargets.forEach((el, _) => {
+      if (shouldClear) {
+        el.value = "";
+      }
       el.disabled = true;
     });
   }

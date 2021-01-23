@@ -28,7 +28,9 @@ Disable other inputs if a checkbox is ticked.
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-[no-values](../_partials/no-values.md ':include')
+| Value | Type | Purpose | Default |
+| --- | --- | --- | --- |
+| `clear` | Boolean | Whether the controller should clear the targeted inputs when they become disabled | false |
 
 ## ** Events **
 
@@ -47,9 +49,13 @@ None
 Example - when creating an event that can have the `end_time` turned off with a boolean:
 
 <!-- tabs:start -->
+
 ## ** HTML **
+
 [example](../examples/disable_inputs_controller.html ':include :type=code')
+
 ## ** HAML **
+
 [example](../examples/disable_inputs_controller.haml ':include :type=code')
 <!-- tabs:end -->
 
