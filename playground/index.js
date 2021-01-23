@@ -29,6 +29,8 @@ import {
 
 const application = Application.start();
 
+application.debug = true;
+
 application.register("async-block", AsyncBlockController);
 application.register("auto-submit-form", AutoSubmitFormController);
 application.register("autosize", AutosizeController);

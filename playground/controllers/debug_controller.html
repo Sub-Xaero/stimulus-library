@@ -15,7 +15,10 @@
         <div class="has-text-centered">
           <a href="../index.html">Back</a>
 
-          <p data-controller="debug">Lorem ipsum</p>
+          <p data-controller="debug">
+            <span data-debug-target="test" data-action="click->test#foo"> Lorem</span>
+            <span data-debug-target="test"> ipsum</span>
+          </p>
 
         </div>
       </div>
