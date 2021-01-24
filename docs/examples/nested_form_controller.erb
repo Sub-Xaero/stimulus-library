@@ -1,0 +1,45 @@
+<!-- FILE: tasks/form-->
+
+<!--
+.....
+Parent association fields
+.....
+-->
+
+<h4> Tasks</h4>
+<div data-controller="nested-form">
+  <script type="text/x-template" data-nested-form-target="template">
+    <%= f.simple_fields_for :tasks, Task.new, child_index: 'NEW_RECORD' do |task| %>
+      <%= render "task_fields", f: task %>
+    <% end %>
+  </script>
+
+  <div data-nested-form-target="target">
+    <%= f.simple_fields_for :tasks do |task| %>
+      <%= render "task_fields", f: task %>
+    <% end %>
+  </div>
+
+  <%= link_to "Add Task", "#", class: "button green", data: { action: "click->nested-form#add" } %>
+</div>
+<!--
+.....
+Parent association fields
+.....
+-->
+
+
+
+
+
+
+
+<!-- FILE: tasks/_task_fields -->
+<div class="nested-fields" data-new-record="<%= f.object.new_record? %>">
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <small><%= link_to "Remove", "#", data: { action: "click->nested-form#remove" } %></small>
+  <%= f.hidden_field :_destroy %>
+</div>

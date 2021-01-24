@@ -33,7 +33,7 @@ Add a visual count of the number of words in a textarea/string input, with a opt
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `min` | Number | The minimum number of words. This will add an `error` class (See: Classes) to the input if the min words are not met | 0 |
 | `max` | Number | The maximum number of words. This will add an `error` class (See: Classes) to the input if the max words are exceeded | 99,999 |

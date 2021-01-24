@@ -32,7 +32,7 @@ Enable buttons/links to smooth scroll to the top of the document, or the nearest
 
 **Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default.
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `mode` | String | Should the controller scroll the `document` or the `nearest` scrollable element  | `document` |
 

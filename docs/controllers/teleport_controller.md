@@ -32,7 +32,7 @@ Transport an element from one place in the DOM, to another.
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `immediate` | Boolean | Set to `true` to immediately teleport the element on controller `connect` | `false` |
 | `target` | String | The CSS selector corresponding to the desired position in the DOM | - |

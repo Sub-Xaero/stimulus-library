@@ -34,7 +34,7 @@ See [scrollIntoView documentation](https://developer.mozilla.org/en-US/docs/Web/
 
 **Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default. 
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `behaviour` | String | One of `auto`, `smooth` | `auto` |
 | `block` | String | One of `center`, `end`, `nearest`, `start` | `start` |

@@ -28,7 +28,7 @@ Alert the user when they try to navigate away from a page that might have unsave
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `message` | String | The message to show to the user (if supported by the browser) | The native browser `are you sure?` dialogue |
 

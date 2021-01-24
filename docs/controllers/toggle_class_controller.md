@@ -35,7 +35,7 @@ To toggle a class on an element, based on various optional interactions i.e. On 
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `class` | String | The space separated list of classes to toggle | `-` |
 | `mouseEnter` (Optional) | String | One of `on`, `off`, or `toggle`, what to do when the user's mouse enters the controller scope | `-` |

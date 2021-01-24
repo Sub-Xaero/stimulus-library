@@ -41,7 +41,7 @@ You can also wire up the controller to have a copy button, and an optional fallb
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false |
 

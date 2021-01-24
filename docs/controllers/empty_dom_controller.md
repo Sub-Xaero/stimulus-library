@@ -33,7 +33,7 @@ You can then style the controller, or show a nice placeholder when the container
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `scopeSelector` (Optional) | String | A CSS selector to pass to `querySelectorAll` to limit what elements are included in the count of empty/not-empty | All child elements of controller element |
 

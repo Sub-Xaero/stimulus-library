@@ -30,7 +30,7 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `endpoint` | String | The URL to fetch content from | - |
 

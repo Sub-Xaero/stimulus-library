@@ -31,7 +31,7 @@ To only allow a user to select a limited number of checkboxes
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `max` | Number | The maximum number of checkboxes that can be checked | - |
 | `message` (Optional) | String | The error message to show when the user selects too many checkboxes | - |

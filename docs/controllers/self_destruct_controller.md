@@ -29,7 +29,7 @@ Remove elements a set amount of time after loading - primarily for flash notific
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `secondsValue` | Number | The number of seconds before the element removes itself from the DOM | - |
 

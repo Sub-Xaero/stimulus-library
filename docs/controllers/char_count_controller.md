@@ -33,7 +33,7 @@ Add a visual count of the number of characters in a textarea/string input, with 
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `min` | Number | The minimum number of character. This will add an `error` class (See: Classes) to the input if the min character are not met | 0 |
 | `max` | Number | The maximum number of character. This will add an `error` class (See: Classes) to the input if the max character are exceeded | 99,999 |

@@ -1,0 +1,79 @@
+# NestedFormController
+
+## Purpose
+
+Primarily for Rails `accepts_nested_attributes_for` associations, enabling a form interface that allows a user to added and remove sub-records.
+
+<!-- tabs:start -->
+
+## ** Actions **
+
+#### [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `add` | Add a new record to the form using the given template |
+| `remove` | Remove the nearest parent record from the form. If the record is a new record, just removes it from the DOm, otherwise looks for a hidden input with `name="_destroy"` sets it to `1` (true) and hides the record using `display: none`|
+
+## ** Targets **
+
+#### [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `template` | The `<template>` or `<script type="text/x-template">` tag containing the HTML for a sub record. | - |
+| `target` | Where to add the created sub-records. | - |
+
+## ** Classes **
+
+#### [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+[no-classes](../_partials/no-classes.md ':include')
+
+## ** Values **
+
+#### [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `wrapperClass` | String | The class of the `<div>` that wraps each sub-record.  | `nested-fields` |
+| `insert` | String | How to insert records around `target`. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | `beforeend` (append) |
+
+## ** Events **
+
+#### Events
+
+[no-events](../_partials/no-events.md ':include')
+
+## ** Side Effects **
+
+None
+
+<!-- tabs:end -->
+
+# How to Use
+
+This controller requires a bit of structured markup.
+
+There should be a `<template data-nested-form-target="template">` or a `<script data-nested-form-target="template" type="text/x-template>` tag that holds the markup that should be added every time the user adds a new record. If you want to use multiple levels of nested forms you should
+use `<script data-nested-form-target="template" type="text/x-template>`, as most browsers down allow `<template>` tags to be nested.
+
+Ideally you should have a reusable partial for the nested-record's fields so that you can render it for the `template` that the controller uses to create new records, and for each of the existing records in the form.
+
+Each distinct record in the form should be wrapped in a div with a class of either `nested-fields` or the value specified in `data-nested-form-wrapper-class-value`- this enables the controller to perform the operations it needs to do on all of the nested records.
+
+When generating the markup for the `template`, the inputs should be named using the magic value `NEW_RECORD` where you want a unique identifier to be placed when the controller inserts a new record. i.e. `lists[task_attributes][NEW_RECORD][id]`. Using Rails `fields_for` helper, this is as easy as
+specifying `f.simple_fields_for ..., child_index: 'NEW_RECORD' `
+
+
+
+<!-- tabs:start -->
+
+## ** HTML **
+
+[example](../examples/nested_form_controller.erb ':include :type=code')
+
+## ** HAML **
+
+[example](../examples/nested_form_controller.haml ':include :type=code')
+<!-- tabs:end -->

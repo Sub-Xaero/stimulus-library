@@ -28,7 +28,7 @@ Enable other inputs if a checkbox is ticked.
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `clear` | Boolean | Whether the controller should clear the targeted inputs when they become disabled | false |
 

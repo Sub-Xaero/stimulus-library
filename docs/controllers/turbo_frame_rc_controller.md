@@ -39,7 +39,7 @@ out the frame widget, or selectively load/unload it.
 
 #### [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Purpose | Default |
+| Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `frameId` | String | The ID of the frame to drive | - |
 | `src` (Optional) | String | The URL set the remote frame's `src` to | If the controller root element is an `<a>`, the `href` of the element. Otherwise, throws an error. |
