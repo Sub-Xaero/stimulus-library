@@ -23,5 +23,6 @@ export { ScrollToTopController } from "./scroll_to_top_controller";
 export { SelfDestructController } from "./self_destruct_controller";
 export { TeleportController } from "./teleport_controller";
 export { ToggleClassController } from "./toggle_class_controller";
+export { TurboFrameRCController } from "./turbo_frame_rc_controller";
 export { WordCountController } from "./word_count_controller";
 //# sourceMappingURL=index.d.ts.map

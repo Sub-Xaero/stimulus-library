@@ -26,4 +26,5 @@
 ** [SelfDestructController](./controllers/self_destruct_controller.md "Stimulus Library - SelfDestructController")
 ** [TeleportController](./controllers/teleport_controller.md "Stimulus Library - TeleportController")
 ** [ToggleClassController](./controllers/toggle_class_controller.md "Stimulus Library - ToggleClassController")
+** [TurboFrameRCController](./controllers/turbo_frame_rc_controller.md "Stimulus Library - TurboFrameRCController")
 ** [WordCountController](./controllers/word_count_controller.md "Stimulus Library - WordCountController")
