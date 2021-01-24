@@ -35,7 +35,7 @@ You can then style the controller, or show a nice placeholder when the container
 
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
-| `scopeSelector` | String | A CSS selector to pass to `querySelectorAll` to limit what elements are included in the count of empty/not-empty | All child elements of controller element |
+| `scopeSelector` (Optional) | String | A CSS selector to pass to `querySelectorAll` to limit what elements are included in the count of empty/not-empty | All child elements of controller element |
 
 ## ** Events **
 
@@ -44,7 +44,7 @@ You can then style the controller, or show a nice placeholder when the container
 | Event | When | Dispatched on | `event.detail` |
 | --- | --- | --- | --- |
 | `dom:empty` | When the subtree of the attached element becomes empty | The controller element | - |
-| `dom:not-empty` | When the subtree of the attached element is no longer empty | The controller element  | - |
+| `dom:not-empty` | When the subtree of the attached element is no longer empty | The controller element  | `count` - The number of matching elements that are now present |
 
 ## ** Side Effects **
 
@@ -56,13 +56,18 @@ None
 
 ## Simple Case
 
-The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty. Use those events to hook up other Stimulus actions. This particular example toggles the hide/show of a nice status message when the container is empty.
+The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty (and for every DOM update that means it is still not empty). Use those events to hook up other Stimulus actions. This particular example toggles the hide/show of a nice status message when the 
+container is empty.
 
 
 <!-- tabs:start -->
+
 ## ** HTML **
+
 [example](../examples/empty_dom_controller.html.erb ':include :type=code')
+
 ## ** HAML **
+
 [example](../examples/empty_dom_controller.html.haml ':include :type=code')
 <!-- tabs:end -->
 
@@ -74,8 +79,12 @@ The selector you specify will be used to `querySelectorAll` the children/subtree
 `dom:empty` and `dom:not-empty` events when the results of the query are empty/not empty.
 
 <!-- tabs:start -->
+
 ## ** HTML **
+
 [example](../examples/empty_dom_controller_advanced.html.erb ':include :type=code')
+
 ## ** HAML **
+
 [example](../examples/empty_dom_controller_advanced.html.haml ':include :type=code')
 <!-- tabs:end -->
