@@ -4,10 +4,12 @@
 
 Remotely set the `src` of TurboFrames, and remotely clear their content.
 
-Possible use cases:
+### Use Case 1: Modal form.
+![turbo_frame_rc_controller_example.gif](../_media/turbo_frame_rc_controller_example.gif)
 
-1. Modal form.
-1. Sidebar links to drive a main-content frame.
+### Use Case 2: Links to drive turbo-frame wrapped widgets
+If you have an interactive widget/component wrapped in a turbo frame, you can use this links to swap
+out the frame widget, or selectively load/unload it. 
 
 <!-- tabs:start -->
 
