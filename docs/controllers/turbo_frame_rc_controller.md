@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Remotely set the `src` of TurboFrames, and remotely clear their content.
+Remotely set the `src` of TurboFrames, and/or remotely clear their content.
 
 ### Use Case 1: Modal form.
 ![turbo_frame_rc_controller_example.gif](../_media/turbo_frame_rc_controller_example.gif)
@@ -19,9 +19,9 @@ out the frame widget, or selectively load/unload it.
 
 | Action | Purpose |
 | --- | --- |
-| `teleport` | - |
-| `clear` | - |
-| `toggle` | - |
+| `setSrc` | Sets the src of the remote `<TurboFrame>` to the specified value, triggering a content load  |
+| `clear` | Clear the `src` of the remote `<TurboFrame>`, and remove its `innerHTML` |
+| `toggle` | If the `src` is empty, or different to the current specified value, calls `setSrc`. Otherwise, calls `clear` |
 
 ## ** Targets **
 
@@ -42,7 +42,7 @@ out the frame widget, or selectively load/unload it.
 | Value | Type | Purpose | Default |
 | --- | --- | --- | --- |
 | `frameId` | String | The ID of the frame to drive | - |
-| `src` | String | The URL set the remote frame's `src` to | - |
+| `src` (Optional) | String | The URL set the remote frame's `src` to | If the controller root element is an `<a>`, the `href` of the element. Otherwise, throws an error. |
 | `loadingMessage` (Optional) | String | The message to display while content is loading | - |
 
 ## ** Events **
