@@ -6,6 +6,7 @@
 ** [AutoSubmitFormController](./controllers/auto_submit_form_controller.md "Stimulus Library - AutoSubmitFormController")
 ** [AutosizeController](./controllers/autosize_controller.md "Stimulus Library - AutosizeController")
 ** [CharCountController](./controllers/char_count_controller.md "Stimulus Library - CharCountController")
+** [CheckboxSelectAll](./controllers/checkbox_select_all_controller.md "Stimulus Library - CheckboxSelectAll")
 ** [ClipboardController](./controllers/clipboard_controller.md "Stimulus Library - ClipboardController")
 ** [ConfirmNavigationController](./controllers/confirm_navigation_controller.md "Stimulus Library - ConfirmNavigationController")
 ** [DetectDirtyController](./controllers/detect_dirty_controller.md "Stimulus Library - DetectDirtyController")

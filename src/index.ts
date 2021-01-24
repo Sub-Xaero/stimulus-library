@@ -2,6 +2,7 @@ export {AsyncBlockController} from "./async_block_controller";
 export {AutoSubmitFormController} from "./auto_submit_form_controller";
 export {AutosizeController} from "./autosize_controller";
 export {CharCountController} from "./char_count_controller";
+export {CheckboxSelectAllController} from "./checkbox_select_all_controller";
 export {ClipboardController} from "./clipboard_controller";
 export {ConfirmNavigationController} from "./confirm_navigation_controller";
 export {DebugController} from "./debug_controller";

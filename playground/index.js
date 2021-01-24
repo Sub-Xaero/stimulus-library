@@ -4,6 +4,7 @@ import {
   AutoSubmitFormController,
   AutosizeController,
   CharCountController,
+  CheckboxSelectAllController,
   ClipboardController,
   ConfirmNavigationController,
   DebugController,
@@ -35,6 +36,7 @@ application.register("async-block", AsyncBlockController);
 application.register("auto-submit-form", AutoSubmitFormController);
 application.register("autosize", AutosizeController);
 application.register("char-count", CharCountController);
+application.register("checkbox-select-all", CheckboxSelectAllController);
 application.register("clipboard", ClipboardController);
 application.register("confirm-navigation", ConfirmNavigationController);
 application.register("debug", DebugController);

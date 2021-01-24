@@ -1,0 +1,22 @@
+%p How would you like us to contact you?
+
+%div{ class: "my-4", data: { controller: "checkbox-select-all"} }
+  %div
+    %label
+      %input{ type: "checkbox", data: { checkbox_select_all_target: "selectAll" }}
+      %span Select All / Deselect All
+  %hr
+  %div
+    %label
+      %input{ type: "checkbox", data: { checkbox_select_all_target: "checkbox" }}
+      %span Email
+
+  %div
+    %label
+      %input{ type: "checkbox", checked: "checked", data: { checkbox_select_all_target: "checkbox" }}
+      %span SMS
+
+  %div
+    %label
+      %input{ type: "checkbox", data: { checkbox_select_all_target: "checkbox"}}
+      %span Postal
