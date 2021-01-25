@@ -15,6 +15,7 @@
 ** [EmptyDomController](./controllers/empty_dom_controller.md "Stimulus Library - EmptyDomController")
 ** [EnableInputsController](./controllers/enable_inputs_controller.md "Stimulus Library - EnableInputsController")
 ** [FallbackImageController](./controllers/fallback_image_controller.md "Stimulus Library - FallbackImageController")
+** [FormSaveController](./controllers/form_save_controller.md "Stimulus Library - FormSaveController")
 ** [LazyBlockController](./controllers/lazy_block_controller.md "Stimulus Library - LazyBlockController")
 ** [LimitedSelectionCheckboxesController](./controllers/limited_selection_checkboxes_controller.md "Stimulus Library - LimitedSelectionCheckboxesController")
 ** [NestedFormController](./controllers/nested_form_controller.md "Stimulus Library - NestedFormController")

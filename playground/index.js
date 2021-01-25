@@ -14,6 +14,7 @@ import {
   EmptyDomController,
   EnableInputsController,
   FallbackImageController,
+  FormSaveController,
   LazyBlockController,
   LimitedSelectionCheckboxesController,
   PasswordConfirmController,
@@ -46,6 +47,7 @@ application.register("dismissable", DismissableController);
 application.register("empty-dom", EmptyDomController);
 application.register("enable-inputs", EnableInputsController);
 application.register("fallback-image", FallbackImageController);
+application.register("form-save", FormSaveController);
 application.register("lazy-block", LazyBlockController);
 application.register("limited-selection-checkboxes", LimitedSelectionCheckboxesController);
 application.register("password-confirm", PasswordConfirmController);
