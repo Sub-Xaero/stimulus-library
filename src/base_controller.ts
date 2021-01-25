@@ -27,6 +27,11 @@ export class BaseController extends Controller {
     });
   }
 
+  dispatch(element: HTMLElement, eventName: string, options: CustomEventInit = {bubbles: true, cancelable: true, detail: {target: element}}) {
+    let event = new CustomEvent(eventName, options);
+    element.dispatchEvent(event);
+  }
+
   log(functionName: string, args: {} = {}): void {
     // @ts-ignore
     if (!this.application.debug) {
