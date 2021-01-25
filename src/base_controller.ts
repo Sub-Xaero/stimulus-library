@@ -61,6 +61,9 @@ function logProperty(prop: string): boolean {
       return false;
   }
 
+  if (/^_.*?$/.test(prop)) {
+    return false;
+  }
   if (/^.*?Target(s)?$/.test(prop)) {
     return false;
   }
