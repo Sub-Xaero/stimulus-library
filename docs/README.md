@@ -1,5 +1,9 @@
 # Stimulus-Library
 
+![version](https://img.shields.io/npm/v/stimulus-library)
+![bundled size](https://img.shields.io/bundlephobia/min/stimulus-library?label=bundle%20size)
+![license](https://img.shields.io/npm/l/stimulus-library)
+ 
 ## Installation
 
 To get started, you'll need to add the `stimulus-library` package to your project.
@@ -26,3 +30,7 @@ import { AutoSubmitFormController } from "stimulus-library";
 const application = Application.start();
 application.register("auto-submit-form-controller", AutoSubmitFormController);
 ```
+
+## Tree-shaking
+If you use the ESM builds of the library, this library fully supports tree-shaking, 
+only the controllers you directly import will be bundled with your application.  
