@@ -1,0 +1,18 @@
+-# Links
+%a{ href: "back", data: {controller:"confirm"}} Go Back
+
+-# Forms
+%form{ action: "profile", method: "post", data: { controller: "confirm"}}
+  %label
+    Update your username:
+    %input{ type: "text" }
+  %br
+  %button{ type: "submit"} Save
+
+-# Custom messages (if supported)
+%form{ action: "profile", method: "post", data: { controller: "confirm", confirm_message: "You can only do this once. Are you sure?" }}
+  %label
+    Update your username:
+    %input{ type: "text"}
+  %br
+  %button{ type: "submit"} Save
