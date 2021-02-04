@@ -1,7 +1,7 @@
 {
   "name": "stimulus-library",
   "description": "A library of useful controllers for Stimulus",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "author": "@Sub-Xaero",
   "repository": {
@@ -22,9 +22,9 @@
     "test:treeshake": "agadoo dist stimulus-library.js"
   },
   "dependencies": {
-    "@types/lodash.camelcase": "^4.3.6",
+    "@types/lodash": "^4.14.168",
     "@types/smoothscroll-polyfill": "^0.3.1",
-    "lodash.camelcase": "^4.3.0",
+    "lodash": "^4.17.20",
     "smoothscroll-polyfill": "^0.4.4"
   },
   "peerDependencies": {
