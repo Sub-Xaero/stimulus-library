@@ -1,11 +1,11 @@
 {
   "name": "stimulus-library",
   "description": "A library of useful controllers for Stimulus",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "author": {
-    "name" : "Sub-Xaero",
-    "url" : "https://github.com/Sub-Xaero/"
+    "name": "Sub-Xaero",
+    "url": "https://github.com/Sub-Xaero/"
   },
   "homepage": "https://sub-xaero.github.io/stimulus-library/",
   "types": "dist/stimulus-library/index.d.ts",
