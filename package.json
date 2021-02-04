@@ -19,6 +19,7 @@
     "clean": "rimraf dist ",
     "build": "rimraf dist && microbundle",
     "dev": "microbundle watch",
+    "prepack": "yarn build",
     "test:treeshake": "agadoo dist stimulus-library.js"
   },
   "dependencies": {
