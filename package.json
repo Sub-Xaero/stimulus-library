@@ -8,7 +8,6 @@
     "url": "https://github.com/Sub-Xaero/"
   },
   "homepage": "https://sub-xaero.github.io/stimulus-library/",
-  "types": "dist/stimulus-library/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sub-Xaero/stimulus-library"
@@ -18,6 +17,7 @@
   "exports": "dist/stimulus-library.modern.js",
   "module": "dist/stimulus-library.module.js",
   "unpkg": "dist/stimulus-library.umd.js",
+  "types": "dist/stimulus-library.d.ts",
   "scripts": {
     "examples:haml": "find ./docs/examples -regex \".*\\.\\(html\\|erb\\)\" -print | sed -E 'p;s/\\.(html|erb)$/.haml/' | xargs -n2 html2haml --ruby19-attributes",
     "docs": "docsify serve docs",
