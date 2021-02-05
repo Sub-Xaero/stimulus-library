@@ -1,7 +1,7 @@
 {
   "name": "stimulus-library",
   "description": "A library of useful controllers for Stimulus",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "MIT",
   "author": {
     "name": "Sub-Xaero",
