@@ -10,3 +10,7 @@ export function isHTMLInputElement(element: Element): element is HTMLInputElemen
   return element.nodeName == "INPUT";
 }
 
+export function isHTMLImageElement(element: Element): element is HTMLImageElement {
+  return element.nodeName == "IMG";
+}
+

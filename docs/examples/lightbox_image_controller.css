@@ -1,0 +1,22 @@
+dialog.image-lightbox-dialog {
+  border: 1px solid black;
+  width: 75vw;
+  height: 75vh;
+  border-radius: 5px;
+  background: white;
+}
+
+dialog.image-lightbox-dialog img {
+  width: auto;
+  height: 100%;
+  margin: auto;
+  display: block;
+}
+
+dialog.image-lightbox-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+dialog.image-lightbox-dialog + .backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}

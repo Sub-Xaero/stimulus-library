@@ -14,6 +14,7 @@ export { EmptyDomController } from "./empty_dom_controller";
 export { EnableInputsController } from "./enable_inputs_controller";
 export { FallbackImageController } from "./fallback_image_controller";
 export { FormSaveController } from "./form_save_controller";
+export { LightboxImageController } from "./lightbox_image_controller";
 export { LazyBlockController } from "./lazy_block_controller";
 export { LimitedSelectionCheckboxesController } from "./limited_selection_checkboxes_controller";
 export { NestedFormController } from "./nested_form_controller";

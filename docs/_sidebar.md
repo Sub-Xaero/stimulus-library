@@ -18,6 +18,7 @@
 ** [FallbackImageController](./controllers/fallback_image_controller.md "Stimulus Library - FallbackImageController")
 ** [FormSaveController](./controllers/form_save_controller.md "Stimulus Library - FormSaveController")
 ** [LazyBlockController](./controllers/lazy_block_controller.md "Stimulus Library - LazyBlockController")
+** [LightboxImageController](./controllers/lightbox_image_controller.md "Stimulus Library - LightboxImageController")
 ** [LimitedSelectionCheckboxesController](./controllers/limited_selection_checkboxes_controller.md "Stimulus Library - LimitedSelectionCheckboxesController")
 ** [NestedFormController](./controllers/nested_form_controller.md "Stimulus Library - NestedFormController")
 ** [PasswordConfirmController](./controllers/password_confirm_controller.md "Stimulus Library - PasswordConfirmController")
