@@ -1,6 +1,14 @@
 {
   "name": "stimulus-library",
   "description": "A library of useful controllers for Stimulus",
+  "keywords": [
+    "stimulusjs",
+    "stimulus-js",
+    "stimulus library",
+    "stimulus controller",
+    "ruby on rails",
+    "ruby-on-rails"
+  ],
   "version": "0.1.9",
   "license": "MIT",
   "author": {
