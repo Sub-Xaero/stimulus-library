@@ -1,7 +1,7 @@
 import { BaseController } from './base_controller';
 export declare class CheckboxSelectAllController extends BaseController {
     static targets: string[];
-    readonly hasCheckboxAllTarget: boolean;
+    readonly hasSelectAllTarget: boolean;
     readonly selectAllTarget: HTMLInputElement;
     readonly checkboxTargets: HTMLInputElement[];
     private get checked();

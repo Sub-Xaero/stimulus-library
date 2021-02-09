@@ -3,7 +3,7 @@ import {BaseController} from './base_controller';
 export class CheckboxSelectAllController extends BaseController {
   static targets = ['selectAll', 'checkbox'];
 
-  declare readonly hasCheckboxAllTarget: boolean;
+  declare readonly hasSelectAllTarget: boolean;
   declare readonly selectAllTarget: HTMLInputElement;
   declare readonly checkboxTargets: HTMLInputElement[];
 
@@ -22,7 +22,7 @@ export class CheckboxSelectAllController extends BaseController {
 
   connect() {
     requestAnimationFrame(() => {
-      if (!this.hasCheckboxAllTarget) {
+      if (!this.hasSelectAllTarget) {
         return;
       }
 
@@ -33,7 +33,7 @@ export class CheckboxSelectAllController extends BaseController {
   }
 
   disconnect() {
-    if (!this.hasCheckboxAllTarget) {
+    if (!this.hasSelectAllTarget) {
       return;
     }
 
