@@ -33,6 +33,7 @@
     "build": "rimraf dist && microbundle",
     "dev": "microbundle watch",
     "prepack": "yarn build",
+    "release": "standard-version",
     "test:treeshake": "agadoo dist stimulus-library.js"
   },
   "dependencies": {
@@ -50,6 +51,7 @@
     "docsify": "^4.11.6",
     "microbundle": "^0.13.0",
     "rimraf": "^3.0.2",
+    "standard-version": "^9.1.0",
     "stimulus": "^2.0.0",
     "stimulus-use": "^0.22.1"
   }
