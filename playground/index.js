@@ -16,8 +16,8 @@ import {
   EnableInputsController,
   FallbackImageController,
   FormSaveController,
-  LightboxImageController,
   LazyBlockController,
+  LightboxImageController,
   LimitedSelectionCheckboxesController,
   PasswordConfirmController,
   PasswordPeekController,
@@ -26,6 +26,7 @@ import {
   ScrollToBottomController,
   ScrollToTopController,
   SelfDestructController,
+  StickyController,
   TeleportController,
   ToggleClassController,
   WordCountController,
@@ -61,6 +62,7 @@ application.register("scroll-into-focus", ScrollIntoFocusController);
 application.register("scroll-to-bottom", ScrollToBottomController);
 application.register("scroll-to-top", ScrollToTopController);
 application.register("self-destruct", SelfDestructController);
+application.register("sticky", StickyController);
 application.register("teleport", TeleportController);
 application.register("toggle-class", ToggleClassController);
 application.register("word-count", WordCountController);

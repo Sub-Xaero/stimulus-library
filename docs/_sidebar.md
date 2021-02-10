@@ -29,6 +29,7 @@
 ** [ScrollToController](./controllers/scroll_to_controller.md "Stimulus Library - ScrollToController")
 ** [ScrollToTopController](./controllers/scroll_to_top_controller.md "Stimulus Library - ScrollToTopController")
 ** [SelfDestructController](./controllers/self_destruct_controller.md "Stimulus Library - SelfDestructController")
+** [StickyController](./controllers/sticky_controller.md "Stimulus Library - StickyController")
 ** [TeleportController](./controllers/teleport_controller.md "Stimulus Library - TeleportController")
 ** [ToggleClassController](./controllers/toggle_class_controller.md "Stimulus Library - ToggleClassController")
 ** [TurboFrameRCController](./controllers/turbo_frame_rc_controller.md "Stimulus Library - TurboFrameRCController")

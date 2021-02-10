@@ -1,0 +1,38 @@
+@import "../foundation_settings";
+
+.sticky {
+  @include breakpoint(small only) {
+    .button {
+      margin: 0.5em 0 0 !important;
+    }
+  }
+
+  .button-group, .button {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(medium up) {
+    &.stuck {
+      width: 100vw;
+      color: #FFFFFF;
+      text-align: center;
+      z-index: 1001;
+      border-radius: 4px;
+      background: #FDFDFD;
+      padding: 0.5em 1em;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    &:not(.stuck).show-on-stick {
+      display: none;
+    }
+
+    .sticky-intersect {
+      background-color: transparent;
+      min-height: 1px;
+      min-width: 1px;
+    }
+  }
+}
