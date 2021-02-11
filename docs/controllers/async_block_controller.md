@@ -38,11 +38,11 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 
 #### Events
 
-| Event | When | `event.detail` |
-| --- | --- |--- |
-|`ajax:success` | When the content is fetch successfully | -
-|`ajax:error` | When the block fails to get a response from the endpoint | - |
-|`ajax:complete` | When the request finishes, regardless of success or failure | - |
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+|`ajax:success` | When the content is fetch successfully | the controller root element | - |
+|`ajax:error` | When the block fails to get a response from the endpoint | the controller root element | - |
+|`ajax:complete` | When the request finishes, regardless of success or failure | the controller root element | - |
 
 ## ** Side Effects **
 

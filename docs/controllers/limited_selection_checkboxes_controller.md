@@ -40,10 +40,10 @@ To only allow a user to select a limited number of checkboxes
 
 #### Events
 
-| Event | When | `event.detail` |
-| --- | --- |--- |
-| `limited-selection:selection` | When the user checks a checkbox successfully | `target`: the element that the user selected |
-| `limited-selection:too-many` | When the user tries to select too many checkboxes | `target`: the element that the user tried to select |
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `limited-selection:selection` | When the user checks a checkbox successfully | the checkbox that was ticked | `target`: the element that the user selected |
+| `limited-selection:too-many` | When the user tries to select too many checkboxes | the checkbox that was ticked | `target`: the element that the user tried to select |
 
 ## ** Side Effects **
 

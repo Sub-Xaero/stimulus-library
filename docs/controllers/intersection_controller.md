@@ -36,10 +36,10 @@ Utility controller to wire up other controller actions when an element comes int
 
 #### Events
 
-| Event | When | `event.detail` |
-| --- | --- |--- |
-|`intersection:appear` | When the observed element enters the viewport | `element`: the observed controller root element |
-|`intersection:disappear` | When the observed element leaves the viewport | `element`: the observed controller root element |
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- |--- | --- |
+|`intersection:appear` | When the observed element enters the viewport | the controller root element | `element`: the observed controller root element |
+|`intersection:disappear` | When the observed element leaves the viewport | the controller root element | `element`: the observed controller root element |
 
 ## ** Side Effects **
 
