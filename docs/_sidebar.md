@@ -17,6 +17,7 @@
 ** [EnableInputsController](./controllers/enable_inputs_controller.md "Stimulus Library - EnableInputsController")
 ** [FallbackImageController](./controllers/fallback_image_controller.md "Stimulus Library - FallbackImageController")
 ** [FormSaveController](./controllers/form_save_controller.md "Stimulus Library - FormSaveController")
+** [IntersectionController](./controllers/intersection_controller.md "Stimulus Library - IntersectionController")
 ** [LazyBlockController](./controllers/lazy_block_controller.md "Stimulus Library - LazyBlockController")
 ** [LightboxImageController](./controllers/lightbox_image_controller.md "Stimulus Library - LightboxImageController")
 ** [LimitedSelectionCheckboxesController](./controllers/limited_selection_checkboxes_controller.md "Stimulus Library - LimitedSelectionCheckboxesController")
