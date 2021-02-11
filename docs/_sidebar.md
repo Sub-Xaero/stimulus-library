@@ -3,6 +3,7 @@
 ---
 * Controllers
 ** [AsyncBlockController](./controllers/async_block_controller.md "Stimulus Library - AsyncBlockController")
+** [AppearanceController](./controllers/appearance_controller.md "Stimulus Library - AppearanceController")
 ** [AutoSubmitFormController](./controllers/auto_submit_form_controller.md "Stimulus Library - AutoSubmitFormController")
 ** [AutosizeController](./controllers/autosize_controller.md "Stimulus Library - AutosizeController")
 ** [CharCountController](./controllers/char_count_controller.md "Stimulus Library - CharCountController")
