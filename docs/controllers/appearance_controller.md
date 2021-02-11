@@ -46,7 +46,8 @@ The controller will install event listeners for:
 `Window`:
 - `focus`
 - `blur`
-  
+
+
 `Document`:
 - `visibilitychange`
 
