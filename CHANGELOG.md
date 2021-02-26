@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.12...v0.1.13) (2021-02-26)
+
+
+### Bug Fixes
+
+* Fix bug in Nested Form Controller where new class API was being used without the dot "." prefix in the selector ([315b1cf](https://github.com/Sub-Xaero/stimulus-library/commit/315b1cfe9d69097d7abd262ac8583ef6669821ec))
+
 ### [0.1.12](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.11...v0.1.12) (2021-02-11)
 
 
