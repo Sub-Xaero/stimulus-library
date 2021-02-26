@@ -57,7 +57,7 @@ export class NestedFormController extends BaseController {
   }
 
   generateID(): string {
-    return new Date().getTime().toString() + Math.random();
+    return new Date().getTime().toString() + Math.random().toString().slice(2);
   }
 
   private checkStructure() {
