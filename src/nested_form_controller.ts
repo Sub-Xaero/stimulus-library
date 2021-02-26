@@ -38,9 +38,9 @@ export class NestedFormController extends BaseController {
 
   remove(event: Event) {
     event.preventDefault();
-    const wrapper: HTMLElement | null = (event.target as HTMLElement).closest(this.wrapperClass);
+    const wrapper: HTMLElement | null = (event.target as HTMLElement).closest(`.${this.wrapperClass}`);
     if (wrapper == null) {
-      throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class ${this.wrapperClass}`);
+      throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class .${this.wrapperClass}`);
     }
 
     if (wrapper.dataset.newRecord === 'true') {
