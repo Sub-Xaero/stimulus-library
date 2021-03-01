@@ -18,7 +18,6 @@ export class ScrollToController extends BaseController {
   declare inlineValue: ScrollLogicalPosition;
   declare hasInlineValue: boolean;
 
-
   scroll() {
     let target = document.querySelector(this.selectorValue);
     if (!target) {

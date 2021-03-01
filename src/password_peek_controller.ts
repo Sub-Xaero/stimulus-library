@@ -6,7 +6,6 @@ export class PasswordPeekController extends BaseController {
 
   declare readonly passwordTarget: HTMLInputElement;
 
-
   peak(event?: Event) {
     if (event) {
       event.preventDefault();

@@ -64,7 +64,7 @@ export class NestedFormController extends BaseController {
     let template = this.templateTarget.innerHTML;
 
     if (template.indexOf('NEW_RECORD')) {
-      throw new Error("Could not find 'NEW_RECORD' in the provided template. Please make sure you've passed `child_index: 'NEW_RECORD'` to `fields_for`")
+      throw new Error("Could not find 'NEW_RECORD' in the provided template. Please make sure you've passed `child_index: 'NEW_RECORD'` to `fields_for`");
     }
   }
 }

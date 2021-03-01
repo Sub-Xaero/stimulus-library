@@ -10,7 +10,6 @@ export class ScrollToBottomController extends BaseController {
   declare modeValue: "nearest" | "document";
   declare hasModeValue: boolean;
 
-
   scroll(event?: Event) {
     if (event) {
       event.preventDefault();
