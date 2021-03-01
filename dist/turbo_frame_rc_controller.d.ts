@@ -13,7 +13,9 @@ export declare class TurboFrameRCController extends BaseController {
     toggle(event?: Event | null): void;
     setSrc(event?: Event | null): void;
     clear(event?: Event | null): void;
-    private getFrame;
-    private getSrc;
+    private _setSrc;
+    private _clear;
+    private _getFrame;
+    private _getSrc;
 }
 //# sourceMappingURL=turbo_frame_rc_controller.d.ts.map
