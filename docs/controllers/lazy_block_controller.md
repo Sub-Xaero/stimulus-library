@@ -18,7 +18,7 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 
 | Target | Purpose | Default |
 | --- | --- | --- |
-| `replace` | The element to replace when the fetch request succeed | The element the controller is mounted on |
+| `replace` (Optional) | The element to replace when the fetch request succeed | The element the controller is mounted on |
 
 ## ** Classes **
 
@@ -33,6 +33,8 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 | Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `endpoint` | String | The URL to fetch content from | - |
+| `errorMessage` (Optional) | String | The error message to display when the remote content fails to load | `This content failed to load` |
+| `selector` (Optional) | String | The selector of the element(s) to extract from the returned response | Empty. The entire HTML response will be loaded |
 
 ## ** Events **
 

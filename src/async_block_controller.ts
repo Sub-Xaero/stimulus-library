@@ -2,12 +2,21 @@ import {BaseController} from "./base_controller";
 
 export class AsyncBlockController extends BaseController {
   static targets = ["replace"];
-  static values = {endpoint: String};
+  static values = {endpoint: String, errorMessage: String, selector: String};
 
   declare readonly replaceTarget: HTMLElement;
   declare readonly hasReplaceTarget: boolean;
   declare readonly endpointValue: string;
 
+  declare readonly hasSelectorValue: boolean;
+  declare readonly selectorValue: string;
+
+  declare readonly hasErrorMessageValue: boolean;
+  declare readonly errorMessageValue: string;
+
+  get _errorMessage(): string {
+    return this.hasErrorMessageValue ? this.errorMessageValue : "This content failed to load";
+  }
 
   // This is a simple controller to load a block of content when the page loads.
   // It should be used to give a quick initial response before calling out to an
@@ -23,14 +32,18 @@ export class AsyncBlockController extends BaseController {
     .then((html) => {
       let newEl = document.createElement("div");
       newEl.innerHTML = html;
-      el.replaceWith(newEl);
-
+      if (this.hasSelectorValue) {
+        let selectedContent = newEl.querySelectorAll(this.selectorValue);
+        el.replaceWith(...selectedContent);
+      } else {
+        el.replaceWith(...newEl.children);
+      }
       // Trigger event to show block has loaded
       let event = new CustomEvent("ajax:success", {"detail": ""});
       el.dispatchEvent(event);
     })
     .catch(err => {
-      el.replaceWith("Sorry, this content failed to load");
+      el.replaceWith(this._errorMessage);
 
       let event = new CustomEvent("ajax:error", {"detail": ""});
       el.dispatchEvent(event);
