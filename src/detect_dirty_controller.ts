@@ -1,4 +1,5 @@
 import {BaseController} from "./base_controller";
+import {isElementCheckable} from "./utilities/elements";
 
 export class DetectDirtyController extends BaseController {
 
@@ -8,7 +9,7 @@ export class DetectDirtyController extends BaseController {
 
   connect() {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    if (this.isInputElement(element) && this.isCheckable(element)) {
+    if (isElementCheckable(element)) {
       this.initialValue = element.checked;
     } else {
       this.initialValue = element.value;
@@ -25,7 +26,7 @@ export class DetectDirtyController extends BaseController {
 
   restore() {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    if (this.isInputElement(element) && this.isCheckable(element)) {
+    if (isElementCheckable(element)) {
       element.checked = this.initialValue as boolean;
     } else {
       element.value = this.initialValue as string;
@@ -40,14 +41,6 @@ export class DetectDirtyController extends BaseController {
     } else {
       element.removeAttribute("data-dirty");
     }
-  }
-
-  private isCheckable(element: HTMLInputElement): boolean {
-    return (element.type === "radio" || element.type === "checkbox");
-  }
-
-  private isInputElement(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): element is HTMLInputElement {
-    return element.tagName === "INPUT";
   }
 
 }

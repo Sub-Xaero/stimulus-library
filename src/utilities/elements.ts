@@ -14,3 +14,6 @@ export function isHTMLImageElement(element: Element): element is HTMLImageElemen
   return element.nodeName == "IMG";
 }
 
+export function isElementCheckable(element: Element): element is HTMLInputElement & { checked: boolean } {
+  return isHTMLInputElement(element) && (element.type === "radio" || element.type === "checkbox");
+}
