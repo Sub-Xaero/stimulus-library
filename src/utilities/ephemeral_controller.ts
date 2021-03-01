@@ -3,7 +3,7 @@ import {BaseController} from "../base_controller";
 
 export class EphemeralController extends BaseController {
 
-  cleanupSelf() {
+  _cleanupSelf() {
     this.cleanup(this.element as HTMLElement);
   }
 

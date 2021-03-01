@@ -1,1 +1,1 @@
-{"version":3,"file":"ephemeral_controller.d.ts","sourceRoot":"","sources":["../../src/utilities/ephemeral_controller.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,cAAc,EAAC,MAAM,oBAAoB,CAAC;AAElD,qBAAa,mBAAoB,SAAQ,cAAc;IAErD,WAAW;IAIX,OAAO,CAAC,OAAO,EAAE,WAAW;CAmC7B"}
+{"version":3,"file":"ephemeral_controller.d.ts","sourceRoot":"","sources":["../../src/utilities/ephemeral_controller.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,cAAc,EAAC,MAAM,oBAAoB,CAAC;AAElD,qBAAa,mBAAoB,SAAQ,cAAc;IAErD,YAAY;IAIZ,OAAO,CAAC,OAAO,EAAE,WAAW;CAmC7B"}

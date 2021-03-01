@@ -27,7 +27,7 @@ export class ScrollIntoFocusController extends EphemeralController {
           inline: this.hasInlineValue ? this.inlineValue : "center",
         },
       ).catch(() => this.element.scrollIntoView()); // Fallback to snap-scrolling
-      this.cleanupSelf();
+      this._cleanupSelf();
     });
   }
 
