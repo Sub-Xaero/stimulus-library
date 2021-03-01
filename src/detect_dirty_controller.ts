@@ -5,7 +5,9 @@ export class DetectDirtyController extends BaseController {
 
   initialValue: string | boolean | null = null;
 
-  boundHandler = this.handler.bind(this);
+  initialize() {
+    this.checkDirty = this.checkDirty.bind(this);
+  }
 
   connect() {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
@@ -14,14 +16,14 @@ export class DetectDirtyController extends BaseController {
     } else {
       this.initialValue = element.value;
     }
-    element.addEventListener("input", this.boundHandler);
-    element.addEventListener("change", this.boundHandler);
+    element.addEventListener("input", this.checkDirty);
+    element.addEventListener("change", this.checkDirty);
   }
 
   disconnect() {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    element.removeEventListener("input", this.boundHandler);
-    element.removeEventListener("change", this.boundHandler);
+    element.removeEventListener("input", this.checkDirty);
+    element.removeEventListener("change", this.checkDirty);
   }
 
   restore() {
@@ -33,7 +35,7 @@ export class DetectDirtyController extends BaseController {
     }
   }
 
-  private handler(event?: Event) {
+  private checkDirty(event?: Event) {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
     if (this.initialValue !== element.value) {

@@ -15,22 +15,24 @@ export class CharCountController extends BaseController {
   declare errorClass: string;
   declare hasErrorClass: boolean;
 
-  boundHandler = this.updateCharCount.bind(this);
+  initialize() {
+    this._updateCharCount = this._updateCharCount.bind(this);
+  }
 
   connect() {
-    this.updateCharCount();
-    this.inputTarget.addEventListener("input", this.boundHandler);
+    this._updateCharCount();
+    this.inputTarget.addEventListener("input", this._updateCharCount);
   }
 
   disconnect() {
-    this.inputTarget.removeEventListener("input", this.boundHandler);
+    this.inputTarget.removeEventListener("input", this._updateCharCount);
   }
 
-  updateCharCount() {
+  private _updateCharCount() {
     let charCount = this.inputTarget.value.length;
     this.outputTarget.innerText = charCount.toString();
     if (this.hasErrorClass) {
-      if (this.isValidCount(charCount)) {
+      if (this._isValidCount(charCount)) {
         this.outputTarget.classList.remove(this.errorClass);
       } else {
         this.outputTarget.classList.add(this.errorClass);
@@ -38,7 +40,7 @@ export class CharCountController extends BaseController {
     }
   }
 
-  isValidCount(count: number) {
+  private _isValidCount(count: number) {
     let min = 0;
     let max = 99999;
 

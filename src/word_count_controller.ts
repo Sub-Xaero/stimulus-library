@@ -15,15 +15,17 @@ export class WordCountController extends BaseController {
   declare errorClass: string;
   declare hasErrorClass: boolean;
 
-  boundHandler = this.updateWordCount.bind(this);
+  initialize() {
+    this.updateWordCount = this.updateWordCount.bind(this);
+  }
 
   connect() {
     this.updateWordCount();
-    this.inputTarget.addEventListener("input", this.boundHandler);
+    this.inputTarget.addEventListener("input", this.updateWordCount);
   }
 
   disconnect() {
-    this.inputTarget.removeEventListener("input", this.boundHandler);
+    this.inputTarget.removeEventListener("input", this.updateWordCount);
   }
 
   updateWordCount() {

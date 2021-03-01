@@ -3,23 +3,25 @@ import {BaseController} from "./base_controller";
 
 export class AutosizeController extends BaseController {
 
-  private boundHandler = this.handler.bind(this);
+  initialize() {
+    this._handler = this._handler.bind(this);
+  }
 
   connect() {
     let target = this.element as HTMLTextAreaElement;
     target.style.resize = "none";
     target.style.boxSizing = "border-box";
-    target.addEventListener("input", this.boundHandler);
-    target.addEventListener("focus", this.boundHandler);
+    target.addEventListener("input", this._handler);
+    target.addEventListener("focus", this._handler);
     useWindowResize(this);
-    requestAnimationFrame(this.boundHandler);
+    requestAnimationFrame(this._handler);
   }
 
   windowResize() {
-    this.handler();
+    this._handler();
   }
 
-  private handler() {
+  private _handler() {
     this.autosize(this.element as HTMLTextAreaElement);
   };
 

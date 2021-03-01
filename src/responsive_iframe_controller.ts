@@ -9,14 +9,16 @@ interface ResponsiveIframeMessage {
 
 export class ResponsiveIframeWrapperController extends BaseController {
 
-  boundMessageReceived = this.messageReceived.bind(this);
+  initialize() {
+    this.messageReceived = this.messageReceived.bind(this);
+  }
 
   connect() {
-    window.addEventListener("message", this.boundMessageReceived);
+    window.addEventListener("message", this.messageReceived);
   }
 
   disconnect() {
-    window.removeEventListener("message", this.boundMessageReceived);
+    window.removeEventListener("message", this.messageReceived);
   }
 
   messageReceived(message: MessageEvent<ResponsiveIframeMessage>) {

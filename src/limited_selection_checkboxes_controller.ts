@@ -11,16 +11,16 @@ export class LimitedSelectionCheckboxesController extends BaseController {
   declare readonly maxValue: number;
   declare readonly messageValue: string;
 
-  maxSelections = 0;
-
-  boundHandleInputs = this.handleInputs.bind(this);
+  initialize() {
+    this.handleInputs = this.handleInputs.bind(this);
+  }
 
   connect() {
-    this.inputTargets.forEach((el) => el.addEventListener("change", this.boundHandleInputs));
+    this.inputTargets.forEach((el) => el.addEventListener("change", this.handleInputs));
   }
 
   disconnect() {
-    this.inputTargets.forEach((el) => el.removeEventListener("change", this.boundHandleInputs));
+    this.inputTargets.forEach((el) => el.removeEventListener("change", this.handleInputs));
   }
 
   handleInputs(event: Event) {
