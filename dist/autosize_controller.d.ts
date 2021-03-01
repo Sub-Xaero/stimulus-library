@@ -1,9 +1,9 @@
 import { BaseController } from "./base_controller";
 export declare class AutosizeController extends BaseController {
-    private boundHandler;
+    initialize(): void;
     connect(): void;
     windowResize(): void;
-    private handler;
+    private _handler;
     private autosize;
 }
 //# sourceMappingURL=autosize_controller.d.ts.map

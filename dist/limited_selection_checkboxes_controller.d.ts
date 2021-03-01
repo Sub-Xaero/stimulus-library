@@ -10,8 +10,7 @@ export declare class LimitedSelectionCheckboxesController extends BaseController
     readonly inputTargets: HTMLInputElement[];
     readonly maxValue: number;
     readonly messageValue: string;
-    maxSelections: number;
-    boundHandleInputs: (event: Event) => void;
+    initialize(): void;
     connect(): void;
     disconnect(): void;
     handleInputs(event: Event): void;

@@ -1,1 +1,1 @@
-{"version":3,"file":"auto_submit_form_controller.d.ts","sourceRoot":"","sources":["../src/auto_submit_form_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,mBAAmB,CAAC;AAEjD,qBAAa,wBAAyB,SAAQ,cAAc;IAE1D,OAAO,CAAC,YAAY,CAA2B;IAE/C,OAAO;IAIP,UAAU;IAIV,OAAO,CAAC,OAAO;CAUhB"}
+{"version":3,"file":"auto_submit_form_controller.d.ts","sourceRoot":"","sources":["../src/auto_submit_form_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,mBAAmB,CAAC;AAEjD,qBAAa,wBAAyB,SAAQ,cAAc;IAE1D,UAAU;IAIV,OAAO;IAIP,UAAU;IAIV,OAAO,CAAC,OAAO;CAUhB"}

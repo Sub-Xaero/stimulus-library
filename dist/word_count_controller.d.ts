@@ -14,7 +14,7 @@ export declare class WordCountController extends BaseController {
     hasMaxValue: boolean;
     errorClass: string;
     hasErrorClass: boolean;
-    boundHandler: () => void;
+    initialize(): void;
     connect(): void;
     disconnect(): void;
     updateWordCount(): void;

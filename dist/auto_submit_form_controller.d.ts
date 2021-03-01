@@ -1,6 +1,6 @@
 import { BaseController } from "./base_controller";
 export declare class AutoSubmitFormController extends BaseController {
-    private boundHandler;
+    initialize(): void;
     connect(): void;
     disconnect(): void;
     private handler;

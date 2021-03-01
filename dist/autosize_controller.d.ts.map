@@ -1,1 +1,1 @@
-{"version":3,"file":"autosize_controller.d.ts","sourceRoot":"","sources":["../src/autosize_controller.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,cAAc,EAAC,MAAM,mBAAmB,CAAC;AAEjD,qBAAa,kBAAmB,SAAQ,cAAc;IAEpD,OAAO,CAAC,YAAY,CAA2B;IAE/C,OAAO;IAUP,YAAY;IAIZ,OAAO,CAAC,OAAO;IAIf,OAAO,CAAC,QAAQ;CAMjB"}
+{"version":3,"file":"autosize_controller.d.ts","sourceRoot":"","sources":["../src/autosize_controller.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,cAAc,EAAC,MAAM,mBAAmB,CAAC;AAEjD,qBAAa,kBAAmB,SAAQ,cAAc;IAEpD,UAAU;IAIV,OAAO;IAUP,YAAY;IAIZ,OAAO,CAAC,QAAQ;IAIhB,OAAO,CAAC,QAAQ;CAMjB"}

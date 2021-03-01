@@ -14,10 +14,10 @@ export declare class CharCountController extends BaseController {
     hasMaxValue: boolean;
     errorClass: string;
     hasErrorClass: boolean;
-    boundHandler: () => void;
+    initialize(): void;
     connect(): void;
     disconnect(): void;
-    updateCharCount(): void;
-    isValidCount(count: number): boolean;
+    private _updateCharCount;
+    private _isValidCount;
 }
 //# sourceMappingURL=char_count_controller.d.ts.map

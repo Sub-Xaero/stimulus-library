@@ -5,7 +5,7 @@ interface ResponsiveIframeMessage {
     height: number;
 }
 export declare class ResponsiveIframeWrapperController extends BaseController {
-    boundMessageReceived: (message: MessageEvent<ResponsiveIframeMessage>) => void;
+    initialize(): void;
     connect(): void;
     disconnect(): void;
     messageReceived(message: MessageEvent<ResponsiveIframeMessage>): void;

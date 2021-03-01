@@ -5,7 +5,7 @@ export declare class PasswordConfirmController extends BaseController {
     readonly passwordTargets: HTMLInputElement[];
     readonly errorClass: string;
     readonly hasErrorClass: boolean;
-    private boundCheckPasswordsMatch;
+    initialize(): void;
     connect(): void;
     disconnect(): void;
     private allPasswordsMatch;
