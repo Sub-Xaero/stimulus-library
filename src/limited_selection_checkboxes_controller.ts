@@ -26,7 +26,7 @@ export class LimitedSelectionCheckboxesController extends BaseController {
   handleInputs(event: Event) {
     let tickedInputs = this.inputTargets.reduce((previousValue, el) => el.checked ? previousValue + 1 : previousValue, 0);
     let target = event.target as HTMLInputElement;
-    if (tickedInputs > this.maxSelections) {
+    if (tickedInputs > this.maxValue) {
       event.preventDefault();
       target.checked = false;
       target.dispatchEvent(new CustomEvent("change", {bubbles: true, cancelable: true}));
