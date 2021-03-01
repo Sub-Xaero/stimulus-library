@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.15](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.14...v0.1.15) (2021-03-01)
+
+
+### Features
+
+* Add optional selector and error-message values to async-block and lazy-block controllers. Users can choose to extract sub-content from HTML responses, and provide their own error messages when fetch fails. ([1c3be1e](https://github.com/Sub-Xaero/stimulus-library/commit/1c3be1eb840fe4f3518a5cca7b760b11730d4d43))
+
 ### [0.1.14](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.13...v0.1.14) (2021-02-26)
 
 
