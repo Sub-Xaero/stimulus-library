@@ -26,6 +26,7 @@ export class AsyncBlockController extends BaseController {
   }
 
   loadContent() {
+    let self = this;
     let el = (this.hasReplaceTarget ? this.replaceTarget : this.element) as HTMLElement;
     fetch(this.endpointValue)
     .then((response) => response.text())
@@ -39,18 +40,14 @@ export class AsyncBlockController extends BaseController {
         el.replaceWith(...newEl.children);
       }
       // Trigger event to show block has loaded
-      let event = new CustomEvent("ajax:success", {"detail": ""});
-      el.dispatchEvent(event);
+      self.dispatch(el, "ajax:success");
     })
     .catch(err => {
       el.replaceWith(this._errorMessage);
-
-      let event = new CustomEvent("ajax:error", {"detail": ""});
-      el.dispatchEvent(event);
+      self.dispatch(el, "ajax:error");
     })
     .finally(() => {
-      let event = new CustomEvent("ajax:complete", {"detail": ""});
-      el.dispatchEvent(event);
+      self.dispatch(el, "ajax:complete");
     });
   }
 }

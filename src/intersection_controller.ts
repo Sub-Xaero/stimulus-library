@@ -29,8 +29,6 @@ export class IntersectionController extends BaseController {
       this.element as HTMLElement,
       "intersection:appear",
       {
-        cancelable: true,
-        bubbles: true,
         detail: {
           element: this.element,
         },
@@ -43,8 +41,6 @@ export class IntersectionController extends BaseController {
       this.element as HTMLElement,
       "intersection:disappear",
       {
-        cancelable: true,
-        bubbles: true,
         detail: {
           element: this.element,
         },

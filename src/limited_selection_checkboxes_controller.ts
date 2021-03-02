@@ -29,13 +29,13 @@ export class LimitedSelectionCheckboxesController extends BaseController {
     if (tickedInputs > this.maxValue) {
       event.preventDefault();
       target.checked = false;
-      target.dispatchEvent(new CustomEvent("change", {bubbles: true, cancelable: true}));
-      target.dispatchEvent(new CustomEvent("limited-selection:too-many", {bubbles: true, cancelable: true, detail: {target}}));
+      this.dispatch(target, "change");
+      this.dispatch(target, "limited-selection:too-many");
       if (this.hasErrorTarget) {
         this.errorTarget.innerHTML = this.messageValue;
       }
     } else {
-      target.dispatchEvent(new CustomEvent("limited-selection:selection", {bubbles: true, cancelable: true, detail: {target}}));
+      this.dispatch(target, "limited-selection:selection");
       if (this.hasErrorTarget) {
         this.errorTarget.innerHTML = "";
       }

@@ -40,12 +40,7 @@ export class EmptyDomController extends BaseController {
         let classes = this.emptyClass.split(" ");
         classes.forEach(klass => this.element.classList.add(klass));
       }
-      this.element.dispatchEvent(
-        new CustomEvent("dom:empty", {
-          bubbles: true,
-          cancelable: true,
-        }),
-      );
+      this.dispatch(this.element as HTMLElement, "dom:empty");
     } else {
       if (this.hasNotEmptyClass) {
         let classes = this.notEmptyClass.split(" ");
@@ -55,15 +50,7 @@ export class EmptyDomController extends BaseController {
         let classes = this.emptyClass.split(" ");
         classes.forEach(klass => this.element.classList.remove(klass));
       }
-      this.element.dispatchEvent(
-        new CustomEvent("dom:not-empty", {
-          bubbles: true,
-          cancelable: true,
-          detail: {
-            count: children.length,
-          },
-        }),
-      );
+      this.dispatch(this.element as HTMLElement, "dom:not-empty", {detail: {target: this.element, count: children.length}});
     }
   }
 

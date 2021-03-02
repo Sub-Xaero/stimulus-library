@@ -26,14 +26,15 @@ export class TeleportController extends EphemeralController {
     if (event) {
       event.preventDefault();
     }
+    let element = this.element as HTMLElement;
     let destination = document.querySelector(this.targetValue);
 
     if (destination == null) {
-      this.element.dispatchEvent(new CustomEvent("teleport:error", {bubbles: true, cancelable: true}));
+      this.dispatch(element, "teleport:error");
       return;
     }
 
-    let copy = this.element.cloneNode(true) as HTMLElement;
+    let copy = element.cloneNode(true) as HTMLElement;
     this.cleanup(copy);
 
     switch (this.insertValue) {
@@ -59,7 +60,7 @@ export class TeleportController extends EphemeralController {
         throw new Error("`insert` value was not specified");
 
     }
-    this.element.remove();
+    element.remove();
   }
 
 }

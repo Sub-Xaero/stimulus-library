@@ -15,13 +15,7 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   private handler(e: Event) {
-    // this.element.submit()
-    // Moved to this to support remote forms and CSRF properly
-    (this.element as HTMLElement).dispatchEvent(
-      new CustomEvent("submit", {
-        bubbles: true,
-        cancelable: true,
-      }),
-    );
+    // Trigger synthetic "submit" event on form
+    this.dispatch((this.element as HTMLElement), "submit");
   }
 }
