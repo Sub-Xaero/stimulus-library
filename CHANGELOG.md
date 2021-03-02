@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.15...v0.2.0) (2021-03-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove lodash as a dependency
+
+### Bug Fixes
+
+* Fix bug in LimitedSelectionCheckboxesController where maxValue was being ignored ([fc639f6](https://github.com/Sub-Xaero/stimulus-library/commit/fc639f66709056a65625cac07e6a0ceb9913fb15))
+
+
+* Remove lodash as a dependency ([d3990ea](https://github.com/Sub-Xaero/stimulus-library/commit/d3990eaf27a419086f4ddaed4e1aacda03535fab))
+
 ### [0.1.15](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.14...v0.1.15) (2021-03-01)
 
 
