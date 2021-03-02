@@ -1,10 +1,14 @@
 import { BaseController } from "./base_controller";
 export declare class ConfirmNavigationController extends BaseController {
     static values: {
-        message: StringConstructor;
+        _message: StringConstructor;
     };
-    readonly messageValue: string;
+    readonly _messageValue: string;
+    readonly hasMessageValue: boolean;
+    get _message(): string;
+    initialize(): void;
     connect(): void;
-    handlePopstate(event: PopStateEvent): boolean;
+    handlePopstate(_event: PopStateEvent): boolean;
+    handleTurboNavigation(event: Event): void;
 }
 //# sourceMappingURL=confirm_navigation_controller.d.ts.map
