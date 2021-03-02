@@ -1,9 +1,7 @@
 import {BaseController} from "./base_controller";
-import {isElementCheckable} from "./utilities/elements";
+import {isElementCheckable, isHTMLSelectElement} from "./utilities/elements";
 
 export class DetectDirtyController extends BaseController {
-
-  initialValue: string | boolean | null = null;
 
   initialize() {
     this.checkDirty = this.checkDirty.bind(this);
@@ -11,11 +9,7 @@ export class DetectDirtyController extends BaseController {
 
   connect() {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    if (isElementCheckable(element)) {
-      this.initialValue = element.checked;
-    } else {
-      this.initialValue = element.value;
-    }
+    this.checkDirty();
     element.addEventListener("input", this.checkDirty);
     element.addEventListener("change", this.checkDirty);
   }
@@ -29,16 +23,27 @@ export class DetectDirtyController extends BaseController {
   restore() {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
     if (isElementCheckable(element)) {
-      element.checked = this.initialValue as boolean;
+      element.checked = element.defaultChecked;
+    } else if (isHTMLSelectElement(element)) {
+      Array.from(element.options).forEach(option => option.selected = option.defaultSelected);
     } else {
-      element.value = this.initialValue as string;
+      element.value = element.defaultValue;
     }
   }
 
-  private checkDirty(event?: Event) {
+  private checkDirty(_event?: Event) {
     let element = this.element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
-    if (this.initialValue !== element.value) {
+    let dirty: boolean;
+    if (isElementCheckable(element)) {
+      dirty = element.checked != element.defaultChecked;
+    } else if (isHTMLSelectElement(element)) {
+      dirty = Array.from(element.options).some(option => option.selected != option.defaultSelected);
+    } else {
+      dirty = element.value != element.defaultValue;
+    }
+
+    if (dirty) {
       element.setAttribute("data-dirty", "true");
     } else {
       element.removeAttribute("data-dirty");

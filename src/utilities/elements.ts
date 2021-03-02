@@ -10,6 +10,10 @@ export function isHTMLInputElement(element: Element): element is HTMLInputElemen
   return element.nodeName == "INPUT";
 }
 
+export function isHTMLSelectElement(element: Element): element is HTMLSelectElement {
+  return element.nodeName == "SELECT";
+}
+
 export function isHTMLImageElement(element: Element): element is HTMLImageElement {
   return element.nodeName == "IMG";
 }
