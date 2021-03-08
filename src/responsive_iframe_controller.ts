@@ -29,7 +29,7 @@ export class ResponsiveIframeWrapperController extends BaseController {
   }
 
   resize(height: number) {
-    (this.element as HTMLIFrameElement).style.height = `${height}px`;
+    (this.el as HTMLIFrameElement).style.height = `${height}px`;
   }
 
 }

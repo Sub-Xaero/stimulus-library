@@ -8,7 +8,7 @@ export class FallbackImageController extends BaseController {
   declare readonly hasPlaceholderValue: boolean;
 
   connect() {
-    let element = this.element as HTMLImageElement;
+    let element = this.el as HTMLImageElement;
 
     element.onerror = () => {
       if (this.hasPlaceholderValue) {

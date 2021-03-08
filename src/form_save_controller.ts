@@ -26,7 +26,7 @@ export class FormSaveController extends BaseController {
     if (this.hasIdValue) {
       return this.idValue;
     }
-    let elementID = (this.element as HTMLFormElement).id;
+    let elementID = (this.el as HTMLFormElement).id;
 
     if (elementID !== "") {
       return elementID;
@@ -41,7 +41,7 @@ export class FormSaveController extends BaseController {
   }
 
   get formElements() {
-    return (this.element as HTMLFormElement).elements;
+    return (this.el as HTMLFormElement).elements;
   }
 
   get formData(): FormSavePayload {
@@ -77,7 +77,7 @@ export class FormSaveController extends BaseController {
 
   connect() {
     requestAnimationFrame(() => {
-      let element = this.element;
+      let element = this.el;
       if (!isHTMLFormElement(element)) {
         throw new Error('Expected controller to be mounted on a form element.');
       }
@@ -86,26 +86,24 @@ export class FormSaveController extends BaseController {
         this.restore();
       }
       if (this.clearOnSubmit) {
-        this.element.addEventListener('submit', this._clear);
+        this.el.addEventListener('submit', this._clear);
       }
     });
   }
 
   disconnect() {
     if (this.clearOnSubmit) {
-      this.element.removeEventListener('submit', this._clear);
+      this.el.removeEventListener('submit', this._clear);
     }
   }
 
   _clear() {
     localStorage.removeItem(this.formIdentifier);
-    this.dispatch(this.element as HTMLElement, `form-save:cleared`);
+    this.dispatch(this.el, `form-save:cleared`);
   }
 
   clear(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
+    event?.preventDefault();
     this._clear();
   }
 
@@ -113,13 +111,11 @@ export class FormSaveController extends BaseController {
     event.preventDefault();
     let data = this.formData;
     localStorage.setItem(this.formIdentifier, JSON.stringify(data[this.formIdentifier]));
-    this.dispatch(this.element as HTMLElement, `form-save:save:success`);
+    this.dispatch(this.el, `form-save:save:success`);
   }
 
   restore(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
+    event?.preventDefault();
     if (localStorage.getItem(this.formIdentifier)) {
       const savedData = JSON.parse(localStorage.getItem(this.formIdentifier)!); // get and parse the saved data from localStorage
       for (const element of this.formElements) {
@@ -136,9 +132,9 @@ export class FormSaveController extends BaseController {
           }
         }
       }
-      this.dispatch(this.element as HTMLElement, `form-save:restore:success`);
+      this.dispatch(this.el, `form-save:restore:success`);
     } else {
-      this.dispatch(this.element as HTMLElement, `form-save:restore:empty`);
+      this.dispatch(this.el, `form-save:restore:empty`);
     }
   }
 

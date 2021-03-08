@@ -23,10 +23,8 @@ export class TeleportController extends EphemeralController {
   }
 
   execute(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
-    let element = this.element as HTMLElement;
+    event?.preventDefault();
+    let element = this.el;
     let destination = document.querySelector(this.targetValue);
 
     if (destination == null) {

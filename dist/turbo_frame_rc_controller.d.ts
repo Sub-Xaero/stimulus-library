@@ -10,9 +10,9 @@ export declare class TurboFrameRCController extends BaseController {
     readonly hasSrcValue: boolean;
     readonly loadingMessageValue: string;
     readonly hasLoadingMessageValue: boolean;
-    toggle(event?: Event | null): void;
-    setSrc(event?: Event | null): void;
-    clear(event?: Event | null): void;
+    toggle(event?: Event): void;
+    setSrc(event?: Event): void;
+    clear(event?: Event): void;
     private _setSrc;
     private _clear;
     private _getFrame;

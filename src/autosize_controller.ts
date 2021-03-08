@@ -8,7 +8,7 @@ export class AutosizeController extends BaseController {
   }
 
   connect() {
-    let target = this.element as HTMLTextAreaElement;
+    let target = this.el as HTMLTextAreaElement;
     target.style.resize = "none";
     target.style.boxSizing = "border-box";
     target.addEventListener("input", this._handler);
@@ -22,7 +22,7 @@ export class AutosizeController extends BaseController {
   }
 
   private _handler() {
-    this.autosize(this.element as HTMLTextAreaElement);
+    this.autosize(this.el as HTMLTextAreaElement);
   };
 
   private autosize(element: HTMLTextAreaElement) {

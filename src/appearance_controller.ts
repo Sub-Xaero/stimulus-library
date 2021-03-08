@@ -20,14 +20,14 @@ export class AppearanceController extends BaseController {
   }
 
   appear() {
-    this.dispatch(this.element as HTMLElement, "appearance:appear");
+    this.dispatch(this.el, "appearance:appear");
   }
 
   away() {
-    this.dispatch(this.element as HTMLElement, "appearance:away");
+    this.dispatch(this.el, "appearance:away");
   }
 
-  _handleVisibility(): any {
+  _handleVisibility() {
     this._documentIsActive() ? this.appear() : this.away();
   }
 

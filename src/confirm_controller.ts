@@ -20,7 +20,7 @@ export class ConfirmController extends BaseController {
 
   connect() {
     requestAnimationFrame(() => {
-      let element = this.element as HTMLElement;
+      let element = this.el;
       if (isHTMLFormElement(element)) {
         element.addEventListener("submit", this.confirm);
       } else if (isHTMLLinkElement(element)) {
@@ -34,7 +34,7 @@ export class ConfirmController extends BaseController {
   confirm(event: Event) {
     if (!(window.confirm(this.message))) {
       event.preventDefault();
-      this.dispatch(this.element as HTMLElement, "confirm:cancelled");
+      this.dispatch(this.el, "confirm:cancelled");
     }
   }
 

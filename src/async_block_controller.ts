@@ -27,7 +27,7 @@ export class AsyncBlockController extends BaseController {
 
   loadContent() {
     let self = this;
-    let el = (this.hasReplaceTarget ? this.replaceTarget : this.element) as HTMLElement;
+    let el = this.hasReplaceTarget ? this.replaceTarget : this.el;
     fetch(this.endpointValue)
     .then((response) => response.text())
     .then((html) => {

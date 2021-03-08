@@ -20,13 +20,13 @@ export class ScrollIntoFocusController extends EphemeralController {
     requestAnimationFrame(() => {
       // Attempt smooth scrolling, with polyfill
       scrollToElement(
-        this.element,
+        this.el,
         {
           behavior: this.hasBehaviorValue ? this.behaviorValue : "smooth",
           block: this.hasBlockValue ? this.blockValue : "center",
           inline: this.hasInlineValue ? this.inlineValue : "center",
         },
-      ).catch(() => this.element.scrollIntoView()); // Fallback to snap-scrolling
+      ).catch(() => this.el.scrollIntoView()); // Fallback to snap-scrolling
       this._cleanupSelf();
     });
   }

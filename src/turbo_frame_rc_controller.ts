@@ -16,10 +16,8 @@ export class TurboFrameRCController extends BaseController {
   declare readonly loadingMessageValue: string;
   declare readonly hasLoadingMessageValue: boolean;
 
-  toggle(event?: Event | null) {
-    if (event) {
-      event.preventDefault();
-    }
+  toggle(event?: Event) {
+    event?.preventDefault();
     let frame = this._getFrame();
     let frameSrc = frame.src;
     if (frameSrc == null || frameSrc !== this._getSrc()) {
@@ -29,17 +27,13 @@ export class TurboFrameRCController extends BaseController {
     }
   }
 
-  setSrc(event?: Event | null) {
-    if (event) {
-      event.preventDefault();
-    }
+  setSrc(event?: Event) {
+    event?.preventDefault();
     this._setSrc();
   }
 
-  clear(event?: Event | null) {
-    if (event) {
-      event.preventDefault();
-    }
+  clear(event?: Event) {
+    event?.preventDefault();
     this._clear();
   }
 
@@ -70,7 +64,7 @@ export class TurboFrameRCController extends BaseController {
   }
 
   private _getSrc(): string {
-    let element = this.element as HTMLElement;
+    let element = this.el;
     if (this.hasSrcValue) {
       return this.srcValue;
     } else if (isHTMLLinkElement(element)) {

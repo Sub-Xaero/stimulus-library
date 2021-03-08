@@ -4,7 +4,7 @@ import {BaseController} from "../base_controller";
 export class EphemeralController extends BaseController {
 
   _cleanupSelf() {
-    this.cleanup(this.element as HTMLElement);
+    this.cleanup(this.el);
   }
 
   cleanup(element: HTMLElement) {

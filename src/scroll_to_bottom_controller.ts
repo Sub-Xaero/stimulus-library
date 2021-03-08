@@ -11,15 +11,13 @@ export class ScrollToBottomController extends BaseController {
   declare hasModeValue: boolean;
 
   scroll(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
+    event?.preventDefault();
     let mode = this.hasModeValue ? this.modeValue : "document";
     let target: null | HTMLElement;
     if (mode == "document") {
       target = document.body;
     } else {
-      target = getScrollParent(this.element as HTMLElement);
+      target = getScrollParent(this.el);
     }
     if (target == null) {
       return;

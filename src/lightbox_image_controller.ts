@@ -24,15 +24,15 @@ export class LightboxImageController extends BaseController {
   _dialog: HTMLDialogElement | null = null;
 
   get src(): string {
-    return this.hasSrcValue ? this.srcValue : (this.element as HTMLImageElement).src;
+    return this.hasSrcValue ? this.srcValue : (this.el as HTMLImageElement).src;
   }
 
   get srcSet(): string {
-    return this.hasSrcSetValue ? this.srcSetValue : (this.element as HTMLImageElement).srcset;
+    return this.hasSrcSetValue ? this.srcSetValue : (this.el as HTMLImageElement).srcset;
   }
 
   get sizes(): string {
-    return this.hasSizesValue ? this.sizesValue : (this.element as HTMLImageElement).sizes;
+    return this.hasSizesValue ? this.sizesValue : (this.el as HTMLImageElement).sizes;
   }
 
   get modalClassName() {
@@ -52,7 +52,7 @@ export class LightboxImageController extends BaseController {
   }
 
   open() {
-    let element = this.element as HTMLImageElement;
+    let element = this.el as HTMLImageElement;
     if (this._dialog) {
       return;
     }
@@ -80,7 +80,7 @@ export class LightboxImageController extends BaseController {
       this._dialog.close();
       this._dialog.remove();
       this._dialog = null;
-      scrollToElement(this.element, {behavior: "smooth", block: "end"}).catch(() => this.element.scrollIntoView(false));
+      scrollToElement(this.el, {behavior: "smooth", block: "end"}).catch(() => this.el.scrollIntoView(false));
     }
   }
 

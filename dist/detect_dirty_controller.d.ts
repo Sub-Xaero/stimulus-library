@@ -1,5 +1,6 @@
 import { BaseController } from "./base_controller";
 export declare class DetectDirtyController extends BaseController {
+    loadValue: null | string | boolean;
     initialize(): void;
     connect(): void;
     disconnect(): void;

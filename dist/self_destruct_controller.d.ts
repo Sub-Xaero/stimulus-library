@@ -4,7 +4,7 @@ export declare class SelfDestructController extends BaseController {
         seconds: NumberConstructor;
     };
     readonly secondsValue: number;
-    timeout: null | ReturnType<typeof setTimeout>;
+    timeout: null | ReturnType<typeof window.setTimeout>;
     connect(): void;
     disconnect(): void;
 }

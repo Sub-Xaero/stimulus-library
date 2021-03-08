@@ -9,7 +9,7 @@ export class LazyBlockController extends AsyncBlockController {
   declare disappear: () => void;
 
   connect() {
-    let element = this.element;
+    let element = this.el;
 
     if ("IntersectionObserver" in window) {
       [this.observe, this.unobserve] = useIntersection(this, {element, threshold: 0.3});
@@ -20,7 +20,7 @@ export class LazyBlockController extends AsyncBlockController {
   }
 
   appear(entry: IntersectionObserverEntry) {
-    if (entry.target === this.element && entry.isIntersecting) {
+    if (entry.target === this.el && entry.isIntersecting) {
       this.loadContent();
       if (this.unobserve) {
         this.unobserve();

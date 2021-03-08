@@ -28,16 +28,16 @@ export class StickyController extends BaseController {
     this._magicElement = document.createElement("div");
     switch (this._mode) {
       case "top":
-        this.element.insertAdjacentElement("beforebegin", this._magicElement);
+        this.el.insertAdjacentElement("beforebegin", this._magicElement);
         break;
       case "bottom":
-        this.element.insertAdjacentElement("afterend", this._magicElement);
+        this.el.insertAdjacentElement("afterend", this._magicElement);
         break;
     }
   }
 
   connect() {
-    let element = this.element as HTMLElement;
+    let element = this.el;
     this.createMagicElement();
 
     const observer = new IntersectionObserver(entries => {

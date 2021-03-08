@@ -28,9 +28,7 @@ export class NestedFormController extends BaseController {
   }
 
   add(event?: Event) {
-    if (event) {
-      event.preventDefault();
-    }
+    event?.preventDefault();
 
     const content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, this.generateID());
     this.targetTarget.insertAdjacentHTML(this.insertMode, content);

@@ -20,17 +20,17 @@ export class IntersectionController extends BaseController {
   connect() {
     useIntersection(this, {
       threshold: this.threshold,
-      element: this.element,
+      element: this.el,
     });
   }
 
   appear(entry: IntersectionObserverEntry) {
     this.dispatch(
-      this.element as HTMLElement,
+      this.el,
       "intersection:appear",
       {
         detail: {
-          element: this.element,
+          element: this.el,
         },
       },
     );
@@ -38,11 +38,11 @@ export class IntersectionController extends BaseController {
 
   disappear(entry: IntersectionObserverEntry) {
     this.dispatch(
-      this.element as HTMLElement,
+      this.el,
       "intersection:disappear",
       {
         detail: {
-          element: this.element,
+          element: this.el,
         },
       },
     );

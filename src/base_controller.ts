@@ -27,6 +27,10 @@ export class BaseController extends Controller {
     });
   }
 
+  get el(): HTMLElement {
+    return this.element as HTMLElement;
+  }
+
   dispatch(element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
     let mergedOptions = Object.assign({}, {bubbles: true, cancelable: true, detail: {target: element}}, options);
     if (!!mergedOptions.detail.target) {
