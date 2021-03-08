@@ -11,6 +11,7 @@ import {
   DebugController,
   DetectDirtyController,
   DisableInputsController,
+  DisableWithController,
   DismissableController,
   EmptyDomController,
   EnableInputsController,
@@ -47,13 +48,14 @@ application.register("confirm-navigation", ConfirmNavigationController);
 application.register("debug", DebugController);
 application.register("detect-dirty", DetectDirtyController);
 application.register("disable-inputs", DisableInputsController);
+application.register("disable-with", DisableWithController);
 application.register("dismissable", DismissableController);
 application.register("empty-dom", EmptyDomController);
 application.register("enable-inputs", EnableInputsController);
 application.register("fallback-image", FallbackImageController);
-application.register("lightbox-image", LightboxImageController);
 application.register("form-save", FormSaveController);
 application.register("lazy-block", LazyBlockController);
+application.register("lightbox-image", LightboxImageController);
 application.register("limited-selection-checkboxes", LimitedSelectionCheckboxesController);
 application.register("password-confirm", PasswordConfirmController);
 application.register("password-peek", PasswordPeekController);
