@@ -1,4 +1,8 @@
 export function isHTMLLinkElement(element: Element): element is HTMLLinkElement {
+  return element.nodeName == "LINK";
+}
+
+export function isHTMLAnchorElement(element: Element): element is HTMLAnchorElement {
   return element.nodeName == "A";
 }
 

@@ -1,5 +1,5 @@
 import {BaseController} from './base_controller';
-import {isHTMLFormElement, isHTMLLinkElement} from "./utilities/elements";
+import {isHTMLFormElement, isHTMLAnchorElement} from "./utilities/elements";
 
 export class ConfirmController extends BaseController {
 
@@ -23,7 +23,7 @@ export class ConfirmController extends BaseController {
       let element = this.el;
       if (isHTMLFormElement(element)) {
         element.addEventListener("submit", this.confirm);
-      } else if (isHTMLLinkElement(element)) {
+      } else if (isHTMLAnchorElement(element)) {
         element.addEventListener("click", this.confirm);
       } else {
         throw new Error("Can't handle confirmation on attached element");

@@ -1,5 +1,5 @@
 import {BaseController} from "./base_controller";
-import {isHTMLLinkElement} from "./utilities/elements";
+import {isHTMLAnchorElement} from "./utilities/elements";
 import {isTurboFrame} from "./utilities/turbo";
 
 export class TurboFrameRCController extends BaseController {
@@ -67,7 +67,7 @@ export class TurboFrameRCController extends BaseController {
     let element = this.el;
     if (this.hasSrcValue) {
       return this.srcValue;
-    } else if (isHTMLLinkElement(element)) {
+    } else if (isHTMLAnchorElement(element)) {
       return element.href;
     } else {
       throw new Error("No link given to drive frame to");
