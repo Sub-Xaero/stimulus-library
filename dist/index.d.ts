@@ -10,6 +10,7 @@ export { ConfirmNavigationController } from "./confirm_navigation_controller";
 export { DebugController } from "./debug_controller";
 export { DetectDirtyController } from "./detect_dirty_controller";
 export { DisableInputsController } from "./disable_inputs_controller";
+export { DisableWithController } from "./disable_with_controller";
 export { DismissableController } from "./dismissable_controller";
 export { EmptyDomController } from "./empty_dom_controller";
 export { EnableInputsController } from "./enable_inputs_controller";

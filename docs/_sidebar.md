@@ -2,8 +2,8 @@
 * [Installation](/ "Stimulus Library")
 ---
 * Controllers
-** [AsyncBlockController](./controllers/async_block_controller.md "Stimulus Library - AsyncBlockController")
 ** [AppearanceController](./controllers/appearance_controller.md "Stimulus Library - AppearanceController")
+** [AsyncBlockController](./controllers/async_block_controller.md "Stimulus Library - AsyncBlockController")
 ** [AutoSubmitFormController](./controllers/auto_submit_form_controller.md "Stimulus Library - AutoSubmitFormController")
 ** [AutosizeController](./controllers/autosize_controller.md "Stimulus Library - AutosizeController")
 ** [CharCountController](./controllers/char_count_controller.md "Stimulus Library - CharCountController")
@@ -13,6 +13,7 @@
 ** [ConfirmNavigationController](./controllers/confirm_navigation_controller.md "Stimulus Library - ConfirmNavigationController")
 ** [DetectDirtyController](./controllers/detect_dirty_controller.md "Stimulus Library - DetectDirtyController")
 ** [DisableInputsController](./controllers/disable_inputs_controller.md "Stimulus Library - DisableInputsController")
+** [DisableWithController](./controllers/disable_with_controller.md "Stimulus Library - DisableWithController")
 ** [DismissableController](./controllers/dismissable_controller.md "Stimulus Library - DismissableController")
 ** [EmptyDomController](./controllers/empty_dom_controller.md "Stimulus Library - EmptyDomController")
 ** [EnableInputsController](./controllers/enable_inputs_controller.md "Stimulus Library - EnableInputsController")
