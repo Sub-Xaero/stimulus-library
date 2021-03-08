@@ -59,6 +59,7 @@ export class BaseController extends Controller {
 function logProperty(prop: string): boolean {
   switch (prop) {
     case "application":
+    case "el":
     case "element":
     case "constructor":
     case "initialize":
