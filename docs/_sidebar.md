@@ -36,4 +36,5 @@
 ** [TeleportController](./controllers/teleport_controller.md "Stimulus Library - TeleportController")
 ** [ToggleClassController](./controllers/toggle_class_controller.md "Stimulus Library - ToggleClassController")
 ** [TurboFrameRCController](./controllers/turbo_frame_rc_controller.md "Stimulus Library - TurboFrameRCController")
+** [TurboFrameRefreshController](./controllers/turbo_frame_refresh_controller.md "Stimulus Library - TurboFrameRefreshController")
 ** [WordCountController](./controllers/word_count_controller.md "Stimulus Library - WordCountController")
