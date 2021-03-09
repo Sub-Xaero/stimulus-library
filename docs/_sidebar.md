@@ -27,6 +27,7 @@
 ** [PasswordConfirmController](./controllers/password_confirm_controller.md "Stimulus Library - PasswordConfirmController")
 ** [PasswordPeekController](./controllers/password_peek_controller.md "Stimulus Library - PasswordPeekController")
 ** [ResponsiveIFrameController](controllers/responsive_iframe_controller.md "Stimulus Library - ResponsiveIFrame")
+** [RemoteFormController](controllers/remote_form_controller.md "Stimulus Library - RemoteFormController")
 ** [ScrollIntoFocusController](./controllers/scroll_into_focus_controller.md "Stimulus Library - ScrollIntoFocusController")
 ** [ScrollToBottomController](./controllers/scroll_to_bottom_controller.md "Stimulus Library - ScrollToBottomController")
 ** [ScrollToController](./controllers/scroll_to_controller.md "Stimulus Library - ScrollToController")

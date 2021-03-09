@@ -23,6 +23,7 @@ export { LimitedSelectionCheckboxesController } from "./limited_selection_checkb
 export { NestedFormController } from "./nested_form_controller";
 export { PasswordConfirmController } from "./password_confirm_controller";
 export { PasswordPeekController } from "./password_peek_controller";
+export { RemoteFormController } from "./remote_form_controller";
 export { ResponsiveIframeBodyController, ResponsiveIframeWrapperController } from "./responsive_iframe_controller";
 export { ScrollIntoFocusController } from "./scroll_into_focus_controller";
 export { ScrollToBottomController } from "./scroll_to_bottom_controller";
