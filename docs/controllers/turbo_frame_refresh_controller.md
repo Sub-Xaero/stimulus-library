@@ -54,7 +54,7 @@ Sets a timeout on the `window` using `setTimeout` if `pollValue` is true.
 
 ## ** HTML **
 
-[example](docs/examples/turbo_frame_refresh_controller.html ':include :type=code')
+[example](../examples/turbo_frame_refresh_controller.html ':include :type=code')
 
 ## ** HAML **
 
