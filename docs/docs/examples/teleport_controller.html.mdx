@@ -1,0 +1,21 @@
+```html
+<!-- Before -->
+<div>
+  <div data-controller="teleport" data-teleport-target-value="#blue-portal" data-teleport-insert-value="replaceInner">
+    Aperture Science Experiment #11616
+  </div>
+
+  <div id="blue-portal">
+    The cake is a lie.
+  </div>
+</div>
+
+<!-- After -->
+<div>
+  <div id="blue-portal">
+    <div>
+      Aperture Science Experiment #11616
+    </div>
+  </div>
+</div>
+```

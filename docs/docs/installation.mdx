@@ -1,0 +1,31 @@
+---
+id: installation
+title: Installation
+sidebar_label: Installation
+slug: /
+---
+
+To get started, you'll need to add the `stimulus-library` package to your project.
+
+To do so, either add `stimulus-library` to your package.json manually
+
+```json
+{
+  "dependencies": {
+    "stimulus-library": "latest"
+  }
+}
+```
+
+or run
+`npm install --save stimulus-library` or `yarn add stimulus-library`
+
+Then, to get started import and register the controllers you want to use
+
+```js
+import { Application } from "stimulus";
+import { AutoSubmitFormController } from "stimulus-library";
+
+const application = Application.start();
+application.register("auto-submit-form-controller", AutoSubmitFormController);
+```

@@ -1,0 +1,70 @@
+---
+id: TeleportController
+title: TeleportController
+---
+
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import TeleportControllerHtml from "../examples/teleport_controller.html.mdx";
+import TeleportControllerHaml from "../examples/teleport_controller.haml.mdx";
+
+## Purpose
+
+Transport an element from one place in the DOM, to another.
+
+[no-targets](../_partials/ephemeral.md ':include')
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `execute` | Perform the moving of the element |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `immediate` | Boolean | Set to `true` to immediately teleport the element on controller `connect` | `false` |
+| `target` | String | The CSS selector corresponding to the desired position in the DOM | - |
+| `insert` | String | How to add the element to the DOM. Possible values: | - |
+| | | Any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | - |  
+| | | `replaceOuter` - replace the destination element entirely | - |
+| | | `replaceInner` - replace the inner contents of the destination element | - |
+| | | `prepend` - add the element as the first child of the destination element (alias for `afterbegin`)  | - |
+| | | `append` - add the element as the last child of the destination element (alias for `beforeend`) | - |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `teleport:error` | When the controller cannot find the target destination from the given selector | The controller element | - |
+
+## Side Effects
+
+None
+
+
+
+# How to Use
+
+
+## HTML
+
+
+<TeleportControllerHtml/>
+
+## HAML
+
+
+<TeleportControllerHaml/>
+

@@ -1,0 +1,65 @@
+---
+id: ConfirmController
+title: ConfirmController
+---
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import ConfirmControllerHtml from "../examples/confirm_controller.html.mdx";
+import ConfirmControllerHaml from "../examples/confirm_controller.haml.mdx";
+
+## Purpose
+
+To allow links and forms to open a confirmation dialogue before proceeding with their default behaviour.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `message` | String | The message to show to the user (if supported by the browser) | The native browser `are you sure?` dialogue |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `confirm:cancelled` | Fired when the user cancels the action | The controller element | - |
+
+
+## Side Effects
+
+Adds event listeners to the controller root element. Either `submit` for forms, or `click`  for links.
+
+Shows a native confirmation dialogue using `window.confirm` to the user with the specified message if they trigger the event.
+
+
+
+# How to Use
+
+On links/forms that would cause destructive/dangerous actions:
+
+## HTML
+
+<ConfirmControllerHtml/>
+
+## HAML
+
+<ConfirmControllerHaml/>
+
+
+

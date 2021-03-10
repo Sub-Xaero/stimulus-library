@@ -1,0 +1,25 @@
+---
+title: Tree-shaking
+
+---
+
+If you use the ESM builds of the library, this library fully supports tree-shaking,
+only the controllers you directly import will be bundled with your application.
+
+When you have code that just imports a single controller:
+```js
+import { AutoSubmitFormController } from "stimulus-library";
+```
+
+As long as your bundler supports it, only that one controller will be bundled into your application code.
+You don't have to ship the entire Stimulus-Library just to get the benefit of a single controller.
+
+Further Reading:
+
+[Google Developers - What is Tree Shaking?](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking)
+
+[Rollup Tree Shaking](https://github.com/rollup/rollup#tree-shaking)
+
+[Webpack Tree Shaking](https://webpack.js.org/guides/tree-shaking/)
+
+

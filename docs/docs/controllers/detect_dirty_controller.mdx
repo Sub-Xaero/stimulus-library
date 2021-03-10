@@ -1,0 +1,77 @@
+---
+id: DetectDirtyController
+title: DetectDirtyController
+---
+
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import NoValues from "../_partials/no-values.md";
+import NoEvents from "../_partials/no-events.md";
+import DetectDirtyControllerHtml from "../examples/detect_dirty_controller.html.mdx";
+import DetectDirtyControllerHaml from "../examples/detect_dirty_controller.haml.mdx";
+import DetectDirtyControllerCss from "../examples/detect_dirty_controller_css.css.mdx";
+import DetectDirtyControllerJs from "../examples/detect_dirty_controller_js.js.mdx";
+
+## Purpose
+
+Track whether an `<input>`, `<textarea>` or `<select>` has changed their value from the value they loaded with.
+
+Adds `data-dirty` to the input being watched if it changes value, and removes it if it returns to its initial value.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `restore` | Return the input to its original value |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+
+<NoValues/>
+
+## Events
+
+
+<NoEvents/>
+
+## Side Effects
+
+Adds `input` and `change` event listeners to the attached input.
+
+
+
+# How to Use
+
+### Tracking dirty inputs
+
+## HTML
+
+<DetectDirtyControllerHtml/>
+
+## HAML
+
+<DetectDirtyControllerHaml/>
+
+
+### Build behaviours / style around dirty attributes
+
+#### CSS
+
+
+<DetectDirtyControllerCss/>
+
+#### JS
+
+
+<DetectDirtyControllerJs/>
