@@ -3,7 +3,7 @@ module.exports = {
   title: "Stimulus Library",
   tagline: "An extensive library of stimulus controllers for all use cases",
   url: "https://sub-xaero.github.io",
-  baseUrl: "/stimulus-library",
+  baseUrl: "/stimulus-library/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
