@@ -1,0 +1,21 @@
+```html
+<div id="calendar" class="grid grid-cols-7">
+  <!-- ...-->
+  <div
+    class="calendar-cell"
+    data-controller="toggle-class"
+    data-toggle-class-class-value="invisible"
+    data-toggle-class-mouse-enter-value="off"
+    data-toggle-class-mouse-leave-value="on"
+    data-toggle-class-initial-value="on"
+  >
+    <span class="cell-heading">4th</span>
+    <div class="cell-body">
+      <div class="text-center invisible" data-toggle-class-target="toggle">
+        <a class="btn btn-primary" href="/events/new">+ New event</a>
+      </div>
+    </div>
+  </div>
+  <!-- ...-->
+</div>
+```

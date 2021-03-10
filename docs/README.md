@@ -1,36 +1,33 @@
-# Stimulus-Library
+# Website
 
-![version](https://img.shields.io/npm/v/stimulus-library)
-![bundled size](https://img.shields.io/bundlephobia/min/stimulus-library?label=bundle%20size)
-![license](https://img.shields.io/npm/l/stimulus-library)
- 
+This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+
 ## Installation
 
-To get started, you'll need to add the `stimulus-library` package to your project.
-
-To do so, either add `stimulus-library` to your package.json manually
-
-```json
-{
-  "dependencies": {
-    "stimulus-library": "latest"
-  }
-}
+```console
+yarn install
 ```
 
-or run
-`npm install --save stimulus-library` or `yarn add stimulus-library`
+## Local Development
 
-Then, to get started import and register the controllers you want to use
-
-```js
-import { Application } from "stimulus";
-import { AutoSubmitFormController } from "stimulus-library";
-
-const application = Application.start();
-application.register("auto-submit-form-controller", AutoSubmitFormController);
+```console
+yarn start
 ```
 
-## Tree-shaking
-If you use the ESM builds of the library, this library fully supports tree-shaking, 
-only the controllers you directly import will be bundled with your application.  
+This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+
+## Build
+
+```console
+yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+## Deployment
+
+```console
+GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

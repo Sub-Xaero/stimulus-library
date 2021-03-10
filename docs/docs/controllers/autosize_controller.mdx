@@ -1,0 +1,63 @@
+---
+id: AutosizeController
+title: AutosizeController
+---
+
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import NoValues from "../_partials/no-values.md";
+import NoEvents from "../_partials/no-events.md";
+import AutosizeControllerHtml from "../examples/autosize_controller.html.mdx";
+import AutosizeControllerHaml from "../examples/autosize_controller.haml.mdx";
+
+## Purpose
+
+Auto-resize text-areas when the amount of content inside them changes. Attach it to a textarea that you want to autosize, and forget about it.
+
+**Note:**
+Only works for user-initiated changes, if changes are made in JavaScript and `input` events are not emitted then the resize may not trigger.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+
+<NoValues/>
+
+## Events
+
+
+<NoEvents/>
+
+## Side Effects
+
+- Adds event listeners to the attached element for `focus`, `input`.
+- Uses a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to observe the `window`.
+- Sets the `style.height` property on the element to the calculated height of the content.
+
+
+
+# How to Use
+## HTML
+
+<AutosizeControllerHtml/>
+
+## HAML
+
+<AutosizeControllerHaml/>
+

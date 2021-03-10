@@ -1,0 +1,12 @@
+```-# Form submit
+%form{action: ""}
+  %p Submit
+  %input{ data: { controller: "disable-with", disable_with_message_value: "Bear with us...", disable_with_timeout_value: "3000"}, type: "submit", value: "Submit Me"}
+
+-# Form click
+%p Button
+%button{ data: { controller: "disable-with", disable_with_message_value: "Bear with us...", disable_with_timeout_value: "3000"}, type: "submit"} Submit Me
+
+-# Link click
+%p Link
+%a{ data: { controller: "disable-with", disable_with_message_value: "Bear with us...", disable_with_timeout_value: "3000"}, href: ""} Submit Me```

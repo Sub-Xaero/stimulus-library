@@ -1,0 +1,11 @@
+```haml
+%label
+  %abbr.required{title: "required"} *
+  What is your quest?
+  We suggest at least 250 characters, but no more than 2000 characters.
+%div{"data-char-count-max-value" => "2000", "data-char-count-min-value" => "250", "data-controller" => "char-count"}
+  %textarea{"data-char-count-target" => "input", name: "quest"}
+  .text-right
+    %span{"data-char-count-target" => "output"}
+    %span{"data-char-count-target" => "output"} /2000
+```

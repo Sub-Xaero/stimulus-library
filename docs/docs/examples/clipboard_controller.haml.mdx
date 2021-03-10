@@ -1,0 +1,12 @@
+```haml
+%p PIN:
+.input-group{"data-clipboard-remove-unused-value" => "true", "data-controller" => "clipboard"}
+  %input.input.input-group-field{"data-clipboard-target" => "source", readonly: "readonly", type: "text", value: "1234"}/
+  %a.button.input-group-button.clipboard-button{"data-action" => "clipboard#copy", href: "#"}
+    %span{"data-clipboard-target" => "copy"}
+      %i.far.fa-clipboard
+      Copy
+    %span{"data-clipboard-target" => "fallback"}
+      %i.far.fa-hand-pointer
+      Select
+```

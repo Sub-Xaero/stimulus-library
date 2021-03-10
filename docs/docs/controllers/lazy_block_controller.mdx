@@ -1,0 +1,76 @@
+---
+id: LazyBlockController
+title: LazyBlockController
+---
+
+import NoActions from "../_partials/no-actions.md";
+import NoClasses from "../_partials/no-classes.md";
+import LazyBlockControllerHtml from "../examples/lazy_block_controller.html.mdx";
+import LazyBlockControllerHaml from "../examples/lazy_block_controller.haml.mdx";
+
+## Purpose
+
+AJAX load content, only when it comes into view, while showing a placeholder.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `replace` (Optional) | The element to replace when the fetch request succeed | The element the controller is mounted on |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `endpoint` | String | The URL to fetch content from | - |
+| `errorMessage` (Optional) | String | The error message to display when the remote content fails to load | `This content failed to load` |
+| `selector` (Optional) | String | The selector of the element(s) to extract from the returned response | Empty. The entire HTML response will be loaded |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+|`ajax:success` | When the content is fetch successfully | the controller root element | - |
+|`ajax:error` | When the block fails to get a response from the endpoint | the controller root element | - |
+|`ajax:complete` | When the request finishes, regardless of success or failure | the controller root element | - |
+
+## Side Effects
+
+None
+
+
+
+# How to Use
+
+## HTML
+
+
+
+<LazyBlockControllerHtml/>
+
+## HAML
+
+
+
+<LazyBlockControllerHaml/>
+
+
+If the client browser supports IntersectionObserver, the controller will send out a Fetch request when the user scrolls near the element.
+
+If the element is in the viewpoint on load, or browser does not support IntersectionObserver then the controller will lazy-load the content immediately.
+
+# See Also
+
+[Async Block Controller](./AsyncBlockController)

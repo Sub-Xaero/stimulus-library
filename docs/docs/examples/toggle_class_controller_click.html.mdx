@@ -1,0 +1,17 @@
+```html
+<div
+  data-controller="toggle-class"
+  data-toggle-class-class-value="hidden"
+  data-toggle-class-click-away-value="true"
+  data-toggle-class-initial-value="on"
+>
+  <button id="user-menu" class="navbar-button" data-action="click->toggle-class#toggle">
+    <i class="far fa-bell"></i>
+    <span class="hidden dropdown" data-toggle-class-target="toggle">
+      <a href="/profile" class="dropdown-link">Your Profile</a>
+      <a href="/settings" class="dropdown-link">Settings</a>
+      <a href="/sign-out" class="dropdown-link">Sign Out</a>
+    </span>
+  </button>
+</div>
+```

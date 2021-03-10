@@ -1,7 +1,0 @@
-%div{"data-action" => "dom:not-empty->toggle-class#on dom:empty->toggle-class#off", "data-controller" => "toggle-class", "data-toggle-class-class-value" => "hidden"}
-  %h2 Recently completed tasks
-  .hide{"data-toggle-class-target" => "toggle"}
-    %p You haven't completed any tasks yet.
-  = turbo_stream_from [current_user, "complete_tasks"]
-  = turbo_frame_tag "complete_tasks", data-controller='empty-dom' } do
-    = render @complete_tasks

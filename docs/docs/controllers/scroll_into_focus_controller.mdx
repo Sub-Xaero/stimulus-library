@@ -1,0 +1,65 @@
+---
+id: ScrollIntoFocusController
+title: ScrollIntoFocusController
+---
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import ScrollIntoFocusControllerHtml from "../examples/scroll_into_focus_controller.html.mdx";
+import ScrollIntoFocusControllerHaml from "../examples/scroll_into_focus_controller.haml.mdx";
+
+## Purpose
+
+For elements that demand the user's attention, scroll an element into the view as it appears.
+
+[no-targets](../_partials/ephemeral.md ':include')
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+[no-targets](../_partials/no-actions.md ':include')
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+See [scrollIntoView documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) for possible values.
+
+**Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default.
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `behaviour` | String | One of `auto`, `smooth` | `auto` |
+| `block` | String | One of `center`, `end`, `nearest`, `start` | `start` |
+| `inline` | String | One of `center`, `end`, `nearest`, `start` | `nearest` |
+
+## Events
+
+[no-classes](../_partials/no-events.md ':include')
+
+## Side Effects
+
+None
+
+
+
+# How to Use
+
+
+## HTML
+
+
+<ScrollIntoFocusControllerHtml/>
+
+## HAML
+
+
+<ScrollIntoFocusControllerHaml/>
+

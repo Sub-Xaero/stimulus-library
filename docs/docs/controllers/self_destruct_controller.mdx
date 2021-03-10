@@ -1,0 +1,60 @@
+---
+id: SelfDestructController
+title: SelfDestructController
+---
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import NoEvents from "../_partials/no-events.md";
+import SelfDestructControllerHtml from "../examples/self_destruct_controller.html.mdx";
+import SelfDestructControllerHaml from "../examples/self_destruct_controller.haml.mdx";
+
+## Purpose
+
+Remove elements a set amount of time after loading - primarily for flash notifications.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `secondsValue` | Number | The number of seconds before the element removes itself from the DOM | - |
+
+
+## Events
+
+
+<NoEvents/>
+
+## Side Effects
+
+The element the controller is installed on will be removed from the DOM after the specified time.
+
+
+
+# How to Use
+
+## HTML
+
+<SelfDestructControllerHtml/>
+
+## HAML
+
+<SelfDestructControllerHaml/>
+

@@ -1,0 +1,64 @@
+---
+id: IntersectionController
+title: IntersectionController
+---
+
+
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import IntersectionControllerHtml from "../examples/intersection_controller.html.mdx";
+import IntersectionControllerHaml from "../examples/intersection_controller.haml.mdx";
+
+## Purpose
+
+Utility controller to wire up other controller actions when an element comes into or leaves the viewport.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `threshold` | String | The single number or comma-separated list of thresholds to report intersection at. [See `IntersectionObserver` constructor options for more.](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)  | `0,1` |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- |--- | --- |
+|`intersection:appear` | When the observed element enters the viewport | the controller root element | `element`: the observed controller root element |
+|`intersection:disappear` | When the observed element leaves the viewport | the controller root element | `element`: the observed controller root element |
+
+## Side Effects
+
+Installs an IntersectionObserver to watch the controller element
+
+
+
+# How to Use
+
+
+## HTML
+
+
+<IntersectionControllerHtml/>
+
+## HAML
+
+
+<IntersectionControllerHaml/>
+
+
