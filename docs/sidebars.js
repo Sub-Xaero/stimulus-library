@@ -25,6 +25,7 @@ module.exports = {
           "controllers/DisableInputsController",
           "controllers/DisableWithController",
           "controllers/DismissableController",
+          "controllers/ElementSaveController",
           "controllers/EmptyDomController",
           "controllers/EnableInputsController",
           "controllers/FallbackImageController",
