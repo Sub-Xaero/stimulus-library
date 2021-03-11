@@ -64,6 +64,7 @@ function logProperty(prop: string): boolean {
     case "constructor":
     case "initialize":
     case "log":
+    case "dispatch":
     case "data":
     case "valueDescriptorMap":
     case "identifier":
