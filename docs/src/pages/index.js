@@ -32,7 +32,7 @@ const features = [
         Here at Stimulus Library, we hate installing 50 different node packages just to get 50 different Javascript *Sprinkles*. We provide you with a comprehensive set of lightweight controllers with the hope that when you find yourself needing a new behaviour, that we already have a controller that does it for you, without you having to install umpteen packages.
         <br/>
         <br/>
-        The library is full tree-shakable, so install Stimulus-Library guilt free - only the controllers that you use are bundled into your application. </>
+        The library is fully tree-shakable, so install Stimulus-Library guilt free - only the controllers that you use are bundled into your application. </>
     ),
   },
   {
