@@ -14,6 +14,7 @@ import {
   DisableWithController,
   DismissableController,
   EmptyDomController,
+  ElementSaveController,
   EnableInputsController,
   FallbackImageController,
   FormSaveController,
@@ -51,6 +52,7 @@ application.register("disable-inputs", DisableInputsController);
 application.register("disable-with", DisableWithController);
 application.register("dismissable", DismissableController);
 application.register("empty-dom", EmptyDomController);
+application.register("element-save", ElementSaveController);
 application.register("enable-inputs", EnableInputsController);
 application.register("fallback-image", FallbackImageController);
 application.register("form-save", FormSaveController);
