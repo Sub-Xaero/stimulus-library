@@ -27,8 +27,6 @@
   "unpkg": "dist/stimulus-library.umd.js",
   "types": "dist/stimulus-library.d.ts",
   "scripts": {
-    "examples:haml": "find ./docs/examples -regex \".*\\.\\(html\\|erb\\)\" -print | sed -E 'p;s/\\.(html|erb)$/.haml/' | xargs -n2 html2haml --ruby19-attributes",
-    "docs": "docsify serve docs",
     "clean": "rimraf dist ",
     "build": "rimraf dist && microbundle",
     "dev": "microbundle watch",
