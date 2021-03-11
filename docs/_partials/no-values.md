@@ -1,3 +1,0 @@
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `-` | - | - | - |
