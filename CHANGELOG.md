@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.0...v0.2.1) (2021-03-11)
+
+
+### Features
+
+* ConfirmNavigationController - Support for Hotwire/Turbo and Turbolinks navigation events ([f698920](https://github.com/Sub-Xaero/stimulus-library/commit/f698920ad5fe0683cc826f0c4eefbb0a2360f1b2))
+* DisableWithController - Controller to disable an element temporarily to prevent double clicks and submissions. Emulates UJS DisableWith for Hotwire applications. ([#12](https://github.com/Sub-Xaero/stimulus-library/issues/12)) ([1d675b0](https://github.com/Sub-Xaero/stimulus-library/commit/1d675b0bd3b8a3c2042c0e754394ae07d71f96d5))
+* ElementSaveController - save the state of a single element to localstorage. Closes [#4](https://github.com/Sub-Xaero/stimulus-library/issues/4) ([#14](https://github.com/Sub-Xaero/stimulus-library/issues/14)) ([5b39deb](https://github.com/Sub-Xaero/stimulus-library/commit/5b39deb6dacc4acf9f062247e29c4a48084eea98))
+* RemoteFormController - Controller for handling UJS remote form responses ([fdf0e5f](https://github.com/Sub-Xaero/stimulus-library/commit/fdf0e5f73801650897b6e170729117b4e8b2ef6c))
+* TurboFrameRefreshController - a controller to either manually or periodically refresh the contents of a turboframe's src ([#13](https://github.com/Sub-Xaero/stimulus-library/issues/13)) ([f4dfd98](https://github.com/Sub-Xaero/stimulus-library/commit/f4dfd9895f365c3b0d8cb26b8e148dea82d7919a))
+
+
+### Bug Fixes
+
+* Accidentally using type-guards for HTMLLinkElement instead of HTMLAnchorElement. ([d3f2be9](https://github.com/Sub-Xaero/stimulus-library/commit/d3f2be9f191471c9c6071257de731f0fd3510460))
+
 ## [0.2.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.1.15...v0.2.0) (2021-03-02)
 
 
