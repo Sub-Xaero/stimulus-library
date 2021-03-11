@@ -1,0 +1,68 @@
+---
+id: ElementSaveController
+title: ElementSaveController
+---
+
+import NoClasses from "../_partials/no-classes.md";
+import ElementSaveControllerHtml from "../examples/element_save_controller.html.mdx";
+import ElementSaveControllerHaml from "../examples/element_save_controller.haml.mdx";
+
+## Purpose
+
+Save the state of the attribute(s) of an element to LocalStorage, and restore it, at will.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `save` | Save the state of the element's specified attributes to LocalStorage |
+| `restore` | Restore the element to its previous state from LocalStorage |
+| `clear` | Clear any saved state regarding this element from LocalStorage |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `element` | The element to persist state from, if not the controller root element. Particularly useful if you need to  | The controller root element |
+
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `id` | `String` | The unique ID of this element on the page. This combined with the current URL will be used as a key to store the value in LocalStorage. This allows multiple elements on the same page to all save. | The ID of the controller root element, or throw an error an ID is not found and this is not specified |
+| `attributes` | `String` | A space separated set of DOM element attribute names, or attribute paths that [Lodash.get](https://lodash.com/docs/#get) accepts. I.e. `dataset.foo`, `className` | - |
+| `restoreOnLoad` | `Boolean` | Whether the controller should try to restore any previous state when the controller connects | true |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `element-save:cleared` | When the saved state is cleared, by the `clear` action | Either `elementTarget` or the controller root element | - |
+| `element-save:save:success` | When the element saves successfully | Either `elementTarget` or the controller root element | - |
+| `element-save:restore:success` | When the element restores values successfully | Either `elementTarget` or the controller root element | - |
+| `element-save:restore:empty` | When a restore is triggered, but there is nothing in LocalStorage to restore | Either `elementTarget` or the controller root element | - |
+
+
+## Side Effects
+
+None.
+
+# How to Use
+
+
+## HTML
+
+
+<ElementSaveControllerHtml/>
+
+## HAML
+
+
+<ElementSaveControllerHaml/>
+
+

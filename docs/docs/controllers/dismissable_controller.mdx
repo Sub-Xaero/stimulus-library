@@ -1,0 +1,65 @@
+---
+id: DismissableController
+title: DismissableController
+---
+
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import NoValues from "../_partials/no-values.md";
+import NoEvents from "../_partials/no-events.md";
+import DismissableControllerHtml from "../examples/dismissable_controller.html.mdx";
+import DismissableControllerHaml from "../examples/dismissable_controller.haml.mdx";
+
+## Purpose
+
+Add the ability to dismiss/remove an element from the DOM. i.e. Notifications, Flash messages. alerts
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| dismiss | Removes the element from the DOM |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+
+<NoValues/>
+
+## Events
+
+
+<NoEvents/>
+
+## Side Effects
+
+None
+
+
+
+# How to Use
+
+A good example is a flash message, rather than it staying on the page forever, allowing the user to dismiss it with a little 'X' in the corner.
+
+## HTML
+
+<DismissableControllerHtml/>
+
+## HAML
+
+<DismissableControllerHaml/>
+
+
+# Browser support / Necessary polyfills
+
+Please reference https://caniuse.com/childnode-remove, you may need to polyfill `ChildNode.remove()` using https://www.npmjs.com/package/element-remove-polyfill
+if you need to support IE11 or below. 

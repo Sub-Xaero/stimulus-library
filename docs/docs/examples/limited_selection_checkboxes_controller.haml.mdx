@@ -1,0 +1,23 @@
+```haml
+%div{"data-controller" => "limited-selection-checkboxes", "data-limited-selection-checkboxes-max-value" => "2", "data-limited-selection-message-value" => "Please select a maximum of 3 flavours"}
+  %p Pick 3 of your favourite ice cream flavours
+  %label
+    Chocolate
+    %input{type: "checkbox"}/
+  %label
+    Vanilla
+    %input{type: "checkbox"}/
+  %label
+    Strawberry
+    %input{type: "checkbox"}/
+  %label
+    Coffee
+    %input{type: "checkbox"}/
+  %label
+    Mint
+    %input{type: "checkbox"}/
+  %label
+    Rum and Raisin
+    %input{type: "checkbox"}/
+  .input.error{"data-target" => "limited-selection-checkboxes.error"}
+```
