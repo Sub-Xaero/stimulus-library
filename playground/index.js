@@ -1,8 +1,8 @@
 import { Application } from "stimulus";
 import {
   AsyncBlockController,
-  AutoSubmitFormController,
   AutosizeController,
+  AutoSubmitFormController,
   CharCountController,
   CheckboxSelectAllController,
   ClipboardController,
@@ -13,10 +13,11 @@ import {
   DisableInputsController,
   DisableWithController,
   DismissableController,
-  EmptyDomController,
   ElementSaveController,
+  EmptyDomController,
   EnableInputsController,
   FallbackImageController,
+  FormRcController,
   FormSaveController,
   LazyBlockController,
   LightboxImageController,
@@ -55,6 +56,7 @@ application.register("empty-dom", EmptyDomController);
 application.register("element-save", ElementSaveController);
 application.register("enable-inputs", EnableInputsController);
 application.register("fallback-image", FallbackImageController);
+application.register("form-rc", FormRcController);
 application.register("form-save", FormSaveController);
 application.register("lazy-block", LazyBlockController);
 application.register("lightbox-image", LightboxImageController);

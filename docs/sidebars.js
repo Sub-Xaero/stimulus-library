@@ -30,6 +30,7 @@ module.exports = {
           "controllers/EnableInputsController",
           "controllers/FallbackImageController",
           "controllers/FormSaveController",
+          "controllers/FormRcController",
           "controllers/LazyBlockController",
           "controllers/LightboxImageController",
           "controllers/LimitedSelectionCheckboxesController",

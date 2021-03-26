@@ -1,0 +1,40 @@
+```html
+<div data-controller="form-rc">
+
+  <form id="test-form" data-form-rc-target="form">
+    <div>
+      <label>
+        Name
+        <input type="text" name="name"/>
+      </label>
+    </div>
+    <div>
+      <label>
+        Age
+        <input type="number" name="age"/>
+      </label>
+    </div>
+    <div>
+      <label>
+        Quest
+        <textarea name="quest"/>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Do you like cake?
+        <input type="checkbox" name="gorilla"/>
+      </label>
+    </div>
+  </form>
+
+  <p>Outside the form</p>
+  <div>
+    <a href="" data-action="form-rc#reset">Reset</a>
+  </div>
+  <div>
+    <a href="" data-action="form-rc#submit">Submit</a>
+  </div>
+</div>
+```

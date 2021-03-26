@@ -16,6 +16,7 @@ export {ElementSaveController} from "./element_save_controller";
 export {EmptyDomController} from "./empty_dom_controller";
 export {EnableInputsController} from "./enable_inputs_controller";
 export {FallbackImageController} from "./fallback_image_controller";
+export {FormRcController} from "./form_rc_controller";
 export {FormSaveController} from "./form_save_controller";
 export {IntersectionController} from "./intersection_controller";
 export {LazyBlockController} from "./lazy_block_controller";

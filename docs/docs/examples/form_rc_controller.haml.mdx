@@ -1,0 +1,26 @@
+```haml
+%div{ data: { controller: "form-rc"}}
+  %form#test-form{ data: {form_rc_target: "form"}}
+    %div
+      %label
+        Name
+        %input{name: "name", type: "text"}
+    %div
+      %label
+        Age
+        %input{name: "age", type: "number"}
+    %div
+      %label
+        Quest
+        %textarea{name: "quest"}
+    %div
+      %label
+        Do you like cake?
+        %input{name: "gorilla", type: "checkbox"}
+  %p Outside the form
+  %div
+    %a{ href: "", data: { action: "form-rc#reset"} } Reset
+  %div
+    %a{ href: "", data: { action: "form-rc#submit"} } Submit
+
+```

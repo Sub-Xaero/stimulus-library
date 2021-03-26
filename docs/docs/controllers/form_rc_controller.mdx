@@ -1,0 +1,64 @@
+---
+id: FormRcController
+title: FormRcController
+---
+
+import NoClasses from "../_partials/no-classes.md";
+import NoValues from "../_partials/no-values.md";
+import FormRcControllerHtml from "../examples/form_rc_controller.html.mdx";
+import FormRcControllerHaml from "../examples/form_rc_controller.haml.mdx";
+
+## Purpose
+
+Submit and/or reset a form, using links/buttons that are outside the child DOM of the form.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `reset` | Reset the form, using `form.reset()` |
+| `submit` | Submit the form, using `form.submit()` |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `form` | The form to target the controller's actions on | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+<NoValues/>
+
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `submit` | When the form is submitted, via the `submit` action | The `form` target. | - |
+| `reset` | When the form is reset, via the `reset` action | The `form` target. | - |
+
+
+## Side Effects
+
+None
+
+
+# How to Use
+
+
+## HTML
+
+
+<FormRcControllerHtml/>
+
+## HAML
+
+
+<FormRcControllerHaml/>
+
+
