@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.1...v0.2.2) (2021-03-26)
+
+
+### Features
+
+* Form RC Controller. Able to submit and reset a form from outside its child subtree. Closes [#7](https://github.com/Sub-Xaero/stimulus-library/issues/7) ([0fa1df0](https://github.com/Sub-Xaero/stimulus-library/commit/0fa1df0504114882a0e374611eac24e214302c51))
+
 ### [0.2.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.0...v0.2.1) (2021-03-11)
 
 
