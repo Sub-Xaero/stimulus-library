@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.1...v0.2.3) (2021-03-30)
+
+
+### Features
+
+* DetectDirtyFormController - A form controller that detects the dirty state of a whole form and any of its children. ([e173932](https://github.com/Sub-Xaero/stimulus-library/commit/e17393239790945c55fa597dfb19884debf0418a))
+* Form RC Controller. Able to submit and reset a form from outside its child subtree. Closes [#7](https://github.com/Sub-Xaero/stimulus-library/issues/7) ([0fa1df0](https://github.com/Sub-Xaero/stimulus-library/commit/0fa1df0504114882a0e374611eac24e214302c51))
+
 ### [0.2.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.1...v0.2.2) (2021-03-26)
 
 
