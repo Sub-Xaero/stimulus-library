@@ -22,6 +22,7 @@ module.exports = {
           "controllers/ConfirmController",
           "controllers/ConfirmNavigationController",
           "controllers/DetectDirtyController",
+          "controllers/DetectDirtyFormController",
           "controllers/DisableInputsController",
           "controllers/DisableWithController",
           "controllers/DismissableController",

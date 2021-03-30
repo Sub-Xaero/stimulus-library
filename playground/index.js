@@ -10,6 +10,7 @@ import {
   ConfirmNavigationController,
   DebugController,
   DetectDirtyController,
+  DetectDirtyFormController,
   DisableInputsController,
   DisableWithController,
   DismissableController,
@@ -49,6 +50,7 @@ application.register("confirm", ConfirmController);
 application.register("confirm-navigation", ConfirmNavigationController);
 application.register("debug", DebugController);
 application.register("detect-dirty", DetectDirtyController);
+application.register("detect-dirty-form", DetectDirtyFormController);
 application.register("disable-inputs", DisableInputsController);
 application.register("disable-with", DisableWithController);
 application.register("dismissable", DismissableController);
