@@ -3,73 +3,112 @@ import {isElementCheckable, isHTMLSelectElement} from "./utilities/elements";
 
 export class DetectDirtyController extends BaseController {
 
-  loadValue: null | string | boolean = null;
+  get _cacheAttrName(): string {
+    return 'detect-dirty-load-value';
+  }
 
   initialize() {
-    this.checkDirty = this.checkDirty.bind(this);
+    this._checkDirty = this._checkDirty.bind(this);
   }
 
   connect() {
     let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    if (isElementCheckable(element)) {
-      this.loadValue = element.checked;
-    } else {
-      this.loadValue = element.value;
-    }
-    this.checkDirty();
-    element.addEventListener("input", this.checkDirty);
-    element.addEventListener("change", this.checkDirty);
+
+    this._cacheLoadValues();
+    this._checkDirty();
+    element.addEventListener("input", this._checkDirty);
+    element.addEventListener("change", this._checkDirty);
   }
 
   disconnect() {
     let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    element.removeEventListener("input", this.checkDirty);
-    element.removeEventListener("change", this.checkDirty);
+    element.removeEventListener("input", this._checkDirty);
+    element.removeEventListener("change", this._checkDirty);
   }
 
-  restore() {
+  restore(event?: Event) {
+    event?.preventDefault();
+    this._restoreElementFromLoadValue();
+  }
+
+  private _getElementValue(): boolean | string {
     let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    return isElementCheckable(element) ? element.checked : element.value;
+  }
+
+  private _getElementLoadValue(): boolean | string {
+    let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    let value = element.getAttribute(this._cacheAttrName);
     if (isElementCheckable(element)) {
-      element.checked = element.defaultChecked;
-    } else if (isHTMLSelectElement(element)) {
+      return value == null ? element.defaultChecked : value == "true";
+    } else if (value !== null) {
+      return value;
+    }
+
+    if (isHTMLSelectElement(element)) {
       let options = Array.from(element.options);
-      if (options.every(option => !option.defaultSelected)) {
+      options.forEach((option) => {
+        if (option.defaultSelected) {
+          element.value = option.value;
+          return option.value;
+        }
+      });
+    }
+
+    return value!;
+  }
+
+  private _elementHasCachedLoadValue(): boolean {
+    let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    return element.hasAttribute(this._cacheAttrName);
+  }
+
+  private _checkDirty() {
+    let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    if (this._isElementDirty()) {
+      element.setAttribute('data-dirty', "true");
+    } else {
+      element.removeAttribute('data-dirty');
+    }
+  }
+
+  private _isElementDirty(): boolean {
+    return this._getElementValue() !== this._getElementLoadValue();
+  }
+
+  private _restoreElementFromLoadValue() {
+    let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    let cacheValue = element.getAttribute(this._cacheAttrName);
+
+    if (isElementCheckable(element)) {
+      element.setAttribute(this._cacheAttrName, element.checked.toString());
+      element.checked = cacheValue == null ? element.defaultChecked : cacheValue == "true";
+    } else if (isHTMLSelectElement(element)) {
+      if (cacheValue == null) {
+        let options = Array.from(element.options);
         options.forEach((option) => {
-          option.selected = option.value == this.loadValue;
+          if (option.defaultSelected) {
+            element.value = option.value;
+            return;
+          }
         });
       } else {
-        options.forEach((option) => option.selected = option.defaultSelected);
+        element.value = cacheValue;
       }
-      Array.from(element.options).forEach(option => option.selected = option.defaultSelected);
+
     } else {
-      element.value = element.defaultValue;
+      element.value = cacheValue == null ? element.defaultValue : cacheValue;
     }
   }
 
-  private checkDirty(_event?: Event) {
+  private _cacheLoadValues(): void {
     let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-
-    let dirty: boolean;
-    if (isElementCheckable(element)) {
-      dirty = element.checked != element.defaultChecked;
-    } else if (isHTMLSelectElement(element)) {
-      let options = Array.from(element.options);
-      if (options.every(option => !option.defaultSelected)) {
-        dirty = element.value != this.loadValue;
-      } else {
-        dirty = options.some((option) => option.selected != option.defaultSelected);
-      }
+    if (!this._elementHasCachedLoadValue() && isElementCheckable(element)) {
+      element.setAttribute(this._cacheAttrName, element.checked.toString());
     } else {
-      dirty = element.value != element.defaultValue;
-    }
-
-    if (dirty) {
-      element.setAttribute("data-dirty", "true");
-    } else {
-      element.removeAttribute("data-dirty");
+      element.setAttribute(this._cacheAttrName, element.value.toString());
     }
   }
-
 }
 
 export function isDirty(element: HTMLElement) {
