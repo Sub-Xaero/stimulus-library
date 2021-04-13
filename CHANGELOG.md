@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.3...v0.2.4) (2021-04-13)
+
+
+### Bug Fixes
+
+* package.json pointing to incorrect Typescript output. Should be index.d.ts ([68e22d8](https://github.com/Sub-Xaero/stimulus-library/commit/68e22d80c5928648c947eb3f585bb6212c2a5b97))
+
 ### [0.2.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.1...v0.2.3) (2021-03-30)
 
 
