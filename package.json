@@ -25,7 +25,7 @@
   "exports": "dist/stimulus-library.modern.js",
   "module": "dist/stimulus-library.module.js",
   "unpkg": "dist/stimulus-library.umd.js",
-  "types": "dist/stimulus-library.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist ",
     "build": "rimraf dist && microbundle",
