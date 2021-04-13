@@ -5,7 +5,6 @@ title: FallbackImageController
 import NoActions from "../_partials/no-actions.md";
 import NoTargets from "../_partials/no-targets.md";
 import NoClasses from "../_partials/no-classes.md";
-import NoValues from "../_partials/no-values.md";
 import NoEvents from "../_partials/no-events.md";
 import FallbackImageControllerHtml from "../examples/fallback_image_controller.html.mdx";
 import FallbackImageControllerHaml from "../examples/fallback_image_controller.haml.mdx";
@@ -34,8 +33,9 @@ If an image fails to load from the source, provide a fallback image, or hide it 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-
-<NoValues/>
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `placeholder` (Optional) | String | The URL of a fallback image to be displayed if the `<img>`'s `src` cannot be loaded. | The `<img>`'s `src` |
 
 ## Events
 
