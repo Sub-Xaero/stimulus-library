@@ -1,8 +1,9 @@
-```.cell.medium-6{"data-controller" => "disable-inputs"}
+```haml
+%div{ data: {controller: "disable-inputs"}}
   %label
     What time does the event end?
-    %input{"data-disable-inputs-target" => "disable", name: "end_time", type: "date"}/
+    %input{name: "end_time", type: "date", data: {disable_inputs_target: "disable"}}
   %label
     This event does not have an end time
-    %input{"data-disable-inputs-target" => "disabler", type: "checkbox"}/
+    %input{type: "checkbox", data: {disable_inputs_target: "disabler", action: "change->disable-inputs#toggle" }}
 ```

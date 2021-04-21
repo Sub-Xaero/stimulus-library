@@ -1,11 +1,11 @@
 ```html
-<div data-controller="disable-inputs">
+<div data-controller="enable-inputs">
   <label>
     I agree to the terms and conditions of use
-    <input type="checkbox" name="agree_to_terms" data-disable-inputs-target="disabler"/>
+    <input type="checkbox" name="agree_to_terms" data-enable-inputs-target="enabler" data-action="change->enable-inputs#toggle"/>
   </label>
   <label>
-    Some Other Input>
+    Some Other Input
     <input type="text" name="some_other_input" data-enable-inputs-target="enable"/>
   </label>
   <label>
