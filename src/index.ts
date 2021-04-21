@@ -34,6 +34,7 @@ export {ScrollToController} from "./scroll_to_controller";
 export {ScrollToTopController} from "./scroll_to_top_controller";
 export {SelfDestructController} from "./self_destruct_controller";
 export {StickyController} from "./sticky_controller";
+export {TableTruncateController} from "./table_truncate_controller";
 export {TeleportController} from "./teleport_controller";
 export {ToggleClassController} from "./toggle_class_controller";
 export {TurboFrameRCController} from "./turbo_frame_rc_controller";

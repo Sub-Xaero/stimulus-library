@@ -31,6 +31,7 @@ import {
   ScrollToTopController,
   SelfDestructController,
   StickyController,
+  TableTruncateController,
   TeleportController,
   ToggleClassController,
   WordCountController,
@@ -71,6 +72,8 @@ application.register("scroll-to-bottom", ScrollToBottomController);
 application.register("scroll-to-top", ScrollToTopController);
 application.register("self-destruct", SelfDestructController);
 application.register("sticky", StickyController);
+application.register("table-truncate", TableTruncateController);
+application.register("table-sort", TableSortController);
 application.register("teleport", TeleportController);
 application.register("toggle-class", ToggleClassController);
 application.register("word-count", WordCountController);
