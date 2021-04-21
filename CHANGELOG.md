@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.4...v0.2.5) (2021-04-21)
+
+
+### Features
+
+* TableSortController - Allow sorting of tables by clicking on column headers ([2ba2560](https://github.com/Sub-Xaero/stimulus-library/commit/2ba25608f30412b1411423a172986d378bb55b04))
+* TableTruncateController - Allow the collapsing of long tables, down to a specified number of rows, and a button to expand the table to full-height. ([c121cd7](https://github.com/Sub-Xaero/stimulus-library/commit/c121cd7395f4bd67ee6cf398147e2c9d54222ce9))
+
 ### [0.2.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.3...v0.2.4) (2021-04-13)
 
 
