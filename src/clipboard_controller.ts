@@ -2,7 +2,7 @@ import {BaseController} from "./base_controller";
 
 export class ClipboardController extends BaseController {
 
-  static targets = ["button", "copy", "fallback"];
+  static targets = ["source", "button", "copy", "fallback"];
   static values = {removeUnused: Boolean};
 
   declare readonly sourceTarget: HTMLElement;
