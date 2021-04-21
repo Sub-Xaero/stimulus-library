@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "agadoo": "^2.0.0",
-    "docsify": "^4.11.6",
     "microbundle": "^0.13.0",
     "rimraf": "^3.0.2",
     "standard-version": "^9.1.0",
