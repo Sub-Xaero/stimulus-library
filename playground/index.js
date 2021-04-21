@@ -31,6 +31,7 @@ import {
   ScrollToTopController,
   SelfDestructController,
   StickyController,
+  TableSortController,
   TableTruncateController,
   TeleportController,
   ToggleClassController,

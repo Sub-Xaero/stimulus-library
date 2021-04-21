@@ -1,0 +1,70 @@
+---
+id: TableSortController
+title: TableSortController
+---
+
+
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import TableSortControllerHtml from "../examples/table_sort_controller.html.mdx";
+import TableSortControllerHaml from "../examples/table_sort_controller.haml.mdx";
+
+## Purpose
+
+Allow sorting of tables by clicking on column headers.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `startSort` (Optional) | Number | The index (zero indexed) of the column to sort on load. | No sort |
+
+## Events
+
+None
+
+## Side Effects
+
+Installs `click` event listeners on all column headers.
+
+
+# How to Use
+
+This is a fire-and-forget controller, there are no actions, targets or events to worry about. Just install it on your table and forget about it.
+
+The controller expects a well-formed table, including a `<thead>` with one row of header cells, and `<tbody>` with all of your table data.
+
+Once the controller is installed, users can sort table data by clicking on `<th>` cells in the table's header.
+
+If `startSortValue` is set, the table will be sorted on load, otherwise the table will stay as it loaded until a user clicks on a column heading.
+
+You can also set `data-sort-bottom` and `data-sort-top` attributes on `<tr>`s to pin a row to the top or bottom of the table.
+
+# Notes & Limitations
+- This controller cannot sort tables with inconsistent colspans. If your table has `<th>` and `<td>` with the same colspans, everything should work as expected, everything else is undefined.
+- This controller also cannot sort tables with rowspans.
+- When the table is sorted, rows are removed from the DOM and re-inserted into their new position - any custom properties or installed event listeners on the `<tr>` and `<td>` elements may be lost.
+
+## HTML
+
+<TableSortControllerHtml/>
+
+## HAML
+
+
+<TableSortControllerHaml/>
+

@@ -45,6 +45,7 @@ module.exports = {
           "controllers/ScrollToTopController",
           "controllers/SelfDestructController",
           "controllers/StickyController",
+          "controllers/TableSortController",
           "controllers/TableTruncateController",
           "controllers/TeleportController",
           "controllers/ToggleClassController",

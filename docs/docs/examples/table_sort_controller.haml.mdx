@@ -1,0 +1,31 @@
+```haml
+%table.table{ data: { controller: "table-sort" }}
+  %thead
+    %tr
+      %th Name
+      %th Age
+      %th Email Address
+
+  %tbody
+    %tr{ data: { sort_top: "true"}}
+      %td{ colspan: "3"} This row is always at the top
+
+    %tr
+      %td Sally
+      %td 21
+      %td sally@example.com
+
+    %tr
+      %td Trevor
+      %td 45
+      %td trevor@example.com
+
+    %tr
+      %td Aiyla
+      %td 32
+      %td aiyla@example.com
+
+    %tr{ data: { sort_bottom: "true"}}
+      %td{ colspan: "3"} This row is always at the bottom
+
+```
