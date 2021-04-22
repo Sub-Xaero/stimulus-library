@@ -1,1 +1,0 @@
-{"version":3,"file":"scroll_to_top_controller.d.ts","sourceRoot":"","sources":["../src/scroll_to_top_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,mBAAmB,CAAC;AAGjD,qBAAa,qBAAsB,SAAQ,cAAc;IAEvD,MAAM,CAAC,MAAM;;MAEX;IAEM,SAAS,EAAE,SAAS,GAAG,UAAU,CAAC;IAClC,YAAY,EAAE,OAAO,CAAC;IAE9B,MAAM,CAAC,KAAK,CAAC,EAAE,KAAK;CAerB"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"scroll_to_bottom_controller.d.ts","sourceRoot":"","sources":["../../src/controllers/scroll_to_bottom_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,8BAA8B,CAAC;AAG5D,qBAAa,wBAAyB,SAAQ,cAAc;IAE1D,MAAM,CAAC,MAAM;;MAEX;IAEM,SAAS,EAAE,SAAS,GAAG,UAAU,CAAC;IAClC,YAAY,EAAE,OAAO,CAAC;IAE9B,MAAM,CAAC,KAAK,CAAC,EAAE,KAAK;CAerB"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"self_destruct_controller.d.ts","sourceRoot":"","sources":["../../src/controllers/self_destruct_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,8BAA8B,CAAC;AAE5D,qBAAa,sBAAuB,SAAQ,cAAc;IAExD,MAAM,CAAC,MAAM;;MAAqB;IAElC,SAAiB,YAAY,EAAE,MAAM,CAAC;IACtC,OAAO,EAAE,IAAI,GAAG,UAAU,CAAC,OAAO,MAAM,CAAC,UAAU,CAAC,CAAQ;IAE5D,OAAO;IAOP,UAAU;CAMX"}
