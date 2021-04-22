@@ -1,9 +1,0 @@
-```haml
-%div{ data: {controller: "disable-inputs"}}
-  %label
-    What time does the event end?
-    %input{name: "end_time", type: "date", data: {disable_inputs_target: "disable"}}
-  %label
-    This event does not have an end time
-    %input{type: "checkbox", data: {disable_inputs_target: "disabler", action: "change->disable-inputs#toggle" }}
-```

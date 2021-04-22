@@ -4,11 +4,10 @@ title: TableSortController
 ---
 
 
+
 import NoActions from "../_partials/no-actions.md";
 import NoTargets from "../_partials/no-targets.md";
 import NoClasses from "../_partials/no-classes.md";
-import TableSortControllerHtml from "../examples/table_sort_controller.html.mdx";
-import TableSortControllerHaml from "../examples/table_sort_controller.haml.mdx";
 
 ## Purpose
 
@@ -54,17 +53,14 @@ If `startSortValue` is set, the table will be sorted on load, otherwise the tabl
 
 You can also set `data-sort-bottom` and `data-sort-top` attributes on `<tr>`s to pin a row to the top or bottom of the table.
 
+<iframe
+  src="https://codesandbox.io/embed/tablesortcontroller-f7ege?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
 # Notes & Limitations
 - This controller cannot sort tables with inconsistent colspans. If your table has `<th>` and `<td>` with the same colspans, everything should work as expected, everything else is undefined.
 - This controller also cannot sort tables with rowspans.
 - When the table is sorted, rows are removed from the DOM and re-inserted into their new position - any custom properties or installed event listeners on the `<tr>` and `<td>` elements may be lost.
-
-## HTML
-
-<TableSortControllerHtml/>
-
-## HAML
-
-
-<TableSortControllerHaml/>
 

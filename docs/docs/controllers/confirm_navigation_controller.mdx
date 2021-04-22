@@ -2,12 +2,11 @@
 id: ConfirmNavigationController
 title: ConfirmNavigationController
 ---
+
 import NoActions from "../_partials/no-actions.md";
 import NoTargets from "../_partials/no-targets.md";
 import NoClasses from "../_partials/no-classes.md";
 import NoEvents from "../_partials/no-events.md";
-import ConfirmNavigationControllerHtml from "../examples/confirm_navigation_controller.html.mdx";
-import ConfirmNavigationControllerHaml from "../examples/confirm_navigation_controller.haml.mdx";
 import ConfirmNavigationControllerJs from "../examples/confirm_navigation_controller.js.mdx";
 
 ## Purpose
@@ -61,13 +60,11 @@ When an event occurs that would cause a page to be unloaded, replaced, or otherw
 this controller will show a confirm dialogue to the user with the specified message, that will cancel said event if the user clicks "cancel".
 
 Therefore, to prevent accidental navigation on pages where you apply changes that might get lost. You might do:
-## HTML
-
-<ConfirmNavigationControllerHtml/>
-
-## HAML
-
-<ConfirmNavigationControllerHaml/>
+<iframe
+  src="https://codesandbox.io/embed/confirmnavigationcontroller-r997k?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 
 Or if you are applying changes using Javascript that might get lost,

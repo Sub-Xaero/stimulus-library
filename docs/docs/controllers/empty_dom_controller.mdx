@@ -3,6 +3,9 @@ id: EmptyDomController
 title: EmptyDomController
 ---
 
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+
 ## Purpose
 
 Mainly for use with TurboStreams or AJAX loaded content that modifies a container interactively. When interactions mutate the DOM and add/remove content, detect when the container you attach the controller to becomes empty/not empty.
@@ -12,13 +15,6 @@ You can then style the controller, or show a nice placeholder when the container
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-
-import NoActions from "../_partials/no-actions.md";
-import NoTargets from "../_partials/no-targets.md";
-import EmptyDomControllerErb from "../examples/empty_dom_controller.html.erb.mdx";
-import EmptyDomControllerHaml from "../examples/empty_dom_controller.html.haml.mdx";
-import EmptyDomControllerAdvancedHtmlErb from "../examples/empty_dom_controller_advanced.html.erb.mdx";
-import EmptyDomControllerAdvancedHtmlHaml from "../examples/empty_dom_controller_advanced.html.haml.mdx";
 <NoActions/>
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -56,37 +52,17 @@ None
 
 ## Simple Case
 
-The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty (and for every DOM update that means it is still not empty). Use those events to hook up other Stimulus actions. This particular example toggles the hide/show of a nice status message when the
-container is empty.
+The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty (and for every DOM update that means it is still not empty). Use those events to hook up other Stimulus actions.
+Alternatively, set a particular class when the watched container becomes empty or filled.
 
-
-
-## HTML
-
-
-<EmptyDomControllerErb/>
-
-## HAML
-
-
-<EmptyDomControllerHaml/>
-
-
-## Advanced Case
-
-You can scope what the controller watches for inside the container using a CSS selector in the `data-empty-dom-scope-selector-value` attribute.
+You can also scope what the controller watches for inside the container using a CSS selector in the `data-empty-dom-scope-selector-value` attribute.
 
 The selector you specify will be used to `querySelectorAll` the children/subtree of the container you attach the controller too, and fire the
 `dom:empty` and `dom:not-empty` events when the results of the query are empty/not empty.
 
-
-## HTML/ERB
-
-
-<EmptyDomControllerAdvancedHtmlErb/>
-
-## HAML
-
-
-<EmptyDomControllerAdvancedHtmlHaml/>
+<iframe
+  src="https://codesandbox.io/embed/emptydomcontroller-7n4t8?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 

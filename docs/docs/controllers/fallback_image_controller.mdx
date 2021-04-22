@@ -2,14 +2,11 @@
 id: FallbackImageController
 title: FallbackImageController
 ---
+
 import NoActions from "../_partials/no-actions.md";
 import NoTargets from "../_partials/no-targets.md";
 import NoClasses from "../_partials/no-classes.md";
 import NoEvents from "../_partials/no-events.md";
-import FallbackImageControllerHtml from "../examples/fallback_image_controller.html.mdx";
-import FallbackImageControllerHaml from "../examples/fallback_image_controller.haml.mdx";
-import FallbackImageControllerPlaceholderHtml from "../examples/fallback_image_controller_placeholder.html.mdx";
-import FallbackImageControllerPlaceholderHaml from "../examples/fallback_image_controller_placeholder.haml.mdx";
 
 ## Purpose
 
@@ -50,26 +47,13 @@ None
 
 # How to Use
 
-To make the image hide from the dom if it fails to load
 
-## HTML
-
-<FallbackImageControllerHtml/>
-
-## HAML
-
-<FallbackImageControllerHaml/>
-
-
-To make the image change its `src` to the provided placeholder URL if it fails to load.
+<iframe
+  src="https://codesandbox.io/embed/fallbackimagecontroller-poh1m?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 *Please note:* If the placeholder URL you provide fails to load, there is no fallback - the borked image icon may still show. This controller relies on the `onError` behaviour of the `img` tag, but it may only run once.
 
-## HTML
-
-<FallbackImageControllerPlaceholderHtml/>
-
-## HAML
-
-<FallbackImageControllerPlaceholderHaml/>
 
