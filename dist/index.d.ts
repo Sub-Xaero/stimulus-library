@@ -1,3 +1,4 @@
+export { AnchorSpyController } from "./anchor_spy_controller";
 export { AppearanceController } from "./appearance_controller";
 export { AsyncBlockController } from "./async_block_controller";
 export { AutoSubmitFormController } from "./auto_submit_form_controller";
