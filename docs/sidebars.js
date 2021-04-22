@@ -13,6 +13,7 @@ module.exports = {
       },
       {
         "General Controllers": [
+          "controllers/AnchorSpyController",
           "controllers/AsyncBlockController",
           "controllers/AutoSubmitFormController",
           "controllers/AutosizeController",
