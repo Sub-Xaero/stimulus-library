@@ -16,12 +16,12 @@ export declare class FormSaveController extends BaseController {
     readonly hasRestoreOnLoadValue: boolean;
     readonly clearOnSubmitValue: boolean;
     readonly hasClearOnSubmitValue: boolean;
-    get formID(): string;
-    get formIdentifier(): string;
-    get formElements(): HTMLFormControlsCollection;
-    get formData(): FormSavePayload;
-    get restoreOnLoad(): boolean;
-    get clearOnSubmit(): boolean;
+    get _formID(): string;
+    get _formIdentifier(): string;
+    get _formElements(): HTMLFormControlsCollection;
+    get _formData(): FormSavePayload;
+    get _restoreOnLoad(): boolean;
+    get _clearOnSubmit(): boolean;
     initialize(): void;
     connect(): void;
     disconnect(): void;

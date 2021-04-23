@@ -37,6 +37,7 @@ export class BaseController extends Controller {
       mergedOptions.detail.target = element;
     }
     let event = new CustomEvent(eventName, mergedOptions);
+    this.logEvent(eventName, event, element);
     element.dispatchEvent(event);
   }
 
@@ -54,6 +55,17 @@ export class BaseController extends Controller {
     logger.groupEnd();
   }
 
+  logEvent(eventName: string, event: CustomEvent, element: HTMLElement) {
+    // @ts-ignore
+    if (!this.application.debug) {
+      return;
+    }
+    let logger = console;
+    logger.groupCollapsed(`%c${this.identifier} %c${eventName}%c`, "color: #3B82F6", "color: #0be000", "color: unset");
+    logger.log({element});
+    logger.groupEnd();
+  }
+
 }
 
 function logProperty(prop: string): boolean {
@@ -64,6 +76,7 @@ function logProperty(prop: string): boolean {
     case "constructor":
     case "initialize":
     case "log":
+    case "logEvent":
     case "dispatch":
     case "data":
     case "valueDescriptorMap":
