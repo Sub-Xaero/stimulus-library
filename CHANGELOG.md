@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.5...v0.2.6) (2021-04-23)
+
+
+### Features
+
+* AnchorSpyController - Controller to write anchors to the URL when actions happen, and detect when the page loads with an anchor (#), and wire up other controllers. i.e. To reopen accordions/tabs when the page opens with the correct anchor. Closes [#18](https://github.com/Sub-Xaero/stimulus-library/issues/18) ([#20](https://github.com/Sub-Xaero/stimulus-library/issues/20)) ([de0be82](https://github.com/Sub-Xaero/stimulus-library/commit/de0be82d17386393fcf0231bbf4af9f96b6d4f49))
+* MediaPlayerController - A thin stimulus controller wrapper around the native HTML5 video and audio tag controls ([#21](https://github.com/Sub-Xaero/stimulus-library/issues/21)) ([91bcf2b](https://github.com/Sub-Xaero/stimulus-library/commit/91bcf2b67a6218feff0dd39ff29883dfd4cd9cb2))
+
+
+### Bug Fixes
+
+* Missing sourceTarget in ClipboardController ([da222a7](https://github.com/Sub-Xaero/stimulus-library/commit/da222a7165dc24442bf59bb9d1e527c3e4cb11b1))
+
 ### [0.2.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.4...v0.2.5) (2021-04-21)
 
 
