@@ -80,6 +80,7 @@ function logProperty(prop: string): boolean {
     case "dispatch":
     case "data":
     case "valueDescriptorMap":
+    case "mutate":
     case "identifier":
       return false;
   }
@@ -97,6 +98,9 @@ function logProperty(prop: string): boolean {
     return false;
   }
   if (/^.*?Class$/.test(prop)) {
+    return false;
+  }
+  if (/^.*?Classes$/.test(prop)) {
     return false;
   }
 
