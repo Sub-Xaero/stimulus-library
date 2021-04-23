@@ -36,6 +36,7 @@ module.exports = {
           "controllers/LazyBlockController",
           "controllers/LightboxImageController",
           "controllers/LimitedSelectionCheckboxesController",
+          "controllers/MediaPlayerController",
           "controllers/NestedFormController",
           "controllers/PasswordConfirmController",
           "controllers/PasswordPeekController",

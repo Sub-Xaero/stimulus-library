@@ -24,6 +24,7 @@ export { IntersectionController } from "./controllers/intersection_controller";
 export { LazyBlockController } from "./controllers/lazy_block_controller";
 export { LightboxImageController } from "./controllers/lightbox_image_controller";
 export { LimitedSelectionCheckboxesController } from "./controllers/limited_selection_checkboxes_controller";
+export { MediaPlayerController } from "./controllers/media_player_controller";
 export { NestedFormController } from "./controllers/nested_form_controller";
 export { PasswordConfirmController } from "./controllers/password_confirm_controller";
 export { PasswordPeekController } from "./controllers/password_peek_controller";
