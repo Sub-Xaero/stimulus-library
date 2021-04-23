@@ -15,30 +15,30 @@ export class NestedFormController extends BaseController {
   declare readonly insertModeValue: InsertPosition;
   declare readonly hasInsertModeValue: boolean;
 
-  get wrapperClass() {
+  get _wrapperClass() {
     return this.hasWrapperSelectorValue ? this.wrapperClassValue : 'nested-fields';
   }
 
-  get insertMode(): InsertPosition {
+  get _insertMode(): InsertPosition {
     return this.hasInsertModeValue ? this.insertModeValue : 'beforeend';
   }
 
   connect() {
-    this.checkStructure();
+    this._checkStructure();
   }
 
   add(event?: Event) {
     event?.preventDefault();
 
-    const content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, this.generateID());
-    this.targetTarget.insertAdjacentHTML(this.insertMode, content);
+    const content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, this._generateID());
+    this.targetTarget.insertAdjacentHTML(this._insertMode, content);
   }
 
   remove(event: Event) {
     event.preventDefault();
-    const wrapper: HTMLElement | null = (event.target as HTMLElement).closest(`.${this.wrapperClass}`);
+    const wrapper: HTMLElement | null = (event.target as HTMLElement).closest(`.${this._wrapperClass}`);
     if (wrapper == null) {
-      throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class .${this.wrapperClass}`);
+      throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class .${this._wrapperClass}`);
     }
 
     if (wrapper.dataset.newRecord === 'true') {
@@ -54,11 +54,11 @@ export class NestedFormController extends BaseController {
     }
   }
 
-  generateID(): string {
+  private _generateID(): string {
     return new Date().getTime().toString() + Math.random().toString().slice(2);
   }
 
-  private checkStructure() {
+  private _checkStructure() {
     let template = this.templateTarget.innerHTML;
 
     if (template.indexOf('NEW_RECORD')) {

@@ -11,7 +11,7 @@ export declare class ClipboardController extends BaseController {
     readonly hasFallbackTarget: boolean;
     readonly hasRemoveUnusedValue: boolean;
     readonly removeUnusedValue: boolean;
-    supported: boolean;
+    _supported: boolean;
     connect(): void;
     select(event: MouseEvent): void;
     copy(event: ClipboardEvent): void;

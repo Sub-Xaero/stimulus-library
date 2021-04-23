@@ -20,8 +20,10 @@ export class CharCountController extends BaseController {
   }
 
   connect() {
-    this._updateCharCount();
-    this.inputTarget.addEventListener("input", this._updateCharCount);
+    requestAnimationFrame(() => {
+      this.inputTarget.addEventListener("input", this._updateCharCount);
+      this._updateCharCount();
+    });
   }
 
   disconnect() {

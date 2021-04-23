@@ -14,7 +14,7 @@ export class TurboFrameRefreshController extends BaseController {
   declare readonly hasPollValue: boolean;
   _timeoutHandle: null | ReturnType<typeof window.setTimeout> = null;
 
-  get poll(): boolean {
+  get _poll(): boolean {
     return this.hasPollValue ? this.pollValue : false;
   }
 
@@ -31,7 +31,7 @@ export class TurboFrameRefreshController extends BaseController {
     } else {
       throw new Error('Expected controller to be mounted on a <turbo-frame> element.');
     }
-    if (this.poll) {
+    if (this._poll) {
       requestAnimationFrame(() => this._timeoutHandle = setTimeout(() => this.refresh(), this.intervalValue));
     }
   }

@@ -47,9 +47,9 @@ export class ToggleClassController extends BaseController {
     requestAnimationFrame(() => {
       if (this.hasInitialValue) {
         if (this.initialValue === "on") {
-          this.toggleTargets.forEach((target) => this.elementOn(target));
+          this.toggleTargets.forEach((target) => this._elementOn(target));
         } else {
-          this.toggleTargets.forEach((target) => this.elementOff(target));
+          this.toggleTargets.forEach((target) => this._elementOff(target));
         }
       }
     });
@@ -57,9 +57,9 @@ export class ToggleClassController extends BaseController {
 
   clickOutside() {
     this.toggleTargets.forEach((target) => {
-      if (this.elementWasToggled(target)) {
-        this.elementToggleStatus(target);
-        this.elementToggle(target);
+      if (this._elementWasToggled(target)) {
+        this._elementToggleStatus(target);
+        this._elementToggle(target);
       }
     });
   }
@@ -100,48 +100,48 @@ export class ToggleClassController extends BaseController {
 
   on(event?: Event) {
     this.toggleTargets.forEach((target) => {
-      this.elementToggleStatus(target);
-      this.elementOn(target);
+      this._elementToggleStatus(target);
+      this._elementOn(target);
     });
   }
 
   off(event?: Event) {
     this.toggleTargets.forEach((target) => {
-      this.elementToggleStatus(target);
-      this.elementOff(target);
+      this._elementToggleStatus(target);
+      this._elementOff(target);
     });
   }
 
   toggle(event?: Event) {
     this.toggleTargets.forEach((target) => {
-      this.elementToggleStatus(target);
-      this.elementToggle(target);
+      this._elementToggleStatus(target);
+      this._elementToggle(target);
     });
   }
 
-  private elementWasToggled(el: HTMLElement): boolean {
+  private _elementWasToggled(el: HTMLElement): boolean {
     return el.dataset.toggled == "true";
   }
 
-  private elementToggleStatus(el: HTMLElement) {
-    if (this.elementWasToggled(el)) {
+  private _elementToggleStatus(el: HTMLElement) {
+    if (this._elementWasToggled(el)) {
       delete el.dataset.toggled;
     } else {
       el.dataset.toggled = "true";
     }
   }
 
-  private elementToggle(el: HTMLElement) {
+  private _elementToggle(el: HTMLElement) {
     let classes = this.classValue.split(" ");
     classes.forEach((klass) => el.classList.toggle(klass));
   }
 
-  private elementOn(el: HTMLElement) {
+  private _elementOn(el: HTMLElement) {
     let classes = this.classValue.split(" ");
     classes.forEach((klass) => el.classList.toggle(klass, true));
   }
 
-  private elementOff(el: HTMLElement) {
+  private _elementOff(el: HTMLElement) {
     let classes = this.classValue.split(" ");
     classes.forEach((klass) => el.classList.toggle(klass, false));
   }

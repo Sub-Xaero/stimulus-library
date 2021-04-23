@@ -8,14 +8,14 @@ export class RemoteFormController extends BaseController {
   declare readonly hasSelectorValue: boolean;
   declare readonly selectorValue: string;
 
-  get selector(): string {
+  get _selector(): string {
     return this.hasSelectorValue ? this.selectorValue : `[data-controller~="${this.identifier}"]`;
   }
 
   replace(event: { detail: [Element, any, XMLHttpRequest] }) {
     const [data, status, xhr] = event.detail;
     if (data instanceof Node) {
-      let new_element = data.querySelector(this.selector);
+      let new_element = data.querySelector(this._selector);
 
       if (new_element == null) {
         throw new Error(`expected new form DOM with [data-controller="${this.identifier}"] to be present in returned payload`);

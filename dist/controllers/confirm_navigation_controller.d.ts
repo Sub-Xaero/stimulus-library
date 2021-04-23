@@ -8,7 +8,9 @@ export declare class ConfirmNavigationController extends BaseController {
     get _message(): string;
     initialize(): void;
     connect(): void;
-    handlePopstate(_event: PopStateEvent): boolean;
-    handleTurboNavigation(event: Event): void;
+    disconnect(): void;
+    allowSubmit(_event: Event): void;
+    confirmNavigation(_event: PopStateEvent): boolean;
+    confirmTurboNavigation(event: Event): void;
 }
 //# sourceMappingURL=confirm_navigation_controller.d.ts.map

@@ -12,7 +12,7 @@ export declare class EmptyDomController extends BaseController {
     scopeSelectorValue: string;
     get emptyClasses(): string[];
     get notEmptyClasses(): string[];
-    get children(): Element[];
+    get _children(): Element[];
     connect(): void;
     mutate(entries: MutationRecord[]): void;
     checkEmpty(): void;

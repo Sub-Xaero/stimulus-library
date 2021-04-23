@@ -27,10 +27,10 @@ export declare class ToggleClassController extends BaseController {
     on(event?: Event): void;
     off(event?: Event): void;
     toggle(event?: Event): void;
-    private elementWasToggled;
-    private elementToggleStatus;
-    private elementToggle;
-    private elementOn;
-    private elementOff;
+    private _elementWasToggled;
+    private _elementToggleStatus;
+    private _elementToggle;
+    private _elementOn;
+    private _elementOff;
 }
 //# sourceMappingURL=toggle_class_controller.d.ts.map

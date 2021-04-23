@@ -6,7 +6,7 @@ export declare class RemoteFormController extends BaseController {
     };
     readonly hasSelectorValue: boolean;
     readonly selectorValue: string;
-    get selector(): string;
+    get _selector(): string;
     replace(event: {
         detail: [Element, any, XMLHttpRequest];
     }): void;

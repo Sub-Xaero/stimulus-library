@@ -8,7 +8,7 @@ export declare class PasswordConfirmController extends BaseController {
     initialize(): void;
     connect(): void;
     disconnect(): void;
-    private allPasswordsMatch;
+    private _allPasswordsMatch;
     private checkPasswordsMatch;
 }
 //# sourceMappingURL=password_confirm_controller.d.ts.map

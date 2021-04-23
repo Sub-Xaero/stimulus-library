@@ -1,5 +1,5 @@
 import {BaseController} from '../utilities/base_controller';
-import {isHTMLFormElement, isHTMLAnchorElement} from "../utilities/elements";
+import {isHTMLAnchorElement, isHTMLFormElement} from "../utilities/elements";
 
 export class ConfirmController extends BaseController {
 
@@ -10,7 +10,7 @@ export class ConfirmController extends BaseController {
   declare readonly messageValue: string;
   declare readonly hasMessageValue: boolean;
 
-  get message(): string {
+  get _message(): string {
     return this.hasMessageValue ? this.messageValue : 'Are you sure?';
   }
 
@@ -31,8 +31,17 @@ export class ConfirmController extends BaseController {
     });
   }
 
+  disconnect() {
+    let element = this.el;
+    if (isHTMLFormElement(element)) {
+      element.removeEventListener("submit", this.confirm);
+    } else if (isHTMLAnchorElement(element)) {
+      element.removeEventListener("click", this.confirm);
+    }
+  }
+
   confirm(event: Event) {
-    if (!(window.confirm(this.message))) {
+    if (!(window.confirm(this._message))) {
       event.preventDefault();
       this.dispatch(this.el, "confirm:cancelled");
     }

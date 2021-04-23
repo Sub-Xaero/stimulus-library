@@ -11,12 +11,12 @@ export declare class NestedFormController extends BaseController {
     readonly hasWrapperSelectorValue: boolean;
     readonly insertModeValue: InsertPosition;
     readonly hasInsertModeValue: boolean;
-    get wrapperClass(): string;
-    get insertMode(): InsertPosition;
+    get _wrapperClass(): string;
+    get _insertMode(): InsertPosition;
     connect(): void;
     add(event?: Event): void;
     remove(event: Event): void;
-    generateID(): string;
-    private checkStructure;
+    private _generateID;
+    private _checkStructure;
 }
 //# sourceMappingURL=nested_form_controller.d.ts.map

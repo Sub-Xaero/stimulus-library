@@ -4,9 +4,9 @@ export declare class AnchorSpyController extends BaseController {
         key: StringConstructor;
     };
     readonly keyValue: string;
-    get key(): string;
-    get anchor(): string;
-    set anchor(value: string);
+    get _key(): string;
+    get _anchor(): string;
+    set _anchor(value: string);
     initialize(): void;
     connect(): void;
     disconnect(): void;

@@ -5,9 +5,10 @@ export declare class ConfirmController extends BaseController {
     };
     readonly messageValue: string;
     readonly hasMessageValue: boolean;
-    get message(): string;
+    get _message(): string;
     initialize(): void;
     connect(): void;
+    disconnect(): void;
     confirm(event: Event): void;
 }
 //# sourceMappingURL=confirm_controller.d.ts.map

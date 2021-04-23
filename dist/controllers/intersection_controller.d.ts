@@ -6,7 +6,7 @@ export declare class IntersectionController extends BaseController {
     readonly isVisible: boolean;
     readonly thresholdValue: string;
     readonly hasThresholdValue: boolean;
-    get threshold(): number[];
+    get _threshold(): number[];
     connect(): void;
     appear(entry: IntersectionObserverEntry): void;
     disappear(entry: IntersectionObserverEntry): void;

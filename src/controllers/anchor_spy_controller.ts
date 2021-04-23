@@ -5,15 +5,15 @@ export class AnchorSpyController extends BaseController {
 
   declare readonly keyValue: string;
 
-  get key(): string {
+  get _key(): string {
     return this.keyValue.replaceAll('#', '');
   }
 
-  get anchor(): string {
+  get _anchor(): string {
     return window.location.hash.substr(1);
   }
 
-  set anchor(value: string) {
+  set _anchor(value: string) {
     window.location.hash = value;
   }
 
@@ -34,11 +34,11 @@ export class AnchorSpyController extends BaseController {
 
   write(event?: Event) {
     event?.preventDefault();
-    this.anchor = this.key;
+    this._anchor = this._key;
   }
 
   private _checkAnchor() {
-    if (this.key === this.anchor) {
+    if (this._key === this._anchor) {
       this.dispatch(this.el, "anchor-spy:active");
     } else {
       this.dispatch(this.el, "anchor-spy:inactive");

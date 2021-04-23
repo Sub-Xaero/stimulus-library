@@ -14,13 +14,13 @@ export class ClipboardController extends BaseController {
   declare readonly hasRemoveUnusedValue: boolean;
   declare readonly removeUnusedValue: boolean;
 
-  supported = false;
+  _supported = false;
 
   connect() {
-    this.supported = document.queryCommandSupported("copy");
+    this._supported = document.queryCommandSupported("copy");
 
     if (this.hasRemoveUnusedValue && this.removeUnusedValue) {
-      if (this.supported && this.hasFallbackTarget) {
+      if (this._supported && this.hasFallbackTarget) {
         this.fallbackTarget.remove();
       } else if (this.hasCopyTarget) {
         this.copyTarget.remove();
@@ -40,7 +40,7 @@ export class ClipboardController extends BaseController {
       event.preventDefault();
     }
     (this.sourceTarget as HTMLInputElement | HTMLTextAreaElement).select();
-    if (this.supported) {
+    if (this._supported) {
       document.execCommand("copy");
     }
   }

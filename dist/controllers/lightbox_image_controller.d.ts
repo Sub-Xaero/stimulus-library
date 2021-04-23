@@ -17,11 +17,11 @@ export declare class LightboxImageController extends BaseController {
     readonly hasSizesValue: boolean;
     readonly sizesValue: string;
     _dialog: HTMLDialogElement | null;
-    get src(): string;
-    get srcSet(): string;
-    get sizes(): string;
-    get modalClassName(): string;
-    get imageClassName(): string;
+    get _src(): string;
+    get _srcSet(): string;
+    get _sizes(): string;
+    get _modalClassName(): string;
+    get _imageClassName(): string;
     initialize(): void;
     connect(): void;
     open(): void;

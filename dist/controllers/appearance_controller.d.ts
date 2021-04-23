@@ -5,7 +5,7 @@ export declare class AppearanceController extends BaseController {
     disconnect(): void;
     appear(): void;
     away(): void;
-    _handleVisibility(): void;
-    _documentIsActive(): boolean;
+    private _handleVisibility;
+    private _documentIsActive;
 }
 //# sourceMappingURL=appearance_controller.d.ts.map

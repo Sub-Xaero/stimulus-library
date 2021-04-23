@@ -22,7 +22,7 @@ export class EmptyDomController extends BaseController {
     return this.notEmptyClass.split(" ");
   }
 
-  get children(): Element[] {
+  get _children(): Element[] {
     let element = this.el;
     if (this.hasScopeSelectorValue) {
       return Array.from(element.querySelectorAll(this.scopeSelectorValue));
@@ -42,7 +42,7 @@ export class EmptyDomController extends BaseController {
 
   checkEmpty() {
     let element = this.el;
-    let children = this.children;
+    let children = this._children;
     if (children.length === 0) {
       this._removeNotEmptyClasses();
       this._addEmptyClasses();

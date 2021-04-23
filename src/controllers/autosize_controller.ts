@@ -8,13 +8,20 @@ export class AutosizeController extends BaseController {
   }
 
   connect() {
-    let target = this.el as HTMLTextAreaElement;
-    target.style.resize = "none";
-    target.style.boxSizing = "border-box";
-    target.addEventListener("input", this._handler);
-    target.addEventListener("focus", this._handler);
     useWindowResize(this);
-    requestAnimationFrame(this._handler);
+    requestAnimationFrame(() => {
+      this._handler();
+      let target = this.el as HTMLTextAreaElement;
+      target.style.resize = "none";
+      target.style.boxSizing = "border-box";
+      target.addEventListener("input", this._handler);
+      target.addEventListener("focus", this._handler);
+    });
+  }
+
+  disconnect() {
+    this.el.removeEventListener("input", this._handler);
+    this.el.removeEventListener("focus", this._handler);
   }
 
   windowResize() {

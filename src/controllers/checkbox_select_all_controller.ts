@@ -7,17 +7,17 @@ export class CheckboxSelectAllController extends BaseController {
   declare readonly selectAllTarget: HTMLInputElement;
   declare readonly checkboxTargets: HTMLInputElement[];
 
-  private get checked() {
+  private get _checked() {
     return this.checkboxTargets.filter(checkbox => checkbox.checked);
   }
 
-  private get unchecked() {
+  private get _unchecked() {
     return this.checkboxTargets.filter(checkbox => !checkbox.checked);
   }
 
   initialize() {
-    this.toggle = this.toggle.bind(this);
-    this.refresh = this.refresh.bind(this);
+    this._toggle = this._toggle.bind(this);
+    this._refresh = this._refresh.bind(this);
   }
 
   connect() {
@@ -26,9 +26,9 @@ export class CheckboxSelectAllController extends BaseController {
         return;
       }
 
-      this.selectAllTarget.addEventListener('change', this.toggle);
-      this.checkboxTargets.forEach(checkbox => checkbox.addEventListener('change', this.refresh));
-      this.refresh();
+      this.selectAllTarget.addEventListener('change', this._toggle);
+      this.checkboxTargets.forEach(checkbox => checkbox.addEventListener('change', this._refresh));
+      this._refresh();
     });
   }
 
@@ -37,19 +37,19 @@ export class CheckboxSelectAllController extends BaseController {
       return;
     }
 
-    this.selectAllTarget.removeEventListener('change', this.toggle);
-    this.checkboxTargets.forEach((checkbox) => checkbox.removeEventListener('change', this.refresh));
+    this.selectAllTarget.removeEventListener('change', this._toggle);
+    this.checkboxTargets.forEach((checkbox) => checkbox.removeEventListener('change', this._refresh));
   }
 
-  private toggle(event: Event) {
+  private _toggle(event: Event) {
     event.preventDefault();
     let target = event.target as HTMLInputElement;
     this.checkboxTargets.forEach((checkbox) => checkbox.checked = target.checked);
   }
 
-  private refresh() {
+  private _refresh() {
     const checkboxesCount = this.checkboxTargets.length;
-    const checkboxesCheckedCount = this.checked.length;
+    const checkboxesCheckedCount = this._checked.length;
 
     this.selectAllTarget.checked = checkboxesCheckedCount > 0;
     this.selectAllTarget.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount;

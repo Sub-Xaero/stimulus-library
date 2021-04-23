@@ -9,7 +9,7 @@ export class IntersectionController extends BaseController {
   declare readonly thresholdValue: string;
   declare readonly hasThresholdValue: boolean;
 
-  get threshold(): number[] {
+  get _threshold(): number[] {
     if (this.hasThresholdValue) {
       return this.thresholdValue.split(',').map(val => Number.parseFloat(val.trim())).filter(val => val >= 0 && val <= 1);
     } else {
@@ -19,7 +19,7 @@ export class IntersectionController extends BaseController {
 
   connect() {
     useIntersection(this, {
-      threshold: this.threshold,
+      threshold: this._threshold,
       element: this.el,
     });
   }

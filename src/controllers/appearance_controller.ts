@@ -10,7 +10,9 @@ export class AppearanceController extends BaseController {
     window.addEventListener("focus", this._handleVisibility);
     window.addEventListener("blur", this._handleVisibility);
     document.addEventListener("visibilitychange", this._handleVisibility);
-    this._handleVisibility();
+    requestAnimationFrame(() => {
+      this._handleVisibility();
+    });
   }
 
   disconnect() {
@@ -27,11 +29,11 @@ export class AppearanceController extends BaseController {
     this.dispatch(this.el, "appearance:away");
   }
 
-  _handleVisibility() {
+  private _handleVisibility() {
     this._documentIsActive() ? this.appear() : this.away();
   }
 
-  _documentIsActive() {
+  private _documentIsActive() {
     return document.visibilityState == "visible" && document.hasFocus();
   }
 

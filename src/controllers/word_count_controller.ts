@@ -35,7 +35,7 @@ export class WordCountController extends BaseController {
     wordCount = (matches && matches.length) || 0;
     this.outputTarget.innerText = wordCount.toString();
     if (this.hasErrorClass) {
-      if (this.isValidCount(wordCount)) {
+      if (this._isValidCount(wordCount)) {
         this.outputTarget.classList.remove(this.errorClass);
       } else {
         this.outputTarget.classList.add(this.errorClass);
@@ -43,7 +43,7 @@ export class WordCountController extends BaseController {
     }
   }
 
-  isValidCount(count: number) {
+  private _isValidCount(count: number) {
     let min = 0;
     let max = 99999;
 

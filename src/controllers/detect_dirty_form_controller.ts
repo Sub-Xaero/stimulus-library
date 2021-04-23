@@ -31,8 +31,8 @@ export class DetectDirtyFormController extends BaseController {
   }
 
   restore(event?: Event) {
-    event?.preventDefault()
-    this._formElements.forEach(element => this._restoreElementFromLoadValue(element))
+    event?.preventDefault();
+    this._formElements.forEach(element => this._restoreElementFromLoadValue(element));
   }
 
   private _getElementValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
@@ -115,9 +115,9 @@ export class DetectDirtyFormController extends BaseController {
   private _checkDirty(): void {
     this._formElements.forEach(el => this._checkElementDirty(el));
     if (this._formElements.some(el => isDirty(el))) {
-      this.el.setAttribute("data-dirty", "true")
+      this.el.setAttribute("data-dirty", "true");
     } else {
-      this.el.removeAttribute("data-dirty")
+      this.el.removeAttribute("data-dirty");
     }
   }
 }

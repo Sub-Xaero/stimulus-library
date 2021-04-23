@@ -18,6 +18,6 @@ export declare class WordCountController extends BaseController {
     connect(): void;
     disconnect(): void;
     updateWordCount(): void;
-    isValidCount(count: number): boolean;
+    private _isValidCount;
 }
 //# sourceMappingURL=word_count_controller.d.ts.map

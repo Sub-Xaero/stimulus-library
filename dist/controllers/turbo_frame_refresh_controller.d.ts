@@ -8,7 +8,7 @@ export declare class TurboFrameRefreshController extends BaseController {
     readonly pollValue: boolean;
     readonly hasPollValue: boolean;
     _timeoutHandle: null | ReturnType<typeof window.setTimeout>;
-    get poll(): boolean;
+    get _poll(): boolean;
     initialize(): void;
     connect(): void;
     disconnect(): void;
