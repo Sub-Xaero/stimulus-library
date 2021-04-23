@@ -3,6 +3,7 @@ module.exports = {
     "Getting Started": [
       "installation",
       "treeshaking",
+      "debugging",
     ],
     Controllers: [
       {
