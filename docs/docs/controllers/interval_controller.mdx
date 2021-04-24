@@ -1,0 +1,51 @@
+---
+id: IntervalController
+title: IntervalController
+---
+
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+
+## Purpose
+
+Utility controller to wire up other controller actions that need to fire at set intervals.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `seconds` | Number | The number of seconds between each action | - |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- |--- | --- |
+|`interval:action` | Fired every `secondsValue` seconds, used to wire your desired controller actions to | the controller root element | `element`: the controller root element |
+
+## Side Effects
+
+Calls `setInterval` with the desired time value. Cleans up on disconnect.
+
+# How to Use
+
+An example: Save the progress of your users through a particularly lengthy form every 30 seconds.
+
+```html
+<form data-controller="form-save" data-action="interval:action->form-save#save">
+  <meta data-controller="interval" data-interval-seconds-value="30" />
+</form>
+```

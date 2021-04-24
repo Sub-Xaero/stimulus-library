@@ -21,6 +21,7 @@ export { FallbackImageController } from "./controllers/media/fallback_image_cont
 export { FormRcController } from "./controllers/forms/form_rc_controller";
 export { FormSaveController } from "./controllers/forms/form_save_controller";
 export { IntersectionController } from "./controllers/utility/intersection_controller";
+export { IntervalController } from "./controllers/utility/interval_controller";
 export { LazyBlockController } from "./controllers/lazy_block_controller";
 export { LightboxImageController } from "./controllers/media/lightbox_image_controller";
 export { LimitedSelectionCheckboxesController } from "./controllers/forms/limited_selection_checkboxes_controller";
