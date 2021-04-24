@@ -12,6 +12,11 @@ module.exports = {
           "controllers/LazyBlockController",
           "controllers/TeleportController",
           "controllers/ToggleClassController",
+        ],
+      },
+      {
+        "Extendable Controllers": [
+          "controllers/BaseController",
         ]
       },
       {

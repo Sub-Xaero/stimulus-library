@@ -31,6 +31,23 @@ export class BaseController extends Controller {
     return this.element as HTMLElement;
   }
 
+  get isTurboPreview(): boolean {
+    return document.documentElement.hasAttribute('data-turbo-preview') || document.documentElement.hasAttribute('data-turbolinks-preview');
+  }
+
+  get isTurbolinksPreview(): boolean {
+    return this.isTurboPreview;
+  }
+
+  get csrfToken(): string | null {
+    return this.metaValue('csrf-token');
+  }
+
+  metaValue(name: string): string | null {
+    const element = document.head.querySelector(`meta[name="${name}"]`);
+    return element?.getAttribute('content') || null;
+  }
+
   dispatch(element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
     let mergedOptions = Object.assign({}, {bubbles: true, cancelable: true, detail: {target: element}}, options);
     if (!!mergedOptions.detail.target) {

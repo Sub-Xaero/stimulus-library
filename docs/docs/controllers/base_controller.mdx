@@ -1,0 +1,60 @@
+---
+id: BaseController
+title: BaseController
+---
+
+
+## Purpose
+
+Provide common utilities and base functionality for all Stimulus controllers that extend this controller.
+
+
+## Properties
+
+This controller provides the following properties to sub-classes.
+
+| Name | Purpose | Return Value |
+| --- | --- | --- |
+| `el` | For Typescript projects, provides a wrapper around `this.element` typecast to `HTMLElement` so that type-hinting correctly works for all DOM APIs | The controller root element, as an `HTMLElement` |
+| `isTurboPreview` | Whether or not the document is currently displaying a preview from the Hotwire/Turbo cache https://turbo.hotwire.dev/handbook/building#detecting-when-a-preview-is-visible. Also works with legacy Turbolinks | `boolean` |
+| `isTurbolinksPreview` | Alias for `isTurboPreview`, both methods work for both Turbolinks and Hotwire | `boolean` |
+| `csrfToken` | The current Rails CSRF token, taken from the `<meta>` tag Rails inserts into the document head, if present. | `string` or `null` |
+
+## Methods
+
+This controller provides the following methods to sub-classes.
+
+| Name | Parameters | Purpose | Default |
+| --- | --- | --- | --- |
+| `dispatch` |  | Dispatch a custom event | |
+|  | `element` | The element to dispatch the event on | |
+|  | `eventName` | The fully qualified name of the event. Usually follows the format `controller-identifier:event` | |
+|  | `options` (Optional) | The options to initialize the event with. See the options `eventInit` accepts: https://developer.mozilla.org/en-US/docs/Web/API/Event/Event  | `{ bubbles: true, cancellable: true, details: { element: this.element } }` |
+
+| Name | Parameters | Purpose | Return value |
+| --- | --- | --- | --- |
+| `metaValue` |  | Fetch a value from a `<meta>` tag in the `<head>` of the document. | `string` or `null` |
+|  | `name` | The `name` attribute of the `meta` tag to fetch the value of | |
+
+
+## Side Effects / Inherited Behaviour
+
+If [debug mode](/docs/debugging) is enabled, any controller that extends BaseController controller will automatically log calls to any actions or methods, and events dispatched with `this.dispatch`.
+
+If there are any getters, setters, methods or properties that should not be logged, you should name them with an underscore prefix i.e. `_foo() {}`, or `_bar = "baz"` to indicate that they are private methods.
+
+
+## How to Use
+
+```typescript
+import {BaseController} from "stimulus-library";
+
+export default class extends BaseController {
+  // ...
+
+ foo() {
+   this.dispatch( this.el, "my-controller:something-happened", { bubbles: true, cancellable: true, detail: { element: this.el, data: 'thing' } } )
+ }
+
+}
+```
