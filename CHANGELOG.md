@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.5...v0.2.7) (2021-04-24)
+
+
+### Features
+
+* Add event logging to debug logging ([594553c](https://github.com/Sub-Xaero/stimulus-library/commit/594553c9b612b6203e51f95e765648b3b12b7294))
+* AnchorSpyController - Controller to write anchors to the URL when actions happen, and detect when the page loads with an anchor (#), and wire up other controllers. i.e. To reopen accordions/tabs when the page opens with the correct anchor. Closes [#18](https://github.com/Sub-Xaero/stimulus-library/issues/18) ([#20](https://github.com/Sub-Xaero/stimulus-library/issues/20)) ([de0be82](https://github.com/Sub-Xaero/stimulus-library/commit/de0be82d17386393fcf0231bbf4af9f96b6d4f49))
+* BaseController - An extendable controller that provides common useful behaviours and properties for all controllers that use it as a base ([a12b101](https://github.com/Sub-Xaero/stimulus-library/commit/a12b101c36352e392ec63d9da0010248394cc1dd))
+* EphemeralController - an extendable base controller that can cleanly uninstall controllers/targets/classes/values from DOM elements ([34ebc58](https://github.com/Sub-Xaero/stimulus-library/commit/34ebc5837d741c65046339e034a3e2cbe89ca8db))
+* IntervalController - a utility controller that fires an event every x seconds to wire up to other controllers ([c31fc3b](https://github.com/Sub-Xaero/stimulus-library/commit/c31fc3b33f43f8710372a3784d6892c5be82d285))
+* MediaPlayerController - A thin stimulus controller wrapper around the native HTML5 video and audio tag controls ([#21](https://github.com/Sub-Xaero/stimulus-library/issues/21)) ([91bcf2b](https://github.com/Sub-Xaero/stimulus-library/commit/91bcf2b67a6218feff0dd39ff29883dfd4cd9cb2))
+* TimeoutController - a utility controller that fires an event after x seconds to wire up to other controllers ([9f0e0da](https://github.com/Sub-Xaero/stimulus-library/commit/9f0e0da8d97fb7809b1d6a564ba2d3861dbf1417))
+
+
+### Bug Fixes
+
+* Missing sourceTarget in ClipboardController ([da222a7](https://github.com/Sub-Xaero/stimulus-library/commit/da222a7165dc24442bf59bb9d1e527c3e4cb11b1))
+
 ### [0.2.6](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.5...v0.2.6) (2021-04-23)
 
 
