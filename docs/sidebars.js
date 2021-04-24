@@ -97,6 +97,11 @@ module.exports = {
           "controllers/TimeoutController",
         ],
       },
+      {
+        "Visual Controllers": [
+          "controllers/CountdownController",
+        ],
+      },
     ],
   },
 };

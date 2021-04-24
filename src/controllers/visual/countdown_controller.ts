@@ -1,0 +1,163 @@
+import intervalToDuration from "date-fns/intervalToDuration";
+import isPast from "date-fns/isPast";
+import {Duration} from "date-fns";
+import {BaseController} from "../../utilities/base_controller";
+
+export class CountdownController extends BaseController {
+
+  static values = {deadline: String, removeUnused: Boolean};
+  static targets = ["years", "months", "days", "hours", "minutes", "seconds"];
+  static classes = ["countingDown", "ended"];
+
+  // Values
+  declare readonly deadlineValue: string;
+  declare readonly removeUnusedValue: boolean;
+  declare readonly hasRemoveUnusedValue: boolean;
+  // Targets
+  declare readonly hasYearsTarget: boolean;
+  declare readonly yearsTarget: HTMLElement;
+  declare readonly hasMonthsTarget: boolean;
+  declare readonly monthsTarget: HTMLElement;
+  declare readonly hasDaysTarget: boolean;
+  declare readonly daysTarget: HTMLElement;
+  declare readonly hasHoursTarget: boolean;
+  declare readonly hoursTarget: HTMLElement;
+  declare readonly hasMinutesTarget: boolean;
+  declare readonly minutesTarget: HTMLElement;
+  declare readonly hasSecondsTarget: boolean;
+  declare readonly secondsTarget: HTMLElement;
+  // Classes
+  declare readonly countingDownClass: string;
+  declare readonly hasCountingDownClass: boolean;
+  declare readonly endedClass: string;
+  declare readonly hasEndedClass: boolean;
+  // Instance Data
+  _interval: null | ReturnType<typeof window.setInterval> = null;
+
+  get _removeUnused(): boolean {
+    return this.hasRemoveUnusedValue ? this.removeUnusedValue : false;
+  }
+
+  get endedClasses(): string[] {
+    return this.endedClass.split(' ');
+  }
+
+  get countingDownClasses(): string[] {
+    return this.countingDownClass.split(' ');
+  }
+
+  get _deadlineDate() {
+    return new Date(this.deadlineValue);
+  }
+
+  connect() {
+    this._interval = setInterval(this._tick.bind(this), 1000);
+    if (this.hasCountingDownClass) {
+      this.el.classList.add(...this.countingDownClasses);
+    }
+  }
+
+  disconnect() {
+    if (this._interval) {
+      clearInterval(this._interval);
+    }
+    if (this.hasCountingDownClass) {
+      this.el.classList.remove(...this.countingDownClasses);
+    }
+    if (this.hasEndedClass) {
+      this.el.classList.remove(...this.endedClasses);
+    }
+  }
+
+  deadlineValueChanged() {
+    // Countdown had previously ended, restart ticking. Updating mid-tick will just work.
+    if (this._interval == null) {
+      this._interval = setInterval(this._tick.bind(this), 1000);
+    }
+  }
+
+  _tick() {
+    const now = new Date();
+    let distance: Duration = {};
+
+    if (isPast(this._deadlineDate)) {
+      distance = {years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
+      // Countdown has ended, stop ticking
+      if (this._interval) {
+        clearInterval(this._interval);
+        this._interval = null;
+      }
+      if (this.hasCountingDownClass) {
+        this.el.classList.remove(...this.countingDownClasses);
+      }
+      if (this.hasEndedClass) {
+        this.el.classList.add(...this.endedClasses);
+      }
+      this.dispatch(this.el, "countdown:ended");
+    } else {
+      distance = intervalToDuration({start: this._deadlineDate, end: now});
+    }
+
+    if (this.hasYearsTarget) {
+      this._updateTarget(this.yearsTarget, this._years(distance));
+    }
+    if (this.hasMonthsTarget) {
+      this._updateTarget(this.monthsTarget, this._months(distance));
+    }
+    if (this.hasDaysTarget) {
+      this._updateTarget(this.daysTarget, this._days(distance));
+    }
+    if (this.hasHoursTarget) {
+      this._updateTarget(this.hoursTarget, this._hours(distance));
+    }
+    if (this.hasMinutesTarget) {
+      this._updateTarget(this.minutesTarget, this._minutes(distance));
+    }
+    if (this.hasSecondsTarget) {
+      this._updateTarget(this.secondsTarget, this._seconds(distance));
+    }
+  }
+
+  _updateTarget(target: HTMLElement, value: number) {
+    this._removeTargetIfUnused(target, value);
+    target.innerHTML = value.toString();
+  }
+
+  _removeTargetIfUnused(target: HTMLElement, value: number) {
+    if (this._removeUnused) {
+      if (value === 0 && target.dataset.unused) {
+        if (Number.parseInt(target.dataset.unused) > Date.now() + 1500) {
+          target.remove();
+        }
+      } else if (value == 0) {
+        target.dataset.unused = Date.now().toString();
+      } else {
+        target.dataset.unused = undefined;
+      }
+    }
+  }
+
+  _years(duration: Duration): number {
+    return duration.years || 0;
+  }
+
+  _months(duration: Duration): number {
+    return duration.months || 0;
+  }
+
+  _days(duration: Duration): number {
+    return duration.days || 0;
+  }
+
+  _hours(duration: Duration): number {
+    return duration.hours || 0;
+  }
+
+  _minutes(duration: Duration): number {
+    return duration.minutes || 0;
+  }
+
+  _seconds(duration: Duration): number {
+    return duration.seconds || 0;
+  }
+}

@@ -1,0 +1,65 @@
+---
+id: CountdownController
+title: CountdownController
+---
+
+import NoActions from "../_partials/no-actions.md";
+
+## Purpose
+
+A controller that displays a countdown clock to a specified date/time.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+<NoActions/>
+
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `years` (Optional) | The target to display the number of years left in the countdown | - |
+| `months` (Optional) | The target to display the number of months left in the countdown | - |
+| `days` (Optional) | The target to display the number of days left in the countdown | - |
+| `hours` (Optional) | The target to display the number of hours left in the countdown | - |
+| `minutes` (Optional) | The target to display the number of minutes left in the countdown | - |
+| `seconds` (Optional) | The target to display the number of seconds left in the countdown | - |
+
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+| Class | Purpose |
+| --- | --- |
+| `countingDown` | The class to apply while the countdown is running |
+| `ended` | The class to apply when the countdown has ended |
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `deadline` | Date | The date/time to count down to | - |
+| `removeUnused` | Boolean | Whether to remove unused targets. i.e. if there are no years in the countdown | `false` |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- |--- |
+|`countdown:ended` | When the countdown ends | The controller root element | - |
+
+## Side Effects
+
+The controller will set an interval using `setInterval`. Cleans up on disconnect and countdown end.
+
+
+## How to Use
+
+<iframe
+  src="https://codesandbox.io/embed/countdowncontroller-y3nu7?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+The `deadline` date can be changed at any point, during ticking or after a countdown has expired and the clock will restart with the new value.
+

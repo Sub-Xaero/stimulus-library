@@ -10,6 +10,7 @@ export { CheckboxSelectAllController } from "./controllers/forms/checkbox_select
 export { ClipboardController } from "./controllers/clipboard_controller";
 export { ConfirmController } from "./controllers/confirm_controller";
 export { ConfirmNavigationController } from "./controllers/confirm_navigation_controller";
+export { CountdownController } from "./controllers/visual/countdown_controller";
 export { DebugController } from "./controllers/debug_controller";
 export { DetectDirtyController } from "./controllers/forms/detect_dirty_controller";
 export { DetectDirtyFormController } from "./controllers/forms/detect_dirty_form_controller";
