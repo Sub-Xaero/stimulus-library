@@ -34,35 +34,6 @@ module.exports = {
         ],
       },
       {
-        "Media Controllers": [
-          "controllers/FallbackImageController",
-          "controllers/LightboxImageController",
-          "controllers/MediaPlayerController",
-        ]
-      },
-      {
-        "Scroll Controllers": [
-          "controllers/ScrollIntoFocusController",
-          "controllers/ScrollToBottomController",
-          "controllers/ScrollToController",
-          "controllers/ScrollToTopController",
-        ]
-      },
-      {
-        "Table Controllers": [
-          "controllers/TableSortController",
-          "controllers/TableTruncateController",
-        ]
-      },
-      {
-        "Utility Controllers": [
-          "controllers/AppearanceController",
-          "controllers/IntervalController",
-          "controllers/IntersectionController",
-          "controllers/TimeoutController",
-        ],
-      },
-      {
         "General Controllers": [
           "controllers/AnchorSpyController",
           "controllers/ClipboardController",
@@ -78,17 +49,46 @@ module.exports = {
         ],
       },
       {
-        "UJS Controllers": [
-          "controllers/RemoteFormController",
-        ],
-      },
-      {
         "Hotwire/Turbo Controllers": [
           "controllers/ConfirmController",
           "controllers/DisableWithController",
           "controllers/EmptyDomController",
           "controllers/TurboFrameRcController",
           "controllers/TurboFrameRefreshController",
+        ],
+      },
+      {
+        "Media Controllers": [
+          "controllers/FallbackImageController",
+          "controllers/LightboxImageController",
+          "controllers/MediaPlayerController",
+        ],
+      },
+      {
+        "Scroll Controllers": [
+          "controllers/ScrollIntoFocusController",
+          "controllers/ScrollToBottomController",
+          "controllers/ScrollToController",
+          "controllers/ScrollToTopController",
+        ],
+      },
+      {
+        "Table Controllers": [
+          "controllers/TableSortController",
+          "controllers/TableTruncateController",
+        ],
+      },
+      {
+        "UJS Controllers": [
+          "controllers/RemoteFormController",
+        ],
+      },
+      {
+        "Utility Controllers": [
+          "controllers/AppearanceController",
+          "controllers/IntervalController",
+          "controllers/IntersectionController",
+          "controllers/TimeoutController",
         ],
       },
     ],
