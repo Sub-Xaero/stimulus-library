@@ -7,6 +7,54 @@ module.exports = {
     ],
     Controllers: [
       {
+        "DOM Manipulation Controllers": [
+          "controllers/AsyncBlockController",
+          "controllers/LazyBlockController",
+          "controllers/TeleportController",
+          "controllers/ToggleClassController",
+        ]
+      },
+      {
+        "Form Controllers": [
+          "controllers/AutoSubmitFormController",
+          "controllers/AutosizeController",
+          "controllers/CharCountController",
+          "controllers/CheckboxSelectAllController",
+          "controllers/DetectDirtyController",
+          "controllers/DetectDirtyFormController",
+          "controllers/DisableInputsController",
+          "controllers/EnableInputsController",
+          "controllers/FormRcController",
+          "controllers/FormSaveController",
+          "controllers/LimitedSelectionCheckboxesController",
+          "controllers/NestedFormController",
+          "controllers/PasswordConfirmController",
+          "controllers/PasswordPeekController",
+          "controllers/WordCountController",
+        ],
+      },
+      {
+        "Media Controllers": [
+          "controllers/FallbackImageController",
+          "controllers/LightboxImageController",
+          "controllers/MediaPlayerController",
+        ]
+      },
+      {
+        "Scroll Controllers": [
+          "controllers/ScrollIntoFocusController",
+          "controllers/ScrollToBottomController",
+          "controllers/ScrollToController",
+          "controllers/ScrollToTopController",
+        ]
+      },
+      {
+        "Table Controllers": [
+          "controllers/TableSortController",
+          "controllers/TableTruncateController",
+        ]
+      },
+      {
         "Utility Controllers": [
           "controllers/AppearanceController",
           "controllers/IntersectionController",
@@ -15,44 +63,16 @@ module.exports = {
       {
         "General Controllers": [
           "controllers/AnchorSpyController",
-          "controllers/AsyncBlockController",
-          "controllers/AutoSubmitFormController",
-          "controllers/AutosizeController",
-          "controllers/CharCountController",
-          "controllers/CheckboxSelectAllController",
           "controllers/ClipboardController",
           "controllers/ConfirmController",
           "controllers/ConfirmNavigationController",
-          "controllers/DetectDirtyController",
-          "controllers/DetectDirtyFormController",
-          "controllers/DisableInputsController",
           "controllers/DisableWithController",
           "controllers/DismissableController",
           "controllers/ElementSaveController",
           "controllers/EmptyDomController",
-          "controllers/EnableInputsController",
-          "controllers/FallbackImageController",
-          "controllers/FormRcController",
-          "controllers/FormSaveController",
-          "controllers/LazyBlockController",
-          "controllers/LightboxImageController",
-          "controllers/LimitedSelectionCheckboxesController",
-          "controllers/MediaPlayerController",
-          "controllers/NestedFormController",
-          "controllers/PasswordConfirmController",
-          "controllers/PasswordPeekController",
           "controllers/ResponsiveIframeController",
-          "controllers/ScrollIntoFocusController",
-          "controllers/ScrollToBottomController",
-          "controllers/ScrollToController",
-          "controllers/ScrollToTopController",
           "controllers/SelfDestructController",
           "controllers/StickyController",
-          "controllers/TableSortController",
-          "controllers/TableTruncateController",
-          "controllers/TeleportController",
-          "controllers/ToggleClassController",
-          "controllers/WordCountController",
         ],
       },
       {
