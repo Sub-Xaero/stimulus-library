@@ -39,6 +39,7 @@ export { StickyController } from "./controllers/sticky_controller";
 export { TableSortController } from "./controllers/tables/table_sort_controller";
 export { TableTruncateController } from "./controllers/tables/table_truncate_controller";
 export { TeleportController } from "./controllers/teleport_controller";
+export { TimeoutController } from "./controllers/utility/timeout_controller";
 export { ToggleClassController } from "./controllers/toggle_class_controller";
 export { TurboFrameRCController } from "./controllers/turbo_frame_rc_controller";
 export { TurboFrameRefreshController } from "./controllers/turbo_frame_refresh_controller";

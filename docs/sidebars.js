@@ -58,6 +58,7 @@ module.exports = {
         "Utility Controllers": [
           "controllers/AppearanceController",
           "controllers/IntersectionController",
+          "controllers/TimeoutController",
         ],
       },
       {
