@@ -17,6 +17,7 @@ module.exports = {
       {
         "Extendable Controllers": [
           "controllers/BaseController",
+          "controllers/EphemeralController",
         ]
       },
       {

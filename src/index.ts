@@ -1,5 +1,6 @@
 // Utilities
 export {BaseController} from "./utilities/base_controller";
+export {EphemeralController} from "./utilities/ephemeral_controller";
 
 // Controllers
 export {AnchorSpyController} from "./controllers/anchor_spy_controller";

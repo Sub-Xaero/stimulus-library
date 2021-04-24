@@ -1,4 +1,5 @@
 export { BaseController } from "./utilities/base_controller";
+export { EphemeralController } from "./utilities/ephemeral_controller";
 export { AnchorSpyController } from "./controllers/anchor_spy_controller";
 export { AppearanceController } from "./controllers/utility/appearance_controller";
 export { AsyncBlockController } from "./controllers/async_block_controller";

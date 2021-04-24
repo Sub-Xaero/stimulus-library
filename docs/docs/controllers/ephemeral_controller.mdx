@@ -1,0 +1,40 @@
+---
+id: EphemeralController
+title: EphemeralController
+---
+
+
+## Purpose
+
+Provide a set of controller behaviours that allow a Stimulus controller to remove its own controllerisms (controllers, targets, actions, classes, values) from an element cleanly.
+
+## Methods
+
+This controller provides the following methods to sub-classes.
+
+| Name | Parameters | Purpose | Default |
+| --- | --- | --- | --- |
+| `cleanup` |  | Remove all identifiers related to this controller from an element. | |
+|  | `element` | The element to cleanup | |
+
+
+## How to Use
+
+```typescript
+import {EphemeralController} from "stimulus-library";
+
+export default class extends EphemeralController {
+  static targets = ["temp"];
+
+ removeTempTarget() {
+   if (this.hasTempTarget){
+    this.cleanup(this.tempTarget);
+   }
+ }
+
+ uninstallController() {
+    this.cleanup(this.el);
+ }
+
+}
+```
