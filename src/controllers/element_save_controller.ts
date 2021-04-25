@@ -1,6 +1,5 @@
 import {BaseController} from '../utilities/base_controller';
-import _get from "lodash-es/get";
-import _set from "lodash-es/set";
+import {get as _get, set as _set} from "lodash-es";
 
 export class ElementSaveController extends BaseController {
 
