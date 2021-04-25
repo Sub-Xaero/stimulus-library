@@ -4,6 +4,7 @@ export declare class IntervalController extends BaseController {
         seconds: NumberConstructor;
     };
     readonly secondsValue: number;
+    readonly hasSecondsValue: boolean;
     _intervalHandle: null | number;
     initialize(): void;
     connect(): void;

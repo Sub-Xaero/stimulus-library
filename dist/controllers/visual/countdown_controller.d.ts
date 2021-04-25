@@ -35,6 +35,7 @@ export declare class CountdownController extends BaseController {
     disconnect(): void;
     deadlineValueChanged(): void;
     _tick(): void;
+    _clearTick(): void;
     _updateTarget(target: HTMLElement, value: number): void;
     _removeTargetIfUnused(target: HTMLElement, value: number): void;
     _years(duration: Duration): number;
