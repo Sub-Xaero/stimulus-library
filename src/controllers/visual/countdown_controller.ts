@@ -58,9 +58,7 @@ export class CountdownController extends BaseController {
   }
 
   disconnect() {
-    if (this._interval) {
-      clearInterval(this._interval);
-    }
+    this._clearTick();
     if (this.hasCountingDownClass) {
       this.el.classList.remove(...this.countingDownClasses);
     }
@@ -77,44 +75,53 @@ export class CountdownController extends BaseController {
   }
 
   _tick() {
-    const now = new Date();
-    let distance: Duration = {};
+    try {
+      const now = new Date();
+      let distance: Duration = {};
 
-    if (isPast(this._deadlineDate)) {
-      distance = {years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
-      // Countdown has ended, stop ticking
-      if (this._interval) {
-        clearInterval(this._interval);
-        this._interval = null;
+      if (isPast(this._deadlineDate)) {
+        distance = {years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
+        // Countdown has ended, stop ticking
+        this._clearTick();
+        if (this.hasCountingDownClass) {
+          this.el.classList.remove(...this.countingDownClasses);
+        }
+        if (this.hasEndedClass) {
+          this.el.classList.add(...this.endedClasses);
+        }
+        this.dispatch(this.el, "countdown:ended");
+      } else {
+        distance = intervalToDuration({start: this._deadlineDate, end: now});
       }
-      if (this.hasCountingDownClass) {
-        this.el.classList.remove(...this.countingDownClasses);
-      }
-      if (this.hasEndedClass) {
-        this.el.classList.add(...this.endedClasses);
-      }
-      this.dispatch(this.el, "countdown:ended");
-    } else {
-      distance = intervalToDuration({start: this._deadlineDate, end: now});
-    }
 
-    if (this.hasYearsTarget) {
-      this._updateTarget(this.yearsTarget, this._years(distance));
+      if (this.hasYearsTarget) {
+        this._updateTarget(this.yearsTarget, this._years(distance));
+      }
+      if (this.hasMonthsTarget) {
+        this._updateTarget(this.monthsTarget, this._months(distance));
+      }
+      if (this.hasDaysTarget) {
+        this._updateTarget(this.daysTarget, this._days(distance));
+      }
+      if (this.hasHoursTarget) {
+        this._updateTarget(this.hoursTarget, this._hours(distance));
+      }
+      if (this.hasMinutesTarget) {
+        this._updateTarget(this.minutesTarget, this._minutes(distance));
+      }
+      if (this.hasSecondsTarget) {
+        this._updateTarget(this.secondsTarget, this._seconds(distance));
+      }
+    } catch (e) {
+      console.error(e);
+      this._clearTick();
     }
-    if (this.hasMonthsTarget) {
-      this._updateTarget(this.monthsTarget, this._months(distance));
-    }
-    if (this.hasDaysTarget) {
-      this._updateTarget(this.daysTarget, this._days(distance));
-    }
-    if (this.hasHoursTarget) {
-      this._updateTarget(this.hoursTarget, this._hours(distance));
-    }
-    if (this.hasMinutesTarget) {
-      this._updateTarget(this.minutesTarget, this._minutes(distance));
-    }
-    if (this.hasSecondsTarget) {
-      this._updateTarget(this.secondsTarget, this._seconds(distance));
+  }
+
+  _clearTick() {
+    if (this._interval) {
+      clearInterval(this._interval);
+      this._interval = null;
     }
   }
 
