@@ -1,1 +1,0 @@
-{"version":3,"file":"debug_controller.d.ts","sourceRoot":"","sources":["../../src/controllers/debug_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,cAAc,EAAC,MAAM,8BAA8B,CAAC;AAE5D,qBAAa,eAAgB,SAAQ,cAAc;IAEjD,MAAM,CAAC,OAAO,WAAY;IAClB,WAAW,EAAE,WAAW,EAAE,CAAC;IAEnC,OAAO;CAGR"}
