@@ -101,6 +101,7 @@ module.exports = {
       {
         "Visual Controllers": [
           "controllers/CountdownController",
+          "controllers/TimeDistanceController",
         ],
       },
     ],
