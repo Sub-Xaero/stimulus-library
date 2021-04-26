@@ -33,6 +33,7 @@ module.exports = {
           "controllers/FormRcController",
           "controllers/FormSaveController",
           "controllers/LimitedSelectionCheckboxesController",
+          "controllers/NavigateFormErrorsController",
           "controllers/NestedFormController",
           "controllers/PasswordConfirmController",
           "controllers/PasswordPeekController",
