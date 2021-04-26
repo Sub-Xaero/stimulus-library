@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.8](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.7...v0.2.8) (2021-04-26)
+
+
+### Features
+
+* CountdownController - A controller to visualise a countdown to a date/time ([82c1bfe](https://github.com/Sub-Xaero/stimulus-library/commit/82c1bfe0ab168b864fb0d1c29f18ebda3fc00635))
+* NavigateFormErrorsController - A controller to enable smoothscroll navigation between form errors on a page ([#23](https://github.com/Sub-Xaero/stimulus-library/issues/23)) ([dcebaf1](https://github.com/Sub-Xaero/stimulus-library/commit/dcebaf19a6735ed4e46ccc104f6a9ee7ddb9e1ef))
+* TimeDistanceController - Controller that shows the distance in words between the current time and a specific UNIX timestamp. Updates intelligently according to time distance from current. ([#24](https://github.com/Sub-Xaero/stimulus-library/issues/24)) ([91269ea](https://github.com/Sub-Xaero/stimulus-library/commit/91269eabc911895420d4d6877bdf8e2a2c9cf470))
+
+
+### Bug Fixes
+
+* CountdownController - When errors happen on tick, kill tick interval. ([112039c](https://github.com/Sub-Xaero/stimulus-library/commit/112039cde8960885c2caea90d9f75933830a2e51))
+* IntervalController - Throw exception when secondsValue is blank ([0a45825](https://github.com/Sub-Xaero/stimulus-library/commit/0a458255ef8483b3ebf4b6d038d1ef948ee62275))
+
 ### [0.2.7](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.5...v0.2.7) (2021-04-24)
 
 
