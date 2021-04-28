@@ -6,7 +6,6 @@ title: FallbackImageController
 import NoActions from "../_partials/no-actions.md";
 import NoTargets from "../_partials/no-targets.md";
 import NoClasses from "../_partials/no-classes.md";
-import NoEvents from "../_partials/no-events.md";
 
 ## Purpose
 
@@ -36,17 +35,23 @@ If an image fails to load from the source, provide a fallback image, or hide it 
 
 ## Events
 
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `fallback-image:placeholder` | When the image fails to load and falls back to the placeholder | The controller root element | - |
+| `fallback-image:fail` | When the image and the placeholder (if any) fails to load | The controller root element | - |
 
-<NoEvents/>
 
 ## Side Effects
 
-None
-
+- Sets an `onError` handler for the mounted `<img>` tag.
+- Sets the style of the image to be `display: none` if the image fails to load.
 
 
 ## How to Use
 
+If an image fails to load, the controller will either try to set the `src` to a placeholder image you provide, or hide the image using `display: none`.
+
+If the placeholder URL you provide *also* fails to load, the controller will fall back to the default behaviour of hiding the element.
 
 <iframe
   src="https://codesandbox.io/embed/fallbackimagecontroller-poh1m?fontsize=14&hidenavigation=1&theme=dark"
@@ -54,6 +59,6 @@ None
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-*Please note:* If the placeholder URL you provide fails to load, there is no fallback - the borked image icon may still show. This controller relies on the `onError` behaviour of the `img` tag, but it may only run once.
+
 
 
