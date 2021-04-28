@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.9](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.8...v0.2.9) (2021-04-28)
+
+
+### Features
+
+* FallbackImageController - update the controller to support failing when the placeholder also fails. Also works more consistently in race-conditions when the image has already loaded when the controller mounts. ([1fd682d](https://github.com/Sub-Xaero/stimulus-library/commit/1fd682dc7185891217e97da5f66e14afb4679ed9))
+
 ### [0.2.8](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.7...v0.2.8) (2021-04-26)
 
 
