@@ -37,6 +37,7 @@ module.exports = {
           "controllers/NestedFormController",
           "controllers/PasswordConfirmController",
           "controllers/PasswordPeekController",
+          "controllers/SyncInputsController",
           "controllers/WordCountController",
         ],
       },

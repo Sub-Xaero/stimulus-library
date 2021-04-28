@@ -44,6 +44,7 @@ export {ScrollToController} from "./controllers/scroll/scroll_to_controller";
 export {ScrollToTopController} from "./controllers/scroll/scroll_to_top_controller";
 export {SelfDestructController} from "./controllers/self_destruct_controller";
 export {StickyController} from "./controllers/sticky_controller";
+export {SyncInputsController} from "./controllers/forms/sync_inputs_controller";
 export {TableSortController} from "./controllers/tables/table_sort_controller";
 export {TableTruncateController} from "./controllers/tables/table_truncate_controller";
 export {TeleportController} from "./controllers/teleport_controller";
