@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.9...v0.2.10) (2021-05-04)
+
+
+### Features
+
+* SyncInputsController - Inspired by Vue's v-bind and v-model. A controller to sync input vales to parts of the DOM, or the values of other inputs. ([9d5e847](https://github.com/Sub-Xaero/stimulus-library/commit/9d5e847904c354072714e3d0e80781b542119390))
+
+
+### Bug Fixes
+
+* AutoSubmitFormController - allow controller to submit normal forms as well as UJS forms. ([e1866e2](https://github.com/Sub-Xaero/stimulus-library/commit/e1866e2afc7f5c8fae56a755665b0de7777e52bc))
+* ScrollTopController/ScrollBottomController - fix controller behaviour when inside an overflow container and mode is "nearest". And more consistent behaviour when mode is document. ([f36f9e6](https://github.com/Sub-Xaero/stimulus-library/commit/f36f9e6abb360e75160ed3631ae5786384c2393d))
+
 ### [0.2.9](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.8...v0.2.9) (2021-04-28)
 
 
