@@ -4,7 +4,6 @@ export {EphemeralController} from "./utilities/ephemeral_controller";
 
 // Controllers
 export {AnchorSpyController} from "./controllers/anchor_spy_controller";
-export {AppearanceController} from "./controllers/utility/appearance_controller";
 export {AsyncBlockController} from "./controllers/async_block_controller";
 export {AutoSubmitFormController} from "./controllers/forms/auto_submit_form_controller";
 export {AutosizeController} from "./controllers/forms/autosize_controller";
@@ -56,4 +55,5 @@ export {TimeoutController} from "./controllers/utility/timeout_controller";
 export {ToggleClassController} from "./controllers/toggle_class_controller";
 export {TurboFrameRCController} from "./controllers/turbo_frame_rc_controller";
 export {TurboFrameRefreshController} from "./controllers/turbo_frame_refresh_controller";
+export {UserFocusController} from "./controllers/utility/user_focus_controller";
 export {WordCountController} from "./controllers/forms/word_count_controller";

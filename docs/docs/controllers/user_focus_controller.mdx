@@ -1,6 +1,6 @@
 ---
-id: AppearanceController
-title: AppearanceController
+id: UserFocusController
+title: UserFocusController
 ---
 
 import NoActions from "../_partials/no-actions.md";
@@ -36,8 +36,8 @@ A utility controller to wire up other stimulus actions when the user is active o
 
 | Event | When | Dispatched on | `event.detail` |
 | --- | --- | --- |--- |
-|`appearance:appear` | When the user becomes active on the page | the controller root element | - |
-|`appearance:away` | When the page gets minimized or loses focus | the controller root element | - |
+|`user-focus:active` | When the user becomes active on the page | the controller root element | - |
+|`user-focus:away` | When the page gets minimized or loses focus | the controller root element | - |
 
 ## Side Effects
 
@@ -52,11 +52,10 @@ The controller will install event listeners for:
 - `visibilitychange`
 
 
-
 ## How to Use
 
 <iframe
-  src="https://codesandbox.io/embed/appearancecontroller-v7r36?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/userfocuscontroller-v7r36?fontsize=14&hidenavigation=1&theme=dark"
   style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />

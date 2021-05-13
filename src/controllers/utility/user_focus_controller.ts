@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 
-export class AppearanceController extends BaseController {
+export class UserFocusController extends BaseController {
 
   initialize() {
     this._handleVisibility = this._handleVisibility.bind(this);
@@ -22,11 +22,11 @@ export class AppearanceController extends BaseController {
   }
 
   appear() {
-    this.dispatch(this.el, "appearance:appear");
+    this.dispatch(this.el, "user-focus:active");
   }
 
   away() {
-    this.dispatch(this.el, "appearance:away");
+    this.dispatch(this.el, "user-focus:away");
   }
 
   private _handleVisibility() {

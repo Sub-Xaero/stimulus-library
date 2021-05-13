@@ -94,11 +94,11 @@ module.exports = {
       },
       {
         "Utility Controllers": [
-          "controllers/AppearanceController",
           "controllers/IntervalController",
           "controllers/IntersectionController",
           "controllers/PresenceController",
           "controllers/TimeoutController",
+          "controllers/UserFocusController",
         ],
       },
       {
