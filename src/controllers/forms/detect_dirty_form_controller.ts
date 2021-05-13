@@ -114,7 +114,7 @@ export class DetectDirtyFormController extends BaseController {
 
   private _checkDirty(): void {
     this._formElements.forEach(el => this._checkElementDirty(el));
-    if (this._formElements.some(el => isDirty(el))) {
+    if (this._formElements.some(el => isFormDirty(el))) {
       this.el.setAttribute("data-dirty", "true");
     } else {
       this.el.removeAttribute("data-dirty");
@@ -122,6 +122,6 @@ export class DetectDirtyFormController extends BaseController {
   }
 }
 
-export function isDirty(element: HTMLElement) {
+export function isFormDirty(element: HTMLElement) {
   return element.hasAttribute("data-dirty");
 }
