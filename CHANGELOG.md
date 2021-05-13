@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.10...v0.3.0) (2021-05-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename AppearanceController as UserFocusController and tweak the event names.
+
+### Features
+
+* PresenceController - A utility controller to wire up other controllers when an element comes into or leaves the DOM ([#26](https://github.com/Sub-Xaero/stimulus-library/issues/26)) ([d3537d9](https://github.com/Sub-Xaero/stimulus-library/commit/d3537d9a9c0d666a2f795c34ab187b7b764d19b4))
+* Rename AppearanceController as UserFocusController and tweak the event names. ([0aa88ca](https://github.com/Sub-Xaero/stimulus-library/commit/0aa88cad56d937b2352df4d8b359465aa053daac))
+* TabsController - A presentational controller to enabled tabbed views ([db040e5](https://github.com/Sub-Xaero/stimulus-library/commit/db040e5925a607144b706c65cbe7598fae10eec3))
+* TemporaryStateController - A controller to temporarily apply a state to an attribute of an element, and restore it back after a given time. Closes [#22](https://github.com/Sub-Xaero/stimulus-library/issues/22) ([#28](https://github.com/Sub-Xaero/stimulus-library/issues/28)) ([427d0fa](https://github.com/Sub-Xaero/stimulus-library/commit/427d0fa795c7a4ca7361aa3b50234a502df236cc))
+
 ### [0.2.10](https://github.com/Sub-Xaero/stimulus-library/compare/v0.2.9...v0.2.10) (2021-05-04)
 
 
