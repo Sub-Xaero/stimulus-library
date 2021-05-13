@@ -96,6 +96,7 @@ module.exports = {
           "controllers/AppearanceController",
           "controllers/IntervalController",
           "controllers/IntersectionController",
+          "controllers/PresenceController",
           "controllers/TimeoutController",
         ],
       },

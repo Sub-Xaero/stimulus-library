@@ -36,6 +36,7 @@ export {NavigateFormErrorsController} from "./controllers/forms/navigate_form_er
 export {NestedFormController} from "./controllers/forms/nested_form_controller";
 export {PasswordConfirmController} from "./controllers/forms/password_confirm_controller";
 export {PasswordPeekController} from "./controllers/forms/password_peek_controller";
+export {PresenceController} from "./controllers/utility/presence_controller";
 export {RemoteFormController} from "./controllers/forms/remote_form_controller";
 export {ResponsiveIframeBodyController, ResponsiveIframeWrapperController} from "./controllers/responsive_iframe_controller";
 export {ScrollIntoFocusController} from "./controllers/scroll/scroll_into_focus_controller";
