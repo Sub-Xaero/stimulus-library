@@ -50,6 +50,7 @@ export {TableSortController} from "./controllers/tables/table_sort_controller";
 export {TableTruncateController} from "./controllers/tables/table_truncate_controller";
 export {TabsController} from "./controllers/visual/tabs_controller";
 export {TeleportController} from "./controllers/teleport_controller";
+export {TemporaryStateController, applyTemporaryState, applyTemporaryClass} from "./controllers/temporary_state_controller";
 export {TimeDistanceController} from "./controllers/visual/time_distance_controller";
 export {TimeoutController} from "./controllers/utility/timeout_controller";
 export {ToggleClassController} from "./controllers/toggle_class_controller";
