@@ -1,6 +1,6 @@
+import dialogPolyfill from "dialog-polyfill";
 import {BaseController} from "../../utilities/base_controller";
 import {scrollToElement} from "../../utilities/scroll";
-import dialogPolyfill from "dialog-polyfill";
 
 export class LightboxImageController extends BaseController {
 
@@ -84,4 +84,4 @@ export class LightboxImageController extends BaseController {
     }
   }
 
-} 
+}

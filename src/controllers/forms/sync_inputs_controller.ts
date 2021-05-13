@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
-import {EventBus} from "../../utilities/event_bus";
 import {isHTMLInputElement, isHTMLSelectElement, isHTMLTextAreaElement, isTypeOfFormInputElement} from "../../utilities/elements";
+import {EventBus} from "../../utilities/event_bus";
 
 export interface SyncValuePayload {
   value: string | boolean;

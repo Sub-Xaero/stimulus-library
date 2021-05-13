@@ -1,5 +1,5 @@
-import {BaseController} from "../../utilities/base_controller";
 import {Duration, formatDistanceToNow, intervalToDuration, isPast, toDate} from "date-fns";
+import {BaseController} from "../../utilities/base_controller";
 
 export class TimeDistanceController extends BaseController {
   static values = {

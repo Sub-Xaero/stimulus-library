@@ -1,5 +1,5 @@
-import {BaseController} from "../../utilities/base_controller";
 import {useIntersection} from "stimulus-use";
+import {BaseController} from "../../utilities/base_controller";
 
 export class IntersectionController extends BaseController {
 
