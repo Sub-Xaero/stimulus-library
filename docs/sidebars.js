@@ -54,6 +54,7 @@ module.exports = {
           "controllers/ResponsiveIframeController",
           "controllers/SelfDestructController",
           "controllers/StickyController",
+          "controllers/TemporaryStateController",
         ],
       },
       {
