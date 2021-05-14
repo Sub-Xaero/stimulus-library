@@ -75,6 +75,7 @@ module.exports = {
       },
       {
         "Scroll Controllers": [
+          "controllers/ScrollContainerController",
           "controllers/ScrollIntoFocusController",
           "controllers/ScrollToBottomController",
           "controllers/ScrollToController",

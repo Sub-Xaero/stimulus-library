@@ -26,6 +26,52 @@ export async function scrollAbsoluteBottom(element: Window | Element, {behavior 
   }
 }
 
+export async function scrollAbsoluteLeft(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
+  if (behavior == "smooth" && !smoothSupported) {
+    await polyfillSmooth();
+  }
+  element.scrollTo({left: 0, behavior});
+}
+
+export async function scrollAbsoluteRight(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
+  if (behavior == "smooth" && !smoothSupported) {
+    await polyfillSmooth();
+  }
+  if (element == window) {
+    element.scrollTo({left: document.body.scrollWidth, behavior});
+  } else {
+    element.scrollTo({left: (element as Element).scrollWidth, behavior});
+  }
+}
+
+export async function scrollUp(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
+  if (behavior == "smooth" && !smoothSupported) {
+    await polyfillSmooth();
+  }
+  element.scrollBy({top: -amount, left: 0, behavior});
+}
+
+export async function scrollDown(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
+  if (behavior == "smooth" && !smoothSupported) {
+    await polyfillSmooth();
+  }
+  element.scrollBy({top: amount, left: 0, behavior});
+}
+
+export async function scrollLeft(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
+  if (behavior == "smooth" && !smoothSupported) {
+    await polyfillSmooth();
+  }
+  element.scrollBy({top: 0, left: -amount, behavior});
+}
+
+export async function scrollRight(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
+  if (behavior == "smooth" && !smoothSupported) {
+    await polyfillSmooth();
+  }
+  element.scrollBy({top: 0, left: amount, behavior});
+}
+
 async function polyfillSmooth() {
   const {polyfill} = await import(/* webpackChunkName: "smoothscroll-polyfill" */ "smoothscroll-polyfill");
   if (smoothPolyfilled) {

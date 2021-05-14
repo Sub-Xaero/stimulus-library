@@ -38,6 +38,7 @@ export {PasswordPeekController} from "./controllers/forms/password_peek_controll
 export {PresenceController} from "./controllers/utility/presence_controller";
 export {RemoteFormController} from "./controllers/forms/remote_form_controller";
 export {ResponsiveIframeBodyController, ResponsiveIframeWrapperController} from "./controllers/responsive_iframe_controller";
+export {ScrollContainerController} from "./controllers/scroll/scroll_container_controller";
 export {ScrollIntoFocusController} from "./controllers/scroll/scroll_into_focus_controller";
 export {ScrollToBottomController} from "./controllers/scroll/scroll_to_bottom_controller";
 export {ScrollToController} from "./controllers/scroll/scroll_to_controller";
