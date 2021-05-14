@@ -12,7 +12,7 @@ export class TemporaryStateController extends EphemeralController {
   declare readonly hasSecondsValue: boolean;
   declare readonly secondsValue: number;
   declare readonly attributeValue: string;
-  declare readonly hasAttributesValue: boolean;
+  declare readonly hasAttributeValue: boolean;
   declare readonly valueValue: string;
   declare readonly hasValueValue: boolean;
   _timeout: null | ReturnType<typeof window.setTimeout> = null;
@@ -26,7 +26,7 @@ export class TemporaryStateController extends EphemeralController {
   }
 
   get _attribute(): string {
-    if (this.hasAttributesValue) {
+    if (this.hasAttributeValue) {
       return this.attributeValue;
     }
     throw new Error("Expected `attributeValue` to be present");
