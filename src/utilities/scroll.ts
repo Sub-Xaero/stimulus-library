@@ -8,14 +8,14 @@ export async function scrollToElement(element: Element, {behavior = "smooth", bl
   element.scrollIntoView({behavior, block, inline});
 }
 
-export async function scrollTop(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
+export async function scrollAbsoluteTop(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
   if (behavior == "smooth" && !smoothSupported) {
     await polyfillSmooth();
   }
   element.scrollTo({top: 0, left: 0, behavior});
 }
 
-export async function scrollBottom(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
+export async function scrollAbsoluteBottom(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
   if (behavior == "smooth" && !smoothSupported) {
     await polyfillSmooth();
   }

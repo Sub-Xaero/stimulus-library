@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {getScrollParent, scrollTop} from "../../utilities/scroll";
+import {getScrollParent, scrollAbsoluteTop} from "../../utilities/scroll";
 
 export class ScrollToTopController extends BaseController {
 
@@ -27,7 +27,7 @@ export class ScrollToTopController extends BaseController {
   async scroll(event?: Event) {
     event?.preventDefault();
     if (this._scrollTarget) {
-      await scrollTop(this._scrollTarget);
+      await scrollAbsoluteTop(this._scrollTarget);
     }
   }
 
