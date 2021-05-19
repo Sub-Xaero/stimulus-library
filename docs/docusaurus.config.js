@@ -24,6 +24,11 @@ module.exports = {
           position: "left",
         },
         {
+          href: "https://www.npmjs.com/package/stimulus-library",
+          label: "NPM",
+          position: "right",
+        },
+        {
           href: "https://github.com/Sub-Xaero/stimulus-library",
           label: "GitHub",
           position: "right",
