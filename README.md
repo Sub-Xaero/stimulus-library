@@ -2,6 +2,11 @@
 
 [Documentation](https://sub-xaero.github.io/stimulus-library/)  |  [Full List of Controllers](https://sub-xaero.github.io/stimulus-library/)
 
+---
+![npm](https://img.shields.io/npm/dt/stimulus-library)
+![npm bundle size (version)](https://img.shields.io/bundlephobia/minzip/stimulus-library/latest?label=minified%20size)
+---
+
 ## Installation
 
 To get started, you'll need to add the `stimulus-library` package to your project.

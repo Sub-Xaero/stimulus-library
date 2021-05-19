@@ -35,3 +35,19 @@
   height: 200px;
   width: 200px;
 }
+
+.badges {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background: #efefef69;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.badges > .badge {
+  display: inline-block;;
+  margin: 10px;
+}

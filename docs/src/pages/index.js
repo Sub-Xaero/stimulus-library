@@ -75,16 +75,22 @@ export default function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />"
+      title={`Hello from ${siteConfig.title}`} description={siteConfig.tagline}
     >
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
+
+          <div className={styles.badges}>
+            <img className={styles.badge} alt={"NPM Downloads"} src={"https://img.shields.io/npm/dt/stimulus-library"}/>
+            <img className={styles.badge} alt={"Minified Size"} src={"https://img.shields.io/bundlephobia/minzip/stimulus-library/latest?label=minified%20size"}/>
+          </div>
+
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                "button button--outline button--secondary button--lg",
+                "button button button--secondary button--lg",
                 styles.getStarted,
               )} to={useBaseUrl("docs/")}
             > Get Started </Link>
