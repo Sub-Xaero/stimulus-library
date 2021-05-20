@@ -72,6 +72,20 @@ export class BaseController extends Controller {
     logger.groupEnd();
   }
 
+  warn(warning: string, args: {} = {}): void {
+    // @ts-ignore
+    if (!this.application.debug) {
+      return;
+    }
+    let logger = console;
+    logger.groupCollapsed(`%c${this.identifier} %c#${warning}`, "color: F39B1AFF", "color: unset");
+    logger.warn({
+      element: this.element,
+      ...args,
+    });
+    logger.groupEnd();
+  }
+
   logEvent(eventName: string, event: CustomEvent, element: HTMLElement) {
     // @ts-ignore
     if (!this.application.debug) {
