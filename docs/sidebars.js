@@ -51,6 +51,7 @@ module.exports = {
           "controllers/DismissableController",
           "controllers/ElementSaveController",
           "controllers/EmptyDomController",
+          "controllers/PrefetchController",
           "controllers/ResponsiveIframeController",
           "controllers/SelfDestructController",
           "controllers/StickyController",
