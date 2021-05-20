@@ -44,6 +44,7 @@ module.exports = {
       {
         "General Controllers": [
           "controllers/AnchorSpyController",
+          "controllers/BackLinkController",
           "controllers/ClipboardController",
           "controllers/ConfirmController",
           "controllers/ConfirmNavigationController",

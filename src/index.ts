@@ -7,6 +7,7 @@ export {AnchorSpyController} from "./controllers/anchor_spy_controller";
 export {AsyncBlockController} from "./controllers/async_block_controller";
 export {AutoSubmitFormController} from "./controllers/forms/auto_submit_form_controller";
 export {AutosizeController} from "./controllers/forms/autosize_controller";
+export {BackLinkController} from "./controllers/back_link_controller";
 export {CharCountController} from "./controllers/forms/char_count_controller";
 export {CheckboxSelectAllController} from "./controllers/forms/checkbox_select_all_controller";
 export {ClipboardController} from "./controllers/clipboard_controller";
