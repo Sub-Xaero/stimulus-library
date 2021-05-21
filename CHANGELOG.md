@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.2...v0.3.3) (2021-05-21)
+
+
+### Bug Fixes
+
+* NavigateFormErrors - Clamp error index so that "current error" works even when index is out of bounds ([d09a66b](https://github.com/Sub-Xaero/stimulus-library/commit/d09a66b67afd5f87348c091c8277af5b0c17d0bd))
+
 ### [0.3.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.1...v0.3.2) (2021-05-21)
 
 
