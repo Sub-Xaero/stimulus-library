@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {clamp} from "lodash-es";
 
 export class TabsController extends BaseController {
 
@@ -89,9 +90,7 @@ export class TabsController extends BaseController {
   }
 
   _clampIndex(index: number): number {
-    index = Math.min(this.contentTargets.length - 1, index);
-    index = Math.max(0, index);
-    return index;
+    return clamp(index, 0, this.contentTargets.length - 1);
   }
 
   _setMinHeight() {
