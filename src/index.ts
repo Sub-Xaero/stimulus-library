@@ -21,6 +21,7 @@ export {DetectDirtyFormController, isFormDirty} from "./controllers/forms/detect
 export {DisableInputsController} from "./controllers/forms/disable_inputs_controller";
 export {DisableWithController} from "./controllers/disable_with_controller";
 export {DismissableController} from "./controllers/dismissable_controller";
+export {DurationController} from "./controllers/visual/duration_controller";
 export {ElementSaveController} from "./controllers/element_save_controller";
 export {EmptyDomController} from "./controllers/empty_dom_controller";
 export {EnableInputsController} from "./controllers/forms/enable_inputs_controller";

@@ -108,6 +108,7 @@ module.exports = {
         "Visual/Presentational Controllers": [
           "controllers/ClockController",
           "controllers/CountdownController",
+          "controllers/DurationController",
           "controllers/TabsController",
           "controllers/TimeDistanceController",
         ],
