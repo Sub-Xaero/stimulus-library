@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.1...v0.3.2) (2021-05-21)
+
+
+### Features
+
+* BackLinkController - A controller to enable links to navigate back through the user's history to previous pages, falling back to a default href. ([9d68ed6](https://github.com/Sub-Xaero/stimulus-library/commit/9d68ed66e1d8d72b517fe63093f7d532dab755db))
+* ClockController - A visual controller to display the current time ([ac122ae](https://github.com/Sub-Xaero/stimulus-library/commit/ac122ae9937d6f26d0e213abb087583d2df8256f))
+* DurationController - A controller to display the duration that has elapsed since a given timestamp. Similar to TimeDistanceController, but with numbers instead of words. ([b634a3c](https://github.com/Sub-Xaero/stimulus-library/commit/b634a3c5885471416e2ae5692e73a37f83ed5908))
+* Prefetch Controller - A controller to preload links when they come into view, or the user hovers over them. ([a27593f](https://github.com/Sub-Xaero/stimulus-library/commit/a27593f5edf552cce9e4d32581f9f6553e7baa2e))
+* ScrollContainerController - Controller to allow control over a scrollable container element ([e953769](https://github.com/Sub-Xaero/stimulus-library/commit/e953769643151cf52b9408f9d3fd01fead4a0443))
+
 ### [0.3.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.0...v0.3.1) (2021-05-14)
 
 
