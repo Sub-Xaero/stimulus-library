@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {scrollToElement} from "../../utilities/scroll";
+import {clamp} from "lodash-es";
 
 export class NavigateFormErrorsController extends BaseController {
   static values = {
@@ -44,10 +45,7 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   get _index(): number {
-    return Math.min(
-      this.hasIndexValue ? this.indexValue : 0,
-      this._errors.length,
-    );
+    return clamp(this.hasIndexValue ? this.indexValue : 0, 0, this._errors.length);
   }
 
   get _selector(): string {
