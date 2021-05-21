@@ -11,6 +11,7 @@ export {BackLinkController} from "./controllers/back_link_controller";
 export {CharCountController} from "./controllers/forms/char_count_controller";
 export {CheckboxSelectAllController} from "./controllers/forms/checkbox_select_all_controller";
 export {ClipboardController} from "./controllers/clipboard_controller";
+export {ClockController} from "./controllers/visual/clock_controller";
 export {ConfirmController} from "./controllers/confirm_controller";
 export {ConfirmNavigationController} from "./controllers/confirm_navigation_controller";
 export {CountdownController} from "./controllers/visual/countdown_controller";
