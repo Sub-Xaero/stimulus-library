@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.3...v0.3.4) (2021-05-27)
+
+
+### Bug Fixes
+
+* DisableWithController - Re-enable buttons when a turbo(links) visit triggers ([2895ed1](https://github.com/Sub-Xaero/stimulus-library/commit/2895ed103d4cbc61b28fa160d969d6e3833b2570))
+
 ### [0.3.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.2...v0.3.3) (2021-05-21)
 
 
