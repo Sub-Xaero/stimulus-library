@@ -27,11 +27,15 @@ export class DisableWithController extends BaseController {
   initialize() {
     this.enable = this.enable.bind(this);
     this.disable = this.disable.bind(this);
+    this._enable = this._enable.bind(this);
+    this._disable = this._disable.bind(this);
   }
 
   connect() {
     requestAnimationFrame(() => {
       this.el.addEventListener("click", this.disable);
+      window.addEventListener("turbo:load", this._enable);
+      window.addEventListener("turbolinks:load", this._enable);
     });
   }
 
@@ -39,6 +43,9 @@ export class DisableWithController extends BaseController {
     if (this._timeoutHandle) {
       clearTimeout(this._timeoutHandle);
     }
+    this.el.removeEventListener("click", this.disable);
+    window.addEventListener("turbo:load", this._enable);
+    window.addEventListener("turbolinks:load", this._enable);
   }
 
   disable(event?: Event) {
@@ -50,7 +57,7 @@ export class DisableWithController extends BaseController {
     } else {
       this._cacheText = this._getElText(element);
       this._setElText(element, this._message);
-      this._disable(element);
+      this._disable();
       setTimeout(this.enable, this._timeout);
     }
   }
@@ -60,7 +67,7 @@ export class DisableWithController extends BaseController {
     let element = this.el;
     if (this._isDisabled(element)) {
       this._setElText(element, this._cacheText!);
-      this._enable(element);
+      this._enable();
     }
   }
 
@@ -88,7 +95,8 @@ export class DisableWithController extends BaseController {
     }
   }
 
-  _disable(el: HTMLElement) {
+  _disable() {
+    let el = this.el;
     if ((isHTMLInputElement(el) && el.type == "submit") || isHTMLButtonElement(el)) {
       el.disabled = true;
     } else {
@@ -96,7 +104,8 @@ export class DisableWithController extends BaseController {
     }
   }
 
-  _enable(el: HTMLElement) {
+  _enable() {
+    let el = this.el;
     if (isHTMLInputElement(el) && el.type == "submit" || isHTMLButtonElement(el)) {
       el.disabled = false;
     } else {
