@@ -41,7 +41,7 @@
     "date-fns": "^2.22.1",
     "dialog-polyfill": "^0.5.6",
     "lodash-es": "^4.17.21",
-    "mitt": "^2.1.0",
+    "mitt": "^3.0.0",
     "smoothscroll-polyfill": "^0.4.4"
   },
   "peerDependencies": {
@@ -49,10 +49,10 @@
   },
   "devDependencies": {
     "agadoo": "^2.0.0",
-    "microbundle": "^0.13.2",
+    "microbundle": "^0.13.3",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.0",
     "stimulus": "^2.0.0",
-    "stimulus-use": "^0.23.0"
+    "stimulus-use": "^0.25.3"
   }
 }
