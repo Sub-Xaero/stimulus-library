@@ -3,16 +3,23 @@ import {BaseController} from "../utilities/base_controller";
 export class StickyController extends BaseController {
 
   static classes = ["stuck"];
-  static values = {
-    mode: String,
-  };
+  static values = {mode: String};
 
-  declare readonly hasStuckClass: boolean;
   declare readonly stuckClass: string;
+  declare readonly hasStuckClass: boolean;
+
   declare readonly hasModeValue: "top" | "bottom";
   declare readonly modeValue: "top" | "bottom";
 
   _magicElement: HTMLDivElement | null = null;
+
+  get _stuckClasses(): string[] {
+    return this.stuckClass.split(' ');
+  }
+
+  get _defaultStuckClasses(): string[] {
+    return ["stuck"];
+  }
 
   get _mode(): "top" | "bottom" {
     return this.hasModeValue ? this.modeValue : "top";
@@ -46,9 +53,9 @@ export class StickyController extends BaseController {
           return;
         }
         if (entry.intersectionRatio === 0) {
-          element.classList.add(this.hasStuckClass ? this.stuckClass : "stuck");
+          this._addStuckClasses();
         } else if (entry.intersectionRatio === 1) {
-          element.classList.remove(this.hasStuckClass ? this.stuckClass : "stuck");
+          this._removeStuckClasses();
         }
       });
 
@@ -56,6 +63,22 @@ export class StickyController extends BaseController {
       threshold: [0, 1],
     });
     observer.observe(this._magicElement!);
+  }
+
+  private _addStuckClasses(el: HTMLElement = this.el) {
+    if (this.hasStuckClass) {
+      el.classList.add(...this._stuckClasses);
+    } else {
+      el.classList.add(...this._defaultStuckClasses);
+    }
+  }
+
+  private _removeStuckClasses(el: HTMLElement = this.el) {
+    if (this.hasStuckClass) {
+      el.classList.remove(...this._stuckClasses);
+    } else {
+      el.classList.remove(...this._defaultStuckClasses);
+    }
   }
 
 }

@@ -2,19 +2,33 @@ import {BaseController} from "../../utilities/base_controller";
 
 export class CharCountController extends BaseController {
 
+  // Config
   static targets = ["input", "output"];
   static values = {min: Number, max: Number};
   static classes = ["error"];
 
+  // Targets
   declare readonly inputTarget: HTMLInputElement | HTMLTextAreaElement;
   declare readonly outputTarget: HTMLElement;
+  // Values
   declare minValue: number;
   declare hasMinValue: boolean;
   declare maxValue: number;
   declare hasMaxValue: boolean;
-  declare errorClass: string;
-  declare hasErrorClass: boolean;
+  // Classes
+  declare readonly errorClass: string;
+  declare readonly hasErrorClass: boolean;
 
+  // Getters
+  get _errorClasses(): string[] {
+    return this.errorClass.split(' ');
+  }
+
+  get _defaultErrorClasses(): string[] {
+    return [];
+  }
+
+  // Lifecycle Methods
   initialize() {
     this._updateCharCount = this._updateCharCount.bind(this);
   }
@@ -30,14 +44,31 @@ export class CharCountController extends BaseController {
     this.inputTarget.removeEventListener("input", this._updateCharCount);
   }
 
+  // Methods
+  private _addErrorClasses(el: HTMLElement = this.el) {
+    if (this.hasErrorClass) {
+      el.classList.add(...this._errorClasses);
+    } else {
+      el.classList.add(...this._defaultErrorClasses);
+    }
+  }
+
+  private _removeErrorClasses(el: HTMLElement = this.el) {
+    if (this.hasErrorClass) {
+      el.classList.remove(...this._errorClasses);
+    } else {
+      el.classList.remove(...this._defaultErrorClasses);
+    }
+  }
+
   private _updateCharCount() {
     let charCount = this.inputTarget.value.length;
     this.outputTarget.innerText = charCount.toString();
     if (this.hasErrorClass) {
       if (this._isValidCount(charCount)) {
-        this.outputTarget.classList.remove(this.errorClass);
+        this._removeErrorClasses(this.outputTarget);
       } else {
-        this.outputTarget.classList.add(this.errorClass);
+        this._addErrorClasses(this.outputTarget);
       }
     }
   }

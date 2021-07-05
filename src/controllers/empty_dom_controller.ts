@@ -6,20 +6,28 @@ export class EmptyDomController extends BaseController {
   static classes = ["empty", "notEmpty"];
   static values = {scopeSelector: String};
 
-  declare hasEmptyClass: boolean;
-  declare emptyClass: string;
-  declare hasNotEmptyClass: boolean;
-  declare notEmptyClass: string;
+  declare readonly emptyClass: string;
+  declare readonly hasEmptyClass: boolean;
+  declare readonly notEmptyClass: string;
+  declare readonly hasNotEmptyClass: boolean;
 
   declare hasScopeSelectorValue: boolean;
   declare scopeSelectorValue: string;
 
-  get emptyClasses(): string[] {
-    return this.emptyClass.split(" ");
+  get _notEmptyClasses(): string[] {
+    return this.notEmptyClass.split(' ');
   }
 
-  get notEmptyClasses(): string[] {
-    return this.notEmptyClass.split(" ");
+  get _defaultNotEmptyClasses(): string[] {
+    return [];
+  }
+
+  get _emptyClasses(): string[] {
+    return this.emptyClass.split(' ');
+  }
+
+  get _defaultEmptyClasses(): string[] {
+    return [];
   }
 
   get _children(): Element[] {
@@ -54,27 +62,36 @@ export class EmptyDomController extends BaseController {
     }
   }
 
-  private _removeEmptyClasses() {
-    if (this.hasEmptyClass) {
-      this.el.classList.remove(...this.emptyClasses);
-    }
-  }
-
-  private _addNotEmptyClasses() {
+  private _addNotEmptyClasses(el: HTMLElement = this.el) {
     if (this.hasNotEmptyClass) {
-      this.el.classList.add(...this.notEmptyClasses);
+      el.classList.add(...this._notEmptyClasses);
+    } else {
+      el.classList.add(...this._defaultNotEmptyClasses);
     }
   }
 
-  private _addEmptyClasses() {
-    if (this.hasEmptyClass) {
-      this.el.classList.add(...this.emptyClasses);
-    }
-  }
-
-  private _removeNotEmptyClasses() {
+  private _removeNotEmptyClasses(el: HTMLElement = this.el) {
     if (this.hasNotEmptyClass) {
-      this.el.classList.remove(...this.notEmptyClasses);
+      el.classList.remove(...this._notEmptyClasses);
+    } else {
+      el.classList.remove(...this._defaultNotEmptyClasses);
     }
   }
+
+  private _addEmptyClasses(el: HTMLElement = this.el) {
+    if (this.hasEmptyClass) {
+      el.classList.add(...this._emptyClasses);
+    } else {
+      el.classList.add(...this._defaultEmptyClasses);
+    }
+  }
+
+  private _removeEmptyClasses(el: HTMLElement = this.el) {
+    if (this.hasEmptyClass) {
+      el.classList.remove(...this._emptyClasses);
+    } else {
+      el.classList.remove(...this._defaultEmptyClasses);
+    }
+  }
+
 }

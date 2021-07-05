@@ -36,12 +36,20 @@ export class CountdownController extends BaseController {
     return this.hasRemoveUnusedValue ? this.removeUnusedValue : false;
   }
 
-  get endedClasses(): string[] {
+  get _endedClasses(): string[] {
     return this.endedClass.split(' ');
   }
 
-  get countingDownClasses(): string[] {
+  get _defaultEndedClasses(): string[] {
+    return [];
+  }
+
+  get _countingDownClasses(): string[] {
     return this.countingDownClass.split(' ');
+  }
+
+  get _defaultCountingDownClasses(): string[] {
+    return [];
   }
 
   get _deadlineDate() {
@@ -50,19 +58,13 @@ export class CountdownController extends BaseController {
 
   connect() {
     this._interval = setInterval(this._tick.bind(this), 1000);
-    if (this.hasCountingDownClass) {
-      this.el.classList.add(...this.countingDownClasses);
-    }
+    this._addCountingDownClasses();
   }
 
   disconnect() {
     this._clearTick();
-    if (this.hasCountingDownClass) {
-      this.el.classList.remove(...this.countingDownClasses);
-    }
-    if (this.hasEndedClass) {
-      this.el.classList.remove(...this.endedClasses);
-    }
+    this._removeCountingDownClasses();
+    this._removeEndedClasses();
   }
 
   deadlineValueChanged() {
@@ -81,12 +83,8 @@ export class CountdownController extends BaseController {
         distance = {years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
         // Countdown has ended, stop ticking
         this._clearTick();
-        if (this.hasCountingDownClass) {
-          this.el.classList.remove(...this.countingDownClasses);
-        }
-        if (this.hasEndedClass) {
-          this.el.classList.add(...this.endedClasses);
-        }
+        this._removeCountingDownClasses();
+        this._addEndedClasses();
         this.dispatch(this.el, "countdown:ended");
       } else {
         distance = intervalToDuration({start: this._deadlineDate, end: now});
@@ -164,5 +162,37 @@ export class CountdownController extends BaseController {
 
   _seconds(duration: Duration): number {
     return duration.seconds || 0;
+  }
+
+  private _addEndedClasses(el: HTMLElement = this.el) {
+    if (this.hasEndedClass) {
+      el.classList.add(...this._endedClasses);
+    } else {
+      el.classList.add(...this._defaultEndedClasses);
+    }
+  }
+
+  private _removeEndedClasses(el: HTMLElement = this.el) {
+    if (this.hasEndedClass) {
+      el.classList.remove(...this._endedClasses);
+    } else {
+      el.classList.remove(...this._defaultEndedClasses);
+    }
+  }
+
+  private _addCountingDownClasses(el: HTMLElement = this.el) {
+    if (this.hasCountingDownClass) {
+      el.classList.add(...this._countingDownClasses);
+    } else {
+      el.classList.add(...this._defaultCountingDownClasses);
+    }
+  }
+
+  private _removeCountingDownClasses(el: HTMLElement = this.el) {
+    if (this.hasCountingDownClass) {
+      el.classList.remove(...this._countingDownClasses);
+    } else {
+      el.classList.remove(...this._defaultCountingDownClasses);
+    }
   }
 }

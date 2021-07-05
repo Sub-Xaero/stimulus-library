@@ -12,8 +12,17 @@ export class WordCountController extends BaseController {
   declare hasMinValue: boolean;
   declare maxValue: number;
   declare hasMaxValue: boolean;
-  declare errorClass: string;
-  declare hasErrorClass: boolean;
+
+  declare readonly errorClass: string;
+  declare readonly hasErrorClass: boolean;
+
+  get _errorClasses(): string[] {
+    return this.errorClass.split(' ');
+  }
+
+  get _defaultErrorClasses(): string[] {
+    return [];
+  }
 
   initialize() {
     this._updateWordCount = this._updateWordCount.bind(this);
@@ -36,10 +45,26 @@ export class WordCountController extends BaseController {
     this.outputTarget.innerText = wordCount.toString();
     if (this.hasErrorClass) {
       if (this._isValidCount(wordCount)) {
-        this.outputTarget.classList.remove(this.errorClass);
+        this._removeErrorClasses(this.outputTarget);
       } else {
-        this.outputTarget.classList.add(this.errorClass);
+        this._addErrorClasses(this.outputTarget);
       }
+    }
+  }
+
+  private _addErrorClasses(el: HTMLElement = this.el) {
+    if (this.hasErrorClass) {
+      el.classList.add(...this._errorClasses);
+    } else {
+      el.classList.add(...this._defaultErrorClasses);
+    }
+  }
+
+  private _removeErrorClasses(el: HTMLElement = this.el) {
+    if (this.hasErrorClass) {
+      el.classList.remove(...this._errorClasses);
+    } else {
+      el.classList.remove(...this._defaultErrorClasses);
     }
   }
 

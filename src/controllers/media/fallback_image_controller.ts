@@ -12,12 +12,20 @@ export class FallbackImageController extends BaseController {
   declare readonly failClass: string;
   declare readonly hasFailClass: boolean;
 
-  get successClasses(): string[] {
+  get _successClasses(): string[] {
     return this.successClass.split(' ');
   }
 
-  get failClasses(): string[] {
+  get _defaultSuccessClasses(): string[] {
+    return [];
+  }
+
+  get _failClasses(): string[] {
     return this.failClass.split(' ');
+  }
+
+  get _defaultFailClasses(): string[] {
+    return [];
   }
 
   initialize() {
@@ -37,37 +45,18 @@ export class FallbackImageController extends BaseController {
     }
   }
 
-  private _applySuccessClasses() {
-    if (this.hasSuccessClass) {
-      this.el.classList.add(...this.successClasses);
-    }
-  }
-
-  private _removeSuccessClasses() {
-    if (this.hasSuccessClass) {
-      this.el.classList.remove(...this.successClasses);
-    }
-  }
-
-  private _applyFailClasses() {
-    if (this.hasFailClass) {
-      this.el.classList.add(...this.failClasses);
-    }
-  }
-
-  private _removeFailClasses() {
-    if (this.hasFailClass) {
-      this.el.classList.remove(...this.failClasses);
-    }
+  disconnect() {
+    this._removeSuccessClasses();
+    this._removeFailClasses();
   }
 
   private _success() {
-    this._applySuccessClasses();
+    this._addSuccessClasses();
   }
 
   private _fail() {
     let element = this.el as HTMLImageElement;
-    this._applyFailClasses();
+    this._addFailClasses();
 
     if (this.hasPlaceholderValue && element.src !== this.placeholderValue) {
       this.dispatch(element, "fallback-image:placeholder");
@@ -83,4 +72,37 @@ export class FallbackImageController extends BaseController {
     let element = this.el as HTMLImageElement;
     return element.naturalHeight > 0 && element.naturalWidth > 0;
   }
+
+  private _addFailClasses(el: HTMLElement = this.el) {
+    if (this.hasFailClass) {
+      el.classList.add(...this._failClasses);
+    } else {
+      el.classList.add(...this._defaultFailClasses);
+    }
+  }
+
+  private _removeFailClasses(el: HTMLElement = this.el) {
+    if (this.hasFailClass) {
+      el.classList.remove(...this._failClasses);
+    } else {
+      el.classList.remove(...this._defaultFailClasses);
+    }
+  }
+
+  private _addSuccessClasses(el: HTMLElement = this.el) {
+    if (this.hasSuccessClass) {
+      el.classList.add(...this._successClasses);
+    } else {
+      el.classList.add(...this._defaultSuccessClasses);
+    }
+  }
+
+  private _removeSuccessClasses(el: HTMLElement = this.el) {
+    if (this.hasSuccessClass) {
+      el.classList.remove(...this._successClasses);
+    } else {
+      el.classList.remove(...this._defaultSuccessClasses);
+    }
+  }
+
 }

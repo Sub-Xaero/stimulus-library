@@ -10,16 +10,40 @@ export class PasswordConfirmController extends BaseController {
   declare readonly errorClass: string;
   declare readonly hasErrorClass: boolean;
 
+  get _errorClasses(): string[] {
+    return this.errorClass.split(' ');
+  }
+
+  get _defaultErrorClasses(): string[] {
+    return [];
+  }
+
   initialize() {
     this._checkPasswordsMatch = this._checkPasswordsMatch.bind(this);
   }
 
   connect() {
-    this.passwordTargets.forEach((el) => el.addEventListener("change", this.checkPasswordsMatch));
+    this.passwordTargets.forEach((el) => el.addEventListener("change", this._checkPasswordsMatch));
   }
 
   disconnect() {
-    this.passwordTargets.forEach((el) => el.removeEventListener("change", this.checkPasswordsMatch));
+    this.passwordTargets.forEach((el) => el.removeEventListener("change", this._checkPasswordsMatch));
+  }
+
+  private _addErrorClasses(el: HTMLElement = this.el) {
+    if (this.hasErrorClass) {
+      el.classList.add(...this._errorClasses);
+    } else {
+      el.classList.add(...this._defaultErrorClasses);
+    }
+  }
+
+  private _removeErrorClasses(el: HTMLElement = this.el) {
+    if (this.hasErrorClass) {
+      el.classList.remove(...this._errorClasses);
+    } else {
+      el.classList.remove(...this._defaultErrorClasses);
+    }
   }
 
   private _allPasswordsMatch(): boolean {
@@ -32,12 +56,12 @@ export class PasswordConfirmController extends BaseController {
     if (this._allPasswordsMatch()) {
       this.dispatch(element, "password-confirm:match");
       if (this.hasErrorClass) {
-        this.passwordTargets.forEach(el => el.classList.remove(this.errorClass));
+        this.passwordTargets.forEach(el => this._removeErrorClasses(el));
       }
     } else {
       this.dispatch(element, "password-confirm:no-match");
       if (this.hasErrorClass) {
-        this.passwordTargets.forEach(el => el.classList.add(this.errorClass));
+        this.passwordTargets.forEach(el => this._addErrorClasses(el));
       }
     }
   }
