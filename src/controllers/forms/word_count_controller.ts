@@ -16,19 +16,19 @@ export class WordCountController extends BaseController {
   declare hasErrorClass: boolean;
 
   initialize() {
-    this.updateWordCount = this.updateWordCount.bind(this);
+    this._updateWordCount = this._updateWordCount.bind(this);
   }
 
   connect() {
-    this.updateWordCount();
-    this.inputTarget.addEventListener("input", this.updateWordCount);
+    this._updateWordCount();
+    this.inputTarget.addEventListener("input", this._updateWordCount);
   }
 
   disconnect() {
-    this.inputTarget.removeEventListener("input", this.updateWordCount);
+    this.inputTarget.removeEventListener("input", this._updateWordCount);
   }
 
-  updateWordCount() {
+  _updateWordCount() {
     let wordCount = 0;
     let textAreaValue = this.inputTarget.value;
     let matches = textAreaValue.match(/\S+/g);
