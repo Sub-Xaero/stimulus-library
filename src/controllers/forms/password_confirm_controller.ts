@@ -11,7 +11,7 @@ export class PasswordConfirmController extends BaseController {
   declare readonly hasErrorClass: boolean;
 
   initialize() {
-    this.checkPasswordsMatch = this.checkPasswordsMatch.bind(this);
+    this._checkPasswordsMatch = this._checkPasswordsMatch.bind(this);
   }
 
   connect() {
@@ -27,7 +27,7 @@ export class PasswordConfirmController extends BaseController {
     return values.has("") || values.size == 1; // If any of the passwords are still blank, or there is only one distinct password value (i.e. they all are the same)
   }
 
-  private checkPasswordsMatch() {
+  private _checkPasswordsMatch() {
     let element = this.el;
     if (this._allPasswordsMatch()) {
       this.dispatch(element, "password-confirm:match");
