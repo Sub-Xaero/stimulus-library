@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.6](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.5...v0.3.6) (2021-07-05)
+
+
+### Features
+
+* Add optional `success` and `fail` classes to FallbackImageController ([2dfac90](https://github.com/Sub-Xaero/stimulus-library/commit/2dfac903617aa03015d7ab12b2ff6b2da13c12e3))
+* All controllers with `class` options now support multiple classes, as in utility-class framework environments. i.e. Tailwind ([51587bb](https://github.com/Sub-Xaero/stimulus-library/commit/51587bb08bd2c84c8d30c24c3fc95d63364aebc4))
+
 ### [0.3.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.4...v0.3.5) (2021-07-01)
 
 ### [0.3.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.3...v0.3.4) (2021-05-27)
