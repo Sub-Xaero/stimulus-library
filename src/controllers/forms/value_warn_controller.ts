@@ -1,4 +1,4 @@
-import {BaseController} from "src/utilities/base_controller";
+import {BaseController} from "../../utilities/base_controller";
 
 export class ValueWarnController extends BaseController {
   static classes = ["inputWarning", "warningHide"];
