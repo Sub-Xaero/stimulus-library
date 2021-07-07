@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.7](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.6...v0.3.7) (2021-07-07)
+
+
+### Features
+
+* ValueWarnController - A form controller to display a warning message (rather than an outright validation error), when the value of a numeric input exceeds a given min/max ([2357660](https://github.com/Sub-Xaero/stimulus-library/commit/2357660291acd5629a36b1bb45139f048cabe062))
+
+
+### Bug Fixes
+
+* Fix indexing bug in NavigateFormErrorsController causing previous/next to not always fire. ([92d64e8](https://github.com/Sub-Xaero/stimulus-library/commit/92d64e844e516f6bb89f5c99f73c52d3184bfdf6))
+
 ### [0.3.6](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.5...v0.3.6) (2021-07-05)
 
 
