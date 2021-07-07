@@ -28,18 +28,18 @@ export class NavigateFormErrorsController extends BaseController {
     return this._errors.length;
   }
 
-  get _previousIndex(): number | null {
+  get _previousIndex(): number {
     let index = this._index - 1;
     if (index < 0) {
-      return null;
+      return 0;
     }
     return index;
   }
 
-  get _nextIndex(): number | null {
+  get _nextIndex(): number {
     let index = this._index + 1;
     if (index > this._errors.length - 1) {
-      return null;
+      return this._errors.length - 1;
     }
     return index;
   }
@@ -56,16 +56,8 @@ export class NavigateFormErrorsController extends BaseController {
     }
   }
 
-  get _previousError(): HTMLElement | null {
-    return this._previousIndex ? this._errors[this._previousIndex] : null;
-  }
-
   get _currentError(): HTMLElement {
     return this._errors[this._index];
-  }
-
-  get _nextError(): HTMLElement | null {
-    return this._nextIndex ? this._errors[this._nextIndex] : null;
   }
 
   connect() {
@@ -73,34 +65,24 @@ export class NavigateFormErrorsController extends BaseController {
       this.indexValue = -1;
     }
     this._toggleButtons();
-
-    if (this._errorCount === 0) {
-      this.el.style.display = "none";
-    } else {
-      this.el.style.display = "";
-    }
+    this._toggleVisibility();
   }
 
-  async current() {
-    await scrollToElement(this._currentError);
+  async current(event?: Event) {
+    event?.preventDefault();
+    await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
 
-  async next() {
-    if (this._nextError) {
-      await scrollToElement(this._nextError);
-    }
-    if (this._index < this._errorCount - 1) {
-      this.indexValue += 1;
-    }
+  async next(event?: Event) {
+    event?.preventDefault();
+    this.indexValue = this._nextIndex;
+    await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
 
-  async previous() {
-    if (this._previousError) {
-      await scrollToElement(this._previousError);
-    }
-    if (this._index > 0) {
-      this.indexValue -= 1;
-    }
+  async previous(event?: Event) {
+    event?.preventDefault();
+    this.indexValue = this._previousIndex;
+    await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
 
   indexValueChanged() {
@@ -109,6 +91,17 @@ export class NavigateFormErrorsController extends BaseController {
 
   selectorValueChanged() {
     this._errors = Array.from(document.querySelectorAll(this._selector));
+    this.indexValue = 0;
+    this._toggleButtons();
+    this._toggleVisibility();
+  }
+
+  private _toggleVisibility() {
+    if (this._errorCount === 0) {
+      this.el.style.display = "none";
+    } else {
+      this.el.style.display = "";
+    }
   }
 
   private _toggleButtons() {
@@ -127,4 +120,5 @@ export class NavigateFormErrorsController extends BaseController {
       }
     }
   }
+
 }
