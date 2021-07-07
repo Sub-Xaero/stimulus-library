@@ -1,4 +1,6 @@
 // Utilities
+import {ValueWarnController} from "./controllers/forms/value_warn_controller";
+
 export {BaseController} from "./utilities/base_controller";
 export {EphemeralController} from "./utilities/ephemeral_controller";
 
@@ -61,4 +63,5 @@ export {ToggleClassController} from "./controllers/toggle_class_controller";
 export {TurboFrameRCController} from "./controllers/turbo_frame_rc_controller";
 export {TurboFrameRefreshController} from "./controllers/turbo_frame_refresh_controller";
 export {UserFocusController} from "./controllers/utility/user_focus_controller";
+export {ValueWarnController} from "./controllers/forms/value_warn_controller";
 export {WordCountController} from "./controllers/forms/word_count_controller";

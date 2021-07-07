@@ -38,6 +38,7 @@ module.exports = {
           "controllers/PasswordConfirmController",
           "controllers/PasswordPeekController",
           "controllers/SyncInputsController",
+          "controllers/ValueWarnController",
           "controllers/WordCountController",
         ],
       },
