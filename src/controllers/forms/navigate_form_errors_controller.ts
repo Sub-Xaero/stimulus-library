@@ -23,6 +23,7 @@ export class NavigateFormErrorsController extends BaseController {
   declare readonly hasIndexValue: boolean;
 
   _errors: HTMLElement[] = [];
+  firstClick = false;
 
   get _errorCount(): number {
     return this._errors.length;
@@ -61,27 +62,38 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   connect() {
-    if (!this.hasIndexValue) {
-      this.indexValue = -1;
-    }
+    this.firstClick = true;
     this._toggleButtons();
     this._toggleVisibility();
   }
 
   async current(event?: Event) {
     event?.preventDefault();
+    if (this.firstClick) {
+      this.firstClick = false;
+    }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
 
   async next(event?: Event) {
     event?.preventDefault();
-    this.indexValue = this._nextIndex;
+    if (this.firstClick) {
+      this.firstClick = false;
+      this.indexValue = this._index;
+    } else {
+      this.indexValue = this._nextIndex;
+    }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
 
   async previous(event?: Event) {
     event?.preventDefault();
-    this.indexValue = this._previousIndex;
+    if (this.firstClick) {
+      this.firstClick = false;
+      this.indexValue = this._index;
+    } else {
+      this.indexValue = this._previousIndex;
+    }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
 
