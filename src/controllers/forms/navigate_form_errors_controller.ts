@@ -62,9 +62,12 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   connect() {
-    this._firstClick = true;
-    this._toggleButtons();
-    this._toggleVisibility();
+    requestAnimationFrame(() => {
+        this._firstClick = true;
+        this._toggleButtons();
+        this._toggleVisibility();
+      },
+    );
   }
 
   async current(event?: Event) {
@@ -118,7 +121,10 @@ export class NavigateFormErrorsController extends BaseController {
 
   private _toggleButtons() {
     if (this.hasNextTarget) {
-      if (this.indexValue >= this._errorCount - 1) {
+      if (this._firstClick && this.indexValue == this._errorCount - 1) {
+        this.nextTarget.removeAttribute("disabled");
+        return;
+      } else if (this.indexValue >= this._errorCount - 1) {
         this.nextTarget.setAttribute("disabled", "true");
       } else {
         this.nextTarget.removeAttribute("disabled");
