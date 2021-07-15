@@ -122,7 +122,8 @@ export class NavigateFormErrorsController extends BaseController {
 
   private _toggleButtons() {
     if (this.hasNextTarget) {
-      if (this._firstClick && this.indexValue == this._errorCount - 1) {
+      // If there is no "Current Error" button, then enable the next error button when there is only 1 error.
+      if (!this.hasCurrentTarget && this._firstClick && this.indexValue == this._errorCount - 1) {
         this.nextTarget.removeAttribute("disabled");
         return;
       } else if (this.indexValue >= this._errorCount - 1) {
