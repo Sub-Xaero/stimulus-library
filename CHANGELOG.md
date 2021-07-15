@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.9](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.8...v0.3.9) (2021-07-15)
+
+
+### Bug Fixes
+
+* NavigateFormErrorsController - add firstClick logic to toggleButtons check. Fixes bug where errorCount is 1, and both buttons are disabled on load. ([d94875e](https://github.com/Sub-Xaero/stimulus-library/commit/d94875e7beffa85749f2efa36e92fe775e19003d))
+
 ### [0.3.8](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.7...v0.3.8) (2021-07-07)
 
 
