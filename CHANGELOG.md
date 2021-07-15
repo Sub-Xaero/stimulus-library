@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.10](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.9...v0.3.10) (2021-07-15)
+
+
+### Bug Fixes
+
+* NavigateFormErrorsController - setting indexValue to the same value does not trigger indexValueChanged. Manually call toggleButtons on firstClick events. ([973225a](https://github.com/Sub-Xaero/stimulus-library/commit/973225ac49b1cfd12224d0f5f486d1b6433a97bb))
+
 ### [0.3.9](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.8...v0.3.9) (2021-07-15)
 
 
