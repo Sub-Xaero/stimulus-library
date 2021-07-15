@@ -74,6 +74,7 @@ export class NavigateFormErrorsController extends BaseController {
     event?.preventDefault();
     if (this._firstClick) {
       this._firstClick = false;
+      this._toggleButtons();
     }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
   }
@@ -82,7 +83,7 @@ export class NavigateFormErrorsController extends BaseController {
     event?.preventDefault();
     if (this._firstClick) {
       this._firstClick = false;
-      this.indexValue = this._index;
+      this._toggleButtons();
     } else {
       this.indexValue = this._nextIndex;
     }
@@ -93,7 +94,7 @@ export class NavigateFormErrorsController extends BaseController {
     event?.preventDefault();
     if (this._firstClick) {
       this._firstClick = false;
-      this.indexValue = this._index;
+      this._toggleButtons();
     } else {
       this.indexValue = this._previousIndex;
     }
