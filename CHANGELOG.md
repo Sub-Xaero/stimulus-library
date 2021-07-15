@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.11](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.10...v0.3.11) (2021-07-15)
+
+
+### Bug Fixes
+
+* NavigateFormErrorsController - only show "nextError" button when the error count is 1, if there is no "currentError" button ([f6aae19](https://github.com/Sub-Xaero/stimulus-library/commit/f6aae19f35d776fd11246ff697238ba5c03211f2))
+
 ### [0.3.10](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.9...v0.3.10) (2021-07-15)
 
 
