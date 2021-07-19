@@ -3,8 +3,12 @@ import {BaseController} from "../utilities/base_controller";
 
 export class EmptyDomController extends BaseController {
 
+  static targets = ["container"];
   static classes = ["empty", "notEmpty"];
   static values = {scopeSelector: String};
+
+  declare readonly hasContainerTarget: boolean;
+  declare readonly containerTarget: HTMLElement;
 
   declare readonly emptyClass: string;
   declare readonly hasEmptyClass: boolean;
@@ -13,6 +17,10 @@ export class EmptyDomController extends BaseController {
 
   declare hasScopeSelectorValue: boolean;
   declare scopeSelectorValue: string;
+
+  get _container() {
+    return this.hasContainerTarget ? this.containerTarget : this.el;
+  }
 
   get _notEmptyClasses(): string[] {
     return this.notEmptyClass.split(' ');
@@ -31,7 +39,7 @@ export class EmptyDomController extends BaseController {
   }
 
   get _children(): Element[] {
-    let element = this.el;
+    let element = this._container;
     if (this.hasScopeSelectorValue) {
       return Array.from(element.querySelectorAll(this.scopeSelectorValue));
     } else {
@@ -40,7 +48,7 @@ export class EmptyDomController extends BaseController {
   }
 
   connect() {
-    useMutation(this, {element: this.el, childList: true});
+    useMutation(this, {element: this._container, childList: true});
     this.checkEmpty();
   }
 
@@ -49,7 +57,7 @@ export class EmptyDomController extends BaseController {
   }
 
   checkEmpty() {
-    let element = this.el;
+    let element = this._container;
     let children = this._children;
     if (children.length === 0) {
       this._removeNotEmptyClasses();
