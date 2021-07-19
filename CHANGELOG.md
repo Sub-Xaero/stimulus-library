@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.12](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.11...v0.3.12) (2021-07-19)
+
+
+### Features
+
+* EmptyDOMController - There is now an optional `container` target which can be observed instead of the root controller element for emptiness. ([fbf785f](https://github.com/Sub-Xaero/stimulus-library/commit/fbf785f8d4914779b4a203fe213f13c1f0278488))
+
 ### [0.3.11](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.10...v0.3.11) (2021-07-15)
 
 
