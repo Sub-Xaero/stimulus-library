@@ -2,13 +2,13 @@ import {BaseController} from "../utilities/base_controller";
 
 export class ConfirmNavigationController extends BaseController {
 
-  static values = {_message: String};
+  static values = {message: String};
 
-  declare readonly _messageValue: string;
+  declare readonly messageValue: string;
   declare readonly hasMessageValue: boolean;
 
   get _message(): string {
-    return this.hasMessageValue ? this._messageValue : "Do you want to leave this page? Changes you made may not be saved";
+    return this.hasMessageValue ? this.messageValue : "Do you want to leave this page? Changes you made may not be saved";
   }
 
   initialize() {
