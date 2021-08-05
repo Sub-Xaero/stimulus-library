@@ -2,6 +2,23 @@ import {BaseController} from "../../utilities/base_controller";
 
 export class AutoSubmitFormController extends BaseController {
 
+  static values = {
+    mode: String,
+  };
+  declare readonly modeValue: "direct" | "request";
+  declare readonly hasModeValue: boolean;
+
+  get _mode(): "direct" | "request" {
+    if (this.hasModeValue) {
+      if (!["direct", "request"].includes(this.modeValue)) {
+        throw new Error(`The modeValue provided '${this.modeValue}' is not one of the recognised configuration options`);
+      }
+      return this.modeValue;
+    } else {
+      return "request";
+    }
+  }
+
   initialize() {
     this.submit = this.submit.bind(this);
   }
@@ -20,7 +37,12 @@ export class AutoSubmitFormController extends BaseController {
 
     // If element is not handled by UJS, just submit
     if (!this.el.dataset.remote) {
-      (this.el as HTMLFormElement).submit();
+      let el = this.el as HTMLFormElement;
+      if (el.requestSubmit && this._mode == 'request') {
+        el.requestSubmit();
+      } else {
+        el.submit();
+      }
     }
   }
 }

@@ -3,12 +3,9 @@ id: AutoSubmitFormController
 title: AutoSubmitFormController
 ---
 
-
-
 import NoActions from "../_partials/no-actions.md";
 import NoTargets from "../_partials/no-targets.md";
 import NoClasses from "../_partials/no-classes.md";
-import NoValues from "../_partials/no-values.md";
 import NoEvents from "../_partials/no-events.md";
 
 ## Purpose
@@ -34,7 +31,10 @@ This is mostly useful in an application where you have inline-editing, possibly 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-<NoValues/>
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `mode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form. <br/>`request` calls `.requestSubmit()` on the form.<br/><br/> [See MSDN for details](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit)  | `request` |
+
 
 ## Events
 
