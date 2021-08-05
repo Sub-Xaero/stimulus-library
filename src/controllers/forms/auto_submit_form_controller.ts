@@ -32,16 +32,19 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   private submit() {
-    // Trigger synthetic "submit" event on form to trigger the UJS submission handler
-    this.dispatch(this.el, "submit");
-
-    // If element is not handled by UJS, just submit
-    if (!this.el.dataset.remote) {
-      let el = this.el as HTMLFormElement;
-      if (el.requestSubmit && this._mode == 'request') {
-        el.requestSubmit();
-      } else {
+    let el = this.el as HTMLFormElement;
+    if (el.requestSubmit && this._mode == 'request') {
+      // .requestSubmit() fires a normal form submission. Including event, and all validations
+      el.requestSubmit();
+    } else {
+      // If element is not handled by UJS, just submit
+      if (!this.el.dataset.remote) {
+        // .submit() does not fire an event, make sure all event handlers still run
+        this.dispatch(this.el, "submit");
         el.submit();
+      } else {
+        // Trigger synthetic "submit" event on form to trigger the UJS submission handler
+        this.dispatch(this.el, "submit");
       }
     }
   }
