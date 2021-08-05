@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.13](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.12...v0.3.13) (2021-08-05)
+
+
+### Features
+
+* AutoSubmitFormController - allow an optional `mode` config which determines whether to try submitting the form using `requestSubmit` or `submit` ([f62c8d0](https://github.com/Sub-Xaero/stimulus-library/commit/f62c8d02e8e55d90d8382efbf94d1358d6780282))
+
 ### [0.3.12](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.11...v0.3.12) (2021-07-19)
 
 
