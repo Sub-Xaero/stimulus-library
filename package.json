@@ -53,6 +53,6 @@
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.0",
     "stimulus": "^2.0.0",
-    "stimulus-use": "^0.25.3"
+    "stimulus-use": "^0.25.4"
   }
 }

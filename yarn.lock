@@ -2384,6 +2384,11 @@ hosted-git-info@^4.0.1:
   dependencies:
     lru-cache "^6.0.0"
 
+hotkeys-js@>=3:
+  version "3.8.7"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.7.tgz#c16cab978b53d7242f860ca3932e976b92399981"
+  integrity sha512-ckAx3EkUr5XjDwjEHDorHxRO2Kb7z6Z2Sxul4MbBkN8Nho7XDslQsgMJT+CiJ5Z4TgRxxvKHEpuLE3imzqy4Lg==
+
 hsl-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hsl-regex/-/hsl-regex-1.0.0.tgz#d49330c789ed819e276a4c0d272dffa30b18fe6e"
@@ -4176,10 +4181,12 @@ standard-version@^9.3.0:
     stringify-package "^1.0.1"
     yargs "^16.0.0"
 
-stimulus-use@^0.25.3:
-  version "0.25.3"
-  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.25.3.tgz#f4bb9cff917f06da15e93002cc757d5809079a36"
-  integrity sha512-VlgaUBqwWzlAEmHo1owRf8YcL/70Pdj2fVt1s4N/FJbzqUW/lm+OzkrRUGc5ZYY4vNa6+qitOLNskvHp8bR89g==
+stimulus-use@^0.25.4:
+  version "0.25.4"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.25.4.tgz#5b909b546e0bff24e9cd5811391c513b8c5a10af"
+  integrity sha512-Rr4m4PpcOni7y4KiwUMdCuUJ5IPE2LEELwoz8e+VB3jbfPb9DNjrurCTKCWT5BiPBrn9OEfhnWJIRPcbxUpQvQ==
+  dependencies:
+    hotkeys-js ">=3"
 
 stimulus@^2.0.0:
   version "2.0.0"
