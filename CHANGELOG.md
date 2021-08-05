@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.14](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.13...v0.3.14) (2021-08-05)
+
+
+### Bug Fixes
+
+* AutoSubmitFormController - don't trigger a synthetic 'submit' event when using `.requestSubmit()` as that fires it's own event unlike `.submit()` ([e40b09b](https://github.com/Sub-Xaero/stimulus-library/commit/e40b09bba136541a0ba9f4f7efc65abab7ece25b))
+* ConfirmNavigationController - Message value was incorrectly configured in a previous refactor. ([f316940](https://github.com/Sub-Xaero/stimulus-library/commit/f3169407b1b3d19ebdd8d84858633670fe7263bd))
+
 ### [0.3.13](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.12...v0.3.13) (2021-08-05)
 
 
