@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.15](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.14...v0.3.15) (2021-08-13)
+
+
+### Features
+
+* TreeViewController - A controller that handles nested `ul` and `ol` lists, and enabled them to be collapsed and opened. ([bd35e0a](https://github.com/Sub-Xaero/stimulus-library/commit/bd35e0a0da460b948198357bdeb6dc7134ae50d2))
+
 ### [0.3.14](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.13...v0.3.14) (2021-08-05)
 
 
