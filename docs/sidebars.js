@@ -112,6 +112,7 @@ module.exports = {
           "controllers/DurationController",
           "controllers/TabsController",
           "controllers/TimeDistanceController",
+          "controllers/TreeViewController",
         ],
       },
     ],

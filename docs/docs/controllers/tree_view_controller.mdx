@@ -1,0 +1,66 @@
+---
+id: TreeViewController
+title: TreeViewController
+---
+
+
+import NoEvents from "../_partials/no-events.md";
+import NoActions from "../_partials/no-actions.md";
+import NoTargets from "../_partials/no-targets.md";
+import NoValues from "../_partials/no-values.md";
+
+
+## Purpose
+
+A controller that handles nested `<ul>` and `<ol>` lists, and enabled them to be collapsed and opened. i.e. file directories, lists of categories and sub-categories/items in those categories.
+
+Fire and forget. The only configuration this controller takes is for the classes to apply to the lists to style them as active/collapsed.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+<NoActions/>
+
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+<NoTargets/>
+
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `active` | The class(es) that are applied when the list parent is 'open' | `active` |
+| `collapsed` | The class(es) that are appled when the list parent is 'closed' | `collapsed` |
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+<NoValues/>
+
+## Events
+
+<NoEvents/>
+
+## Side Effects
+
+The controller will `onclick` event handlers for every `<li>` that is a parent to a `<ul>` or `<ol>` element.
+
+---
+
+The controller will also install a MutationObserver that will observe the list for any changes, so that:
+- elements that are added to the list and its subtree are handled correctly.
+- any `<li>` elements that become new parents to a nested list have their handlers and classes installed.
+- any `<li>` elements that are no longer parents to a nested list have their handlers and classes removed.
+- elements that are removed from the list an its subtree are cleaned up correctly.
+
+## How to Use
+
+<iframe
+  src="https://codesandbox.io/embed/treeviewcontroller-ihfef?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+

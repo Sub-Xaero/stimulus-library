@@ -60,6 +60,7 @@ export {TemporaryStateController, applyTemporaryState, applyTemporaryClass} from
 export {TimeDistanceController} from "./controllers/visual/time_distance_controller";
 export {TimeoutController} from "./controllers/utility/timeout_controller";
 export {ToggleClassController} from "./controllers/toggle_class_controller";
+export {TreeViewController} from "./controllers/visual/tree_view_controller";
 export {TurboFrameRCController} from "./controllers/turbo_frame_rc_controller";
 export {TurboFrameRefreshController} from "./controllers/turbo_frame_refresh_controller";
 export {UserFocusController} from "./controllers/utility/user_focus_controller";
