@@ -34,7 +34,7 @@ import { Application } from "stimulus";
 import { AutoSubmitFormController } from "stimulus-library";
 
 const application = Application.start();
-application.register("auto-submit-form-controller", AutoSubmitFormController);
+application.register("auto-submit-form", AutoSubmitFormController);
 ```
 
 ## Tree-shaking
