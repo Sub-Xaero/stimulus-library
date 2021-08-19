@@ -32,6 +32,7 @@ import { AutoSubmitFormController } from "stimulus-library";
 
 const application = Application.start();
 application.register("auto-submit-form", AutoSubmitFormController);
+// Use kebab-case: `AutoSubmitFormController` -> `auto-submit-form`, `TurboFrameRefreshController` -> `turbo-frame-refresh`, etc.
 ```
 
 ## Tree-shaking
