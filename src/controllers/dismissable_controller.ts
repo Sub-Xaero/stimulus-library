@@ -7,3 +7,6 @@ export class DismissableController extends BaseController {
   }
 
 }
+
+export class RemoveController extends DismissableController {
+}
