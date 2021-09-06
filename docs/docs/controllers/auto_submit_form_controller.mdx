@@ -10,12 +10,11 @@ import NoEvents from "../_partials/no-events.md";
 
 ## Purpose
 
-Auto submit a form when input values change - i.e. autosave.
+Auto submits a form when and of its input's values change - i.e. autosave.
 
-## Use Case
-
-This is mostly useful in an application where you have inline-editing, possibly using [TurboFrames](https://turbo.hotwire.dev/handbook/frames)
-
+## Use Cases
+- An application where you have inline-editing. I.e. clicking on a name in your profile changes it to an input field to edit it. Can be used to submit the form when the user finishes editing the field, without needing a button press.
+- Auto submitting a form to update page filters when a user changes a filter, or ticks a new category.
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
@@ -43,7 +42,7 @@ This is mostly useful in an application where you have inline-editing, possibly 
 
 ## Side Effects
 
-Adds event listeners for `input` and `change` to all `<input>` `<textarea>` and `<select>` elements in the controller's scope
+Adds event listeners for `change` to all `<input>` `<textarea>` and `<select>` elements in the controller's scope
 
 
 
