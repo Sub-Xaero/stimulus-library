@@ -21,7 +21,7 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 
 | Target | Purpose | Default |
 | --- | --- | --- |
-| `replace` (Optional) | The element to replace when the fetch request succeed | The element the controller is mounted on |
+| `replace` (Optional) | The element to replace when the fetch request succeed | the controller root element |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
@@ -34,7 +34,7 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 | --- | --- | --- | --- |
 | `endpoint` | String | The URL to fetch content from | - |
 | `errorMessage` (Optional) | String | The error message to display when the remote content fails to load | `This content failed to load` |
-| `selector` (Optional) | String | The selector of the element(s) to extract from the returned response | Empty. The entire HTML response will be loaded |
+| `selector` (Optional) | String | The CSS selector to use to extract the desired element(s) from the returned HTML response | Empty. The entire HTML response will be loaded |
 
 ## Events
 
@@ -64,3 +64,5 @@ The controller will send out a fetch request, and on success will replace the bl
 ## See Also
 
 [Lazy Block Controller](./LazyBlockController)
+[Load Block Controller](./LoadBlockController)
+[Poll Block Controller](./PollBlockController)

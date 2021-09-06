@@ -22,7 +22,7 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 
 | Target | Purpose | Default |
 | --- | --- | --- |
-| `replace` (Optional) | The element to replace when the fetch request succeed | The element the controller is mounted on |
+| `replace` (Optional) | The element to replace when the fetch request succeed | the controller root element |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
@@ -35,7 +35,7 @@ AJAX load content, only when it comes into view, while showing a placeholder.
 | --- | --- | --- | --- |
 | `endpoint` | String | The URL to fetch content from | - |
 | `errorMessage` (Optional) | String | The error message to display when the remote content fails to load | `This content failed to load` |
-| `selector` (Optional) | String | The selector of the element(s) to extract from the returned response | Empty. The entire HTML response will be loaded |
+| `selector` (Optional) | String | The CSS selector to use to extract the desired element(s) from the returned HTML response | Empty. The entire HTML response will be loaded |
 
 ## Events
 
@@ -58,3 +58,7 @@ None
   style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
+
+## See Also
+
+[Async Block Controller](./AsyncBlockController)
