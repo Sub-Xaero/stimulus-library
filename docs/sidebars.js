@@ -7,18 +7,18 @@ module.exports = {
     ],
     Controllers: [
       {
-        "DOM Manipulation Controllers": [
+        "AJAX Controllers": [
           "controllers/AsyncBlockController",
           "controllers/LazyBlockController",
-          "controllers/TeleportController",
-          "controllers/ToggleClassController",
+          "controllers/LoadBlockController",
+          "controllers/PollBlockController",
         ],
       },
       {
         "Extendable Controllers": [
           "controllers/BaseController",
           "controllers/EphemeralController",
-        ]
+        ],
       },
       {
         "Form Controllers": [
@@ -57,7 +57,9 @@ module.exports = {
           "controllers/ResponsiveIframeController",
           "controllers/SelfDestructController",
           "controllers/StickyController",
+          "controllers/TeleportController",
           "controllers/TemporaryStateController",
+          "controllers/ToggleClassController",
         ],
       },
       {

@@ -6,7 +6,7 @@ export {EphemeralController} from "./utilities/ephemeral_controller";
 
 // Controllers
 export {AnchorSpyController} from "./controllers/anchor_spy_controller";
-export {AsyncBlockController} from "./controllers/async_block_controller";
+export {AsyncBlockController} from "./controllers/ajax/async_block_controller";
 export {AutoSubmitFormController} from "./controllers/forms/auto_submit_form_controller";
 export {AutosizeController} from "./controllers/forms/autosize_controller";
 export {BackLinkController} from "./controllers/back_link_controller";
@@ -32,14 +32,16 @@ export {FormRcController} from "./controllers/forms/form_rc_controller";
 export {FormSaveController} from "./controllers/forms/form_save_controller";
 export {IntersectionController} from "./controllers/utility/intersection_controller";
 export {IntervalController} from "./controllers/utility/interval_controller";
-export {LazyBlockController} from "./controllers/lazy_block_controller";
+export {LazyBlockController} from "./controllers/ajax/lazy_block_controller";
 export {LightboxImageController} from "./controllers/media/lightbox_image_controller";
 export {LimitedSelectionCheckboxesController} from "./controllers/forms/limited_selection_checkboxes_controller";
+export {LoadBlockController} from "./controllers/ajax/load_block_controller";
 export {MediaPlayerController} from "./controllers/media/media_player_controller";
 export {NavigateFormErrorsController} from "./controllers/forms/navigate_form_errors_controller";
 export {NestedFormController} from "./controllers/forms/nested_form_controller";
 export {PasswordConfirmController} from "./controllers/forms/password_confirm_controller";
 export {PasswordPeekController} from "./controllers/forms/password_peek_controller";
+export {PollBlockController} from "./controllers/ajax/poll_block_controller";
 export {PrefetchController} from "./controllers/prefetch_controller";
 export {PresenceController} from "./controllers/utility/presence_controller";
 export {RemoteFormController} from "./controllers/forms/remote_form_controller";
