@@ -26,5 +26,6 @@ export * from './sticky_controller';
 export * from './teleport_controller';
 export * from './temporary_state_controller';
 export * from './toggle_class_controller';
+export * from './trix_modifier_controller';
 export * from './turbo_frame_rc_controller';
 export * from './turbo_frame_refresh_controller';
