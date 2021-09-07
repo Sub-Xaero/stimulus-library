@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.18](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.15...v0.3.18) (2021-09-07)
+
+
+### Features
+
+* Add RemoveController as an alias of DismissableController ([cae00eb](https://github.com/Sub-Xaero/stimulus-library/commit/cae00ebc4e811b84996b277e68df48c650cbca57))
+* New controllers LoadBlockController and PollBlockController. ([aa2598b](https://github.com/Sub-Xaero/stimulus-library/commit/aa2598bc95e0fd23299d6f6b9f0933a3ce25594e))
+
+### [0.3.17](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.15...v0.3.17) (2021-09-07)
+
+
+### Features
+
+* Add RemoveController as an alias of DismissableController ([cae00eb](https://github.com/Sub-Xaero/stimulus-library/commit/cae00ebc4e811b84996b277e68df48c650cbca57))
+* New controllers LoadBlockController and PollBlockController. ([aa2598b](https://github.com/Sub-Xaero/stimulus-library/commit/aa2598bc95e0fd23299d6f6b9f0933a3ce25594e))
+
+### [0.3.16](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.15...v0.3.16) (2021-09-07)
+
+
+### Features
+
+* Add RemoveController as an alias of DismissableController ([cae00eb](https://github.com/Sub-Xaero/stimulus-library/commit/cae00ebc4e811b84996b277e68df48c650cbca57))
+* New controllers LoadBlockController and PollBlockController. ([aa2598b](https://github.com/Sub-Xaero/stimulus-library/commit/aa2598bc95e0fd23299d6f6b9f0933a3ce25594e))
+
 ### [0.3.15](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.14...v0.3.15) (2021-08-13)
 
 
