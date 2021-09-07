@@ -18,11 +18,13 @@ module.exports = defineConfig({
         'smoothscroll-polyfill',
         'date-fns',
         'lodash-es',
+        'trix',
       ],
       output: {
         globals: {
           'date-fns': 'dateFns',
           'lodash-es': 'lodashEs',
+          'trix': 'trix',
         },
       },
     },
