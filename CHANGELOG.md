@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.16](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.15...v0.3.16) (2021-09-17)
+
+
+### Features
+
+* Add RemoveController as an alias of DismissableController ([cae00eb](https://github.com/Sub-Xaero/stimulus-library/commit/cae00ebc4e811b84996b277e68df48c650cbca57))
+* BaseController now only builds a proxy to detect loggable events when in debug mode where logging happens ([1e44a63](https://github.com/Sub-Xaero/stimulus-library/commit/1e44a6314b5c6762a29477a55b6ecb5da5088e01))
+* New controllers LoadBlockController and PollBlockController. ([aa2598b](https://github.com/Sub-Xaero/stimulus-library/commit/aa2598bc95e0fd23299d6f6b9f0933a3ce25594e))
+
 ### [0.3.15](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.14...v0.3.15) (2021-08-13)
 
 
