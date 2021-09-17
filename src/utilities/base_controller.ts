@@ -4,6 +4,10 @@ export class BaseController extends Controller {
 
   constructor(context: Context) {
     super(context);
+    // @ts-ignore
+    if (!this.application.debug) {
+      return this;
+    }
     return new Proxy(this, {
       get: (obj, prop) => {
         let returnVal = Reflect.get(obj, prop);
