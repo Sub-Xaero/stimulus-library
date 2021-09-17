@@ -1049,10 +1049,10 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
-"@types/lodash-es@^4.17.4":
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.4.tgz#b2e440d2bf8a93584a9fd798452ec497986c9b97"
-  integrity sha512-BBz79DCJbD2CVYZH67MBeHZRX++HF+5p8Mo5MzjZi64Wac39S3diedJYHZtScbRVf4DjZyN6LzA0SB0zy+HSSQ==
+"@types/lodash-es@^4.17.5":
+  version "4.17.5"
+  resolved "https://registry.yarnpkg.com/@types/lodash-es/-/lodash-es-4.17.5.tgz#1c3fdd16849d84aea43890b1c60da379fb501353"
+  integrity sha512-SHBoI8/0aoMQWAgUHMQ599VM6ZiSKg8sh/0cFqqlQQMyY9uEplc0ULU5yQNzcvdR4ZKa0ey8+vFmahuRbOCT1A==
   dependencies:
     "@types/lodash" "*"
 
@@ -1868,10 +1868,10 @@ dargs@^7.0.0:
   resolved "https://registry.yarnpkg.com/dargs/-/dargs-7.0.0.tgz#04015c41de0bcb69ec84050f3d9be0caf8d6d5cc"
   integrity sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==
 
-date-fns@^2.23.0:
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.23.0.tgz#4e886c941659af0cf7b30fafdd1eaa37e88788a9"
-  integrity sha512-5ycpauovVyAk0kXNZz6ZoB9AYMZB4DObse7P3BPWmyEjXNORTI8EJ6X0uaSAq4sCHzM1uajzrkr6HnsLQpxGXA==
+date-fns@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.24.0.tgz#7d86dc0d93c87b76b63d213b4413337cfd1c105d"
+  integrity sha512-6ujwvwgPID6zbI0o7UbURi2vlLDR9uP26+tW6Lg+Ji3w7dd0i3DOcjcClLjLPranT60SSEFBwdSyYwn/ZkPIuw==
 
 dateformat@^3.0.0:
   version "3.0.3"
@@ -4181,10 +4181,10 @@ standard-version@^9.3.1:
     stringify-package "^1.0.1"
     yargs "^16.0.0"
 
-stimulus-use@^0.25.4:
-  version "0.25.4"
-  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.25.4.tgz#5b909b546e0bff24e9cd5811391c513b8c5a10af"
-  integrity sha512-Rr4m4PpcOni7y4KiwUMdCuUJ5IPE2LEELwoz8e+VB3jbfPb9DNjrurCTKCWT5BiPBrn9OEfhnWJIRPcbxUpQvQ==
+stimulus-use@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.26.0.tgz#eb3f874bf2ec1ff213589cb5fbe2d314fe5d2741"
+  integrity sha512-p9uqV/STRR3QJb9r1ijPiPOmF+vQtcvs8/9D4eDF2OdWOafr0prG/Cd9lZNzamGrejhOqh90mOgrK+RTBP9HLA==
   dependencies:
     hotkeys-js ">=3"
 
