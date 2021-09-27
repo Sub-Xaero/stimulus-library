@@ -19,6 +19,18 @@ export class AutoSubmitFormController extends BaseController {
     }
   }
 
+  get submitButton(): HTMLButtonElement {
+    let button: HTMLButtonElement | null = this.element.querySelector('button[type="submit"]');
+    if (!button) {
+      button = document.createElement('button');
+      button.type = 'submit';
+      button.style.display = 'none';
+      button.dataset.sythentic = 'true';
+      this.element.insertAdjacentElement('beforeend', button);
+    }
+    return button;
+  }
+
   initialize() {
     this.submit = this.submit.bind(this);
   }
@@ -29,6 +41,9 @@ export class AutoSubmitFormController extends BaseController {
 
   disconnect() {
     this.el.querySelectorAll("input, select, textarea").forEach(el => el.removeEventListener("change", this.submit));
+    if (this.submitButton.dataset.synthetic == 'true') {
+      this.submitButton.remove();
+    }
   }
 
   private submit() {
@@ -36,16 +51,12 @@ export class AutoSubmitFormController extends BaseController {
     if (el.requestSubmit && this._mode == 'request') {
       // .requestSubmit() fires a normal form submission. Including event, and all validations
       el.requestSubmit();
+    } else if (this._mode == 'request') {
+      // synthesize submit() by clicking on a submit button. Therefore all event handlers should still run
+      this.submitButton.click();
     } else {
-      // If element is not handled by UJS, just submit
-      if (!this.el.dataset.remote) {
-        // .submit() does not fire an event, make sure all event handlers still run
-        this.dispatch(this.el, "submit");
-        el.submit();
-      } else {
-        // Trigger synthetic "submit" event on form to trigger the UJS submission handler
-        this.dispatch(this.el, "submit");
-      }
+      // Call submit directly, do not dispatch events, do not pass go, do not collect $200.
+      el.submit();
     }
   }
 }

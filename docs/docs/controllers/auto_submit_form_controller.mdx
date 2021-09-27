@@ -32,7 +32,7 @@ Auto submits a form when and of its input's values change - i.e. autosave.
 
 | Value | Type | Description | Default |
 | --- | --- | --- | --- |
-| `mode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form. <br/>`request` calls `.requestSubmit()` on the form.<br/><br/> [See MSDN for details](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit)  | `request` |
+| `mode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/>  | `request` |
 
 
 ## Events
@@ -42,8 +42,10 @@ Auto submits a form when and of its input's values change - i.e. autosave.
 
 ## Side Effects
 
-Adds event listeners for `change` to all `<input>` `<textarea>` and `<select>` elements in the controller's scope
+- Adds event listeners for `change` to all `<input>` `<textarea>` and `<select>` elements in the controller's scope
+- If the `modeValue` is `request` and the browser does not support `.requestSubmit()`, then the controller will use any existing submit buttons, or create a hidden submit button (which will be cleaned up on 'disconnect'), to submit the form by clicking on them.
 
+[See MSDN for details](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit)
 
 
 ## How to Use
