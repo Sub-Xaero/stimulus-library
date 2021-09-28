@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.17](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.16...v0.3.17) (2021-09-28)
+
+
+### Bug Fixes
+
+* AutoSubmitFormController - Changes to the underlying implementation to help broaden browser compatibility. ([cdc8099](https://github.com/Sub-Xaero/stimulus-library/commit/cdc80995e147affc2814cfe5dc3d62163ddd4b46))
+* Include src in npm published package so that sourcemaps work ([1d03594](https://github.com/Sub-Xaero/stimulus-library/commit/1d035946bdc7518576e0c4da961cea9e701338e0))
+
 ### [0.3.16](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.15...v0.3.16) (2021-09-17)
 
 
