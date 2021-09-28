@@ -35,11 +35,13 @@ export class PrefetchController extends BaseController {
 
     // Don't prefetch if network conditions are poor or user has enabled data-saving mode
     if (connection) {
+      // @ts-ignore Experimental API
       if (connection.saveData) {
         this.warn('Data Saving is enabled');
         return false;
       }
 
+      // @ts-ignore Experimental API
       if (/2g/.test(connection.effectiveType)) {
         this.warn("Network is too slow");
         return false;

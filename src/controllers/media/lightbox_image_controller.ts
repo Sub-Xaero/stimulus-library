@@ -68,6 +68,7 @@ export class LightboxImageController extends BaseController {
     element.insertAdjacentElement("afterend", this._dialog);
     dialogPolyfill.registerDialog(this._dialog);
     this._dialog.className = this._modalClassName;
+    // @ts-ignore Experimental API
     this._dialog.showModal();
     scrollToElement(this._dialog, {behavior: "smooth", block: "end"}).catch(() => this._dialog!.scrollIntoView(false));
     this._dialog.addEventListener("click", this.close);
@@ -77,6 +78,7 @@ export class LightboxImageController extends BaseController {
 
   close() {
     if (this._dialog) {
+      // @ts-ignore Experimental API
       this._dialog.close();
       this._dialog.remove();
       this._dialog = null;
