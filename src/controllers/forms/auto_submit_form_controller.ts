@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {requestSubmit} from "../../utilities/requestSubmit";
 
 export class AutoSubmitFormController extends BaseController {
 
@@ -48,12 +49,8 @@ export class AutoSubmitFormController extends BaseController {
 
   private submit() {
     let el = this.el as HTMLFormElement;
-    if (el.requestSubmit && this._mode == 'request') {
-      // .requestSubmit() fires a normal form submission. Including event, and all validations
-      el.requestSubmit();
-    } else if (this._mode == 'request') {
-      // synthesize submit() by clicking on a submit button. Therefore all event handlers should still run
-      this.submitButton.click();
+    if (this._mode == 'request') {
+      requestSubmit(el);
     } else {
       // Call submit directly, do not dispatch events, do not pass go, do not collect $200.
       el.submit();
