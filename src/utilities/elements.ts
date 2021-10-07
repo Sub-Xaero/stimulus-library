@@ -37,3 +37,11 @@ export function isElementCheckable(element: Element): element is HTMLInputElemen
 export function isTypeOfFormInputElement(element: Element): element is (HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
   return isHTMLInputElement(element) || isHTMLSelectElement(element) || isHTMLTextAreaElement(element);
 }
+
+export function createHiddenButton(type: "submit" | "reset"): HTMLButtonElement {
+  let button = document.createElement('button');
+  button.type = type;
+  button.style.display = 'none';
+  button.dataset.sythentic = 'true';
+  return button;
+}
