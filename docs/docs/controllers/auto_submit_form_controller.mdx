@@ -34,9 +34,7 @@ Auto submits a form when and of its input's values change - i.e. autosave.
 | --- | --- | --- | --- |
 | `mode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/>  | `request` |
 
-
 ## Events
-
 
 <NoEvents/>
 
@@ -49,6 +47,11 @@ Auto submits a form when and of its input's values change - i.e. autosave.
 
 
 ## How to Use
+
+Drop the controller onto the form element you want to augment with auto-submit behaviour.
+
+Annotate any inputs who changes that you _dont_ want triggering a submit, with `data-no-autosubmit`, and the controller will ignore them.
+All other `<input>`s, `<textarea>`s and `<selects>`s will trigger a form submission.
 
 <iframe
   src="https://codesandbox.io/embed/autosubmitformcontroller-eun0t?fontsize=14&hidenavigation=1&theme=dark"

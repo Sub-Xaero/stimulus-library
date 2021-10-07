@@ -3,9 +3,7 @@ import {requestSubmit} from "../../utilities/requestSubmit";
 
 export class AutoSubmitFormController extends BaseController {
 
-  static values = {
-    mode: String,
-  };
+  static values = {mode: String};
   declare readonly modeValue: "direct" | "request";
   declare readonly hasModeValue: boolean;
 
@@ -20,16 +18,14 @@ export class AutoSubmitFormController extends BaseController {
     }
   }
 
-  get submitButton(): HTMLButtonElement {
-    let button: HTMLButtonElement | null = this.element.querySelector('button[type="submit"]');
-    if (!button) {
-      button = document.createElement('button');
-      button.type = 'submit';
-      button.style.display = 'none';
-      button.dataset.sythentic = 'true';
-      this.element.insertAdjacentElement('beforeend', button);
-    }
-    return button;
+  get _cssSelector() {
+    let inputTypes = ['input', 'textarea', 'select'];
+    let ignore = ':not([data-no-autosubmit])';
+    return inputTypes.map(type => type.concat(ignore)).join(',');
+  }
+
+  get inputElements() {
+    return this.element.querySelectorAll(this._cssSelector);
   }
 
   initialize() {
@@ -37,14 +33,11 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   connect() {
-    this.el.querySelectorAll("input, select, textarea").forEach(el => el.addEventListener("change", this.submit));
+    this.inputElements.forEach(el => el.addEventListener('change', this.submit));
   }
 
   disconnect() {
-    this.el.querySelectorAll("input, select, textarea").forEach(el => el.removeEventListener("change", this.submit));
-    if (this.submitButton.dataset.synthetic == 'true') {
-      this.submitButton.remove();
-    }
+    this.inputElements.forEach(el => el.removeEventListener('change', this.submit));
   }
 
   private submit() {
@@ -52,8 +45,7 @@ export class AutoSubmitFormController extends BaseController {
     if (this._mode == 'request') {
       requestSubmit(el);
     } else {
-      // Call submit directly, do not dispatch events, do not pass go, do not collect $200.
-      el.submit();
+      el.submit(); // Call submit directly, do not dispatch events, do not pass go, do not collect $200.
     }
   }
 }
