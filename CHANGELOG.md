@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.18](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.17...v0.3.18) (2021-10-07)
+
+
+### Features
+
+* RemoteFormController - Add an event for `remote-form:replace` to signify a replace has occurred ([c2663bb](https://github.com/Sub-Xaero/stimulus-library/commit/c2663bbb787b7980cb0b159b38d0aee68db7bae3))
+
 ### [0.3.17](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.16...v0.3.17) (2021-09-28)
 
 
