@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.19](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.18...v0.3.19) (2021-10-07)
+
+
+### Features
+
+* Change implementation of FormRCController to use requestSubmit, and requestReset to be close as possible to emulating a native button click. ([eaf9f4c](https://github.com/Sub-Xaero/stimulus-library/commit/eaf9f4c7af6fc92fce676a34e14ecb11760ce22e))
+
 ### [0.3.18](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.17...v0.3.18) (2021-10-07)
 
 
