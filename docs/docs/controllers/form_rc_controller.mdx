@@ -23,7 +23,7 @@ Submit and/or reset a form, using links/buttons that are outside the child DOM o
 
 | Target | Purpose | Default |
 | --- | --- | --- |
-| `form` | The form to target the controller's actions on | - |
+| `form` (Optional) | The form to target the controller's actions on | - |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
@@ -31,7 +31,9 @@ Submit and/or reset a form, using links/buttons that are outside the child DOM o
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-<NoValues/>
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `formSelector` (Optional) | String | The CSS selector to find the form to remotely submit/reset | - |
 
 
 ## Events
@@ -48,6 +50,12 @@ None
 
 ## How to Use
 
+### Option 1:
+Put the controller in a scope that can see a `formTarget`, and wire up some links with actions to `form-rc#submit`,
+
+### Option 2:
+Put the controller in a scope with some links with actions to `form-rc#submit`, and a CSS selector
+provided to the controller via `formSelectorValue` that it can use to find the form in the page,
 
 <iframe
   src="https://codesandbox.io/embed/formrccontroller-e3h2s?fontsize=14&hidenavigation=1&theme=dark"
