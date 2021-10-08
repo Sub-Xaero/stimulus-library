@@ -71,6 +71,7 @@ export class BaseController extends Controller {
     logger.groupCollapsed(`%c${this.identifier} %c#${functionName}`, "color: #3B82F6", "color: unset");
     logger.log({
       element: this.element,
+      controller: this,
       ...args,
     });
     logger.groupEnd();
@@ -85,6 +86,7 @@ export class BaseController extends Controller {
     logger.groupCollapsed(`%c${this.identifier} %c#${warning}`, "color: F39B1AFF", "color: unset");
     logger.warn({
       element: this.element,
+      controller: this,
       ...args,
     });
     logger.groupEnd();
