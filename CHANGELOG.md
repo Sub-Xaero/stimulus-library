@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.19...v0.4.0) (2021-10-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change bundling setup to ViteJS. Outputs should be compatible, but releasing this as a breaking change for safety.
+
+### Features
+
+* Add data attribute to mark inputs as ignored for AutoSubmitFormController ([bc64359](https://github.com/Sub-Xaero/stimulus-library/commit/bc643598a6422dfb1a454a0e9b2995a1c5ae554b))
+* Add the controller instance to the debug logging for actions and events ([0517f25](https://github.com/Sub-Xaero/stimulus-library/commit/0517f2529519bab83400f9d30b2fdac3be631bc8))
+* Allow FormRCController to submit a form found either via a CSS selector or via a target ([d7c4ed4](https://github.com/Sub-Xaero/stimulus-library/commit/d7c4ed4dd613071f510057ad3e98283c25132878))
+* Change bundling setup to ViteJS. Outputs should be compatible, but releasing this as a breaking change for safety. ([6c7ff8f](https://github.com/Sub-Xaero/stimulus-library/commit/6c7ff8f1b813526bf92f2360353d6a21bc303ccb))
+
 ### [0.3.19](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.18...v0.3.19) (2021-10-07)
 
 
