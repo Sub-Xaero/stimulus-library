@@ -20,16 +20,20 @@
     "type": "git",
     "url": "https://github.com/Sub-Xaero/stimulus-library"
   },
+  "files": ["dist"],
   "source": "src/index.ts",
-  "main": "dist/stimulus-library.js",
-  "exports": "dist/stimulus-library.modern.js",
-  "module": "dist/stimulus-library.module.js",
-  "unpkg": "dist/stimulus-library.umd.js",
+  "main": "dist/stimulus-library.umd.js",
+  "module": "dist/stimulus-library.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/stimulus-library.es.js",
+      "require": "./dist/stimulus-library.umd.js"
+    }
+  },
   "scripts": {
-    "clean": "rimraf dist ",
-    "build": "rimraf dist && microbundle",
-    "dev": "microbundle watch",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "dev": "vite build --watch",
     "prepack": "yarn build",
     "release": "standard-version",
     "test:treeshake": "agadoo dist stimulus-library.js"
@@ -49,7 +53,7 @@
   },
   "devDependencies": {
     "agadoo": "^2.0.0",
-    "microbundle": "^0.13.3",
+    "vite": "^2.5.10",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.1",
     "stimulus": "^2.0.0",
