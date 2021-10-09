@@ -28,6 +28,7 @@ export {ElementSaveController} from "./controllers/element_save_controller";
 export {EmptyDomController} from "./controllers/empty_dom_controller";
 export {EnableInputsController} from "./controllers/forms/enable_inputs_controller";
 export {FallbackImageController} from "./controllers/media/fallback_image_controller";
+export {FocusStealController} from "./controllers/forms/focus_steal_controller";
 export {FormRcController} from "./controllers/forms/form_rc_controller";
 export {FormSaveController} from "./controllers/forms/form_save_controller";
 export {IntersectionController} from "./controllers/utility/intersection_controller";

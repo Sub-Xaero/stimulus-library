@@ -30,6 +30,7 @@ module.exports = {
           "controllers/DetectDirtyFormController",
           "controllers/DisableInputsController",
           "controllers/EnableInputsController",
+          "controllers/FocusStealController",
           "controllers/FormRcController",
           "controllers/FormSaveController",
           "controllers/LimitedSelectionCheckboxesController",

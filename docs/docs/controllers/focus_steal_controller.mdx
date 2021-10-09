@@ -1,0 +1,56 @@
+---
+id: FocusStealController
+title: FocusStealController
+---
+
+import NoTargets from "../_partials/no-targets.md";
+import NoClasses from "../_partials/no-classes.md";
+import NoEvents from "../_partials/no-events.md";
+
+## Purpose
+
+For use on form inputs.
+
+Set the user's focus to the attached input, on load, or on the firing of an action.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `steal` | Set the user's focus to the current element |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `mode` (Optional) | String | Either `immediate` or `wait`. <br/><br/>`immediate` will call `.focus()` on the element as soon as the controller connects.<br/>`wait` means the controller does not fire on load, it waits for the `steal` action to be called on demand. | `immediate` |
+
+
+## Events
+
+<NoEvents/>
+
+
+## Side Effects
+
+None.
+
+## How to Use
+
+
+<iframe
+  src="https://codesandbox.io/embed/formsavecontroller-4r84o?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+
