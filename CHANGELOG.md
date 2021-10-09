@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.4.0...v0.4.1) (2021-10-09)
+
+
+### Features
+
+* FocusStealController - a controller to steal the users focus when a new input enters the page ([3cf7967](https://github.com/Sub-Xaero/stimulus-library/commit/3cf796755fe207ebf2336cc49faa6811d668f3df))
+
 ## [0.4.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.3.19...v0.4.0) (2021-10-08)
 
 
