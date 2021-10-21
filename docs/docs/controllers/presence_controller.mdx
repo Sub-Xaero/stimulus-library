@@ -29,15 +29,16 @@ A utility controller to wire up other stimulus actions when an element comes int
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-
-<NoValues/>
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `name` (Optional) | String | If provided, the `presence` events will be prefixed with the given name i.e. `foo:presence:added`, to allow you to wire up other controllers based on specifically named presence events | - |
 
 ## Events
 
 | Event | When | Dispatched on | `event.detail` |
 | --- | --- | --- |--- |
-|`presence:added` | When the element enters the DOM | the controller root element | - |
-|`presence:removed` | When the element leaves the DOM | the controller root element | - |
+|`presence:added` / `${nameValue}:presence:added` | When the element enters the DOM | the controller root element | - |
+|`presence:removed` / `${nameValue}:presence:removed` | When the element leaves the DOM | the controller root element | - |
 
 ## Side Effects
 
