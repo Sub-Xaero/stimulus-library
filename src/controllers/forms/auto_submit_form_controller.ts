@@ -1,18 +1,42 @@
 import {BaseController} from "../../utilities/base_controller";
 import {requestSubmit} from "../../utilities/requestSubmit";
+import {debounce} from "lodash-es";
 
 export class AutoSubmitFormController extends BaseController {
 
-  static values = {mode: String};
-  declare readonly modeValue: "direct" | "request";
-  declare readonly hasModeValue: boolean;
+  static values = {
+    submitMode: String,
+    eventMode: String,
+    debounceInterval: Number,
+  };
+  declare readonly submitModeValue: "direct" | "request";
+  declare readonly hasSubmitModeValue: boolean;
+  declare eventModeValue: 'change' | 'input' | 'debounced';
+  declare readonly hasEventModeValue: boolean;
+  declare debounceIntervalValue: number;
+  declare readonly hasDebounceIntervalValue: boolean;
+
+  get _eventMode(): 'change' | 'input' | 'debounced' {
+    if (this.hasEventModeValue) {
+      if (!['change', 'input', 'debounced'].includes(this.eventModeValue)) {
+        throw new Error(`The modeValue provided '${this.eventModeValue}' is not one of the recognised configuration options`);
+      }
+      return this.eventModeValue;
+    } else {
+      return "change";
+    }
+  }
+
+  get _debounceTimeout(): number {
+    return this.hasDebounceIntervalValue ? this.debounceIntervalValue : 1000;
+  }
 
   get _mode(): "direct" | "request" {
-    if (this.hasModeValue) {
-      if (!["direct", "request"].includes(this.modeValue)) {
-        throw new Error(`The modeValue provided '${this.modeValue}' is not one of the recognised configuration options`);
+    if (this.hasSubmitModeValue) {
+      if (!["direct", "request"].includes(this.submitModeValue)) {
+        throw new Error(`The modeValue provided '${this.submitModeValue}' is not one of the recognised configuration options`);
       }
-      return this.modeValue;
+      return this.submitModeValue;
     } else {
       return "request";
     }
@@ -29,15 +53,17 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   initialize() {
-    this.submit = this.submit.bind(this);
+    this.submit = this._eventMode == 'debounced'
+      ? debounce(this.submit.bind(this), this._debounceTimeout)
+      : this.submit.bind(this);
   }
 
   connect() {
-    this.inputElements.forEach(el => el.addEventListener('change', this.submit));
+    this.inputElements.forEach(el => el.addEventListener(this._eventMode == 'change' ? 'change' : 'input', this.submit));
   }
 
   disconnect() {
-    this.inputElements.forEach(el => el.removeEventListener('change', this.submit));
+    this.inputElements.forEach(el => el.removeEventListener(this._eventMode == 'change' ? 'change' : 'input', this.submit));
   }
 
   private submit() {
