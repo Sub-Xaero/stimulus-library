@@ -1,7 +1,11 @@
-import {useWindowResize} from "stimulus-use";
-import {BaseController} from "../../utilities/base_controller";
+import {BaseController} from '../../utilities/base_controller';
+import {useIntersection, useWindowResize} from "stimulus-use";
+import {isHTMLTextAreaElement} from "../../utilities/elements";
 
 export class AutosizeController extends BaseController {
+
+  declare unobserveIntersection: () => void;
+  declare isVisible: boolean;
 
   initialize() {
     this._handler = this._handler.bind(this);
@@ -9,13 +13,18 @@ export class AutosizeController extends BaseController {
 
   connect() {
     useWindowResize(this);
+    let [, unobserveIntersection] = useIntersection(this);
+    this.unobserveIntersection = unobserveIntersection;
+    if (!isHTMLTextAreaElement(this.el)) {
+      throw new Error(`Expected controller to be attached to a textarea, but was a '${this.el.tagName}'`);
+    }
+
     requestAnimationFrame(() => {
       this._handler();
-      let target = this.el as HTMLTextAreaElement;
-      target.style.resize = "none";
-      target.style.boxSizing = "border-box";
-      target.addEventListener("input", this._handler);
-      target.addEventListener("focus", this._handler);
+      this.el.style.resize = "none";
+      this.el.style.boxSizing = "border-box";
+      this.el.addEventListener("input", this._handler);
+      this.el.addEventListener("focus", this._handler);
     });
   }
 
@@ -28,9 +37,14 @@ export class AutosizeController extends BaseController {
     this._handler();
   }
 
+  appear(_entry: IntersectionObserverEntry) {
+    this.autosize(this.el as HTMLTextAreaElement);
+    this.unobserveIntersection();
+  }
+
   private _handler() {
     this.autosize(this.el as HTMLTextAreaElement);
-  };
+  }
 
   private autosize(element: HTMLTextAreaElement) {
     let offset = element.offsetHeight - element.clientHeight;
