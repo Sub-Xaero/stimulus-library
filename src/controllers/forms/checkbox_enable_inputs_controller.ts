@@ -20,13 +20,13 @@ export class CheckboxEnableInputsController extends BaseController {
 
   toggle() {
     if (this.hasEnablerTarget && this.enablerTarget.checked) {
-      this.enableInputs();
+      this.enable();
     } else {
-      this.disableInputs();
+      this.disable();
     }
   }
 
-  disableInputs() {
+  disable() {
     let shouldClear = this.hasClearValue && this.clearValue;
     this.enableTargets.forEach((el, _) => {
       if (shouldClear) {
@@ -36,7 +36,7 @@ export class CheckboxEnableInputsController extends BaseController {
     });
   }
 
-  enableInputs() {
+  enable() {
     this.enableTargets.forEach((el, _) => {
       el.disabled = false;
     });
