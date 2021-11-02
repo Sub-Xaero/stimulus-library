@@ -1,5 +1,5 @@
 import {BaseController} from '../../utilities/base_controller';
-import {requestReset, requestSubmit} from "../../utilities/requestSubmit";
+import {requestReset, requestSubmit} from "../../utilities/request_submit";
 
 export class FormRcController extends BaseController {
 

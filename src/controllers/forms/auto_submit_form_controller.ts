@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {requestSubmit} from "../../utilities/requestSubmit";
+import {requestSubmit} from "../../utilities/request_submit";
 import {debounce} from "lodash-es";
 
 export class AutoSubmitFormController extends BaseController {
