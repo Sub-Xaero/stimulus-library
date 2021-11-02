@@ -1,4 +1,6 @@
 import {BaseController} from "../utilities/base_controller";
+import {useTimeout} from "../mixins/use_timeout";
+import {useEventListener} from "../mixins/use_event_listener";
 
 export class BackLinkController extends BaseController {
 
@@ -8,7 +10,6 @@ export class BackLinkController extends BaseController {
   declare readonly hasTimeoutValue: boolean;
   declare readonly pagesValue: number;
   declare readonly hasPagesValue: boolean;
-  _timeoutHandle: null | ReturnType<typeof window.setTimeout> = null;
 
   get _pages(): number {
     return this.hasPagesValue ? Math.abs(this.pagesValue) : 1;
@@ -18,27 +19,15 @@ export class BackLinkController extends BaseController {
     return this.hasTimeoutValue ? this.timeoutValue : 1500;
   }
 
-  initialize() {
-    this.goBack = this.goBack.bind(this);
-    this.fallback = this.fallback.bind(this);
-  }
-
   connect() {
-    this.el.addEventListener("click", this.goBack);
-  }
-
-  disconnect() {
-    this.el.removeEventListener("click", this.goBack);
-    if (this._timeoutHandle) {
-      clearTimeout(this._timeoutHandle);
-    }
+    useEventListener(this, this.el, "click", this.goBack);
   }
 
   goBack(event?: Event) {
     event?.preventDefault();
     history.go(-this._pages);
     if ((this.el as HTMLAnchorElement).href) {
-      this._timeoutHandle = setTimeout(this.fallback, this._timeout);
+      useTimeout(this, this.fallback, this._timeout);
     }
   }
 

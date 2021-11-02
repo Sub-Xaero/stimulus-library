@@ -1,4 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
+import {useEventListener, useEventListeners} from "../mixins/use_event_listener";
 
 export class ConfirmNavigationController extends BaseController {
 
@@ -19,18 +20,13 @@ export class ConfirmNavigationController extends BaseController {
 
   connect() {
     window.onbeforeunload = () => this._message;
-    window.addEventListener("popstate", this.confirmNavigation);
-    window.addEventListener("submit", this.allowSubmit);
-    window.addEventListener("turbolinks:before-visit", this.confirmTurboNavigation);
-    window.addEventListener("turbo:before-visit", this.confirmTurboNavigation);
+    useEventListener(this, window, "popstate", this.confirmNavigation);
+    useEventListener(this, window, "submit", this.allowSubmit);
+    useEventListeners(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this.confirmTurboNavigation);
   }
 
   disconnect() {
-    window.removeEventListener("popstate", this.confirmNavigation);
     window.onbeforeunload = null;
-    window.removeEventListener("submit", this.allowSubmit);
-    window.removeEventListener("turbolinks:before-visit", this.confirmTurboNavigation);
-    window.removeEventListener("turbo:before-visit", this.confirmTurboNavigation);
   }
 
   allowSubmit(_event: Event) {
@@ -38,7 +34,7 @@ export class ConfirmNavigationController extends BaseController {
     window.onbeforeunload = null;
   }
 
-  confirmNavigation(_event: PopStateEvent) {
+  confirmNavigation(_event: Event | PopStateEvent) {
     return false;
   }
 

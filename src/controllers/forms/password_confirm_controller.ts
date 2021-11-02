@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class PasswordConfirmController extends BaseController {
 
@@ -18,16 +19,8 @@ export class PasswordConfirmController extends BaseController {
     return [];
   }
 
-  initialize() {
-    this._checkPasswordsMatch = this._checkPasswordsMatch.bind(this);
-  }
-
   connect() {
-    this.passwordTargets.forEach((el) => el.addEventListener("change", this._checkPasswordsMatch));
-  }
-
-  disconnect() {
-    this.passwordTargets.forEach((el) => el.removeEventListener("change", this._checkPasswordsMatch));
+    this.passwordTargets.forEach((el) => useEventListener(this, el, "change", this._checkPasswordsMatch));
   }
 
   private _addErrorClasses(el: HTMLElement = this.el) {

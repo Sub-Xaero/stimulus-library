@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {isElementCheckable, isHTMLSelectElement} from "../../utilities/elements";
+import {useEventListeners} from "../../mixins/use_event_listener";
 
 export class DetectDirtyFormController extends BaseController {
 
@@ -11,23 +12,12 @@ export class DetectDirtyFormController extends BaseController {
     return 'detect-dirty-load-value';
   }
 
-  initialize() {
-    this._checkDirty = this._checkDirty.bind(this);
-  }
-
   connect() {
     let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
     this._cacheLoadValues();
     this._checkDirty();
-    element.addEventListener("input", this._checkDirty);
-    element.addEventListener("change", this._checkDirty);
-  }
-
-  disconnect() {
-    let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-    element.removeEventListener("input", this._checkDirty);
-    element.removeEventListener("change", this._checkDirty);
+    useEventListeners(this, element, ["input", "change"], this._checkDirty);
   }
 
   restore(event?: Event) {

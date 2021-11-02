@@ -1,10 +1,11 @@
 import {BaseController} from '../../utilities/base_controller';
 import {isHTMLFormElement, isHTMLInputElement} from "../../utilities/elements";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 interface FormSavePayload {
   [idx: string]: {
     [idx: string]: string | boolean
-  }
+  };
 }
 
 export class FormSaveController extends BaseController {
@@ -71,10 +72,6 @@ export class FormSaveController extends BaseController {
     return this.hasClearOnSubmitValue ? this.clearOnSubmitValue : true;
   }
 
-  initialize() {
-    this._clear = this._clear.bind(this);
-  }
-
   connect() {
     requestAnimationFrame(() => {
       let element = this.el;
@@ -86,15 +83,9 @@ export class FormSaveController extends BaseController {
         this.restore();
       }
       if (this._clearOnSubmit) {
-        this.el.addEventListener('submit', this._clear);
+        useEventListener(this, this.el, 'submit', this._clear);
       }
     });
-  }
-
-  disconnect() {
-    if (this._clearOnSubmit) {
-      this.el.removeEventListener('submit', this._clear);
-    }
   }
 
   _clear() {

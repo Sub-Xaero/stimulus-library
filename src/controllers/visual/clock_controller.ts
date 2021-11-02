@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useInterval} from "../../mixins/use_interval";
 
 export class ClockController extends BaseController {
 
@@ -14,8 +15,6 @@ export class ClockController extends BaseController {
   declare readonly hasMillisecondsTarget: boolean;
   declare readonly millisecondsTarget: HTMLElement;
 
-  _intervalHandle: null | number = null;
-
   get _tickInterval() {
     if (this.hasMillisecondsTarget) {
       return 1; // 1 ms
@@ -28,20 +27,10 @@ export class ClockController extends BaseController {
     }
   }
 
-  initialize() {
-    this._tick = this._tick.bind(this);
-  }
-
   connect() {
     requestAnimationFrame(() => {
-      this._intervalHandle = window.setInterval(this._tick, this._tickInterval);
+      useInterval(this, this._tick, this._tickInterval);
     });
-  }
-
-  disconnect() {
-    if (this._intervalHandle) {
-      window.clearInterval(this._intervalHandle);
-    }
   }
 
   _tick() {
@@ -49,27 +38,27 @@ export class ClockController extends BaseController {
 
     if (this.hasHoursTarget) {
       this.hoursTarget.innerHTML = current
-      .getHours()
-      .toString()
-      .padStart(2, "0");
+        .getHours()
+        .toString()
+        .padStart(2, "0");
     }
     if (this.hasMinutesTarget) {
       this.minutesTarget.innerHTML = current
-      .getMinutes()
-      .toString()
-      .padStart(2, "0");
+        .getMinutes()
+        .toString()
+        .padStart(2, "0");
     }
     if (this.hasSecondsTarget) {
       this.secondsTarget.innerHTML = current
-      .getSeconds()
-      .toString()
-      .padStart(2, "0");
+        .getSeconds()
+        .toString()
+        .padStart(2, "0");
     }
     if (this.hasMillisecondsTarget) {
       this.millisecondsTarget.innerHTML = current
-      .getMilliseconds()
-      .toString()
-      .padStart(3, "0");
+        .getMilliseconds()
+        .toString()
+        .padStart(3, "0");
     }
   }
 }

@@ -1,0 +1,36 @@
+---
+id: useInterval
+title: useInterval
+---
+
+
+## Purpose
+
+Set a function that will be called periodically at the given interval, and automatically cleaned up on controller `disconnect`.
+Automatically sets the correct Javascript binding so that `this` inside the event listener corresponds to the controller instance.
+
+## Side Effects
+
+The controller will use `setInterval` to register the given callback at the provided interval.
+
+
+## How to Use
+
+```js
+
+import {Controller} from 'stimulus';
+import {useInterval} from 'stimulus-library';
+
+export default class extends Controller {
+
+  connect() {
+    // Run `handler`every 5 seconds until disconnect.
+    useInterval(this, this.handler, 5000)
+  }
+
+  handler() {
+    console.log('Look at me run!')
+  }
+}
+
+```

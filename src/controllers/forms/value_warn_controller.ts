@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class ValueWarnController extends BaseController {
   static classes = ["inputWarning", "warningHide"];
@@ -43,18 +44,10 @@ export class ValueWarnController extends BaseController {
     return [""];
   }
 
-  initialize() {
-    this._check = this._check.bind(this);
-  }
-
   connect() {
     this._addWarningHideClasses(this.warningTarget);
-    this.inputTarget.addEventListener("input", this._check);
+    useEventListener(this, this.inputTarget,"input", this._check);
     this._check();
-  }
-
-  disconnect() {
-    this.inputTarget.removeEventListener("input", this._check);
   }
 
   private _check() {

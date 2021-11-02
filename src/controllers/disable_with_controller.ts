@@ -1,5 +1,7 @@
 import {BaseController} from '../utilities/base_controller';
 import {isHTMLAnchorElement, isHTMLButtonElement, isHTMLInputElement} from "../utilities/elements";
+import {useEventListeners} from "../mixins/use_event_listener";
+import {useTimeout} from "../mixins/use_timeout";
 
 export class DisableWithController extends BaseController {
 
@@ -14,7 +16,6 @@ export class DisableWithController extends BaseController {
   declare readonly hasTimeoutValue: boolean;
 
   _cacheText?: string;
-  _timeoutHandle?: ReturnType<typeof window.setTimeout>;
 
   get _message(): string {
     return this.hasMessageValue ? this.messageValue : 'Submitting...';
@@ -25,27 +26,13 @@ export class DisableWithController extends BaseController {
   }
 
   initialize() {
-    this.enable = this.enable.bind(this);
-    this.disable = this.disable.bind(this);
-    this._enable = this._enable.bind(this);
-    this._disable = this._disable.bind(this);
   }
 
   connect() {
     requestAnimationFrame(() => {
-      this.el.addEventListener("click", this.disable);
-      window.addEventListener("turbo:load", this._enable);
-      window.addEventListener("turbolinks:load", this._enable);
+      useEventListeners(this, this.el, ["click"], this.disable);
+      useEventListeners(this, window, ["turbo:load", "turbolinks:load"], this._enable);
     });
-  }
-
-  disconnect() {
-    if (this._timeoutHandle) {
-      clearTimeout(this._timeoutHandle);
-    }
-    this.el.removeEventListener("click", this.disable);
-    window.addEventListener("turbo:load", this._enable);
-    window.addEventListener("turbolinks:load", this._enable);
   }
 
   disable(event?: Event) {
@@ -58,7 +45,7 @@ export class DisableWithController extends BaseController {
       this._cacheText = this._getElText(element);
       this._setElText(element, this._message);
       this._disable();
-      setTimeout(this.enable, this._timeout);
+      useTimeout(this, this.enable, this._timeout);
     }
   }
 

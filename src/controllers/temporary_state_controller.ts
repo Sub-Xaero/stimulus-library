@@ -1,5 +1,6 @@
 import {camelCase, get as _get, set as _set} from "lodash-es";
 import {EphemeralController} from "../utilities/ephemeral_controller";
+import {useTimeout} from "../mixins/use_timeout";
 
 export class TemporaryStateController extends EphemeralController {
 
@@ -15,7 +16,6 @@ export class TemporaryStateController extends EphemeralController {
   declare readonly hasAttributeValue: boolean;
   declare readonly valueValue: string;
   declare readonly hasValueValue: boolean;
-  _timeout: null | ReturnType<typeof window.setTimeout> = null;
   _previousState: { [index: string]: any } = {};
 
   get _value(): string {
@@ -46,14 +46,11 @@ export class TemporaryStateController extends EphemeralController {
 
   connect() {
     this.setState();
-    this._timeout = setTimeout(this.removeState, this._seconds);
+    useTimeout(this, this.removeState, this._seconds);
   }
 
   disconnect() {
     this.removeState();
-    if (this._timeout) {
-      clearTimeout(this._timeout);
-    }
   }
 
   setState() {

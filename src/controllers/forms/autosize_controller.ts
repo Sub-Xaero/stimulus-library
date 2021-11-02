@@ -1,15 +1,12 @@
 import {BaseController} from '../../utilities/base_controller';
 import {useIntersection, useWindowResize} from "stimulus-use";
 import {isHTMLTextAreaElement} from "../../utilities/elements";
+import {useEventListeners} from "../../mixins/use_event_listener";
 
 export class AutosizeController extends BaseController {
 
   declare unobserveIntersection: () => void;
   declare isVisible: boolean;
-
-  initialize() {
-    this._handler = this._handler.bind(this);
-  }
 
   connect() {
     useWindowResize(this);
@@ -20,21 +17,13 @@ export class AutosizeController extends BaseController {
     }
 
     requestAnimationFrame(() => {
-      this._handler();
       this.el.style.resize = "none";
       this.el.style.boxSizing = "border-box";
-      this.el.addEventListener("input", this._handler);
-      this.el.addEventListener("focus", this._handler);
+
+      this._handler();
+      useEventListeners(this, window, ['resize'], this._handler,);
+      useEventListeners(this, this.el, ['input', 'focus'], this._handler,);
     });
-  }
-
-  disconnect() {
-    this.el.removeEventListener("input", this._handler);
-    this.el.removeEventListener("focus", this._handler);
-  }
-
-  windowResize() {
-    this._handler();
   }
 
   appear(_entry: IntersectionObserverEntry) {

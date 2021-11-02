@@ -1,4 +1,5 @@
 import {PrintController} from "./utility/print_controller";
+import {useEventListener} from "../mixins/use_event_listener";
 
 export class PrintButtonController extends PrintController {
 
@@ -16,19 +17,11 @@ export class PrintButtonController extends PrintController {
     return ["unsupported"];
   }
 
-  initialize() {
-    this.print = this.print.bind(this);
-  }
-
   connect() {
     if (!("print" in window)) {
       this._addUnsupportedClasses(this.el);
     }
-    this.el.addEventListener('click', this.print);
-  }
-
-  disconnect() {
-    this.el.removeEventListener('click', this.print);
+    useEventListener(this, this.el, 'click', this.print);
   }
 
   private _addUnsupportedClasses(el: HTMLElement = this.el) {

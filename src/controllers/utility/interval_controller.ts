@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useInterval} from "../../mixins/use_interval";
 
 export class IntervalController extends BaseController {
 
@@ -6,25 +7,14 @@ export class IntervalController extends BaseController {
 
   declare readonly secondsValue: number;
   declare readonly hasSecondsValue: boolean;
-  _intervalHandle: null | number = null;
-
-  initialize() {
-    this._interval = this._interval.bind(this);
-  }
 
   connect() {
     if (!this.hasSecondsValue) {
       throw new Error('Expected `secondsValue` to be present');
     }
     requestAnimationFrame(() => {
-      this._intervalHandle = window.setInterval(this._interval, this.secondsValue * 1000);
+      useInterval(this, this._interval, this.secondsValue * 1000);
     });
-  }
-
-  disconnect() {
-    if (this._intervalHandle) {
-      window.clearInterval(this._intervalHandle);
-    }
   }
 
   _interval() {

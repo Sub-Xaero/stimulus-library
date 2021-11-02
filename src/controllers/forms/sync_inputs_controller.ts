@@ -1,6 +1,7 @@
 import {BaseController} from "../../utilities/base_controller";
 import {isHTMLInputElement, isHTMLSelectElement, isHTMLTextAreaElement, isTypeOfFormInputElement} from "../../utilities/elements";
 import {EventBus} from "../../utilities/event_bus";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export interface SyncValuePayload {
   value: string | boolean;
@@ -61,16 +62,13 @@ export class SyncInputsController extends BaseController {
     requestAnimationFrame(() => {
       if (isTypeOfFormInputElement(this.el)) {
         this._emit();
-        this.el.addEventListener("input", this._emit);
+        useEventListener(this, this.el, "input", this._emit);
       }
     });
   }
 
   disconnect() {
     EventBus.off(this._eventName, this._read);
-    if (isTypeOfFormInputElement(this.el)) {
-      this.el.removeEventListener("input", this._emit);
-    }
   }
 
   _emit() {

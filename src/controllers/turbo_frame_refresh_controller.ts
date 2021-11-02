@@ -1,5 +1,6 @@
 import {BaseController} from "../utilities/base_controller";
 import {isTurboFrame} from "../utilities/turbo";
+import {useTimeout} from "../mixins/use_timeout";
 
 // noinspection SillyAssignmentJS
 export class TurboFrameRefreshController extends BaseController {
@@ -12,14 +13,9 @@ export class TurboFrameRefreshController extends BaseController {
   declare readonly intervalValue: number;
   declare readonly pollValue: boolean;
   declare readonly hasPollValue: boolean;
-  _timeoutHandle: null | ReturnType<typeof window.setTimeout> = null;
 
   get _poll(): boolean {
     return this.hasPollValue ? this.pollValue : false;
-  }
-
-  initialize() {
-    this.refresh = this.refresh.bind(this);
   }
 
   connect() {
@@ -32,13 +28,7 @@ export class TurboFrameRefreshController extends BaseController {
       throw new Error('Expected controller to be mounted on a <turbo-frame> element.');
     }
     if (this._poll) {
-      requestAnimationFrame(() => this._timeoutHandle = setTimeout(() => this.refresh(), this.intervalValue));
-    }
-  }
-
-  disconnect() {
-    if (this._timeoutHandle) {
-      clearTimeout(this._timeoutHandle);
+      requestAnimationFrame(() => useTimeout(this, this.refresh, this.intervalValue));
     }
   }
 

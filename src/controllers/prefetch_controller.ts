@@ -1,4 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
+import {useEventListener} from "../mixins/use_event_listener";
 
 export class PrefetchController extends BaseController {
 
@@ -50,10 +51,6 @@ export class PrefetchController extends BaseController {
     return true;
   }
 
-  initialize(): void {
-    this.prefetch = this.prefetch.bind(this);
-  }
-
   connect(): void {
     if (!this._supportsPrefetch) {
       return;
@@ -64,15 +61,11 @@ export class PrefetchController extends BaseController {
         this._setupObserver();
         break;
       case "mouseover":
-        this.el.addEventListener("mouseover", this.prefetch, {once: true});
+        useEventListener(this, this.el, "mouseover", this.prefetch, {once: true});
         break;
       default:
         throw new Error(`'${this._mode}' is not a supported prefetch mode`);
     }
-  }
-
-  disconnect() {
-    this.el.removeEventListener("mouseover", this.prefetch);
   }
 
   _setupObserver(): void {

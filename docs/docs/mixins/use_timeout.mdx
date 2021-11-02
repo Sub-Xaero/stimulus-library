@@ -1,0 +1,37 @@
+---
+id: useTimeout
+title: useTimeout
+---
+
+
+## Purpose
+
+Set a function that will be called after given time has elapsed, and will automatically cleaned up on controller `disconnect` if that happens before the timeout is called.
+Automatically sets the correct Javascript binding so that `this` inside the event listener corresponds to the controller instance.
+
+## Side Effects
+
+The controller will use `setInterval` to register the given callback to be run after the provided interval.
+
+
+## How to Use
+
+```js
+
+import {Controller} from 'stimulus';
+import {useTimeout} from 'stimulus-library';
+
+export default class extends Controller {
+
+  connect() {
+    // Run `handler` after 5 seconds
+    useTimeout(this, this.handler, 5000)
+  }
+
+  handler() {
+    console.log('Look at me run!')
+  }
+
+}
+
+```

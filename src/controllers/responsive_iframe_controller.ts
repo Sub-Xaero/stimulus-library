@@ -1,6 +1,7 @@
 import {useDebounce, useWindowResize} from "stimulus-use";
 import {WindowResizePayload} from "stimulus-use/dist/use-window-resize/use-window-resize";
 import {BaseController} from "../utilities/base_controller";
+import {useEventListener} from "../mixins/use_event_listener";
 
 interface ResponsiveIframeMessage {
   name: string,
@@ -9,16 +10,8 @@ interface ResponsiveIframeMessage {
 
 export class ResponsiveIframeWrapperController extends BaseController {
 
-  initialize() {
-    this.messageReceived = this.messageReceived.bind(this);
-  }
-
   connect() {
-    window.addEventListener("message", this.messageReceived);
-  }
-
-  disconnect() {
-    window.removeEventListener("message", this.messageReceived);
+    useEventListener(this, window, "message", this.messageReceived);
   }
 
   messageReceived(message: MessageEvent<ResponsiveIframeMessage>) {

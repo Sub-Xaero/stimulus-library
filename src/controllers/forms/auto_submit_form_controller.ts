@@ -1,14 +1,10 @@
 import {BaseController} from "../../utilities/base_controller";
 import {requestSubmit} from "../../utilities/request_submit";
-import {debounce} from "lodash-es";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class AutoSubmitFormController extends BaseController {
 
-  static values = {
-    submitMode: String,
-    eventMode: String,
-    debounceInterval: Number,
-  };
+  static values = {submitMode: String, eventMode: String, debounceInterval: Number};
   declare readonly submitModeValue: "direct" | "request";
   declare readonly hasSubmitModeValue: boolean;
   declare eventModeValue: 'change' | 'input' | 'debounced';
@@ -52,18 +48,16 @@ export class AutoSubmitFormController extends BaseController {
     return this.element.querySelectorAll(this._cssSelector);
   }
 
-  initialize() {
-    this.submit = this._eventMode == 'debounced'
-      ? debounce(this.submit.bind(this), this._debounceTimeout)
-      : this.submit.bind(this);
-  }
-
   connect() {
-    this.inputElements.forEach(el => el.addEventListener(this._eventMode == 'change' ? 'change' : 'input', this.submit));
-  }
-
-  disconnect() {
-    this.inputElements.forEach(el => el.removeEventListener(this._eventMode == 'change' ? 'change' : 'input', this.submit));
+    this.inputElements.forEach(el => {
+      return useEventListener(
+        this,
+        el as HTMLElement,
+        this._eventMode == 'change' ? 'change' : 'input',
+        this.submit,
+        {debounce: this._eventMode == 'debounced' ? this._debounceTimeout : undefined},
+      );
+    });
   }
 
   private submit() {

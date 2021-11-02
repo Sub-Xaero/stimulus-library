@@ -1,5 +1,6 @@
 import {Duration, formatDistanceToNow, intervalToDuration, isPast, toDate} from "date-fns";
 import {BaseController} from "../../utilities/base_controller";
+import {useTimeout} from "../../mixins/use_timeout";
 
 export class TimeDistanceController extends BaseController {
   static values = {
@@ -9,7 +10,6 @@ export class TimeDistanceController extends BaseController {
   declare timestampValue: number;
   declare readonly hasTimestampValue: boolean;
 
-  _timeout: number | null = null;
   declare _timestamp: Date;
 
   get _duration(): Duration {
@@ -47,12 +47,6 @@ export class TimeDistanceController extends BaseController {
     this._update();
   }
 
-  disconnect() {
-    if (this._timeout) {
-      window.clearTimeout(this._timeout);
-    }
-  }
-
   _update() {
     this.el.innerHTML = formatDistanceToNow(this._timestamp, {
       addSuffix: true,
@@ -60,7 +54,7 @@ export class TimeDistanceController extends BaseController {
     });
 
     if (this._nextUpdate) {
-      this._timeout = window.setTimeout(this._update, this._nextUpdate);
+      useTimeout(this, this._update, this._nextUpdate);
     }
   }
 }

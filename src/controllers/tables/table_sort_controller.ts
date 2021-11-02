@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class TableSortController extends BaseController {
 
@@ -33,21 +34,13 @@ export class TableSortController extends BaseController {
     return Array.from(this._tableBody.rows);
   }
 
-  initialize() {
-    this.sort = this.sort.bind(this);
-  }
-
   connect() {
     requestAnimationFrame(() => {
-      this._tableHeaders.forEach(cell => cell.addEventListener("click", this.sort));
+      this._tableHeaders.forEach(cell => useEventListener(this, cell,"click", this.sort));
       if (this.hasStartSortValue) {
         this._sortByColumn(this.startSortValue);
       }
     });
-  }
-
-  disconnect() {
-    this._tableHeaders.forEach(cell => cell.removeEventListener("click", this.sort));
   }
 
   sort(event: Event) {

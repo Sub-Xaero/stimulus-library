@@ -1,4 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
+import {useEventListener} from "../mixins/use_event_listener";
 
 export class AnchorSpyController extends BaseController {
   static values = {key: String};
@@ -17,19 +18,11 @@ export class AnchorSpyController extends BaseController {
     window.location.hash = value;
   }
 
-  initialize() {
-    this._checkAnchor = this._checkAnchor.bind(this);
-  }
-
   connect() {
     requestAnimationFrame(() => {
       this._checkAnchor();
-      window.addEventListener("hashchange", this._checkAnchor);
+      useEventListener(this, window, 'hashchange', this._checkAnchor);
     });
-  }
-
-  disconnect() {
-    window.removeEventListener("hashchange", this._checkAnchor);
   }
 
   write(event?: Event) {

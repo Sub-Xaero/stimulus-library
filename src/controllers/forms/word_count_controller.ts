@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class WordCountController extends BaseController {
 
@@ -24,17 +25,9 @@ export class WordCountController extends BaseController {
     return [];
   }
 
-  initialize() {
-    this._updateWordCount = this._updateWordCount.bind(this);
-  }
-
   connect() {
     this._updateWordCount();
-    this.inputTarget.addEventListener("input", this._updateWordCount);
-  }
-
-  disconnect() {
-    this.inputTarget.removeEventListener("input", this._updateWordCount);
+    useEventListener(this, this.inputTarget, "input", this._updateWordCount);
   }
 
   _updateWordCount() {

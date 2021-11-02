@@ -121,5 +121,10 @@ module.exports = {
         ],
       },
     ],
+    Mixins: [
+      "mixins/useEventListener",
+      "mixins/useInterval",
+      "mixins/useTimeout",
+    ]
   },
 };

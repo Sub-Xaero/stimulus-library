@@ -1,5 +1,6 @@
 import {BaseController} from '../utilities/base_controller';
 import {isHTMLAnchorElement, isHTMLFormElement} from "../utilities/elements";
+import {useEventListener} from "../mixins/use_event_listener";
 
 export class ConfirmController extends BaseController {
 
@@ -14,30 +15,20 @@ export class ConfirmController extends BaseController {
     return this.hasMessageValue ? this.messageValue : 'Are you sure?';
   }
 
-  initialize() {
-    this.confirm = this.confirm.bind(this);
+  get _eventType(): "submit" | "click" {
+    if (isHTMLFormElement(this.el)) {
+      return "submit";
+    } else if (isHTMLAnchorElement(this.el)) {
+      return "click";
+    } else {
+      throw new Error("Can't handle confirmation on attached element");
+    }
   }
 
   connect() {
     requestAnimationFrame(() => {
-      let element = this.el;
-      if (isHTMLFormElement(element)) {
-        element.addEventListener("submit", this.confirm);
-      } else if (isHTMLAnchorElement(element)) {
-        element.addEventListener("click", this.confirm);
-      } else {
-        throw new Error("Can't handle confirmation on attached element");
-      }
+      useEventListener(this, this.el, this._eventType, this.confirm);
     });
-  }
-
-  disconnect() {
-    let element = this.el;
-    if (isHTMLFormElement(element)) {
-      element.removeEventListener("submit", this.confirm);
-    } else if (isHTMLAnchorElement(element)) {
-      element.removeEventListener("click", this.confirm);
-    }
   }
 
   confirm(event: Event) {

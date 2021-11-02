@@ -1,0 +1,88 @@
+---
+id: useEventListener
+title: useEventListener
+---
+
+
+## Purpose
+
+Add an event listener to a `Window|Document|Element` that will be automatically cleaned up on controller `disconnect`.
+Automatically sets the correct Javascript binding so that `this` inside the event listener corresponds to the controller instance.
+
+## Side Effects
+
+The controller will add an event listener on the given element, for the given event name.
+
+## Usage
+
+There are two functions provided as part of this Mixin.
+`useEventListener` for a single event, or `useEventListeners` for multiple events.
+
+### useEventListener
+| Parameters | | Type | Purpose | Default |
+| --- | --- | --- | --- |--- |
+| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controllers `disconnect`. | `this` |
+| `element` | | `Window` or `Document` or `HTMLElement` | The element to add the event listener on | |
+| `eventName` | | `String` | The fully qualified name of the event you wish to listen for i.e. `change`, `input`, `click`  | |
+| `options` (Optional) | | `Object` | Options to modify how the event listener is initialized | `-` |
+| | `debounce` (Optional) | `Number` | The number of milliseconds to debounce the given handler by  | `-` |
+| | `capture` (Optional) | `Boolean` | A boolean value indicating that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree. | `-` |
+| | `once` (Optional) | `Boolean` | A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked. | `-` |
+| | `passive` (Optional) | `Boolean` | A boolean value that, if true, indicates that the function specified by listener will never call preventDefault(). If a passive listener does call preventDefault(), the user agent will do nothing other than generate a console warning. See Improving scrolling performance with passive listeners to learn more. | `-` |
+| | `signal` (Optional) | `AbortSignal` | An AbortSignal. The listener will be removed when the given AbortSignal object's abort() method is called. | `-` |
+
+### useEventListeners
+| Parameters | | Type | Purpose | Default |
+| --- | --- | --- | --- |--- |
+| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controllers `disconnect`. | `this` |
+| `element` | | `Window` or `Document` or `HTMLElement` | The element to add the event listener on | |
+| `eventNames` | | `Array<String>` | An array of the fully qualified names of the events you wish to listen for i.e. `['change', 'input', 'click']`  | |
+| `options` (Optional) | | `Object` | Options to modify how the event listener is initialized | `-` |
+| | `debounce` (Optional) | `Number` | The number of milliseconds to debounce the given handler by  | `-` |
+| | `capture` (Optional) | `Boolean` | A boolean value indicating that events of this type will be dispatched to the registered listener before being dispatched to any EventTarget beneath it in the DOM tree. | `-` |
+| | `once` (Optional) | `Boolean` | A boolean value indicating that the listener should be invoked at most once after being added. If true, the listener would be automatically removed when invoked. | `-` |
+| | `passive` (Optional) | `Boolean` | A boolean value that, if true, indicates that the function specified by listener will never call preventDefault(). If a passive listener does call preventDefault(), the user agent will do nothing other than generate a console warning. See Improving scrolling performance with passive listeners to learn more. | `-` |
+| | `signal` (Optional) | `AbortSignal` | An AbortSignal. The listener will be removed when the given AbortSignal object's abort() method is called. | `-` |
+
+
+## How to Use
+
+```js
+
+import {Controller} from 'stimulus';
+import {useEventListener, useEventListeners} from 'stimulus-library';
+
+export default class extends Controller {
+
+  connect() {
+    // Add an event listener to the Window
+    useEventListener(this, window, 'hashchange', this.handler)
+
+    // Add an event listener to the controller root element
+    useEventListener(this, this.element, "change", this.handler)
+
+    // Add an event listener to the controller root element that only fires once
+    useEventListener(this, this.element, "change", this.handler, {once: true})
+
+    // Add a [debounced](https://css-tricks.com/debouncing-throttling-explained-examples/)
+    // event listener to the controller root element
+    useEventListener(this, this.element, "input", this.handler, {debounce: 1500})
+
+    // Add multiple event listeners to the same handler
+    useEventListeners(this, this.element, ['change', "input"], this.handler)
+
+    // Add multiple event listeners to the same handler
+    useEventListeners(this, this.element, ['change', "input"], this.handler)
+
+    // Add multiple [debounced](https://css-tricks.com/debouncing-throttling-explained-examples/)
+    // event listeners to the same handler
+    useEventListener(this, this.element, "change", this.handler, {debounce: 1500})
+  }
+
+  handler() {
+    console.log('Look at me run!')
+  }
+
+}
+
+```

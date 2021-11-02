@@ -1,5 +1,6 @@
 import {Duration, formatDuration, intervalToDuration, toDate} from "date-fns";
 import {BaseController} from "../../utilities/base_controller";
+import {useInterval} from "../../mixins/use_interval";
 
 export class DurationController extends BaseController {
   static values = {
@@ -79,20 +80,13 @@ export class DurationController extends BaseController {
     }
   }
 
-  initialize() {
-    this._update = this._update.bind(this);
-  }
+  declare _clearInterval: () => void;
 
   connect() {
-    this._intervalHandle = window.setInterval(this._update, this._tickInterval);
+    this._clearInterval = useInterval(this, this._update, this._tickInterval);
     this._update();
   }
 
-  disconnect() {
-    if (this._intervalHandle) {
-      window.clearInterval(this._intervalHandle);
-    }
-  }
 
   _update() {
     try {

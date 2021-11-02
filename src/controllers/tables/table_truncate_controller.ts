@@ -1,5 +1,6 @@
 import {useMutation} from "stimulus-use";
 import {BaseController} from "../../utilities/base_controller";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class TableTruncateController extends BaseController {
 
@@ -45,7 +46,7 @@ export class TableTruncateController extends BaseController {
 
     requestAnimationFrame(() => {
       this.truncate();
-      this.showMoreTarget.addEventListener("click", this.expand);
+      useEventListener(this, this.showMoreTarget, "click", this.expand);
     });
   }
 

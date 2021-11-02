@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {clamp} from "lodash-es";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class TabsController extends BaseController {
 
@@ -43,22 +44,14 @@ export class TabsController extends BaseController {
     return this.hasEqualizeValue ? this.equalizeValue : false;
   }
 
-  initialize() {
-    this.switchTabs = this.switchTabs.bind(this);
-  }
-
   connect() {
-    this.linkTargets.forEach((link) => link.addEventListener("click", this.switchTabs));
+    this.linkTargets.forEach((link) => useEventListener(this, link,"click", this.switchTabs));
 
     if (this._equalize) {
       this._setMinHeight();
     }
 
     this.currentTabValue = this._currentTab;
-  }
-
-  disconnect() {
-    this.linkTargets.forEach((link) => link.removeEventListener("click", this.switchTabs));
   }
 
   switchTabs(event: Event) {

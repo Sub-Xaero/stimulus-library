@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class CharCountController extends BaseController {
 
@@ -28,23 +29,13 @@ export class CharCountController extends BaseController {
     return [];
   }
 
-  // Lifecycle Methods
-  initialize() {
-    this._updateCharCount = this._updateCharCount.bind(this);
-  }
-
   connect() {
     requestAnimationFrame(() => {
-      this.inputTarget.addEventListener("input", this._updateCharCount);
+      useEventListener(this, this.inputTarget, "input", this._updateCharCount);
       this._updateCharCount();
     });
   }
 
-  disconnect() {
-    this.inputTarget.removeEventListener("input", this._updateCharCount);
-  }
-
-  // Methods
   private _addErrorClasses(el: HTMLElement = this.el) {
     if (this.hasErrorClass) {
       el.classList.add(...this._errorClasses);
