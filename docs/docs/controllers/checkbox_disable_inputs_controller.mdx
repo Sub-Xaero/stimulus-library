@@ -1,6 +1,6 @@
 ---
-id: EnableInputsController
-title: EnableInputsController
+id: CheckboxDisableInputsController
+title: CheckboxDisableInputsController
 ---
 
 import NoActions from "../_partials/no-actions.md";
@@ -10,22 +10,20 @@ import NoEvents from "../_partials/no-events.md";
 
 ## Purpose
 
-Enable other inputs if a checkbox is ticked.
+Disable other inputs if a checkbox is ticked.
 
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
-
 
 
 <NoActions/>
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-
 | Target | Purpose | Default |
 | --- | --- | --- |
-| `enabller` | The checkbox that when checked will enable other inputs, and disable them when it is *not* checked | - |
-| `enablle` | The input(s) that will be enabled when the `enablerTarget` is checked | - |
+| `disabler` | The checkbox that will disable other inputs when it is checked, and enable them when it is *not* checked | - |
+| `disable` | The input(s) that will be disabled when the `disablerTarget` is checked | - |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
@@ -51,16 +49,14 @@ None
 
 ## How to Use
 
-Example - preventing inputs until T&Cs are checked
-
+Example - when creating an event that can have the `end_time` turned off with a boolean:
 
 <iframe
-  src="https://codesandbox.io/embed/enableinputscontroller-e77ju?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/disableinputscontroller-q1f3w?fontsize=14&hidenavigation=1&theme=dark"
   style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-
 # See also
 
-[DisableInputsController](./disable_inputs_controller.mdx)
+[EnableInputsController](./enable_inputs_controller.mdx)

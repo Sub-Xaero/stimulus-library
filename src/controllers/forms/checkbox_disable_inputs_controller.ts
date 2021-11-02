@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 
-export class DisableInputsController extends BaseController {
+export class CheckboxDisableInputsController extends BaseController {
 
   static targets = ["disabler", "disable"];
 
