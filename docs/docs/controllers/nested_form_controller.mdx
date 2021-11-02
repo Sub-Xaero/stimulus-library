@@ -3,10 +3,12 @@ id: NestedFormController
 title: NestedFormController
 ---
 
+
 import NoClasses from "../_partials/no-classes.md";
 import NoEvents from "../_partials/no-events.md";
 import NestedFormControllerErb from "../examples/nested_form_controller.erb.mdx";
 import NestedFormControllerHaml from "../examples/nested_form_controller.haml.mdx";
+import NoSideEffects from "../_partials/no-side-effects.md";
 
 ## Purpose
 
@@ -28,8 +30,6 @@ Primarily for Rails `accepts_nested_attributes_for` associations, enabling a for
 | `target` | Where to add the created sub-records. | - |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
-
-
 <NoClasses/>
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
@@ -40,13 +40,10 @@ Primarily for Rails `accepts_nested_attributes_for` associations, enabling a for
 | `insert` | String | How to insert records around `target`. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | `beforeend` (append) |
 
 ## Events
-
-
 <NoEvents/>
 
 ## Side Effects
-
-None
+<NoSideEffects/>
 
 
 

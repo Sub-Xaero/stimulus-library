@@ -3,8 +3,9 @@ id: EmptyDomController
 title: EmptyDomController
 ---
 
+
 import NoActions from "../_partials/no-actions.md";
-import NoTargets from "../_partials/no-targets.md";
+import NoSideEffects from "../_partials/no-side-effects.md";
 
 ## Purpose
 
@@ -14,7 +15,6 @@ You can then style the controller, or show a nice placeholder when the container
 
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
-
 <NoActions/>
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -44,14 +44,10 @@ You can then style the controller, or show a nice placeholder when the container
 | `dom:not-empty` | When the subtree of the attached element is no longer empty | The controller element  | `count` - The number of matching elements that are now present |
 
 ## Side Effects
-
-None
-
+<NoSideEffects/>
 
 
 ## How to Use
-
-## Simple Case
 
 The controller emits an event `dom:empty` when the container becomes empty, and `dom:not-empty` when it is no longer empty (and for every DOM update that means it is still not empty). Use those events to hook up other Stimulus actions.
 Alternatively, set a particular class when the watched container becomes empty or filled.
