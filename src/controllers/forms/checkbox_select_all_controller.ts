@@ -9,11 +9,15 @@ export class CheckboxSelectAllController extends BaseController {
   declare readonly checkboxTargets: HTMLInputElement[];
 
   private get _checked() {
-    return this.checkboxTargets.filter(checkbox => checkbox.checked);
+    return this._enabled.filter(checkbox => checkbox.checked);
+  }
+
+  private get _enabled() {
+    return this.checkboxTargets.filter(checkbox => !checkbox.disabled && !checkbox.readOnly);
   }
 
   private get _unchecked() {
-    return this.checkboxTargets.filter(checkbox => !checkbox.checked);
+    return this._enabled.filter(checkbox => !checkbox.checked);
   }
 
   connect() {
@@ -31,11 +35,11 @@ export class CheckboxSelectAllController extends BaseController {
   private _toggle(event: Event) {
     event.preventDefault();
     let target = event.target as HTMLInputElement;
-    this.checkboxTargets.forEach((checkbox) => checkbox.checked = target.checked);
+    this._enabled.forEach((checkbox) => checkbox.checked = (checkbox.disabled || checkbox.readOnly) ? checkbox.checked : target.checked);
   }
 
   private _refresh() {
-    const checkboxesCount = this.checkboxTargets.length;
+    const checkboxesCount = this._enabled.length;
     const checkboxesCheckedCount = this._checked.length;
 
     this.selectAllTarget.checked = checkboxesCheckedCount > 0;
