@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.4.0...v0.5.0) (2021-11-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* AutoSubmitForm controller - Added new value to control the mode the controller uses to monitor inputs for events. Add new 'debounced' mode. Adds new debounceIntervalValue to allow users to customise the debounce interval in debounced mode. Changed modeValue to be submitModeValue to allow other modes like the new eventModeValue.
+
+### Features
+
+* AutoSubmitForm controller - Added new value to control the mode the controller uses to monitor inputs for events. Add new 'debounced' mode. Adds new debounceIntervalValue to allow users to customise the debounce interval in debounced mode. Changed modeValue to be submitModeValue to allow other modes like the new eventModeValue. ([f437706](https://github.com/Sub-Xaero/stimulus-library/commit/f437706baaa7ec3fe4c28e3d576ee889aaa460a4))
+* FocusStealController - a controller to steal the users focus when a new input enters the page ([3cf7967](https://github.com/Sub-Xaero/stimulus-library/commit/3cf796755fe207ebf2336cc49faa6811d668f3df))
+* PresenceController - Added an optional name value which if provided will be included in the presence event name so that other controllers can react to specific presence events if there are multiple in a given scope. ([a069d7b](https://github.com/Sub-Xaero/stimulus-library/commit/a069d7bf7f16e13db431dce1e98a96768238b26b))
+* PrintController and PrintButtonController to enable buttons and actions to trigger the browser print dialogue ([ab95de7](https://github.com/Sub-Xaero/stimulus-library/commit/ab95de75d5c39db345099c30a013dae7a5b4c05d))
+
 ### [0.4.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.4.0...v0.4.1) (2021-10-09)
 
 
