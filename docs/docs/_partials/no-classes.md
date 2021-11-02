@@ -1,3 +1,3 @@
-| Class | Purpose |
-| --- | --- |
-| `-` | - |
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `-` | - | - |
