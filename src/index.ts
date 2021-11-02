@@ -45,6 +45,8 @@ export {PasswordPeekController} from "./controllers/forms/password_peek_controll
 export {PollBlockController} from "./controllers/ajax/poll_block_controller";
 export {PrefetchController} from "./controllers/prefetch_controller";
 export {PresenceController} from "./controllers/utility/presence_controller";
+export {PrintButtonController} from './controllers/print_button_controller';
+export {PrintController} from './controllers/utility/print_controller';
 export {RemoteFormController} from "./controllers/forms/remote_form_controller";
 export {RemoveController} from "./controllers/dismissable_controller";
 export {ResponsiveIframeBodyController, ResponsiveIframeWrapperController} from "./controllers/responsive_iframe_controller";

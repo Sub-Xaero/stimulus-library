@@ -55,6 +55,7 @@ module.exports = {
           "controllers/ElementSaveController",
           "controllers/EmptyDomController",
           "controllers/PrefetchController",
+          "controllers/PrintButtonController",
           "controllers/ResponsiveIframeController",
           "controllers/SelfDestructController",
           "controllers/StickyController",
@@ -101,9 +102,10 @@ module.exports = {
       },
       {
         "Utility Controllers": [
-          "controllers/IntervalController",
           "controllers/IntersectionController",
+          "controllers/IntervalController",
           "controllers/PresenceController",
+          "controllers/PrintController",
           "controllers/TimeoutController",
           "controllers/UserFocusController",
         ],
