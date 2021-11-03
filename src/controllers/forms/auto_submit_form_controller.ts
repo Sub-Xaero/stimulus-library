@@ -71,7 +71,7 @@ export class AutoSubmitFormController extends BaseController {
     if (this._mode == 'request') {
       requestSubmit(el);
     } else {
-      el.submit(); // Call submit directly, do not dispatch events, do not pass go, do not collect $200.
+      el.submit();
     }
   }
 }
