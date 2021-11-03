@@ -36,6 +36,7 @@
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "dev": "vite build --watch",
+    "dev:types": "tsc --emitDeclarationOnly --watch",
     "prepack": "yarn build",
     "release": "standard-version",
     "test:treeshake": "agadoo dist stimulus-library.js"
