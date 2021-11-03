@@ -40,7 +40,7 @@ Auto submits a form when and of its input's values change - i.e. autosave.
 ## Side Effects
 
 - Adds event listeners for `change` or `input` (depending on the value of `eventModeValue`) to all `<input>` `<textarea>` and `<select>` elements in the controller's scope.
-- If the `eventModeValue` is `request` and the browser does not support `.requestSubmit()`, then the controller will use any existing submit buttons, or create a hidden submit button (which will be cleaned up on 'disconnect'), to submit the form by clicking on them.
+- If the `submitModeValue` is `request` and the browser does not support `.requestSubmit()`, then the controller will use any existing submit buttons, or create a hidden submit button (which will be cleaned up on 'disconnect'), to submit the form by clicking on them.
 
 [See MSDN for details](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit)
 
