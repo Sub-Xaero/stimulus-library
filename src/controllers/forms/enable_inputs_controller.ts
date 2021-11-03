@@ -2,13 +2,13 @@ import {BaseController} from "../../utilities/base_controller";
 
 export class EnableInputsController extends BaseController {
 
-  static targets = ["enable"];
+  static targets = ["input"];
 
   static values = {
     clear: Boolean,
   };
 
-  declare readonly enableTargets: Array<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
+  declare readonly inputTargets: Array<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
   declare readonly clearValue: boolean;
   declare readonly hasClearValue: boolean;
 
@@ -17,7 +17,7 @@ export class EnableInputsController extends BaseController {
 
   disable() {
     let shouldClear = this.hasClearValue && this.clearValue;
-    this.enableTargets.forEach((el, _) => {
+    this.inputTargets.forEach((el, _) => {
       if (shouldClear) {
         el.value = "";
       }
@@ -26,6 +26,6 @@ export class EnableInputsController extends BaseController {
   }
 
   enable() {
-    this.enableTargets.forEach((el, _) => el.disabled = false);
+    this.inputTargets.forEach((el, _) => el.disabled = false);
   }
 }
