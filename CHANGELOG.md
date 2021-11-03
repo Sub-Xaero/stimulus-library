@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.0...v0.6.1) (2021-11-03)
+
+
+### Features
+
+* Export internal utilities as part of the library. Element manipulation, EventBus, scroll helpers, and form submission helpers ([d0b34d6](https://github.com/Sub-Xaero/stimulus-library/commit/d0b34d679b474a85f6831dd556015d91b58f4b1e))
+
 ## [0.6.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.5.0...v0.6.0) (2021-11-03)
 
 
