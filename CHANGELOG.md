@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.5.0...v0.6.0) (2021-11-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename EnableInputsController and DisableInputsController to be CheckboxEnableInputsController and CheckboxDisableInputsController, to better describe the purpose of the controllers
+
+### Features
+
+* **Mixins:** Add mixins for injecting HTML that the controller needs, and auto-cleaning it up on disconnect ([77fe03c](https://github.com/Sub-Xaero/stimulus-library/commit/77fe03c29642e512b38ddc6f43182e88e41fb04d))
+* Add submitMode value to FormRCController to allow changing between calling .submit and .requestSubmit ([7c057f1](https://github.com/Sub-Xaero/stimulus-library/commit/7c057f1efef48f848e77736415b9dc82a87a8738))
+* AutosizeController - Fixed case when an autosize controller element starts life hidden, it will appear collased and incorrectly sized. It will now use an IntersectionObserver to resize on first appearance to the correct size. ([715d720](https://github.com/Sub-Xaero/stimulus-library/commit/715d720362b01611a3aea2388dab0fde1f4031af))
+* EnableInputsController - Controller that provides an action that can enable/disable inputs ([2d2a51d](https://github.com/Sub-Xaero/stimulus-library/commit/2d2a51d9573ae0b5d7cc5550650f7682fc681eb2))
+* Mixins - Created mixins useEventListener, useInterval, useTimeout, that can be called in controllers to install behaviours onto stimulus controllers and the behaviours will clean themselves up on disconnect. ([6cbf7e0](https://github.com/Sub-Xaero/stimulus-library/commit/6cbf7e0b3ecf1cfb022decca68854b69a61f558e))
+* Rename EnableInputsController and DisableInputsController to be CheckboxEnableInputsController and CheckboxDisableInputsController, to better describe the purpose of the controllers ([1488469](https://github.com/Sub-Xaero/stimulus-library/commit/1488469fb98f9a06b60162b73bf3a6618ed0ef66))
+
 ## [0.5.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.4.0...v0.5.0) (2021-11-02)
 
 
