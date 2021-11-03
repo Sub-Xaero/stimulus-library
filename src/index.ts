@@ -1,11 +1,28 @@
 // Utilities
 export {BaseController} from "./utilities/base_controller";
 export {EphemeralController} from "./utilities/ephemeral_controller";
-export {scrollToElement, scrollAbsoluteTop, scrollAbsoluteBottom, scrollAbsoluteLeft, scrollAbsoluteRight, scrollUp, scrollDown, scrollLeft, scrollRight, getScrollParent} from "./utilities/scroll";
+export {
+  scrollToElement,
+  scrollAbsoluteTop,
+  scrollAbsoluteBottom,
+  scrollAbsoluteLeft,
+  scrollAbsoluteRight,
+  scrollUp,
+  scrollDown,
+  scrollLeft,
+  scrollRight,
+  getScrollParent,
+} from "./utilities/scroll";
 export {isTurboFrame} from "./utilities/turbo";
 export {EventBus} from "./utilities/event_bus";
 export {requestSubmit, requestReset} from "./utilities/request_submit";
-export {createHiddenButton, createHiddenInput, insertElement} from "./utilities/elements";
+export {
+  createHiddenButton,
+  createHiddenInput,
+  insertElement,
+  insertHiddenInput,
+  insertHiddenButton,
+} from "./utilities/elements";
 
 // Mixins
 export {useEventListeners, useEventListener} from './mixins/use_event_listener';
