@@ -123,6 +123,7 @@ module.exports = {
     ],
     Mixins: [
       "mixins/useEventListener",
+      "mixins/useInjectedHTML",
       "mixins/useInterval",
       "mixins/useTimeout",
     ]

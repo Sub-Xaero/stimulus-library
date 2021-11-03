@@ -1,0 +1,85 @@
+---
+id: useInjectedHTML
+title: useInjectedHTML
+---
+
+
+import NoSideEffects from '../_partials/no-side-effects.md';
+
+## Purpose
+
+Add HTML/HTML Elements/HTML Fragments that enable a controller's behaviour, and automatically clean up the
+DOM when the controller disconnects.
+
+## Side Effects
+<NoSideEffects/>
+
+## Usage
+
+There are 3 functions provided as part of this Mixin.
+`useInjectedHTML` for HTML snippets
+`useInjectedElement` for an HTML Element you have already constructed,
+and
+`useInjectedFragment` for an HTML DocumentFragment you have already constructed,
+
+### useInjectedHTML
+| Parameters | | Type | Purpose | Default |
+| --- | --- | --- | --- |--- |
+| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controllers `disconnect`. | `this` |
+| `targetElement` | | `HTMLElement` | The element to insert the given elements near | |
+| `insertPosition` | | `prepend` or `append` | Whether to place the given elements before or after the given element | |
+| `html`| | `String` | The HTML string to inject into the DOM |  |
+
+### useInjectedElement
+| Parameters | | Type | Purpose | Default |
+| --- | --- | --- | --- |--- |
+| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controllers `disconnect`. | `this` |
+| `targetElement` | | `HTMLElement` | The element to insert the given elements near | |
+| `insertPosition` | | `prepend` or `append` | Whether to place the given elements before or after the given element | |
+| `element`| | `HTMLElement` | The HTMLElement to inject into the DOM |  |
+
+### useInjectedElement
+| Parameters | | Type | Purpose | Default |
+| --- | --- | --- | --- |--- |
+| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controllers `disconnect`. | `this` |
+| `targetElement` | | `HTMLElement` | The element to insert the given elements near | |
+| `insertPosition` | | `prepend` or `append` | Whether to place the given elements before or after the given element | |
+| `fragment`| | `DocumentFragment` | The DocumentFragment to inject into the DOM |  |
+
+## How to Use
+
+```js
+
+import {Controller} from 'stimulus';
+import {useInjectedHTML, useInjectedElement, useInjectedFragment} from 'stimulus-library';
+
+export default class extends Controller {
+
+  get magicElement() {
+    let element = document.createElement('div');
+    element.innerHTML = '<div class="magic"></div>';
+    return element;
+  }
+
+  connect() {
+    // Inject an element into the DOM that the controller can use
+    useInjectedElement(this, this.element, 'prepend', this.magicElement)
+    // Inject some HTML into the DOM that the controller can use
+    useInjectedHTML(this, this.element, 'prepend', `<p>Hello World</p>`);
+
+    // Inject multiple elements into the DOM that the controller can use, using a DocumentFragment.
+    let elements = [ document.createElement('div'), document.createElement('p'), document.createElement('span') ];
+    let fragment = document.createDocumentFragment();
+    elements.forEach(element => fragment.append(element));
+    useInjectedFragment(this, this.element, 'prepend', fragment);
+  }
+
+  disconnect() {
+    // All injected elements will be automatically removed when the controller is disconnected
+    // No need to do anything here
+  }
+
+
+}
+
+```
