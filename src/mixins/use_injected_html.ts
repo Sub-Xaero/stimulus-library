@@ -1,19 +1,47 @@
 import {Controller} from "stimulus";
 
 
-export function useInjectedFragment(controller: Controller, targetElement: HTMLElement, insertPosition: "prepend" | "append", fragment: DocumentFragment) {
+export function useInjectedFragment(
+  controller: Controller,
+  targetElement: HTMLElement,
+  insertPosition: InsertPosition,
+  fragment: DocumentFragment,
+  options: { cleanup?: boolean } = {},
+): [Array<ChildNode>, () => void] {
   // keep a copy of the lifecycle functions of the controller
   const controllerDisconnect = controller.disconnect.bind(controller);
   let nodes = Array.from(fragment.childNodes);
 
   let setup = () => {
-    if (insertPosition === "prepend") {
-      targetElement.insertBefore(fragment, targetElement.firstChild);
-    } else {
-      targetElement.appendChild(fragment);
+    let parent = targetElement.parentElement;
+    if (["beforebegin", "afterend"].includes(insertPosition) && parent == null) {
+      throw new Error("Cannot insert beforebegin into a node with no parent");
+    }
+
+    switch (insertPosition) {
+      case 'beforeend':
+        targetElement.append(fragment);
+        break;
+      case "afterbegin":
+        targetElement.prepend(fragment);
+        break;
+      case "beforebegin":
+        parent!.insertBefore(fragment, targetElement);
+        break;
+      case "afterend":
+        parent!.insertBefore(fragment, targetElement);
+        break;
     }
   };
-  let teardown = () => nodes.forEach(node => node.remove());
+  let teardown: () => void;
+  if (options.cleanup) {
+    teardown = () => {
+      console.log("teardown");
+      nodes.forEach(node => node.remove());
+    };
+  } else {
+    teardown = () => console.log("void teardown");
+  }
   setup();
 
   Object.assign(controller, {
@@ -23,16 +51,29 @@ export function useInjectedFragment(controller: Controller, targetElement: HTMLE
     },
   });
 
-  return teardown;
+  return [nodes, teardown];
 }
 
-export function useInjectedHTML(controller: Controller, targetElement: HTMLElement, insertPosition: "prepend" | "append", html: string) {
+export function useInjectedHTML(
+  controller: Controller,
+  targetElement: HTMLElement,
+  insertPosition: InsertPosition,
+  html: string,
+  options: { cleanup?: boolean } = {},
+): [Array<ChildNode>, () => void] {
   const fragment = document.createRange().createContextualFragment(html);
-  return useInjectedFragment(controller, targetElement, insertPosition, fragment);
+  return useInjectedFragment(controller, targetElement, insertPosition, fragment, options);
 }
 
-export function useInjectedElement(controller: Controller, targetElement: HTMLElement, insertPosition: "prepend" | "append", element: HTMLElement) {
+export function useInjectedElement(
+  controller: Controller,
+  targetElement: HTMLElement,
+  insertPosition: InsertPosition,
+  element: HTMLElement,
+  options: { cleanup?: boolean } = {},
+): [ChildNode, () => void] {
   const fragment = new DocumentFragment();
   fragment.append(element);
-  return useInjectedFragment(controller, targetElement, insertPosition, fragment);
+  let [nodes, teardown] = useInjectedFragment(controller, targetElement, insertPosition, fragment, options);
+  return [nodes[0], teardown];
 }

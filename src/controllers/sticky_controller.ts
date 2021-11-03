@@ -22,16 +22,16 @@ export class StickyController extends BaseController {
     return ["stuck"];
   }
 
-  get _mode(): 'prepend' | 'append' {
+  get _mode(): 'beforebegin' | 'afterend' {
     if (this.hasModeValue) {
       if (!['top', 'bottom'].includes(this.modeValue)) {
         throw new Error(`The modeValue provided '${this.modeValue}' is not one of the recognised configuration options`);
       }
       if (this.modeValue === 'top') {
-        return 'prepend';
+        return 'beforebegin';
       }
     }
-    return "append";
+    return "afterend";
   }
 
   connect() {
