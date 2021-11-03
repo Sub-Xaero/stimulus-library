@@ -1,4 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
+import {useInjectedElement} from "../mixins/use_injected_html";
 
 export class StickyController extends BaseController {
 
@@ -21,31 +22,21 @@ export class StickyController extends BaseController {
     return ["stuck"];
   }
 
-  get _mode(): "top" | "bottom" {
-    return this.hasModeValue ? this.modeValue : "top";
-  }
-
-  createMagicElement() {
-    // Magic element placed next to the sticky el that acts as an external border.
-    // When the magic element is off the page, we know that the sticky el is "stuck"
-    if (this._magicElement !== null) {
-      return;
+  get _mode(): 'prepend' | 'append' {
+    if (this.hasModeValue) {
+      if (!['top', 'bottom'].includes(this.modeValue)) {
+        throw new Error(`The modeValue provided '${this.modeValue}' is not one of the recognised configuration options`);
+      }
+      if (this.modeValue === 'top') {
+        return 'prepend';
+      }
     }
-
-    this._magicElement = document.createElement("div");
-    switch (this._mode) {
-      case "top":
-        this.el.insertAdjacentElement("beforebegin", this._magicElement);
-        break;
-      case "bottom":
-        this.el.insertAdjacentElement("afterend", this._magicElement);
-        break;
-    }
+    return "append";
   }
 
   connect() {
-    let element = this.el;
-    this.createMagicElement();
+    this._magicElement = document.createElement("div");
+    useInjectedElement(this, this.el, this._mode, this._magicElement);
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
