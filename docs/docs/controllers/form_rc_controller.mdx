@@ -33,6 +33,7 @@ Submit and/or reset a form, using links/buttons that are outside the child DOM o
 | Value | Type | Description | Default |
 | --- | --- | --- | --- |
 | `formSelector` (Optional) | String | The CSS selector to find the form to remotely submit/reset | - |
+| `submitMode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/>  | `request` |
 
 
 ## Events
@@ -43,7 +44,12 @@ Submit and/or reset a form, using links/buttons that are outside the child DOM o
 | `reset` [Native Browser Event] | When the form is reset, via the `reset` action | The `form` target. | - |
 
 ## Side Effects
-<NoSideEffects/>
+
+- Adds event listeners for `change` or `input` (depending on the value of `eventModeValue`) to all `<input>` `<textarea>` and `<select>` elements in the controller's scope.
+- If the `submitModeValue` is `request` and the browser does not support `.requestSubmit()`, then the controller will use any existing submit buttons, or create a hidden submit button (which will be cleaned up on 'disconnect'), to submit the form by clicking on them.
+
+[See MSDN for details](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit)
+
 
 
 ## How to Use
