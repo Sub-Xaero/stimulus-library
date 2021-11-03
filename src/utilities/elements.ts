@@ -53,3 +53,15 @@ export function createHiddenInput(name: string, value: string): HTMLInputElement
   input.value = value;
   return input;
 }
+
+export function insertElement(targetElement: Element, insertPosition: InsertPosition, element: Element) {
+  return targetElement.insertAdjacentElement(insertPosition, element);
+}
+
+export function insertHiddenInput(name: string, value: string, targetElement: Element, insertPosition: InsertPosition): Element | null {
+  return insertElement(targetElement, insertPosition, createHiddenInput(name, value));
+}
+
+export function insertHiddenButton(type: "submit" | "reset", targetElement: Element, insertPosition: InsertPosition): Element | null {
+  return insertElement(targetElement, insertPosition, createHiddenButton(type));
+}
