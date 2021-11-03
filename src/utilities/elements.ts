@@ -54,14 +54,18 @@ export function createHiddenInput(name: string, value: string): HTMLInputElement
   return input;
 }
 
-export function insertElement(targetElement: Element, insertPosition: InsertPosition, element: Element) {
-  return targetElement.insertAdjacentElement(insertPosition, element);
+export function insertElement<T extends Element>(targetElement: Element, insertPosition: InsertPosition, element: T): T {
+  let createdElement = targetElement.insertAdjacentElement(insertPosition, element);
+  if (!createdElement) {
+    throw new Error(`Failed to insert element ${element.nodeName} into ${targetElement.nodeName}`);
+  }
+  return createdElement as T;
 }
 
-export function insertHiddenInput(name: string, value: string, targetElement: Element, insertPosition: InsertPosition): Element | null {
+export function insertHiddenInput(name: string, value: string, targetElement: Element, insertPosition: InsertPosition): HTMLInputElement {
   return insertElement(targetElement, insertPosition, createHiddenInput(name, value));
 }
 
-export function insertHiddenButton(type: "submit" | "reset", targetElement: Element, insertPosition: InsertPosition): Element | null {
+export function insertHiddenButton(type: "submit" | "reset", targetElement: Element, insertPosition: InsertPosition): HTMLButtonElement {
   return insertElement(targetElement, insertPosition, createHiddenButton(type));
 }
