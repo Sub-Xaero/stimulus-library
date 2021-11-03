@@ -45,3 +45,11 @@ export function createHiddenButton(type: "submit" | "reset"): HTMLButtonElement 
   button.dataset.sythentic = 'true';
   return button;
 }
+
+export function createHiddenInput(name: string, value: string): HTMLInputElement {
+  let input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = name;
+  input.value = value;
+  return input;
+}
