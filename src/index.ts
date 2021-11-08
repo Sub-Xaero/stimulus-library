@@ -25,7 +25,7 @@ export {
 } from "./utilities/elements";
 
 // Mixins
-export {useEventListeners, useEventListener} from './mixins/use_event_listener';
+export {useEventListeners, useEventListener, useCollectionEventListener} from './mixins/use_event_listener';
 export {useInterval} from './mixins/use_interval';
 export {useTimeout} from './mixins/use_timeout';
 export {useInjectedFragment, useInjectedHTML, useInjectedElement} from './mixins/use_injected_html';
