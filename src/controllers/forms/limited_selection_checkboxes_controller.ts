@@ -1,6 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useCollectionEventListener} from "../../mixins/use_event_listener";
-import {dispatchEvent} from "../../utilities/events";
 
 export class LimitedSelectionCheckboxesController extends BaseController {
 

@@ -1,7 +1,6 @@
 import {debounce, get as _get, set as _set} from "lodash-es";
 import {BaseController} from '../utilities/base_controller';
 import {LocalStorageProxy, useLocalStorage} from "../mixins";
-import {dispatchEvent} from "../utilities/events";
 
 export class ElementSaveController extends BaseController {
 

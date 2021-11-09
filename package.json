@@ -50,7 +50,7 @@
     "smoothscroll-polyfill": "^0.4.4"
   },
   "peerDependencies": {
-    "stimulus": "^2.0.0"
+    "stimulus": "^3.0.1"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.5",

@@ -1,6 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useEventListener} from "../../mixins/use_event_listener";
-import {dispatchEvent} from "../../utilities/events";
 
 export class UserFocusController extends BaseController {
 

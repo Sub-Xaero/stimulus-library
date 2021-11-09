@@ -1,6 +1,5 @@
 import {Context, Controller} from "stimulus";
 import {log, logProperty} from "./logging";
-import {dispatchEvent} from "./events";
 
 export class BaseController extends Controller {
 

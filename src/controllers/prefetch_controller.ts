@@ -1,5 +1,6 @@
 import {BaseController} from "../utilities/base_controller";
 import {useEventListener} from "../mixins/use_event_listener";
+import {warn} from "../utilities/logging";
 
 export class PrefetchController extends BaseController {
 
@@ -38,13 +39,13 @@ export class PrefetchController extends BaseController {
     if (connection) {
       // @ts-ignore Experimental API
       if (connection.saveData) {
-        this.warn('Data Saving is enabled');
+        warn(this, 'Data Saving is enabled');
         return false;
       }
 
       // @ts-ignore Experimental API
       if (/2g/.test(connection.effectiveType)) {
-        this.warn("Network is too slow");
+        warn(this, "Network is too slow");
         return false;
       }
     }
