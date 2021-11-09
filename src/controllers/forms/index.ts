@@ -4,6 +4,7 @@ export * from './char_count_controller';
 export * from './checkbox_disable_inputs_controller';
 export * from './checkbox_enable_inputs_controller';
 export * from './checkbox_select_all_controller';
+export * from './checkbox_xor_controller';
 export * from './detect_dirty_controller';
 export * from './detect_dirty_form_controller';
 export * from './enable_inputs_controller';

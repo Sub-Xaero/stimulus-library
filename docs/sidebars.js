@@ -28,6 +28,7 @@ module.exports = {
           "controllers/CheckboxDisableInputsController",
           "controllers/CheckboxEnableInputsController",
           "controllers/CheckboxSelectAllController",
+          "controllers/CheckboxXORController",
           "controllers/DetectDirtyController",
           "controllers/DetectDirtyFormController",
           "controllers/FocusStealController",
