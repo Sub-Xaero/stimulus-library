@@ -92,9 +92,7 @@ export class DurationController extends BaseController {
     try {
       this.el.innerHTML = this._output;
     } catch {
-      if (this._intervalHandle) {
-        window.clearInterval(this._intervalHandle);
-      }
+      this._clearInterval();
     }
   }
 }
