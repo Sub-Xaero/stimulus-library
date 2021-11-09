@@ -16,6 +16,7 @@ export class DurationController extends BaseController {
   declare timestampValue: number;
   declare readonly hasTimestampValue: boolean;
   _intervalHandle: number | null = null;
+  declare _clearInterval: () => void;
 
   get _format(): string[] {
     return [
@@ -79,8 +80,6 @@ export class DurationController extends BaseController {
       return 120000; // 2 minutes
     }
   }
-
-  declare _clearInterval: () => void;
 
   connect() {
     this._clearInterval = useInterval(this, this._update, this._tickInterval);

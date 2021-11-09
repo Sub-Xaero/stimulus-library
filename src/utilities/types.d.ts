@@ -1,4 +1,4 @@
 interface TurboFrame extends HTMLElement {
-  nodeName: "TURBO-FRAME"
-  src: string
+  nodeName: "TURBO-FRAME";
+  src: string;
 }

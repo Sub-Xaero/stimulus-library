@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {useCollectionEventListener, useEventListener} from "../../mixins/use_event_listener";
+import {useCollectionEventListener} from "../../mixins/use_event_listener";
 
 export class PasswordConfirmController extends BaseController {
 

@@ -21,8 +21,8 @@ export class AutosizeController extends BaseController {
       this.el.style.boxSizing = "border-box";
 
       this._handler();
-      useEventListeners(this, window, ['resize'], this._handler,);
-      useEventListeners(this, this.el, ['input', 'focus'], this._handler,);
+      useEventListeners(this, window, ['resize'], this._handler);
+      useEventListeners(this, this.el, ['input', 'focus'], this._handler);
     });
   }
 

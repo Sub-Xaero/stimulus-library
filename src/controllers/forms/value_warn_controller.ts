@@ -46,7 +46,7 @@ export class ValueWarnController extends BaseController {
 
   connect() {
     this._addWarningHideClasses(this.warningTarget);
-    useEventListener(this, this.inputTarget,"input", this._check);
+    useEventListener(this, this.inputTarget, "input", this._check);
     this._check();
   }
 
