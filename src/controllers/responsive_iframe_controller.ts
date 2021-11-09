@@ -1,5 +1,5 @@
 import {useDebounce, useWindowResize} from "stimulus-use";
-import {WindowResizePayload} from "stimulus-use/dist/use-window-resize/use-window-resize";
+import type {WindowResizePayload } from "stimulus-use/dist/use-window-resize/use-window-resize";
 import {BaseController} from "../utilities/base_controller";
 import {useEventListener} from "../mixins/use_event_listener";
 
