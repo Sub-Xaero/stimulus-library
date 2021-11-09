@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "agadoo": "^2.0.0",
-    "vite": "^2.5.10",
+    "vite": "^2.6.13",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.2",
     "stimulus": "^2.0.0",
