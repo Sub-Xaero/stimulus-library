@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {dispatchEvent} from "../../utilities/events";
 
 export class PresenceController extends BaseController {
 
@@ -20,11 +21,11 @@ export class PresenceController extends BaseController {
   }
 
   connect() {
-    this.dispatch(this.el, this._addedEventName);
+    this.dispatchEvent(this.el, this._addedEventName);
   }
 
   disconnect() {
-    this.dispatch(this.el, this._removedEventName);
+    this.dispatchEvent(this.el, this._removedEventName);
   }
 
 }

@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {dispatchEvent} from "../../utilities/events";
 
 export class FallbackImageController extends BaseController {
 
@@ -44,11 +45,11 @@ export class FallbackImageController extends BaseController {
     this.addFailClasses();
 
     if (this.hasPlaceholderValue && element.src !== this.placeholderValue) {
-      this.dispatch(element, "fallback-image:placeholder");
+      this.dispatchEvent(element, "fallback-image:placeholder");
       element.src = this.placeholderValue;
       element.onerror = this._fail;
     } else {
-      this.dispatch(element, "fallback-image:fail");
+      this.dispatchEvent(element, "fallback-image:fail");
       element.style.display = "none";
     }
   }

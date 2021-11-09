@@ -71,7 +71,7 @@ export class CountdownController extends BaseController {
         this._clearTick();
         this.removeCountingDownClasses();
         this.addEndedClasses();
-        this.dispatch(this.el, "countdown:ended");
+        this.dispatchEvent(this.el, "countdown:ended");
       } else {
         distance = intervalToDuration({start: this._deadlineDate, end: now});
       }

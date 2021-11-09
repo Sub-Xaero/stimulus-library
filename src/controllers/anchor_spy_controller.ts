@@ -47,11 +47,11 @@ export class AnchorSpyController extends BaseController {
 
   private _checkAnchor() {
     if (this._key === this._anchor) {
-      this.dispatch(this.el, "anchor-spy:active");
+      this.dispatchEvent(this.el, "anchor-spy:active");
       this.addActiveClasses(this.el);
       this.removeInactiveClasses(this.el);
     } else {
-      this.dispatch(this.el, "anchor-spy:inactive");
+      this.dispatchEvent(this.el, "anchor-spy:inactive");
       this.addInactiveClasses(this.el);
       this.removeActiveClasses(this.el);
     }

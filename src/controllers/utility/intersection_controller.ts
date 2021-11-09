@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useIntersection} from "../../mixins/use_intersection";
+import {dispatchEvent} from "../../utilities/events";
 
 export class IntersectionController extends BaseController {
 
@@ -22,11 +23,11 @@ export class IntersectionController extends BaseController {
   }
 
   appear(entry: IntersectionObserverEntry) {
-    this.dispatch(this.el, "intersection:appear");
+    dispatchEvent(this, this.el, "intersection:appear");
   };
 
   disappear(entry: IntersectionObserverEntry) {
-    this.dispatch(this.el, "intersection:disappear");
+    dispatchEvent(this, this.el, "intersection:disappear");
   };
 
 }
