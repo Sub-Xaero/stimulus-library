@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useCollectionEventListener} from "../../mixins/use_event_listener";
+import {dispatchEvent} from "../../utilities/events";
 
 export class LimitedSelectionCheckboxesController extends BaseController {
 
@@ -23,13 +24,13 @@ export class LimitedSelectionCheckboxesController extends BaseController {
     if (tickedInputs > this.maxValue) {
       event.preventDefault();
       target.checked = false;
-      this.dispatch(target, "change");
-      this.dispatch(target, "limited-selection:too-many");
+      this.dispatchEvent(target, "change");
+      this.dispatchEvent(target, "limited-selection:too-many");
       if (this.hasErrorTarget && this.hasMessageValue) {
         this.errorTarget.innerHTML = this.messageValue;
       }
     } else {
-      this.dispatch(target, "limited-selection:selection");
+      this.dispatchEvent(target, "limited-selection:selection");
       if (this.hasErrorTarget) {
         this.errorTarget.innerHTML = "";
       }

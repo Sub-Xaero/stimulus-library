@@ -25,10 +25,10 @@ export class PasswordConfirmController extends BaseController {
   private _checkPasswordsMatch() {
     let element = this.el;
     if (this._allPasswordsMatch()) {
-      this.dispatch(element, "password-confirm:match");
+      this.dispatchEvent(element, "password-confirm:match");
       this.passwordTargets.forEach(el => this.removeErrorClasses(el));
     } else {
-      this.dispatch(element, "password-confirm:no-match");
+      this.dispatchEvent(element, "password-confirm:no-match");
       this.passwordTargets.forEach(el => this.addErrorClasses(el));
     }
   }

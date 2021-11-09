@@ -1,6 +1,7 @@
 import {BaseController} from '../utilities/base_controller';
 import {isHTMLAnchorElement, isHTMLFormElement} from "../utilities/elements";
 import {useEventListener} from "../mixins/use_event_listener";
+import {dispatchEvent} from '../utilities/events';
 
 export class ConfirmController extends BaseController {
 
@@ -34,7 +35,7 @@ export class ConfirmController extends BaseController {
   confirm(event: Event) {
     if (!(window.confirm(this._message))) {
       event.preventDefault();
-      this.dispatch(this.el, "confirm:cancelled");
+      this.dispatchEvent(this.el, "confirm:cancelled");
     }
   }
 

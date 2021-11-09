@@ -1,6 +1,7 @@
 import {BaseController} from '../../utilities/base_controller';
 import {isHTMLFormElement, isHTMLInputElement} from "../../utilities/elements";
 import {useEventListener} from "../../mixins/use_event_listener";
+import {dispatchEvent} from '../../utilities/events';
 
 interface FormSavePayload {
   [idx: string]: {
@@ -90,7 +91,7 @@ export class FormSaveController extends BaseController {
 
   _clear() {
     localStorage.removeItem(this._formIdentifier);
-    this.dispatch(this.el, `form-save:cleared`);
+    this.dispatchEvent(this.el, `form-save:cleared`);
   }
 
   clear(event?: Event) {
@@ -102,7 +103,7 @@ export class FormSaveController extends BaseController {
     event.preventDefault();
     let data = this._formData;
     localStorage.setItem(this._formIdentifier, JSON.stringify(data[this._formIdentifier]));
-    this.dispatch(this.el, `form-save:save:success`);
+    this.dispatchEvent(this.el, `form-save:save:success`);
   }
 
   restore(event?: Event) {
@@ -123,9 +124,9 @@ export class FormSaveController extends BaseController {
           }
         }
       }
-      this.dispatch(this.el, `form-save:restore:success`);
+      this.dispatchEvent(this.el, `form-save:restore:success`);
     } else {
-      this.dispatch(this.el, `form-save:restore:empty`);
+      this.dispatchEvent(this.el, `form-save:restore:empty`);
     }
   }
 

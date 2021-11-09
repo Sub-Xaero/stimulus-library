@@ -1,4 +1,5 @@
 import {EphemeralController} from "../utilities/ephemeral_controller";
+import {dispatchEvent} from "../utilities/events";
 
 export class TeleportController extends EphemeralController {
 
@@ -28,7 +29,7 @@ export class TeleportController extends EphemeralController {
     let destination = document.querySelector(this.targetValue);
 
     if (destination == null) {
-      this.dispatch(element, "teleport:error");
+      this.dispatchEvent(element, "teleport:error");
       return;
     }
 

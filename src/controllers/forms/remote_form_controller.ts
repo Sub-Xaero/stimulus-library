@@ -1,4 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
+import {dispatchEvent} from '../../utilities/events';
 
 export class RemoteFormController extends BaseController {
   static targets = [];
@@ -26,7 +27,7 @@ export class RemoteFormController extends BaseController {
         throw new Error('expected form to have a DOM parent, could not execute replaceChild');
       }
       parentNode.replaceChild(newElement, this.el);
-      this.dispatch(newElement, 'remote-form:replace');
+      this.dispatchEvent(newElement, 'remote-form:replace');
     } else {
       console.log('Unknown', data);
     }

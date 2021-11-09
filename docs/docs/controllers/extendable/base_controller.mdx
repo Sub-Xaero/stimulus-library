@@ -39,7 +39,7 @@ This controller provides the following methods to controllers that extend it.
 
 ## Side Effects / Inherited Behaviour
 
-If [debug mode](/docs/debugging) is enabled, any controller that extends BaseController controller will automatically log calls to any actions or methods, and events dispatched with `this.dispatch`.
+If [debug mode](/docs/debugging) is enabled, any controller that extends BaseController controller will automatically log calls to any actions or methods, and events dispatched with the `dispatchEvent` method provided by stimulus-library.
 
 If there are any getters, setters, methods or properties that should not be logged, you should name them with an underscore prefix i.e. `_foo() {}`, or `_bar = "baz"` to indicate that they are private methods.
 
@@ -53,7 +53,7 @@ export default class extends BaseController {
   // ...
 
  foo() {
-   this.dispatch( this.el, "my-controller:something-happened", { bubbles: true, cancellable: true, detail: { element: this.el, data: 'thing' } } )
+   this.dispatchEvent(this.el, "my-controller:something-happened", { bubbles: true, cancellable: true, detail: { element: this.el, data: 'thing' } } )
  }
 
 }

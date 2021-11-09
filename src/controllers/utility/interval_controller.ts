@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useInterval} from "../../mixins/use_interval";
+import {dispatchEvent} from "../../utilities/events";
 
 export class IntervalController extends BaseController {
 
@@ -18,7 +19,7 @@ export class IntervalController extends BaseController {
   }
 
   _interval() {
-    this.dispatch(this.el, "interval:action");
+    this.dispatchEvent(this.el, "interval:action");
   }
 
 }

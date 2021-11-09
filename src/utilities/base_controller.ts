@@ -1,4 +1,6 @@
 import {Context, Controller} from "stimulus";
+import {log, logProperty} from "./logging";
+import {dispatchEvent} from "./events";
 
 export class BaseController extends Controller {
 
@@ -16,14 +18,14 @@ export class BaseController extends Controller {
           if (typeof returnVal == "function") {
             return new Proxy(returnVal, {
               apply(target: any, thisArg: any, argArray?: any): any {
-                self.log(prop.toString(), {
+                log(self, prop.toString(), {
                   args: argArray,
                 });
                 return Reflect.apply(target, thisArg, argArray);
               },
             });
           } else {
-            this.log(prop.toString());
+            log(this, prop.toString());
           }
         }
         return returnVal;
@@ -52,97 +54,8 @@ export class BaseController extends Controller {
     return element?.getAttribute('content') || null;
   }
 
-  dispatch(element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
-    let mergedOptions = Object.assign({}, {bubbles: true, cancelable: true, detail: {target: element, element}}, options);
-    if (!!mergedOptions.detail.target) {
-      mergedOptions.detail.target = element;
-    }
-    let event = new CustomEvent(eventName, mergedOptions);
-    this.logEvent(eventName, event, element);
-    element.dispatchEvent(event);
+  dispatchEvent(element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
+    this.dispatchEvent(element, eventName, options);
   }
 
-  log(functionName: string, args: {} = {}): void {
-    // @ts-ignore
-    if (!this.application.debug) {
-      return;
-    }
-    let logger = console;
-    logger.groupCollapsed(`%c${this.identifier} %c#${functionName}`, "color: #3B82F6", "color: unset");
-    logger.log({
-      element: this.element,
-      controller: this,
-      ...args,
-    });
-    logger.groupEnd();
-  }
-
-  warn(warning: string, args: {} = {}): void {
-    // @ts-ignore
-    if (!this.application.debug) {
-      return;
-    }
-    let logger = console;
-    logger.groupCollapsed(`%c${this.identifier} %c#${warning}`, "color: F39B1AFF", "color: unset");
-    logger.warn({
-      element: this.element,
-      controller: this,
-      ...args,
-    });
-    logger.groupEnd();
-  }
-
-  logEvent(eventName: string, event: CustomEvent, element: HTMLElement) {
-    // @ts-ignore
-    if (!this.application.debug) {
-      return;
-    }
-    let logger = console;
-    logger.groupCollapsed(`%c${this.identifier} %c${eventName}%c`, "color: #3B82F6", "color: #0be000", "color: unset");
-    logger.log({element});
-    logger.groupEnd();
-  }
-
-}
-
-function logProperty(prop: string): boolean {
-  switch (prop) {
-    case "application":
-    case "el":
-    case "element":
-    case "constructor":
-    case "initialize":
-    case "log":
-    case "logEvent":
-    case "dispatch":
-    case "data":
-    case "valueDescriptorMap":
-    case "mutate":
-    case "identifier":
-      return false;
-  }
-
-  if (/^_.*?$/.test(prop)) {
-    return false;
-  }
-  if (/^.*?Target(s)?$/.test(prop)) {
-    return false;
-  }
-  if (/^.*?Value$/.test(prop)) {
-    return false;
-  }
-  if (/^.*?ValueChanged$/.test(prop)) {
-    return false;
-  }
-  if (/^.*?Class$/.test(prop)) {
-    return false;
-  }
-  if (/^.*?Classes$/.test(prop)) {
-    return false;
-  }
-  if (/^.*?ClassesPresent$/.test(prop)) {
-    return false;
-  }
-
-  return true;
 }
