@@ -1,5 +1,5 @@
 import {BaseController} from '../../utilities/base_controller';
-import {useEventListener} from "../../mixins/use_event_listener";
+import {useCollectionEventListener, useEventListener} from "../../mixins/use_event_listener";
 
 export class CheckboxSelectAllController extends BaseController {
   static targets = ['selectAll', 'checkbox'];
@@ -23,7 +23,7 @@ export class CheckboxSelectAllController extends BaseController {
       }
 
       useEventListener(this, this.selectAllTarget, 'change', this._toggle);
-      this.checkboxTargets.forEach(checkbox => useEventListener(this, checkbox, 'change', this._refresh));
+      useCollectionEventListener(this, this.checkboxTargets, 'change', this._refresh);
       this._refresh();
     });
   }

@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {useEventListener} from "../../mixins/use_event_listener";
+import {useCollectionEventListener, useEventListener} from "../../mixins/use_event_listener";
 
 export class LimitedSelectionCheckboxesController extends BaseController {
 
@@ -13,7 +13,7 @@ export class LimitedSelectionCheckboxesController extends BaseController {
   declare readonly messageValue: string;
 
   connect() {
-    this.inputTargets.forEach((el) => useEventListener(this, el, "change", this.handleInputs));
+    useCollectionEventListener(this, this.inputTargets, "change", this.handleInputs);
   }
 
   handleInputs(event: Event) {
