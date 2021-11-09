@@ -1,5 +1,4 @@
 import {BaseController} from "../../utilities/base_controller";
-import {dispatchEvent} from '../../utilities/events';
 
 export class RemoteFormController extends BaseController {
   static targets = [];

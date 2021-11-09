@@ -24,7 +24,7 @@ export class CheckboxXORController extends BaseController {
     if (target.checked) {
       others.forEach(checkbox => {
         checkbox.checked = false;
-        this.dispatch(this.el, 'change');
+        this.dispatchEvent(this.el, 'change');
       });
     }
   }

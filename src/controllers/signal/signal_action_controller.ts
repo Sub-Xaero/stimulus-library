@@ -29,13 +29,13 @@ export class SignalActionController extends BaseController {
   _onSignal(payload: SignalPayload) {
     let value = payload.value;
     if (!this.hasWhenValue) {
-      this.dispatch(this.el, signalEventName(this.nameValue, 'match'));
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, 'match'));
       return;
     }
     if (this._predicates.every(predicate => predicate(value))) {
-      this.dispatch(this.el, signalEventName(this.nameValue, 'match'), {detail: {element: this.el, value}});
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, 'match'), {detail: {element: this.el, value}});
     } else {
-      this.dispatch(this.el, signalEventName(this.nameValue, 'no-match'), {detail: {element: this.el, value}});
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, 'no-match'), {detail: {element: this.el, value}});
     }
   }
 

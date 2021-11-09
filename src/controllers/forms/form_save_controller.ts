@@ -1,7 +1,6 @@
 import {BaseController} from '../../utilities/base_controller';
 import {isHTMLFormElement, isHTMLInputElement} from "../../utilities/elements";
 import {useEventListener} from "../../mixins/use_event_listener";
-import {dispatchEvent} from '../../utilities/events';
 
 interface FormSavePayload {
   [idx: string]: {

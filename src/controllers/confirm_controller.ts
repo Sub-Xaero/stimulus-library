@@ -1,7 +1,6 @@
 import {BaseController} from '../utilities/base_controller';
 import {isHTMLAnchorElement, isHTMLFormElement} from "../utilities/elements";
 import {useEventListener} from "../mixins/use_event_listener";
-import {dispatchEvent} from '../utilities/events';
 
 export class ConfirmController extends BaseController {
 

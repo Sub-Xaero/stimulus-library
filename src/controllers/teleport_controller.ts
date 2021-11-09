@@ -1,5 +1,4 @@
 import {EphemeralController} from "../utilities/ephemeral_controller";
-import {dispatchEvent} from "../utilities/events";
 
 export class TeleportController extends EphemeralController {
 
