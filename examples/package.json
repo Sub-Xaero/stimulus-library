@@ -17,6 +17,7 @@
     "sass": "^1.43.4",
     "stimulus": "^2.0.0",
     "stimulus-library": "^0.6.2",
-    "vite": "^2.6.4"
+    "vite": "^2.6.4",
+    "vite-plugin-mpa": "^1.1.1"
   }
 }
