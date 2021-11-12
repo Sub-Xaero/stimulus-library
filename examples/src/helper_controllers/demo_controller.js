@@ -1,6 +1,6 @@
-import { Controller } from "stimulus";
+import { BaseController } from "../../../src";
 
-export class DemoController extends Controller {
+export class DemoController extends BaseController {
   static targets = ["output"];
 
   connect() {
