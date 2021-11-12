@@ -35,12 +35,9 @@ export function useInjectedFragment(
   };
   let teardown: () => void;
   if (options.cleanup) {
-    teardown = () => {
-      console.log("teardown");
-      nodes.forEach(node => node.remove());
-    };
+    teardown = () => nodes.forEach(node => node.remove());
   } else {
-    teardown = () => console.log("void teardown");
+    teardown = () => void 0;
   }
   setup();
 
