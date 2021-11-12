@@ -41,7 +41,7 @@ export class FormRcController extends BaseController {
 
   submit(event?: Event) {
     event?.preventDefault();
-    let el = this.el as HTMLFormElement;
+    let el = this.formTarget;
     if (this._mode == 'request') {
       requestSubmit(el);
     } else {
