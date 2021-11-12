@@ -103,6 +103,7 @@ module.exports = {
       },
       {
         "Utility Controllers": [
+          "controllers/AlertController",
           "controllers/IntersectionController",
           "controllers/IntervalController",
           "controllers/PresenceController",
