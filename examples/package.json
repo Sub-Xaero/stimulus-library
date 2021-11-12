@@ -1,5 +1,10 @@
 {
-  "name": "examples2",
+  "name": "examples",
+  "license": "MIT",
+  "author": {
+    "name": "Sub-Xaero",
+    "url": "https://github.com/Sub-Xaero/"
+  },
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

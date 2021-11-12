@@ -12,7 +12,7 @@ import {
   CheckboxDisableInputsController,
   CheckboxEnableInputsController,
   CheckboxSelectAllController,
-  CheckboxXORController,
+  // CheckboxXORController,
   ClipboardController,
   ClockController,
   ConfirmController,
@@ -95,7 +95,7 @@ app.register("char-count", CharCountController);
 app.register("checkbox-disable-inputs", CheckboxDisableInputsController);
 app.register("checkbox-enable-inputs", CheckboxEnableInputsController);
 app.register("checkbox-select-all", CheckboxSelectAllController);
-app.register("checkbox-xor", CheckboxXORController);
+// app.register("checkbox-xor", CheckboxXORController);
 app.register("clipboard", ClipboardController);
 app.register("clock", ClockController);
 app.register("confirm", ConfirmController);
