@@ -2,7 +2,7 @@ import './style.scss';
 
 import { Application } from "stimulus";
 import {
-  AlertController,
+  // AlertController,
   AnchorSpyController,
   AsyncBlockController,
   AutosizeController,
@@ -85,7 +85,7 @@ app.register("demo", DemoController);
 app.register("update-date", UpdateDateController);
 
 // Stimulus-library controllers
-app.register("alert", AlertController);
+// app.register("alert", AlertController);
 app.register("anchor-spy", AnchorSpyController);
 app.register("async-block", AsyncBlockController);
 app.register("auto-submit-form", AutoSubmitFormController);
