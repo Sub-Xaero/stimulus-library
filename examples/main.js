@@ -1,6 +1,8 @@
 import './style.scss';
 
 import { Application } from "stimulus";
+import { UpdateDateController } from "./src/helper_controllers/update_date_controller";
+import { DemoController } from "./src/helper_controllers/demo_controller";
 import {
   AlertController,
   AnchorSpyController,
@@ -72,9 +74,7 @@ import {
   UserFocusController,
   ValueWarnController,
   WordCountController,
-} from "stimulus-library";
-import { UpdateDateController } from "./src/helper_controllers/update_date_controller";
-import { DemoController } from "./src/helper_controllers/demo_controller";
+} from "../src";
 
 const app = Application.start();
 
