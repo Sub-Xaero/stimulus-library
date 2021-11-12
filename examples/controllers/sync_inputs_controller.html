@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sync Inputs Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <div class="my-4">
+        <label class="form-label">What is your name?</label>
+        <input
+          class="form-control"
+          type="text"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="name"
+        />
+      </div>
+
+      <div class="my-4">
+        <label class="form-label">What is your age?</label>
+        <input
+          class="form-control"
+          type="number"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="age"
+        />
+      </div>
+
+      <div class="form-check my-4">
+        <label class="form-check-label">Are you human?</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="human"
+        />
+      </div>
+
+      <div class="my-4">
+        <label class="form-label">What is your favourite primary colour?</label>
+        <select
+          class="form-control"
+          type="checkbox"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="colour"
+        >
+          <option value="Red">Red</option>
+          <option value="Green">Green</option>
+          <option value="Blue">Blue</option>
+        </select>
+      </div>
+
+      <div class="my-4">
+        <label>
+          What is your ideal pet?
+        </label>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            Parrot
+          </label>
+          <input
+            type="radio"
+            name="animal"
+            value="Parrot"
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="animal"
+          />
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            Cat
+          </label>
+          <input
+            type="radio"
+            name="animal"
+            value="Cat"
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="animal"
+          />
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            Dog
+          </label>
+          <input
+            type="radio"
+            name="animal"
+            value="Dog"
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="animal"
+          />
+        </div>
+      </div>
+
+      <div class="my-5 border rounded">
+        <p>
+          Hi
+          <span
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="name"
+          ></span
+          >, you've told us that you are
+          <span
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="age"
+          ></span>
+          years old.
+        </p>
+
+        <p>
+          It is
+          <span
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="human"
+          ></span>
+          that you are a human.
+        </p>
+
+        <p>
+          Your favourite primary colour is
+          <span
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="colour"
+          ></span>
+        </p>
+
+        <p>
+          Your ideal pet is a
+          <span
+            data-controller="sync-inputs"
+            data-sync-inputs-key-value="animal"
+          ></span>
+        </p>
+      </div>
+    </div>
+    <style>
+
+      span[data-controller~="sync-value"] {
+        padding: 2px 5px;
+        border-radius: 4px;
+        min-width: 2em;
+        border-bottom: 2px solid palevioletred;
+        display: inline-block;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

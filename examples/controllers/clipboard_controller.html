@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Clipboard Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <p>This is your unique access code:</p>
+      <div
+        class="input-group"
+        data-controller="clipboard"
+        data-clipboard-remove-unused-value="true"
+      >
+        <input
+          type="text"
+          class="form-control"
+          data-clipboard-target="source"
+          readonly="readonly"
+          value="1234"
+        />
+        <a
+          href="#"
+          class="btn btn-primary clipboard-button"
+          data-action="clipboard#copy"
+        >
+          <span data-clipboard-target="copy">
+            Copy
+          </span>
+          <span data-clipboard-target="fallback">
+            Select
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

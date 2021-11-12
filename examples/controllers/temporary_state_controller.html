@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Temporary State Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <p>The following container will have a class of <code>.pink</code> for 5 seconds.</p>
+      <div
+        class="panel"
+        data-controller="temporary-state"
+        data-temporary-state-attribute-value="className"
+        data-temporary-state-value-value="panel pink"
+        data-temporary-state-seconds-value="5"
+      >
+        <p>Look at me, I'm colour changing!</p>
+      </div>
+    </div>
+    <style>
+
+      .panel {
+        padding: 1em;
+        border: 1px solid black;
+      }
+
+      .pink {
+        background: pink;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

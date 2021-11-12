@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tree View Controller</title>
+  </head>
+  <body>
+    <div class="container">
+      <p>This is collapsed list of things. Click '+' to expand the list</p>
+      <ul data-controller="tree-view">
+        <li>
+          1
+          <ul>
+            <li>
+              X
+              <ul>
+                <li>
+                  A
+                  <ul>
+                    <li>Omega</li>
+                    <li>Delta</li>
+                    <li>Epsilon</li>
+                  </ul>
+                </li>
+                <li>B</li>
+                <li>C</li>
+              </ul>
+            </li>
+            <li>Y</li>
+            <li>Z</li>
+          </ul>
+        </li>
+        <li>
+          2
+          <ul>
+            <li>Foo</li>
+            <li>Bar</li>
+            <li>Baz</li>
+          </ul>
+        </li>
+        <li>
+          3
+          <ul>
+            <li>Baxter</li>
+            <li>Bloomberg</li>
+            <li>Bunting</li>
+          </ul>
+        </li>
+        <li>
+          4
+        </li>
+      </ul>
+    </div>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      ul[data-controller="tree-view"] li {
+        list-style: none;
+        margin-bottom: 0.2em;
+      }
+
+      ul[data-controller="tree-view"] li:before {
+        font-family: monospace;
+        content: '•';
+        padding-left: 4px;
+        padding-right: 4px;
+        border-radius: 50%;
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: bolder;
+        background: white;
+        margin-right: 0.5em;
+      }
+
+      ul[data-controller="tree-view"] li.active:before {
+        font-family: monospace;
+        content: '-';
+        color: white;
+        background: red;
+      }
+
+      ul[data-controller="tree-view"] li.active > ul {
+        border-left: 1px solid lightblue;
+      }
+
+      ul[data-controller="tree-view"] li.collapsed:before {
+        font-family: monospace;
+        content: '+';
+        color: white;
+        background: green;
+      }
+
+      ul[data-controller="tree-view"] li.collapsed > ul {
+        display: none;
+      }
+
+      .hide {
+        display: none;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

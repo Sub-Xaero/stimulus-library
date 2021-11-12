@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dismissable Controller</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <div
+        class="alert alert-danger notice"
+        data-controller="dismissable"
+        role="notice"
+      >
+        <div class="text-center">
+          Something went wrong, batten down the hatches
+        </div>
+        <div class="text-center mt-3">
+          <a
+            class="btn btn-danger btn-sm tiny mr-2"
+            data-action="dismissable#dismiss"
+          >Dismiss</a
+          >
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

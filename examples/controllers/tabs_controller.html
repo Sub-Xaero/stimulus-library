@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tabs Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <div
+        data-controller="tabs"
+        data-tabs-equalize-value="true"
+        data-tabs-active-class="is-active"
+        data-tabs-hide-class="hide"
+      >
+        <ul class="tabs">
+          <li class="tabs-title" data-tabs-target="link">
+            <a>Product Details</a>
+          </li>
+          <li class="tabs-title" data-tabs-target="link">
+            <a>Reviews</a>
+          </li>
+          <li class="tabs-title" data-tabs-target="link">
+            <a>FAQ</a>
+          </li>
+        </ul>
+        <div class="tabs-content">
+          <div class="tabs-panel" data-tabs-target="content">
+            Illum tenetur accusantium rutrum venenatis quo necessitatibus? Leo, malesuada, cupiditate montes, sed eget
+            dolor, mollit expedita, debitis augue expedita euismod! Ducimus nibh nihil exercitationem, expedita
+            aspernatur fames aptent anim, mollis, mattis lorem libero sem penatibus beatae faucibus hic dictumst
+            habitasse natoque commodo eros corrupti, voluptatibus perspiciatis nonummy nascetur. Dui, occaecati sodales,
+            diam, excepturi tenetur, aliquid provident animi veniam ultrices dignissim? Porttitor mus! Hic auctor
+            facilisi amet, sociosqu purus! Totam platea modi netus. Ut praesentium hic. Nisl. Ante tempus laborum nam!
+            Saepe dolorum, bibendum suspendisse, urna minim egestas. Quis eligendi sapien, consequatur sapiente
+            distinctio porttitor magnam, nibh laboris distinctio, duis dolorem.
+          </div>
+          <div class="tabs-panel" data-tabs-target="content">
+            No reviews
+          </div>
+          <div class="tabs-panel" data-tabs-target="content">
+            No FAQS
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .hide {
+        display: none;
+      }
+
+      [data-controller="tabs"] ul.tabs {
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+
+      [data-controller="tabs"] ul.tabs li {
+        list-style-type: none;
+        padding: 0.5em;
+        margin: 0.5em 0 0 0;
+        background-color: lightgray;
+        text-align: center;
+        display: inline-block;
+        flex: 1 0 auto;
+        border-top: 1px solid #b9b9b9;
+        border-right: 1px solid #b9b9b9;
+      }
+
+      [data-controller="tabs"] ul.tabs li:nth-child(1) {
+        border-left: 1px solid #b9b9b9;
+      }
+
+      [data-controller="tabs"] ul.tabs li:hover {
+        background-color: #b9b9b9;
+      }
+
+      [data-controller="tabs"] ul.tabs li.is-active {
+        background-color: #acdcd2;
+      }
+
+      [data-controller="tabs"] .tabs-content .tabs-panel.is-active {
+        padding: 1em;
+        border: 1px solid #b9b9b9;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

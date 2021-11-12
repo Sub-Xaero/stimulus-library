@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Detect Dirty Form Controller</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <form data-controller="detect-dirty-form">
+        <div>
+          <label class="form-label">Text</label>
+          <input
+            class="form-control"
+            type="text"
+          />
+        </div>
+
+        <div>
+          <label class="form-label">Number</label>
+          <input
+            class="form-control"
+            type="number"
+          />
+        </div>
+
+        <div>
+          <label class="form-check-label">Checkbox</label>
+          <br/>
+          <input
+            class="form-check-input"
+            type="checkbox"
+          />
+        </div>
+
+        <div>
+          <label class="form-check-label">Radio</label>
+          <br/>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="test-radio"
+            checked
+          />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="test-radio"
+          />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="test-radio"
+          />
+        </div>
+
+        <div>
+          <label class="form-label">TextArea</label>
+          <textarea
+            class="form-control"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+
+        <div>
+          <label class="form-label">Select</label>
+          <select class="form-control">
+            <option value=" BMW">BMW</option>
+            <option value="VOLVO">VOLVO</option>
+            <option value="AUDI">AUDI</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <style>
+
+      form {
+        padding: 1em;
+        border: 2px solid transparent;
+      }
+
+      form[data-dirty] {
+        border: 2px solid red;
+      }
+
+      input[data-dirty],
+      select[data-dirty],
+      textarea[data-dirty] {
+        border: 2px solid pink;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

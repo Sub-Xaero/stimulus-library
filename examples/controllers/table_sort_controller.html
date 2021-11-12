@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Table Sort Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <table class="table" data-controller="table-sort">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-sort-top="true">
+            <td colspan="3">
+              This row is always at the top
+            </td>
+          </tr>
+          <tr>
+            <td>Sally</td>
+            <td>21</td>
+            <td>sally@example.com</td>
+          </tr>
+          <tr>
+            <td>Trevor</td>
+            <td>45</td>
+            <td>trevor@example.com</td>
+          </tr>
+          <tr>
+            <td>Aiyla</td>
+            <td>32</td>
+            <td>aiyla@example.com</td>
+          </tr>
+          <tr data-sort-bottom="true">
+            <td colspan="3">
+              This row is always at the bottom
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <style>
+
+      table[data-controller="table-sort"] th::after {
+        content: "⇅";
+        margin-left: 8px;
+        color: grey;
+      }
+
+      table[data-controller="table-sort"] th[data-sort="asc"]::after {
+        content: "▲";
+      }
+
+      table[data-controller="table-sort"] th[data-sort="desc"]::after {
+        content: "▼";
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

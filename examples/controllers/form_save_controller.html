@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Form Save Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <form id="test-form" data-controller="form-save">
+        <div>
+          <label class="form-label">
+            Name
+            <input class="form-control" type="text" name="name"/>
+          </label>
+        </div>
+        <div>
+          <label class="form-label">
+            Age
+            <input class="form-control" type="number" name="age"/>
+          </label>
+        </div>
+        <div>
+          <label class="form-label">
+            Quest
+            <textarea class="form-control" name="quest"></textarea>
+          </label>
+        </div>
+
+        <div>
+          <label class="form-check-label">
+            Do you like cake?
+            <input class="form-check-input" type="checkbox" name="gorilla"/>
+          </label>
+        </div>
+        <br/>
+        <div>
+          <p>Favourite Ice Cream</p>
+          <br/>
+          <label class="form-check-label">
+            Mint
+            <input
+              class="form-check-input"
+              type="radio"
+              name="ice_cream"
+              value="Mint"
+            />
+          </label>
+          <label class="form-check-label">
+            Chocolate
+            <input
+              class="form-check-input"
+              type="radio"
+              name="ice_cream"
+              value="Chocolate"
+            />
+          </label>
+          <label class="form-check-label">
+            Vanilla
+            <input
+              class="form-check-input"
+              type="radio"
+              name="ice_cream"
+              value="Vanilla"
+            />
+          </label>
+        </div>
+        <hr/>
+
+        <div>
+          <a class="btn btn-primary" data-action="form-save#restore"
+          >Restore saved progress</a
+          >
+          <a class="btn btn-success" data-action="form-save#save"
+          >Save your progress</a
+          >
+        </div>
+        <hr/>
+        <div>
+          <button class="btn btn-secondary" type="reset">Reset</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

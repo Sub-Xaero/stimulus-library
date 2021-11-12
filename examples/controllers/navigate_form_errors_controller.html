@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Navigate Form Errors Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <div class="alert alert-danger sticky-flash-alerts">
+        There were errors on this form.
+        <div
+          data-controller="navigate-form-errors"
+          data-navigate-form-errors-selector-value="form .invalid-feedback"
+        >
+          <a
+            class="btn btn-secondary btn-sm"
+            data-navigate-form-errors-target="previous"
+            data-action="navigate-form-errors#previous">
+            Previous error
+          </a>
+          <a
+            class="btn btn-secondary btn-sm"
+            data-navigate-form-errors-target="current"
+            data-action="navigate-form-errors#current">
+            Current error
+          </a>
+          <a
+            class="btn btn-secondary btn-sm"
+            data-navigate-form-errors-target="next"
+            data-action="navigate-form-errors#next">
+            Next error
+          </a>
+
+        </div>
+      </div>
+
+      <form action="" class="was-validated">
+        <div class="my-5 py-4">
+          <label class="form-label">Lorem</label>
+          <input class="form-control" type="text" required/>
+          <div class="invalid-feedback">Something went wrong</div>
+        </div>
+        <div class="my-5 py-4">
+          <label class="form-label">Lorem</label>
+          <input class="form-control" type="text" required/>
+          <div class="invalid-feedback">Something went wrong</div>
+        </div>
+        <div class="my-5 py-4">
+          <label class="form-label">Lorem</label>
+          <input class="form-control" type="text" required/>
+          <div class="invalid-feedback">Something went wrong</div>
+        </div>
+        <div class="my-5 py-4">
+          <label class="form-label">Lorem</label>
+          <input class="form-control" type="text" required/>
+          <div class="invalid-feedback">Something went wrong</div>
+        </div>
+        <div class="my-5 py-4">
+          <label class="form-label">Lorem</label>
+          <input class="form-control" type="text" required/>
+          <div class="invalid-feedback">Something went wrong</div>
+        </div>
+      </form>
+    </div>
+
+    <style>
+
+      .sticky-flash-alerts {
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+      }
+
+      .btn[disabled] {
+        filter: opacity(0.5);
+      }
+
+      .currentError {
+        background: #f7b2b2;
+        border: 1px dotted black;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
