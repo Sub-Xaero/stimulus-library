@@ -8,6 +8,7 @@ export class NavigateFormErrorsController extends BaseController {
     index: Number,
   };
 
+  static classes = ["current"];
   static targets = ["next", "current", "previous"];
 
   declare readonly hasNextTarget: boolean;
@@ -16,14 +17,22 @@ export class NavigateFormErrorsController extends BaseController {
   declare readonly previousTarget: HTMLElement;
   declare readonly hasCurrentTarget: boolean;
   declare readonly currentTarget: HTMLElement;
-
+  declare readonly currentClass: string;
+  declare readonly hasCurrentClass: boolean;
   declare selectorValue: string;
   declare readonly hasSelectorValue: boolean;
   declare indexValue: number;
   declare readonly hasIndexValue: boolean;
-
   _errors: HTMLElement[] = [];
   _firstClick = false;
+
+  get _currentClasses(): string[] {
+    return this.currentClass.split(' ');
+  }
+
+  get _defaultCurrentClasses(): string[] {
+    return ["currentError"];
+  }
 
   get _errorCount(): number {
     return this._errors.length;
@@ -61,6 +70,10 @@ export class NavigateFormErrorsController extends BaseController {
     return this._errors[this._index];
   }
 
+  get _otherErrors(): HTMLElement[] {
+    return this._errors.filter((error, index) => index !== this._index);
+  }
+
   connect() {
     requestAnimationFrame(() => {
         this._firstClick = true;
@@ -77,6 +90,7 @@ export class NavigateFormErrorsController extends BaseController {
       this._toggleButtons();
     }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
+    this._updateClasses();
   }
 
   async next(event?: Event) {
@@ -88,6 +102,7 @@ export class NavigateFormErrorsController extends BaseController {
       this.indexValue = this._nextIndex;
     }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
+    this._updateClasses();
   }
 
   async previous(event?: Event) {
@@ -99,6 +114,7 @@ export class NavigateFormErrorsController extends BaseController {
       this.indexValue = this._previousIndex;
     }
     await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
+    this._updateClasses();
   }
 
   indexValueChanged() {
@@ -110,6 +126,27 @@ export class NavigateFormErrorsController extends BaseController {
     this.indexValue = 0;
     this._toggleButtons();
     this._toggleVisibility();
+  }
+
+  private _updateClasses() {
+    this._addCurrentClasses(this._currentError);
+    this._otherErrors.forEach((error) => this._removeCurrentClasses(error));
+  }
+
+  private _addCurrentClasses(el: HTMLElement = this.el) {
+    if (this.hasCurrentClass) {
+      el.classList.add(...this._currentClasses);
+    } else {
+      el.classList.add(...this._defaultCurrentClasses);
+    }
+  }
+
+  private _removeCurrentClasses(el: HTMLElement = this.el) {
+    if (this.hasCurrentClass) {
+      el.classList.remove(...this._currentClasses);
+    } else {
+      el.classList.remove(...this._defaultCurrentClasses);
+    }
   }
 
   private _toggleVisibility() {
