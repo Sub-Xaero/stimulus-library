@@ -3,3 +3,4 @@
 node_modules
 /dist
 .gitassembly
+yarn-error.log
