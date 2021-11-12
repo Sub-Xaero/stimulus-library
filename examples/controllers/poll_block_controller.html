@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Async Block Controller</title>
+  </head>
+  <body>
+    <div class="d-flex m-4 justify-content-center align-items-center">
+      <div
+        data-controller="poll-block"
+        data-poll-block-endpoint-value=""
+        data-poll-block-target="replace"
+        data-poll-block-selector-value="#output"
+      >
+        <i class="fas fa-spinner fa-spin mr-10"></i>
+        Loading, please wait ...
+      </div>
+
+      <div style="display: none;">
+        <div id="output">
+          <p>
+            This is a silly example. The poll-block loads this same page and
+            extracts this hidden DIV from the response.
+            It will refresh the content of the DIV every 5 seconds.
+          </p>
+
+          <p>Cur lura observare?</p>
+          <p>Fortis de teres fraticinida, acquirere liberi!</p>
+          <p>A falsis, cacula germanus index.</p>
+          <p>Teres luras ducunt ad lixa.</p>
+          <p>Sensorems sunt caesiums de varius luna.</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

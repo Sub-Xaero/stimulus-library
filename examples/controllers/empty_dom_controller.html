@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Empty DOM Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <div
+        data-controller="demo empty-dom "
+        data-empty-dom-empty-class="empty"
+        data-empty-dom-not-empty-class="not-empty"
+        data-empty-dom-scope-selector-value=".task"
+      >
+        <div data-empty-dom-target="container" data-demo-target="output"></div>
+
+        <div class="mt-4">
+          <a class="btn btn-primary" data-action="click->demo#addOddElement">
+            Add Element that doesn't get counted
+          </a>
+          <div class="mt-4">
+            <a class="btn btn-primary" data-action="click->demo#addElement">Add Element</a>
+            <a class="btn btn-primary" data-action="click->demo#removeElement">Remove Element</a>
+            <a class="btn btn-danger" data-action="click->demo#removeElements">Remove All Elements</a>
+          </div>
+        </div>
+      </div>
+      <style>
+
+        .empty {
+          padding: 1em;
+          border: 1px solid red;
+        }
+
+        .not-empty {
+          padding: 1em;
+          border: 1px solid blue;
+        }
+
+      </style>
+      <script type="module" src="/main.js"></script>
+  </body>
+</html>

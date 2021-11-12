@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Lightbox Image Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <p>Click the photo to see an enlarged version in a lightbox.</p>
+
+      <img
+        src="https://i.picsum.photos/id/339/600/600.jpg?hmac=U6oxWgZwt9H-SM_eOy95ai0vuhJdPMzMllDHlQ9ZFXo"
+        data-controller="lightbox-image"
+        data-action="click->lightbox-image#open"
+        style="width: 300px;"
+      />
+      <p>Style the lightbox in styles.css</p>
+    </div>
+
+    <style>
+
+      dialog.image-lightbox-dialog {
+        border: 1px solid black;
+        width: 75vw;
+        height: 75vh;
+        border-radius: 5px;
+        background: white;
+      }
+
+      dialog.image-lightbox-dialog img {
+        width: auto;
+        height: 100%;
+        margin: auto;
+        display: block;
+      }
+
+      dialog.image-lightbox-dialog::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      dialog.image-lightbox-dialog + .backdrop {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

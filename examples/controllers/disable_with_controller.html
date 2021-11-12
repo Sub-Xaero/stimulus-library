@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Disable With Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <!-- Form submit -->
+      <form action="">
+        <p>Submit</p>
+        <input
+          class="btn btn-primary"
+          type="submit"
+          value="Submit Me"
+          data-controller="disable-with"
+          data-disable-with-message-value="Bear with us..."
+          data-disable-with-timeout-value="3000"
+        />
+      </form>
+      <hr/>
+      <!-- Form click -->
+      <p>Button</p>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        data-controller="disable-with"
+        data-disable-with-message-value="Bear with us..."
+        data-disable-with-timeout-value="3000"
+      >
+        Submit Me
+      </button>
+      <hr/>
+      <!-- Link click -->
+      <p>Link</p>
+      <a
+        href="#"
+        data-controller="disable-with"
+        data-disable-with-message-value="Bear with us..."
+        data-disable-with-timeout-value="3000"
+      >Submit Me</a
+      >
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

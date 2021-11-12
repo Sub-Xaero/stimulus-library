@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Duration Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <br/>
+      <h4>No minutes, no seconds</h4>
+      <hr/>
+      <p>
+        This timer has been running for
+        <span
+          data-controller="duration"
+          data-duration-timestamp-value="1621556319"
+          data-duration-minutes-value="false"
+          data-duration-seconds-value="false"
+        ></span>
+      </p>
+      <br/>
+      <h4>No seconds</h4>
+      <hr/>
+      <p>
+        This timer has been running for
+        <span
+          data-controller="duration"
+          data-duration-timestamp-value="1621556319"
+          data-duration-minutes-value="true"
+          data-duration-seconds-value="false"
+        ></span>
+      </p>
+      <br/>
+      <h4>Minutes and seconds</h4>
+      <hr/>
+      <p>
+        This timer has been running for
+        <span
+          data-controller="duration"
+          data-duration-timestamp-value="1621556319"
+          data-duration-minutes-value="true"
+          data-duration-seconds-value="true"
+        ></span>
+      </p>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

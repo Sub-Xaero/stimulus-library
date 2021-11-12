@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Checkbox Select All Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <p>How would you like us to contact you?</p>
+
+      <div class="my-4" data-controller="checkbox-select-all">
+        <div>
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-select-all-target="selectAll"
+            />
+            <span>Select All / Deselect All</span>
+          </label>
+        </div>
+        <hr/>
+        <div>
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-select-all-target="checkbox"
+            />
+            <span>Email</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-select-all-target="checkbox"
+              checked="checked"
+            />
+            <span>SMS</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-select-all-target="checkbox"
+            />
+            <span>Email</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-select-all-target="checkbox"
+              checked="checked"
+              disabled="true"
+            />
+            <span>SMS</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-select-all-target="checkbox"
+              readonly="true"
+            />
+            <span>Postal</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

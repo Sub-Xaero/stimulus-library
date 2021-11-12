@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Anchor Spy Controller</title>
+  </head>
+  <body>
+    <div class="container m-4">
+      <div class="row">
+        <div
+          class="col-sm-12 my-4 text-center"
+          data-controller="anchor-spy highlight-element"
+          data-anchor-spy-key-value="foo"
+          data-anchor-spy-active-class="highlight"
+        >
+          This content will be highlighted when it's anchor is active
+        </div>
+
+        <div class="col-sm-12 text-center">
+          <a
+            class="btn btn-outline-primary"
+            data-controller="anchor-spy"
+            data-anchor-spy-key-value="foo"
+            data-action="click->anchor-spy#write"
+          >Set anchor to #foo
+          </a>
+          <a
+            class="btn btn-outline-primary"
+            data-controller="anchor-spy"
+            data-anchor-spy-key-value="bar"
+            data-action="click->anchor-spy#write"
+          >Set anchor to #bar
+          </a>
+          <a
+            class="btn btn-outline-primary"
+            data-controller="anchor-spy"
+            data-anchor-spy-key-value="test"
+            data-action="click->anchor-spy#write"
+          >Set anchor to #test
+          </a>
+        </div>
+      </div>
+    </div>
+    <style>
+      [data-controller~="anchor-spy"].highlight {
+        border: 1px solid red;
+        background: #ffc1c1;
+        color: black;
+        border-radius: 5px;
+      }
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

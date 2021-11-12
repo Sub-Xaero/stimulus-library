@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Detect Dirty Controller</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <div>
+        <label class="form-label">Text</label>
+        <input
+          class="form-control"
+          type="text"
+          data-controller="detect-dirty"
+        />
+      </div>
+
+      <div>
+        <label class="form-label">Number</label>
+        <input
+          class="form-control"
+          type="number"
+          data-controller="detect-dirty"
+        />
+      </div>
+
+      <div>
+        <label class="form-check-label">Checkbox</label>
+        <br/>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-controller="detect-dirty"
+        />
+      </div>
+
+      <div>
+        <label class="form-check-label">Radio</label>
+        <br/>
+        <input
+          class="form-check-input"
+          type="radio"
+          data-controller="detect-dirty"
+          name="test-radio"
+          checked
+        />
+        <input
+          class="form-check-input"
+          type="radio"
+          data-controller="detect-dirty"
+          name="test-radio"
+        />
+        <input
+          class="form-check-input"
+          type="radio"
+          data-controller="detect-dirty"
+          name="test-radio"
+        />
+      </div>
+
+      <div>
+        <label class="form-label">TextArea</label>
+        <textarea
+          class="form-control"
+          cols="30"
+          rows="10"
+          data-controller="detect-dirty"
+        ></textarea>
+      </div>
+
+      <div>
+        <label class="form-label">Select</label>
+
+        <select class="form-control" data-controller="detect-dirty">
+          <option value="BMW">BMW</option>
+          <option value="VOLVO">VOLVO</option>
+          <option value="AUDI">AUDI</option>
+        </select>
+      </div>
+    </div>
+    <style>
+
+      [data-dirty] {
+        border: 2px solid red;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

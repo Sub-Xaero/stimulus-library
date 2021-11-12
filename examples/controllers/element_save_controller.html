@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Element Save Controller</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <p>Anything you type in this textbox will be saved between page loads</p>
+
+      <textarea
+        class="form-control"
+        data-controller="element-save"
+        data-element-save-id-value="save-this-element"
+        data-element-save-attributes-value="value"
+        data-element-save-restore-on-load-value="true"
+        data-action="change->element-save#save"
+      ></textarea>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

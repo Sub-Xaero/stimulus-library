@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Countdown Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <p>Countdown til next Christmas:</p>
+      <div
+        data-controller="countdown update-date interval"
+        data-interval-seconds-value="10"
+        data-action="countdown:ended->update-date#update"
+        data-update-date-property-value="countdownDeadlineValue"
+        data-countdown-deadline-value="1970/01/01 00:00:00"
+        data-countdown-remove-unused-value="true"
+      >
+        <span data-countdown-target="years"></span>
+        <span data-countdown-target="months"></span>
+        <span data-countdown-target="days"></span>
+        <span data-countdown-target="hours"></span>
+        <span data-countdown-target="minutes"></span>
+        <span data-countdown-target="seconds"></span>
+      </div>
+
+    </div>
+
+    <style>
+      [data-countdown-target] + [data-countdown-target]::before {
+        content: ", ";
+      }
+
+      [data-countdown-target] + [data-countdown-target]:nth-last-child(1)::before {
+        content: ", and ";
+      }
+
+      [data-countdown-target="years"]::after {
+        content: " years";
+      }
+
+      [data-countdown-target="months"]::after {
+        content: " months";
+      }
+
+      [data-countdown-target="days"]::after {
+        content: " days";
+      }
+
+      [data-countdown-target="hours"]::after {
+        content: " hours";
+      }
+
+      [data-countdown-target="minutes"]::after {
+        content: " minutes";
+      }
+
+      [data-countdown-target="seconds"]::after {
+        content: " seconds";
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Clock Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <p>The current time is:</p>
+      <div data-controller="clock" class="clock">
+        <div class="clock-face">
+          <span data-clock-target="hours"></span>
+        </div>
+        <div class="clock-face">
+          <span data-clock-target="minutes"></span>
+        </div>
+        <div class="clock-face">
+          <span data-clock-target="seconds"></span>
+        </div>
+        <div class="clock-face">
+          <span data-clock-target="milliseconds"></span>
+        </div>
+      </div>
+    </div>
+    <style>
+
+      .clock {
+        border: 1px solid #9a9a9a;
+        border-radius: 0.2em;
+        display: inline-block;
+        background: black;
+        padding: 0.5em;
+      }
+
+      [data-clock-target] {
+        font-family: Orbitron, sans-serif;
+        font-weight: bold;
+        color: greenyellow;
+        width: 1.5em;
+        display: inline-block;
+      }
+
+      [data-clock-target="milliseconds"] {
+        width: 3.5em;
+      }
+
+      .clock-face {
+        display: inline-block;
+      }
+
+      .clock-face + .clock-face::before {
+        content: ":";
+        color: yellowgreen;
+        font-family: Orbitron, sans-serif;
+        font-weight: bold;
+        animation: blink-animation 1s steps(5, start) infinite;
+      }
+
+      .blink {
+        animation: blink-animation 1s steps(5, start) infinite;
+        -webkit-animation: blink-animation 1s steps(5, start) infinite;
+      }
+
+      @keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+
+      @-webkit-keyframes blink-animation {
+        to {
+          visibility: hidden;
+        }
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Confirm Navigation Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <meta data-controller="confirm-navigation"/>
+
+      <p>
+        A <code>&lt;meta&gt;</code> element on this page has installed a
+        controller that will alert the user when they try to leave the page by
+        closing the tab or navigating away
+      </p>
+
+      <a class="btn btn-primary" href="https://google.com"
+      >Try navigating away. This link will take you to another page</a
+      >
+      <hr/>
+      <p>Try closing the tab too</p>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

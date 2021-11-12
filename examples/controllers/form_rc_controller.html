@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Form RC Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <div data-controller="form-rc">
+        <form id="test-form" data-form-rc-target="form" class="border p-4 m-4">
+          <div>
+            <label class="form-label">
+              Name
+              <input class="form-control" type="text" name="name"/>
+            </label>
+          </div>
+          <div>
+            <label class="form-label">
+              Age
+              <input class="form-control" type="number" name="age"/>
+            </label>
+          </div>
+          <div>
+            <label class="form-label">
+              Quest
+              <textarea name="quest"></textarea>
+            </label>
+          </div>
+
+          <div>
+            <label class="form-check-label">
+              Do you like cake?
+              <input class="form-check-input" type="checkbox" name="gorilla"/>
+            </label>
+          </div>
+        </form>
+
+        <p>Outside the form</p>
+        <div>
+          <a class="btn btn-secondary" data-action="form-rc#reset">Reset</a>
+          <a class="btn btn-primary" data-action="form-rc#submit">Submit</a>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

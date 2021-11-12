@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Value Warn Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <h1>Anti-Dandruff Shampoo</h1>
+      <p>
+        Impedit aute nesciunt blandit elit, iusto dignissim rutrum? Quasi
+        perferendis mauris auctor vitae possimus similique, rerum, fermentum
+        cubilia, rerum sint laboriosam lobortis, voluptates ullamcorper
+        dignissim aliquip, voluptate laboriosam maiores fugiat distinctio, ut
+        auctor perspiciatis parturient quae.
+      </p>
+      <p>
+        Price: £15
+      </p>
+      <div
+        data-controller="value-warn"
+        data-value-warn-min-value="1"
+        data-value-warn-max-value="3"
+        data-value-warn-min-message-value="You cannot purchase less than 1 of something. That's just not how commerce works"
+        data-value-warn-max-message-value="Warning: Low stock, your order might be rejected."
+        data-value-warn-input-warning-class="warn"
+      >
+        <div class="input-group mb-3">
+          <span class="input-group-text">Quantity</span>
+          <input
+            type="number"
+            class="form-control"
+            value="1"
+            aria-label="Quantity"
+            data-value-warn-target="input"
+          />
+        </div>
+        <small class="warn" data-value-warn-target="warning"></small>
+      </div>
+
+      <a href="" class="btn btn-primary">Add to cart</a>
+    </div>
+
+    <style>
+      small.warn {
+        color: orange;
+        font-weight: bold;
+        margin-top: -0.5em;
+        margin-bottom: 1.5em;
+        display: block;
+      }
+
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
