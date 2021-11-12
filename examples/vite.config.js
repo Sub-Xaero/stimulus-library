@@ -7,6 +7,7 @@ module.exports = defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        alert_controller: resolve(__dirname, "controllers/alert_controller.html"),
         anchor_spy_controller: resolve(__dirname, "controllers/anchor_spy_controller.html"),
         async_block_controller: resolve(__dirname, "controllers/async_block_controller.html"),
         auto_submit_form_controller: resolve(__dirname, "controllers/auto_submit_form_controller.html"),
