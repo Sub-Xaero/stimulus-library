@@ -47,15 +47,28 @@ export class TableSortController extends BaseController {
     event.preventDefault();
     let headerCell = event.target! as HTMLTableHeaderCellElement;
     let headerCellIndex = this._indexOfHeaderCell(headerCell);
-    this._sortByColumn(headerCellIndex);
+    if (headerCell.dataset.sort == "asc") {
+      this._reverse = true;
+      this._otherHeaderCells(headerCell).forEach(cell => delete cell.dataset.sort)
+      headerCell.dataset.sort = "desc";
+      this._sortByColumn(headerCellIndex);
+    } else {
+      this._reverse = false;
+      this._otherHeaderCells(headerCell).forEach(cell => delete cell.dataset.sort)
+      headerCell.dataset.sort = "asc";
+      this._sortByColumn(headerCellIndex);
+    }
   }
 
-  private _indexOfHeaderCell(cell: HTMLTableHeaderCellElement) {
+  private _indexOfHeaderCell(cell: HTMLTableHeaderCellElement): number {
     return this._tableHeaders.indexOf(cell);
   }
 
+  private _otherHeaderCells(cell: HTMLTableHeaderCellElement): HTMLTableHeaderCellElement[] {
+    return Array.from(this._tableHeaders).filter(otherCell => otherCell != cell);
+  }
+
   private _sortByColumn(index: number) {
-    this._reverse = index === this._lastIndex && !this._reverse;
     let frag = document.createDocumentFragment();
     let rows = this._tableRows;
 
