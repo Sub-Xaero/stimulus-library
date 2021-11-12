@@ -12,11 +12,11 @@ export class PresenceController extends BaseController {
   }
 
   get _addedEventName(): string {
-    return [this.name, 'presence', 'added'].join(':');
+    return [this.name, 'presence', 'added'].filter(el => !!el).join(':');
   }
 
   get _removedEventName(): string {
-    return [this.name, 'presence', 'removed'].join(':');
+    return [this.name, 'presence', 'removed'].filter(el => !!el).join(':');
   }
 
   connect() {
