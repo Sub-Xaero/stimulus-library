@@ -1,0 +1,45 @@
+---
+id: TrixModifierController
+title: TrixModifierController
+---
+
+
+
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+Stimulus controller to change what formatting an Trix Editor/ActionText rich_text_area can apply.
+You may not want to allow the user to apply bold, italic, underline, strikethrough, or superscript, styles, or upload embedded files.
+This controller allows you to specify which formatting options are disallowed.
+
+The controller also handles drag-n-drop events and paste events, so that disallowed formatting is not inherited from
+pasted text.
+
+## [Data Attributes]
+| Attribute | Values | Elements | Purpose |
+| --- | --- | --- | --- |
+| `` | `-` | `-` | `-` |
+| `data-no-bold` | `-` | The controller root element | When present, the controller will hide the button to apply Bold styling |
+| `data-no-bullet-list` | `-` | The controller root element | When present, the controller will hide the button to apply Bullet List styling |
+| `data-no-code` | `-` | The controller root element | When present, the controller will hide the button to apply Code block styling |
+| `data-no-heading` | `-` | The controller root element | When present, the controller will hide the button to apply Heading styling |
+| `data-no-italic` | `-` | The controller root element | When present, the controller will hide the button to apply Italics |
+| `data-no-strikethrough` | `-` | The controller root element | When present, the controller will hide the button to apply Strikethroughs |
+| `data-no-link` | `-` | The controller root element | When present, the controller will hide the button to insert Links |
+| `data-no-indents` | `-` | The controller root element | When present, the controller will hide the button to apply Indents |
+| `data-no-number-list` | `-` | The controller root element | When present, the controller will hide the button to insert Number Lists |
+| `data-no-quote` | `-` | The controller root element | When present, the controller will hide the button to insert Block Quotes |
+| `data-no-file-uploads` | `-` | The controller root element | When present, the controller will hide the button to attach file uploads, and prevent drag-and-drop file uploads. |
+
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/trix_modifier_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
