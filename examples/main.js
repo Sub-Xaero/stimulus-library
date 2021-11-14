@@ -1,4 +1,6 @@
 import './style.scss';
+import 'trix/dist/trix.css';
+import 'trix';
 
 import { Application } from "stimulus";
 import { UpdateDateController } from "./src/helper_controllers/update_date_controller";
@@ -69,6 +71,7 @@ import {
   TimeoutController,
   ToggleClassController,
   TreeViewController,
+  TrixModifierController,
   TurboFrameRCController,
   TurboFrameRefreshController,
   UserFocusController,
@@ -150,6 +153,7 @@ app.register("time-distance", TimeDistanceController);
 app.register("timeout", TimeoutController);
 app.register("toggle-class", ToggleClassController);
 app.register("tree-view", TreeViewController);
+app.register("trix-modifier", TrixModifierController);
 app.register("turbo-frame-rc", TurboFrameRCController);
 app.register("turbo-frame-refresh", TurboFrameRefreshController);
 app.register("user-focus", UserFocusController);
