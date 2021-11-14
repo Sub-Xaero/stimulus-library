@@ -24,6 +24,7 @@ export function installsTrixBehaviour(controller: TrixComposableController) {
       }
     });
   };
+  let pasteHandler = (event: Event) => controllerMethod(controller, 'pasteEvent').call(controller, event);
 
   let observer = new MutationObserver(observerCallback);
 
@@ -36,6 +37,8 @@ export function installsTrixBehaviour(controller: TrixComposableController) {
     if (editorParent == null) {
       throw new Error('Could not traverse DOM tree from <trix-editor>');
     }
+
+    editor.addEventListener('trix-paste', pasteHandler);
 
     let toolbar = editorParent.querySelector('trix-toolbar');
 
@@ -65,6 +68,7 @@ export function installsTrixBehaviour(controller: TrixComposableController) {
       throw new Error('Could not traverse DOM tree from <trix-editor>');
     }
 
+    editor.removeEventListener('trix-paste', pasteHandler);
     let toolbar = editorParent.querySelector('trix-toolbar');
     if (!toolbar) {
       throw new Error('Could not find <trix-toolbar> that is a sibling of this <trix-editor> element');
