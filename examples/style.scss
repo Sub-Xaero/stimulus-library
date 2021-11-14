@@ -6,11 +6,38 @@ body {
   color: #FFF;
   font-weight: bold;
   margin-top: 60px;
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: #0F2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 table.table {
   color: white;
+}
+
+
+trix-toolbar {
+  .trix-button:disabled {
+    background: lightslategrey !important;
+  }
+
+  .trix-button:not(:disabled) {
+    background: #3d96b9 !important;
+  }
+
+  .trix-button:not(:first-child) {
+    border-left: 2px solid #fff !important;
+  }
+
+  .trix-button-group {
+    border: 1px solid #fff !important;
+    border-top-color: #fff !important;
+    border-radius: 3px !important;
+  }
+}
+
+trix-editor {
+  background: white !important;
+  color: black !important;
+  font-weight: normal !important;
 }
