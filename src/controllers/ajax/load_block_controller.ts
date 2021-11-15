@@ -1,9 +1,18 @@
 import {BaseController} from "../../utilities/base_controller";
+import {fetchRetry} from "../../utilities/fetchRetry";
 
 export class LoadBlockController extends BaseController {
 
   static targets = ["replace"];
-  static values = {endpoint: String, errorMessage: String, selector: String};
+  static values = {
+    endpoint: String,
+    errorMessage: String,
+    selector: String,
+    maxRetries: Number,
+  };
+
+  declare maxRetriesValue: number;
+  declare readonly hasMaxRetriesValue: boolean;
 
   declare readonly replaceTarget: HTMLElement;
   declare readonly hasReplaceTarget: boolean;
@@ -17,6 +26,10 @@ export class LoadBlockController extends BaseController {
 
   get _errorMessage(): string {
     return this.hasErrorMessageValue ? this.errorMessageValue : "This content failed to load";
+  }
+
+  get _maxRetries(): number {
+    return this.hasMaxRetriesValue ? this.maxRetriesValue : 1;
   }
 
   connect() {
@@ -34,7 +47,7 @@ export class LoadBlockController extends BaseController {
     };
 
     try {
-      let response = await fetch(this.endpointValue);
+      let response = await fetchRetry(this._maxRetries, this.endpointValue);
       if (!response.ok) {
         failure();
       }

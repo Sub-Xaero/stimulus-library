@@ -32,6 +32,7 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 | `endpoint` | String | The URL to fetch content from | - |
 | `errorMessage` (Optional) | String | The error message to display when the remote content fails to load | `This content failed to load` |
 | `selector` (Optional) | String | The CSS selector to use to extract the desired element(s) from the returned HTML response | Empty. The entire HTML response will be loaded |
+| `maxRetries` (Optional) | Number | How many times the controller should retry fetching the content in the event of network errors or bad responses | 1 |
 
 ## Events
 
