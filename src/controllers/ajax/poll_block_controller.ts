@@ -4,7 +4,12 @@ import {useInterval} from "../../mixins/use_interval";
 export class PollBlockController extends LoadBlockController {
 
   static targets = ["replace"];
-  static values = {endpoint: String, errorMessage: String, selector: String, seconds: Number};
+  static values = {
+    endpoint: String,
+    errorMessage: String,
+    selector: String,
+    maxRetries: Number,
+  };
 
   declare readonly hasSecondsValue: boolean;
   declare readonly secondsValue: number;
