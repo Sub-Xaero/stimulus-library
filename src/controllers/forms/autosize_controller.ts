@@ -22,7 +22,7 @@ export class AutosizeController extends BaseController {
 
       this._handler();
       useEventListeners(this, window, ['resize'], this._handler);
-      useEventListeners(this, this.el, ['input', 'focus'], this._handler);
+      useEventListeners(this, this.el, ['input', 'focus'], this._handler, {debounce: 100});
     });
   }
 

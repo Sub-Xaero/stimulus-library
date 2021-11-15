@@ -11,11 +11,12 @@
       <div
         data-controller="char-count autosize"
         data-char-count-min-value="250"
-        data-char-count-max-value="2000"
+        data-char-count-max-value="1000"
+        data-char-count-error-class="error"
       >
         <label class="form-label">
           What is your quest? We suggest at least 250 chars, but no more than
-          2000 chars.
+          1000 chars.
         </label>
         <textarea
           class="form-control"
@@ -24,7 +25,7 @@
         ></textarea>
         <div class="text-right">
           <span data-char-count-target="output"></span>
-          <span>/2000</span>
+          <span>/1000</span>
         </div>
       </div>
     </div>
