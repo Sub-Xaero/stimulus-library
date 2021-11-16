@@ -1,7 +1,21 @@
-// TODO: Fill in this spec
 describe('Confirm Controller', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/controllers/confirm_controller.html');
   });
-  it('TODO');
-});
+  it('Shows a confirmation dialogue when the user clicks an enabled link', () => {
+    cy.contains('Link with confirm').click();
+    cy.on('window:confirm', (str) => {
+      expect(str).to.equal('Are you sure?');
+      return true;
+    });
+  });
+
+  it('Shows a confirmation dialogue when the user submits an enabled form', () => {
+    cy.contains('Submit').click();
+    cy.on('window:confirm', (str) => {
+      expect(str).to.equal('Are you sure?');
+      return true;
+    });
+  });
+})
+;

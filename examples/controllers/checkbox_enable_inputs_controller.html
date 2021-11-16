@@ -4,29 +4,32 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Disable Inputs Controller</title>
+    <title>Enable Inputs Controller</title>
   </head>
   <body>
     <div class="container p-4 text-center">
       <div data-controller="checkbox-enable-inputs">
-        <label class="form-label">
-          What time does the event end?
+
+        <div class="row">
+          <label class="form-check-label">
+            I have read and agree to the <a href="#">terms and conditions</a>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              data-checkbox-enable-inputs-target="enabler"
+              data-action="change->checkbox-enable-inputs#toggle"
+            />
+          </label>
+        </div>
+        <br>
+        <div class="row">
           <input
-            class="form-control"
-            type="date"
-            name="end_time"
+            type="submit"
+            class="btn btn-primary"
             data-checkbox-enable-inputs-target="enable"
           />
-        </label>
-        <label class="form-check-label">
-          This event does not have an end time
-          <input
-            class="form-check-input"
-            type="checkbox"
-            data-checkbox-enable-inputs-target="enabler"
-            data-action="change->checkbox-enable-inputs#toggle"
-          />
-        </label>
+        </div>
+
       </div>
     </div>
     <script type="module" src="/main.js"></script>
