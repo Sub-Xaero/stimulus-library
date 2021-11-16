@@ -9,6 +9,7 @@ export class PollBlockController extends LoadBlockController {
     errorMessage: String,
     selector: String,
     maxRetries: Number,
+    seconds: Number,
   };
 
   declare readonly hasSecondsValue: boolean;
