@@ -37,27 +37,35 @@
       </div>
 
       <div>
-        <label class="form-check-label">Radio</label>
-        <br/>
-        <input
-          class="form-check-input"
-          type="radio"
-          data-controller="detect-dirty"
-          name="test-radio"
-          checked
-        />
-        <input
-          class="form-check-input"
-          type="radio"
-          data-controller="detect-dirty"
-          name="test-radio"
-        />
-        <input
-          class="form-check-input"
-          type="radio"
-          data-controller="detect-dirty"
-          name="test-radio"
-        />
+        <div class="form-check">
+          <label class="form-check-label">Radio</label>
+          <input
+            class="form-check-input"
+            type="radio"
+            data-controller="detect-dirty"
+            name="test-radio"
+            value="1"
+            checked
+          />
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            data-controller="detect-dirty"
+            name="test-radio"
+            value="2"
+          />
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            data-controller="detect-dirty"
+            name="test-radio"
+            value="3"
+          />
+        </div>
       </div>
 
       <div>
@@ -72,7 +80,6 @@
 
       <div>
         <label class="form-label">Select</label>
-
         <select class="form-control" data-controller="detect-dirty">
           <option value="BMW">BMW</option>
           <option value="VOLVO">VOLVO</option>

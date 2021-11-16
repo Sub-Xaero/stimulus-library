@@ -1,4 +1,3 @@
-// TODO: Fill in this spec
 describe('Character Count Controller', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/controllers/char_count_controller.html');
@@ -17,14 +16,17 @@ describe('Character Count Controller', () => {
     cy.get('textarea').clear();
     cy.get('[data-char-count-target="output"]').should('have.class', 'error');
     cy.get('textarea')
-      .type('Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.');
+      .invoke('val', 'Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.')
+      .trigger('input');
     cy.get('[data-char-count-target="output"]').should('not.have.class', 'error');
 
-    cy.get('textarea').type(`
+    cy.get('textarea').invoke('val', `
     Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
     Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
     Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
-    `);
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    `).trigger('input');
     cy.get('[data-char-count-target="output"]').should('have.class', 'error');
 
   });

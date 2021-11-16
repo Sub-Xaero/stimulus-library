@@ -9,7 +9,7 @@
   <body>
     <div class="container p-4 text-center">
       <div
-        data-controller="char-count autosize"
+        data-controller="char-count"
         data-char-count-min-value="250"
         data-char-count-max-value="1000"
         data-char-count-error-class="error"
@@ -21,6 +21,7 @@
         <textarea
           class="form-control"
           name="quest"
+          data-controller="autosize"
           data-char-count-target="input"
         ></textarea>
         <div class="text-right">
