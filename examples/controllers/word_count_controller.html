@@ -9,13 +9,13 @@
   <body>
     <div class="container p-4 text-center">
       <div
-        data-controller="word-count"
-        data-word-count-min-value="250"
-        data-word-count-max-value="2000"
+        data-controller="word-count autosize"
+        data-word-count-min-value="50"
+        data-word-count-max-value="250"
       >
         <label class="form-label">
-          What is your quest? We suggest at least 250 words, but no more than
-          2000 words.
+          What is your quest? We suggest at least 50 words, but no more than
+          250 words.
         </label>
         <textarea
           class="form-control"
@@ -24,7 +24,7 @@
         ></textarea>
         <div class="text-right">
           <span data-word-count-target="output"></span>
-          <span>/2000</span>
+          <span>/250</span>
         </div>
       </div>
     </div>
