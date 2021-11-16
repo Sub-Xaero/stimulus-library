@@ -1,4 +1,3 @@
-// TODO: Fill in this spec
 describe('Word Count Controller', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/controllers/word_count_controller.html');
@@ -16,15 +15,23 @@ describe('Word Count Controller', () => {
   it('should set an error class when the number of words in the textarea is too high or too low', () => {
     cy.get('textarea').clear();
     cy.get('[data-word-count-target="output"]').should('have.class', 'error');
-    cy.get('textarea')
-      .type('Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.');
+
+    cy.get('textarea').invoke('val', `
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    `).trigger('input');
     cy.get('[data-word-count-target="output"]').should('not.have.class', 'error');
 
-    cy.get('textarea').type(`
+    cy.get('textarea').invoke('val', `
     Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
     Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
     Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
-    `);
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba. Lorem ipsum dolor. Ubi est clemens magister? Nunquam reperire luba.
+    `).trigger('input');
     cy.get('[data-word-count-target="output"]').should('have.class', 'error');
 
   });
