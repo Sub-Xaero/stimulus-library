@@ -5,11 +5,18 @@ describe('Autosize Controller', () => {
 
   it('resizes the textarea as you type', () => {
     cy.get('textarea')
-      .type('Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.');
+      .invoke('text', 'Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.')
+      .trigger('input');
 
     cy.get('textarea').invoke('outerHeight').then(initialHeight => {
       cy.get('textarea')
-        .type('Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.')
+        .invoke(
+          'text',
+          'Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.'
+          +
+          'Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.',
+        )
+        .trigger('input')
         .invoke('outerHeight')
         .should('be.greaterThan', initialHeight);
 
@@ -21,7 +28,8 @@ describe('Autosize Controller', () => {
 
   it('resizes the textarea as the viewport changes', () => {
     cy.get('textarea')
-      .type('Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.');
+      .invoke('text', 'Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses. Guttuss nocere in rugensis civitas! Sunt diatriaes contactus gratis, nobilis peses.')
+      .trigger('input');
     cy.viewport('ipad-mini');
 
     cy.get('textarea').invoke('outerHeight').then(initialHeight => {
