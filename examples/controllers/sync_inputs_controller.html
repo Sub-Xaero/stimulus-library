@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Sync Inputs Controller</title>
   </head>
   <body>
@@ -12,9 +12,10 @@
         <label class="form-label">What is your name?</label>
         <input
           class="form-control"
-          type="text"
           data-controller="sync-inputs"
           data-sync-inputs-key-value="name"
+          name="name"
+          type="text"
         />
       </div>
 
@@ -22,9 +23,10 @@
         <label class="form-label">What is your age?</label>
         <input
           class="form-control"
-          type="number"
           data-controller="sync-inputs"
           data-sync-inputs-key-value="age"
+          name="age"
+          type="number"
         />
       </div>
 
@@ -32,9 +34,10 @@
         <label class="form-check-label">Are you human?</label>
         <input
           class="form-check-input"
-          type="checkbox"
           data-controller="sync-inputs"
           data-sync-inputs-key-value="human"
+          name="human"
+          type="checkbox"
         />
       </div>
 
@@ -42,9 +45,10 @@
         <label class="form-label">What is your favourite primary colour?</label>
         <select
           class="form-control"
-          type="checkbox"
           data-controller="sync-inputs"
           data-sync-inputs-key-value="colour"
+          name="colour"
+          type="checkbox"
         >
           <option value="Red">Red</option>
           <option value="Green">Green</option>
@@ -62,11 +66,11 @@
             Parrot
           </label>
           <input
-            type="radio"
-            name="animal"
-            value="Parrot"
             data-controller="sync-inputs"
             data-sync-inputs-key-value="animal"
+            name="animal"
+            type="radio"
+            value="Parrot"
           />
         </div>
         <div class="form-check">
@@ -74,11 +78,11 @@
             Cat
           </label>
           <input
-            type="radio"
-            name="animal"
-            value="Cat"
             data-controller="sync-inputs"
             data-sync-inputs-key-value="animal"
+            name="animal"
+            type="radio"
+            value="Cat"
           />
         </div>
         <div class="form-check">
@@ -86,11 +90,11 @@
             Dog
           </label>
           <input
-            type="radio"
-            name="animal"
-            value="Dog"
             data-controller="sync-inputs"
             data-sync-inputs-key-value="animal"
+            name="animal"
+            type="radio"
+            value="Dog"
           />
         </div>
       </div>
@@ -147,6 +151,6 @@
       }
 
     </style>
-    <script type="module" src="/main.js"></script>
+    <script src="/main.js" type="module"></script>
   </body>
 </html>
