@@ -52,6 +52,10 @@ export class LightboxImageController extends BaseController {
   connect() {
   }
 
+  disconnect() {
+    this.close();
+  }
+
   open() {
     let element = this.el as HTMLImageElement;
     if (this._dialog) {

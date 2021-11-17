@@ -15,7 +15,6 @@ export class DurationController extends BaseController {
   declare readonly hasSecondsValue: boolean;
   declare timestampValue: number;
   declare readonly hasTimestampValue: boolean;
-  _intervalHandle: number | null = null;
   declare _clearInterval: () => void;
 
   get _format(): string[] {

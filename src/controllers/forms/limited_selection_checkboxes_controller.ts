@@ -11,12 +11,13 @@ export class LimitedSelectionCheckboxesController extends BaseController {
   declare readonly inputTargets: HTMLInputElement[];
   declare readonly maxValue: number;
   declare readonly messageValue: string;
+  declare readonly hasMessageValue: boolean;
 
   connect() {
-    useCollectionEventListener(this, this.inputTargets, "change", this.handleInputs);
+    useCollectionEventListener(this, this.inputTargets, "change", this._handleInputs);
   }
 
-  handleInputs(event: Event) {
+  _handleInputs(event: Event) {
     let tickedInputs = this.inputTargets.reduce((previousValue, el) => el.checked ? previousValue + 1 : previousValue, 0);
     let target = event.target as HTMLInputElement;
     if (tickedInputs > this.maxValue) {
@@ -24,7 +25,7 @@ export class LimitedSelectionCheckboxesController extends BaseController {
       target.checked = false;
       this.dispatch(target, "change");
       this.dispatch(target, "limited-selection:too-many");
-      if (this.hasErrorTarget) {
+      if (this.hasErrorTarget && this.hasMessageValue) {
         this.errorTarget.innerHTML = this.messageValue;
       }
     } else {
