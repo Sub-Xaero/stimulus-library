@@ -1,0 +1,72 @@
+---
+id: NavigateFormErrorsController
+title: NavigateFormErrorsController
+---
+
+
+import NoEvents from "../../_partials/no-events.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+A controller to allow users to navigate between form errors when a submission comes back with failed validations.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `current` | Scroll to the current error |
+| `next` | Scroll to the next error |
+| `previous` | Scroll to the previous error |
+
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+If these targets are specified, the controller will automatically disable and re-enable the buttons as the user clicks between errors
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `current` (Optional) | The button that navigate to the current error.  | - |
+| `next` (Optional) | The button that navigate to the next error. | - |
+| `previous` (Optional) | The button that navigate to the previous error. | - |
+
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `current` | The class to apply to the targeted element that the controller is currently pointing at. | `currentError` |
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `selector` | String | The CSS selector the controller should use to find the form errors | - |
+
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+
+## How to Use
+
+There is nothing worse as an end user than filling out a long form, only to be bounced back and have to read back through the whole form to try and find where you missed a field.
+
+If you add the controller and its elements to a header/footer/sticky widget/anywhere you like, when a form submission fails, you can use it as follows to allow the user to jump
+back and forth between the fields that failed validation.
+
+If you tell the controller about your `next`, `current` and/or `previous` target then controller will automatically disable and re-enable the buttons as the user hits the first/last error.
+
+If the controller cannot find any errors using the provided selector, it will hide the controller root element using `display: none` so that the user is not shown buttons that do nothing.
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/navigate_form_errors_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+

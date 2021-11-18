@@ -1,0 +1,67 @@
+---
+id: AnchorSpyController
+title: AnchorSpyController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+A utility controller to detect and write anchors in the URL. i.e. "https://example.com#foo", the anchor is `foo`
+
+When actions happen (i.e. an accordion opening) - write an anchor the URL that when revisited, would mean the accordion is reopened in the same place.
+
+When the page loads with a matching anchor, fire events that can wire up other controllers. i.e. To reopen accordions/tabs when the page opens with the correct anchor.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `write` | Write the value of `keyValue` to the current URL's anchor. |
+
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+| Class | Purpose | Default |
+| --- | --- | --- | --- |
+| `active` | The class to apply to the controller root element when the URL's anchor matches `keyValue` | | `active` |
+| `inactive` | The class to apply to the controller root element when the URL's anchor does not match `keyValue` | `inactive` |
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `key` | String | The anchor to associate with the behaviour you want to drive. | - |
+
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- |--- |
+|`anchor-spy:active` | When the page loads or the url changes and the anchor matches `keyValue` | The controller root element | - |
+|`anchor-spy:inactive` | When the page loads or the url changes and the anchor *does not match* `keyValue` | The controller root element | - |
+
+## Side Effects
+
+The controller will install event listeners for:
+
+`Window`:
+- `hashchange`
+
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/anchor_spy_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+

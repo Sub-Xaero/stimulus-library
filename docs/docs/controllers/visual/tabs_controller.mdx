@@ -1,0 +1,55 @@
+---
+id: TabsController
+title: TabsController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoEvents from "../../_partials/no-events.md";
+
+## Purpose
+
+Stimulus controller to enable a tabbed view of a page.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `link` | The tab headings/buttons that will be used to open the tabs | - |
+| `content` | The content panels for each tab. | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `active` (Optional) | The class that is applied to the current active panel and link  | `is-active` |
+| `hide` (Optional) | The class used to hide all inactive content panels  | `hide` |
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `currentTab` | Number | The currently selected tab (zero indexed). Setting the initial value/Changing this at any time will change which panel is shown. | `0` |
+| `equalize` | Boolean | Whether or not to make all content panels as big as the largest panel in the set. | `false` |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+
+The controller will add an event listener for `click` to all `link` targets.
+
+The controller will add `aria-selected` to the currently active `link` target.
+
+## How to Use
+
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/tabs_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+

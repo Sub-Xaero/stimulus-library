@@ -1,0 +1,56 @@
+---
+id: CheckboxDisableInputsController
+title: CheckboxDisableInputsController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+Disable other inputs if a checkbox is ticked.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `disabler` | The checkbox that will disable other inputs when it is checked, and enable them when it is *not* checked | - |
+| `disable` | The input(s) that will be disabled when the `disablerTarget` is checked | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `clear` | Boolean | Whether the controller should clear the targeted inputs when they become disabled | false |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+
+
+## How to Use
+
+Example - when creating an event that can have the `end_time` turned off with a boolean:
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/checkbox_disable_inputs_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+# See also
+
+[CheckboxEnableInputsController](./checkbox_enable_inputs_controller.mdx)
+[EnableInputsController](./enable_inputs_controller.mdx)

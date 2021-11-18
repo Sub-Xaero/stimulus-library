@@ -1,0 +1,64 @@
+---
+id: ScrollIntoFocusController
+title: ScrollIntoFocusController
+---
+
+
+import Ephemeral from "../../_partials/ephemeral.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+For elements that demand the user's attention, scroll an element into the view as it appears.
+
+<Ephemeral/>
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+See [scrollIntoView documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) for possible values.
+
+**Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default.
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `behaviour` | String | One of `auto`, `smooth` | `auto` |
+| `block` | String | One of `center`, `end`, `nearest`, `start` | `start` |
+| `inline` | String | One of `center`, `end`, `nearest`, `start` | `nearest` |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+
+
+## How to Use
+
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/scroll_into_focus_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+## See Also
+
+[Scroll Container Controller](./ScrollContainerController)
+[Scroll To Controller](./ScrollToController)
+[Scroll To Top Controller](./ScrollToTopController)
+[Scroll To Bottom Controller](./ScrollToBottomController)
+[Scroll Into Focus Controller](./ScrollIntoFocusController)

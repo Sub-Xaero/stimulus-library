@@ -1,0 +1,69 @@
+---
+id: FormRcController
+title: FormRcController
+---
+
+
+import NoClasses from "../../_partials/no-classes.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+Submit and/or reset a form, using links/buttons that are outside the child DOM of the form.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `reset` | Reset the form |
+| `submit` | Submit the form |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `form` (Optional) | The form to target the controller's actions on | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `formSelector` (Optional) | String | The CSS selector to find the form to remotely submit/reset | - |
+| `submitMode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/>  | `request` |
+
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `submit` [Native Browser Event] | When the form is submitted, via the `submit` action | The `form` target. | - |
+| `reset` [Native Browser Event] | When the form is reset, via the `reset` action | The `form` target. | - |
+
+## Side Effects
+
+- Adds event listeners for `change` or `input` (depending on the value of `eventModeValue`) to all `<input>` `<textarea>` and `<select>` elements in the controller's scope.
+- If the `submitModeValue` is `request` and the browser does not support `.requestSubmit()`, then the controller will use any existing submit buttons, or create a hidden submit button (which will be cleaned up on 'disconnect'), to submit the form by clicking on them.
+
+[See MSDN for details](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit)
+
+
+
+## How to Use
+
+### Option 1:
+Put the controller in a scope that can see a `formTarget`, and wire up some links with actions to `form-rc#submit`,
+
+### Option 2:
+Put the controller in a scope with some links with actions to `form-rc#submit`, and a CSS selector
+provided to the controller via `formSelectorValue` that it can use to find the form in the page,
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/form_rc_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+

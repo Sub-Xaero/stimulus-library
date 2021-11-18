@@ -1,0 +1,51 @@
+---
+id: TimeoutController
+title: TimeoutController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+Utility controller to wire up other controller actions that need to fire after an elapsed time.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `seconds` | Number | The number of seconds until the action fires | - |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- |--- | --- |
+|`timeout:action` | Fired after `secondsValue` seconds, used to wire your desired controller actions to | the controller root element | `element`: the controller root element |
+
+## Side Effects
+
+Calls `setTimeout` with the desired timeout. Cleans up on disconnect if that happens before timeout occurs.
+
+## How to Use
+
+An example: Show a marketing popup after 30 seconds.
+
+```html
+<div data-controller="popup dismissable" data-action="timeout:action->popup#open">
+  <meta data-controller="timeout" data-timeout-seconds-value="30" />
+  <p>Sign up to get great deals!</p>
+
+  <a data-action="click->dismissable#dismiss">No thanks</a>
+</div>
+```

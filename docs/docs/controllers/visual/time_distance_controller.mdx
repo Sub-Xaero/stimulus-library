@@ -1,0 +1,62 @@
+---
+id: TimeDistanceController
+title: TimeDistanceController
+---
+
+
+import NoEvents from "../../_partials/no-events.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoTargets from "../../_partials/no-targets.md";
+
+
+## Purpose
+
+A controller that displays the distance in words between the specified time and the current time. Works for both past and future dates.
+
+Inspired by https://apidock.com/rails/ActionView/Helpers/DateHelper/distance_of_time_in_words, but updates in real time.
+
+Implemented using https://date-fns.org/v2.21.1/docs/intervalToDuration, wrapped in intelligent timing code that automatically works out how often to update the API.
+
+Fire and forget. The only configuration this controller takes is the timestamp.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `timestamp` | String | The UNIX timestamp in seconds of the date/time to show "time ago" for | - |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+
+The controller will set increasingly infrequent timeouts using `setTimeout` according to the distance to the timestamp in `timestampValue`. As the time gets further away, the controller updates the text lest frequently.
+
+- If the timestamp was seconds/minutes ago, the controller will set timeouts to update the text every ~30 seconds.
+- If the timestamp was hours ago, the controller will set timeouts to update the text every ~30 minutes.
+- If the timestamp was days or more ago, the controller will not set any timeouts.
+
+All timeouts are cleaned up when the controller disconnects.
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/time_distance_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+
