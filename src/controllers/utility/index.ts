@@ -1,4 +1,5 @@
 export * from './alert_controller';
+export * from './fullscreen_controller';
 export * from './intersection_controller';
 export * from './interval_controller';
 export * from './presence_controller';
