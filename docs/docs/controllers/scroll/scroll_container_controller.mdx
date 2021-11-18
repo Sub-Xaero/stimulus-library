@@ -1,0 +1,65 @@
+---
+id: ScrollContainerController
+title: ScrollContainerController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+Controller to be used on a scrollable container element, to enable control over the scroll height of the container.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `scrollTop` | Scroll to the very top of the element |
+| `scrollBottom` |  Scroll to the very bottom of the element  |
+| `scrollLeft` | Scroll to the very left of the element |
+| `scrollRight` |  Scroll to the very right of the element  |
+| `up` | Scroll up by `incrementAmount` in 'px' |
+| `down` | Scroll down by `incrementAmount` in 'px' |
+| `left` | Scroll left by `incrementAmount` in 'px' |
+| `right` | Scroll right by `incrementAmount` in 'px' |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+See [ScrollToOptions documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollToOptions) for possible values for `behaviour`
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `behaviour` | String | One of `auto`, `smooth`. **Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default. | `auto` |
+| `increment` | Number | The amount to scroll by when using `up`, `down`, `left`, `right` actions | `50` |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+
+## How to Use
+
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/scroll_container.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+## See Also
+
+[Scroll To Controller](./ScrollToController)
+[Scroll To Top Controller](./ScrollToTopController)
+[Scroll To Bottom Controller](./ScrollToBottomController)
+[Scroll Into Focus Controller](./ScrollIntoFocusController)

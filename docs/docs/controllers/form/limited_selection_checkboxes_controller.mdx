@@ -1,0 +1,54 @@
+---
+id: LimitedSelectionCheckboxesController
+title: LimitedSelectionCheckboxesController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+To only allow a user to select a limited number of checkboxes
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `input` | The checkbox inputs to be included in the restricted selection | - |
+| `error` (Optional) | Where to show an error message when the user tries to select too many inputs | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `max` | Number | The maximum number of checkboxes that can be checked | - |
+| `message` (Optional) | String | The error message to show when the user selects too many checkboxes | - |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `limited-selection:selection` | When the user checks a checkbox successfully | the checkbox that was ticked | `target`: the element that the user selected |
+| `limited-selection:too-many` | When the user tries to select too many checkboxes | the checkbox that was ticked | `target`: the element that the user tried to select |
+
+## Side Effects
+<NoSideEffects/>
+
+
+## How to Use
+
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/limited_selection_checkboxes_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

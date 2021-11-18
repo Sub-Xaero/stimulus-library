@@ -1,0 +1,56 @@
+---
+id: ValueWarnController
+title: ValueWarnController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoEvents from "../../_partials/no-events.md";
+
+## Purpose
+
+Show a warning message when the user provided value of a numeric input (`<input type="number"/>`) exceeds the given bounds.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `input` | The `<input>` whose value will be tested | - |
+| `warning` | The place where the warning(s) will be output | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `inputWarning` (Optional) | The class(es) to apply to the `inputTarget` when the value of the input goes over/under the given thresholds | `-` |
+| `warningHide` (Optional) | The class used to hide the `warningTarget` when there are no errors | `hide` |
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `min` (Optional) | Number | The minimum value that `inputValue` can have | `-` |
+| `minMessage` (Optional) | String | The warning text to show in `warningTarget` when the value of `inputTarget` exceeds the minimum value  | `Value must be less than ${minValue}` |
+| `max` (Optional) | Number | The maximum value that `inputValue` can have | `-` |
+| `maxMessage` (Optional) | String | The warning text to show in `warningTarget` when the value of `inputTarget` exceeds the maximum value  | `Value must be greater than ${maxValue}` |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+
+The controller will add an event listener for `input` to the `input` target.
+
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/value_warn_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+

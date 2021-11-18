@@ -1,0 +1,63 @@
+---
+id: FallbackImageController
+title: FallbackImageController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoTargets from "../../_partials/no-targets.md";
+
+## Purpose
+
+If an image fails to load from the source, provide a fallback image, or hide it from the DOM altogether to prevent the unsightly little broken-image icon.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `success` (Optional) | The class that will be applied to the image if the image loads successfully | - |
+| `fail` (Optional) | The class that will be applied to the image if the fallback is triggered | - |
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `placeholder` (Optional) | String | The URL of a fallback image to be displayed if the `<img>`'s `src` cannot be loaded. | The `<img>`'s `src` |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `fallback-image:placeholder` | When the image fails to load and falls back to the placeholder | The controller root element | - |
+| `fallback-image:fail` | When the image and the placeholder (if any) fails to load | The controller root element | - |
+
+
+## Side Effects
+
+- Sets an `onError` handler for the mounted `<img>` tag.
+- Sets the style of the image to be `display: none` if the image fails to load.
+
+
+## How to Use
+
+If an image fails to load, the controller will either try to set the `src` to a placeholder image you provide, or hide the image using `display: none`.
+
+If the placeholder URL you provide *also* fails to load, the controller will fall back to the default behaviour of hiding the element.
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/fallback_image_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+
+
+

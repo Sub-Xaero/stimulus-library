@@ -1,0 +1,52 @@
+---
+id: ConfirmController
+title: ConfirmController
+---
+
+
+import NoActions from "../../_partials/no-actions.md";
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+To allow links and forms to open a confirmation dialogue before proceeding with their default behaviour.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `message` | String | The message to show to the user (if supported by the browser) | The native browser `are you sure?` dialogue |
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `confirm:cancelled` | Fired when the user cancels the action | The controller element | - |
+
+
+## Side Effects
+
+Adds event listeners to the controller root element. Either `submit` for forms, or `click`  for links.
+
+Shows a native confirmation dialogue using `window.confirm` to the user with the specified message if they trigger the event.
+
+
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/confirm_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

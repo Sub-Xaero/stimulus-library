@@ -1,0 +1,60 @@
+---
+id: MediaPlayerController
+title: MediaPlayerController
+---
+
+
+import NoValues from "../../_partials/no-values.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+A thin stimulus controller wrapper around the native HTML5 video and audio tag controls.
+
+Provides the following basic interactions:
+
+- Play
+- Pause
+- Seek
+- Restart
+
+See https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ for more information.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `play` | Play the media |
+| `pause` | Pause the media |
+| `restart` | Set the player to the start of the media |
+| `seek` | Advance the player by 5 seconds |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target | Purpose | Default |
+| --- | --- | --- |
+| `media` | The `<video>` or `<audio>` to be controlled | - |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+This controller is just a thin wrapper around the Javascript controls for HTML5 `<video>` and `<audio>` tags.
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/media_player_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

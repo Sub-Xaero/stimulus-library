@@ -1,0 +1,49 @@
+---
+id: DetectDirtyController
+title: DetectDirtyController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoValues from "../../_partials/no-values.md";
+import NoEvents from "../../_partials/no-events.md";
+
+## Purpose
+
+Track whether an `<input>`, `<textarea>` or `<select>` has changed their value from the value they loaded with.
+
+Adds `data-dirty` to the input being watched if it changes value, and removes it if it returns to its initial value.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `restore` | Return the input to its original value |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+<NoEvents/>
+
+## Side Effects
+
+Adds `input` and `change` event listeners to the attached input.
+
+
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/detect_dirty_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

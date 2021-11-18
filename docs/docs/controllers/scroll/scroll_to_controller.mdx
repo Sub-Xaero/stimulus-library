@@ -1,0 +1,63 @@
+---
+id: ScrollToController
+title: ScrollToController
+---
+
+
+import NoEvents from "../../_partials/no-events.md";
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+Enable links to scroll to arbitrary elements using smooth-scroll.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `scroll` | Perform the scroll |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+See [scrollIntoView documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) for possible values for `behaviour`, `block`, and `inline`.
+
+**Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default.
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `target` | String | A CSS selector to the element you wish to scroll to | - |
+| `behaviour` | String | One of `auto`, `smooth` | `auto` |
+| `block` | String | One of `center`, `end`, `nearest`, `start` | `start` |
+| `inline` | String | One of `center`, `end`, `nearest`, `start` | `nearest` |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+
+## How to Use
+
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/scroll_to_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+## See Also
+
+[Scroll Container Controller](./ScrollContainerController)
+[Scroll To Top Controller](./ScrollToTopController)
+[Scroll To Bottom Controller](./ScrollToBottomController)
+[Scroll Into Focus Controller](./ScrollIntoFocusController)

@@ -1,0 +1,51 @@
+---
+id: DetectDirtyFormController
+title: DetectDirtyFormController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoValues from "../../_partials/no-values.md";
+import NoEvents from "../../_partials/no-events.md";
+
+## Purpose
+
+Track whether any of the inputs elements of a `<form>` have changed their value from the value they loaded with.
+
+Adds `data-dirty` to any inputs being watched that change value, and removes `data-dirty` if it returns to its initial value.
+
+Adds `data-dirty` to the form if any of the child inputs are different to the value they loaded with, and removes it when all elements are returned to their initial values.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action | Purpose |
+| --- | --- |
+| `restore` | Return the form and all inputs to their original value |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+<NoEvents/>
+
+## Side Effects
+
+Adds `input` and `change` event listeners to the attached form, bubbled up from any child inputs.
+
+
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.appcontrollers/detect_dirty_form_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
