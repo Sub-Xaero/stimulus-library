@@ -61,6 +61,8 @@ import {
   ScrollToController,
   ScrollToTopController,
   SelfDestructController,
+  SignalInputController,
+  SignalVisibilityController,
   StickyController,
   SyncInputsController,
   TableSortController,
@@ -138,6 +140,8 @@ app.register("print-button", PrintButtonController);
 app.register("remote-form", RemoteFormController);
 app.register("responsive-iframe-body", ResponsiveIframeBodyController);
 app.register("responsive-iframe-wrapper", ResponsiveIframeWrapperController);
+app.register("signal-input", SignalInputController);
+app.register("signal-visibility", SignalVisibilityController);
 app.register("scroll-container", ScrollContainerController);
 app.register("scroll-into-focus", ScrollIntoFocusController);
 app.register("scroll-to-bottom", ScrollToBottomController);
