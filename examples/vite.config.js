@@ -51,6 +51,7 @@ module.exports = defineConfig({
         print_button_controller: resolve(__dirname, "controllers/print_button_controller.html"),
         print_controller: resolve(__dirname, "controllers/print_controller.html"),
         scroll_controller: resolve(__dirname, "controllers/scroll_controller.html"),
+        signal_input_controller: resolve(__dirname, "controllers/signal_input_controller.html"),
         scroll_into_focus_controller: resolve(__dirname, "controllers/scroll_into_focus_controller.html"),
         scroll_to_controller: resolve(__dirname, "controllers/scroll_to_controller.html"),
         scroll_top_controller: resolve(__dirname, "controllers/scroll_top_controller.html"),

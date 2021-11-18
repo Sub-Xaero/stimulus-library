@@ -3,6 +3,7 @@ export * from './ajax';
 export * from './forms';
 export * from './media';
 export * from './scroll';
+export * from './signal';
 export * from './tables';
 export * from './utility';
 export * from './visual';

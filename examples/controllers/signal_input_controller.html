@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Signal Input Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <label class="form-label">
+        How old are you?
+        <input type="text" name="age" class="form-control" data-controller="signal-input">
+      </label>
+
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value="default"
+      >
+        <p>Please type something</p>
+      </div>
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value="<12"
+      >
+        <p>This content only applies to children</p>
+      </div>
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value=">12&&<20"
+      >
+        <p>This content only applies to teenagers</p>
+      </div>
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value="<15"
+      >
+        <p>This content only applies to everyone under 15</p>
+      </div>
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value=">18&&<60&&!=23"
+      >
+        <p>This content only applies to over 18s</p>
+      </div>
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value="==23"
+      >
+        <p>This content only applies to people who are exactly 23</p>
+      </div>
+      <div
+        class="mt-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="age"
+        data-signal-visibility-show-value=">=60"
+      >
+        <p>This content only applies to over 60s</p>
+      </div>
+
+
+      <hr>
+      <div class="">
+        <div class="row justify-content-center mb-4">
+          <div class="col col-3">
+            <div class="form-check">
+              <input type="checkbox" name="showMe" class="form-check-input" data-controller="signal-input">
+              <label class="form-check-label">Show me more</label>
+            </div>
+          </div>
+        </div>
+
+
+        <div
+          class="alert alert-info"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="showMe"
+          data-signal-visibility-show-value="==true"
+        >
+          Gabaliums congregabo, tanquam regius candidatus.
+        </div>
+        <div
+          class="alert alert-dark"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="showMe"
+          data-signal-visibility-show-value="==false"
+        >
+          Fine then, I won't show you more
+        </div>
+      </div>
+      <hr>
+      <div>
+        <label class="form-label">
+          Select your favourite colour
+          <select name="colour" class="form-control" data-controller="signal-input">
+            <option value=""></option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+          </select>
+        </label>
+
+        <div
+          class="favourite-colour"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="colour"
+          data-signal-visibility-show-value="default"
+        >
+          Pick a colour, any colour.
+        </div>
+        <div
+          style="background: #ff4242"
+          class="favourite-colour"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="colour"
+          data-signal-visibility-show-value="==red"
+        >
+          OMG me too! I LOVE Red
+        </div>
+        <div
+          style="background: #04ef04"
+          class="favourite-colour"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="colour"
+          data-signal-visibility-show-value="==green"
+        >
+          OMG me too! I LOVE Green
+        </div>
+        <div
+          style="background: #3838d2"
+          class="favourite-colour"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="colour"
+          data-signal-visibility-show-value="==blue"
+        >
+          OMG me too! I LOVE Blue
+        </div>
+
+      </div>
+
+    </div>
+
+    <style>
+      .hide {
+        display: none;
+      }
+
+      .favourite-colour {
+        padding: 2em;
+        margin: 2em;
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
