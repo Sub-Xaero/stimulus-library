@@ -9,8 +9,8 @@ import {
   AlertController,
   AnchorSpyController,
   AsyncBlockController,
-  AutosizeController,
   AutoSubmitFormController,
+  AutosizeController,
   BackLinkController,
   CharCountController,
   CheckboxDisableInputsController,
@@ -35,6 +35,7 @@ import {
   FocusStealController,
   FormRcController,
   FormSaveController,
+  FullscreenController,
   IntersectionController,
   IntervalController,
   LazyBlockController,
@@ -117,6 +118,7 @@ app.register("fallback-image", FallbackImageController);
 app.register("focus-steal", FocusStealController);
 app.register("form-rc", FormRcController);
 app.register("form-save", FormSaveController);
+app.register("fullscreen", FullscreenController);
 app.register("intersection", IntersectionController);
 app.register("interval", IntervalController);
 app.register("lazy-block", LazyBlockController);
@@ -131,8 +133,8 @@ app.register("password-peek", PasswordPeekController);
 app.register("poll-block", PollBlockController);
 app.register("prefetch", PrefetchController);
 app.register("presence", PresenceController);
-app.register("print-button", PrintButtonController);
 app.register("print", PrintController);
+app.register("print-button", PrintButtonController);
 app.register("remote-form", RemoteFormController);
 app.register("responsive-iframe-body", ResponsiveIframeBodyController);
 app.register("responsive-iframe-wrapper", ResponsiveIframeWrapperController);

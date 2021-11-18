@@ -1,0 +1,47 @@
+---
+id: FullscreenController
+title: FullscreenController
+---
+
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoValues from "../../_partials/no-values.md";
+import NoEvents from "../../_partials/no-events.md";
+
+## Purpose
+
+Utility controller that can open/close/toggle fullscreen for an element or page in response to actions.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+| Action | Purpose |
+| --- | --- |
+| `enter` | Enter fullscreen mode on the element or page. |
+| `exit` | Exit fullscreen for the element or page. |
+| `toggle` | Toggle fullscreen on the element or page. Open fullscreen if not already open. Close fullscreen if already open. |
+
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+<NoEvents/>
+
+## Side Effects
+Sets an event listener for `fullscreenchange` to keep track of the fullscreen state of the app.
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.app/controllers/fullscreen_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
