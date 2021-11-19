@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.2...v0.6.3) (2021-11-19)
+
+
+### Features
+
+* New pair of controllers SignalInputController and SignalVisibilityController. SignalInputController is a controller that broadcasts changes to an input's value, and SignalVisibilityController is a controller that can live anywhere in the DOM and react to named input events to hide or show content based on whether the value of the input matches simple predicates expressions i.e. `>3 && <10`. ([5e3db6c](https://github.com/Sub-Xaero/stimulus-library/commit/5e3db6c3c5fe6d7516a9b1f7a698767149c0eca7))
+* **Controllers:** New utility controller FullscreenController for toggling fullscreen for a page or element in response to an event/action ([cad6d46](https://github.com/Sub-Xaero/stimulus-library/commit/cad6d4613575cbec6bf079367124d729d73171f7))
+* **Mixins:** New mixin useFullscreen for enabling controllers to toggle fullscreen for a page or element ([533db5a](https://github.com/Sub-Xaero/stimulus-library/commit/533db5a5b83e3697b0356d05903a71afacc54b0e))
+* Add functionality to AsyncBlock, PollBlock, LazyBlock and LoadBlock controllers to allow them to retry fetching content a set number of times when network errors occur. ([3368392](https://github.com/Sub-Xaero/stimulus-library/commit/33683923ad3a47e93565b87a4f5a5fcb484b1f2f))
+* Add functionality to enable TrixModifierController to strip disallowed formatting from pasted text. ([acfa0a7](https://github.com/Sub-Xaero/stimulus-library/commit/acfa0a7f24a21017a9a8d5c6cbc27b14e6d0b922))
+* AlertController - Small utility controller to fire alerts() in response to stimulus actions ([ca23d76](https://github.com/Sub-Xaero/stimulus-library/commit/ca23d76f55de26aa3532a27cc828098a2d26d009))
+* AnchorSpyController - Add active and inactive classes to the controller element when the URL's hash matches, or doesnt match ([5ad8dbc](https://github.com/Sub-Xaero/stimulus-library/commit/5ad8dbc192dba8781e5a0513ab2ca7acf50415ca))
+* CheckboxSelectAllController - Only tick checkboxes that are not readonly and not disabled ([fe9d185](https://github.com/Sub-Xaero/stimulus-library/commit/fe9d185bbe278fa93e349cc83139fbeb5447727f))
+* CheckboxXORController - Controller to make a group of checkboxes behave like a radio button group where only one can be checked at a time. ([fb508bb](https://github.com/Sub-Xaero/stimulus-library/commit/fb508bb4ba8825c78fac00cc3c484f46a0a26f26))
+* Controller for modifying ActionText/Trix behaviours. ([0d9c0ef](https://github.com/Sub-Xaero/stimulus-library/commit/0d9c0efa35d9f5fec8b3979fdc7b2ce868106246))
+* NavigateFormErrorsController - Add current class to the element/error that is currently targeted by the controller ([a5ac9eb](https://github.com/Sub-Xaero/stimulus-library/commit/a5ac9ebeee8d3b5c27ea2ce045cf2de771f10a4b))
+* **Mixins:** New mixins useCollectionEventListeners and useCollectionEventListener for adding event listeners to entire collections of elements ([f579b82](https://github.com/Sub-Xaero/stimulus-library/commit/f579b825397555f55aa8dd086541493a96bc80a2))
+
+
+### Bug Fixes
+
+* DurationController - Use new cleanup method for cleaning up event listeners early if errors occur during update ([e5682f8](https://github.com/Sub-Xaero/stimulus-library/commit/e5682f8f1ac59ab716e0ec8502438c22abb1aac8))
+* Fix to FormRCController sometimes not submitting when form could not be detected from submit event ([cd29f13](https://github.com/Sub-Xaero/stimulus-library/commit/cd29f13e9a47f1e3ca3689e21b0ca3f84bd731f3))
+* PresenceController - Fix event name not matching documentation ([0ab4011](https://github.com/Sub-Xaero/stimulus-library/commit/0ab40117e9289cc127b73f0010c90fede5f70fb0))
+
 ### [0.6.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.1...v0.6.2) (2021-11-03)
 
 
