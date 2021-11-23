@@ -1,0 +1,92 @@
+---
+id: SignalVisibilityController
+title: SignalVisibilityController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+A controller that responds to SignalInputController notifications. This controller can hide or show its content
+based on the expression given in `showValue`, which it will use to evaluate the value of the input.
+based on changes to inputs and their values.
+
+This controller can be anywhere in the DOM tree and it will receive notifications from any SignalInputController with
+the same `nameValue` as the `nameValue` of this controller.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+| Class | Purpose | Default |
+| --- | --- | --- |
+| `hide` | The class used to hide the content of the element when the `showValue` expression evaluates to false | `hide` |
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `name` | String | The name of the input value whose value to react to. This name should be the same as the `nameValue` of the SignalInputController you want to sync with.  | `-` |
+| `show` | String | A simple expression which will be evaluated against the value received from SignalInputController. If the expression evaluates to true, the `hideClass` is removed from the element. If the expression evaluates to false, the `hideClass` is added to the element. | `-` |
+
+Expressions follow the syntax of `[operator][value]` e.g. `<3` or `>=3` and can be combined with `&&` and `||` operators.
+
+Example expressions that can be provided to `showValue`:
+
+| Expression | Explanation |
+| --- | --- |
+|`default`| will be shown when the value is empty |
+|`>0`| |
+|`>= 50 && <100`| |
+|`=red`| |
+|`!=black and yellow`| Everything that is not an operator is treated as a value. This is evaluated as `inputValue != "black and yellow"` |
+|<code>=23 &#124;&#124; =25</code>| |
+
+Supported operators:
+
+| Operator |
+| --- |
+|`default` <br/>evaluates to true when value is empty, e.g. `""` |
+| `=` |
+| <code>&amp;&amp;</code> |
+| <code>&#124;&#124;</code> |
+| <code>&gt;</code> |
+| <code>&gt;=</code> |
+| <code>&lt;</code> |
+| <code>&lt;=</code> |
+
+___Note___: Only _simple_ expressions are supported.
+Logical groupings e.g. `(a || b) && c` are not supported. <br/>
+Variable bindings e.e. `<=a` are not supported. <br/>
+You can only use only one type of logical concatenation at a time. i.e. `>3 && =5 && <10`, or `>3 || =5 || <10`. Expressions that mix the two, i.e. `>3 || =2 && <10` are not supported.
+
+
+
+___Security Note___: This controller is designed to be *safe*. It does not violate any strong CSP policies, and it does ___NOT___ use `eval()`.
+The expressions are parsed as strings and predicate functions are created based on the presence or absence of recognised operators in the string, and the values that the SignalInputController broadcasts from the user are tested against the expression using
+built-in JavaScript operators for each math operation.
+
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+<iframe
+  src="https://stimulus-library.netlify.app/controllers/signal_input_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+

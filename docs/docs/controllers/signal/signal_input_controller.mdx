@@ -1,0 +1,53 @@
+---
+id: SignalInputController
+title: SignalInputController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoActions from "../../_partials/no-actions.md";
+
+## Purpose
+
+A controller that listens for `input` and `change` events on the `<input>`, `<select>` or `<textarea>` element the
+controller is attached to, and notifies any other Signal controllers that have subscribed by referencing
+the same `nameValue` as this controller, or the same name attribute of the element that this controller is attached to.
+
+This controller works in conjunction with the other `Signal*` controllers to enabled more complex interactions
+based on changes to inputs and their values.
+
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `name` (Optional) | String | The name of the input value whose value to react to. By default this is the name attribute of the input this controller is attached to. You can override the name used by providing this value.  | The `[name]` attribute of the controller root element |
+| `debounceInterval` (Optional) | String | The amount of time in milliseconds to [debounce](https://css-tricks.com/debouncing-throttling-explained-examples/) `input` events by. If you only want input events to trigger 1 second after the user stops typing, specify "1000". | `1000` |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+Installs `change` and `input` event handlers on the element this controller is attached to.
+
+## How to Use
+
+<iframe
+  src="https://stimulus-library.netlify.app/controllers/signal_input_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+
