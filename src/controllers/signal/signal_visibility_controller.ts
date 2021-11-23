@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {EventBus} from "../../utilities/event_bus";
+import {useEventBus} from "../../mixins/use_event_bus";
 import {SignalPayload} from "./signal_input_controller";
 import {extractPredicates} from "./expressions";
 
@@ -33,12 +33,8 @@ export class SignalVisibilityController extends BaseController {
     return `signal:value:${this.nameValue}`;
   }
 
-  initialize() {
-    this._onSignal = this._onSignal.bind(this);
-  }
-
   connect() {
-    EventBus.on(this._eventName, this._onSignal);
+    useEventBus(this, this._eventName, this._onSignal);
   }
 
   _onSignal(payload: SignalPayload) {
