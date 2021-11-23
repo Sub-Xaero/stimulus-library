@@ -8,13 +8,13 @@ export class EphemeralController extends BaseController {
   }
 
   cleanup(element: HTMLElement) {
-    element.dataset.controller = element.dataset.controller?.replaceAll(new RegExp(`(\s|^)${this.identifier}(\s|$)`, "g"), "") || "";
+    element.dataset.controller = element.dataset.controller?.replaceAll(new RegExp(`(\\s|^)${this.identifier}(\\s|$)`, "g"), "") || "";
     if (element.dataset.controller == "") {
       // If there are no controllers left, remove the attribute
       delete element.dataset.controller;
     }
 
-    let substringIdentifierValueRegex = new RegExp(`(\s|^)${this.identifier}\\..+?(\s|$)`, "g");
+    let substringIdentifierValueRegex = new RegExp(`(\\s|^)${this.identifier}\\..+?(\\s|$)`, "g");
     element.dataset.target = element.dataset.target?.replaceAll(substringIdentifierValueRegex, "") || "";
     delete element.dataset[camelCase(`${this.identifier}-target`)];
     if (element.dataset.target == "") {
