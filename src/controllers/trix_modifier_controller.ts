@@ -20,10 +20,6 @@ interface TrixPasteEvent extends CustomEvent {
 
 export class TrixModifierController extends BaseController {
 
-  connect() {
-    installsTrixBehaviour(this);
-  }
-
   get enabledBehaviours(): TrixInstallable[] {
     let enabled = (datasetProp: string | undefined) => datasetProp !== undefined && datasetProp !== 'false';
     let behaviourIfEnabled = (datasetProp: string | undefined, trixInstallable: TrixInstallable) => enabled(datasetProp) ? [trixInstallable] : [];
@@ -40,18 +36,6 @@ export class TrixModifierController extends BaseController {
       ...(behaviourIfEnabled(this.el.dataset.noQuote, this.quote)),
       ...(behaviourIfEnabled(this.el.dataset.noFileUploads, this.fileUploads)),
     ];
-  }
-
-  install(elements: TrixElementsPayload) {
-    this.enabledBehaviours.forEach(behaviour => behaviour.install(elements));
-  }
-
-  pasteEvent(event: TrixPasteEvent) {
-    this.enabledBehaviours.forEach(behaviour => behaviour.pasteEvent && behaviour.pasteEvent(event));
-  }
-
-  uninstall(elements: TrixElementsPayload) {
-    this.enabledBehaviours.forEach(behaviour => behaviour.uninstall(elements));
   }
 
   get bold() {
@@ -122,6 +106,22 @@ export class TrixModifierController extends BaseController {
         self.el.removeEventListener('trix-file-accept', preventUploads);
       },
     };
+  }
+
+  connect() {
+    installsTrixBehaviour(this);
+  }
+
+  install(elements: TrixElementsPayload) {
+    this.enabledBehaviours.forEach(behaviour => behaviour.install(elements));
+  }
+
+  pasteEvent(event: TrixPasteEvent) {
+    this.enabledBehaviours.forEach(behaviour => behaviour.pasteEvent && behaviour.pasteEvent(event));
+  }
+
+  uninstall(elements: TrixElementsPayload) {
+    this.enabledBehaviours.forEach(behaviour => behaviour.uninstall(elements));
   }
 
   simpleHideShowHandlers(selector: string) {

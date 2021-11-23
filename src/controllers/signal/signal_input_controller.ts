@@ -19,13 +19,12 @@ export class SignalInputController extends BaseController {
 
   declare debounceIntervalValue: number;
   declare readonly hasDebounceIntervalValue: boolean;
+  declare nameValue: string;
+  declare hasNameValue: boolean;
 
   get _debounceTimeout(): number | null {
     return this.hasDebounceIntervalValue ? this.debounceIntervalValue : null;
   }
-
-  declare nameValue: string;
-  declare hasNameValue: boolean;
 
   get _name(): string {
     return this.hasNameValue ? this.nameValue : (this.element as HTMLInputElement).name;

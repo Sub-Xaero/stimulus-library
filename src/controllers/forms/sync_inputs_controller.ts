@@ -53,7 +53,7 @@ export class SyncInputsController extends BaseController {
   }
 
   connect() {
-    useEventBus(this, this._eventName, this._read)
+    useEventBus(this, this._eventName, this._read);
 
     requestAnimationFrame(() => {
       if (isTypeOfFormInputElement(this.el)) {

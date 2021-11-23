@@ -5,7 +5,7 @@ import {installClassMethods} from "../../mixins/install_class_methods";
 export class WordCountController extends BaseController {
 
   static targets = ["input", "output"];
-  static values = {min: Number, max: Number,};
+  static values = {min: Number, max: Number};
   static classes = ["error"];
 
   declare readonly inputTarget: HTMLInputElement | HTMLTextAreaElement;

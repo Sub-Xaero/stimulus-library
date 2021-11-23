@@ -49,12 +49,12 @@ export class TableSortController extends BaseController {
     let headerCellIndex = this._indexOfHeaderCell(headerCell);
     if (headerCell.dataset.sort == "asc") {
       this._reverse = true;
-      this._otherHeaderCells(headerCell).forEach(cell => delete cell.dataset.sort)
+      this._otherHeaderCells(headerCell).forEach(cell => delete cell.dataset.sort);
       headerCell.dataset.sort = "desc";
       this._sortByColumn(headerCellIndex);
     } else {
       this._reverse = false;
-      this._otherHeaderCells(headerCell).forEach(cell => delete cell.dataset.sort)
+      this._otherHeaderCells(headerCell).forEach(cell => delete cell.dataset.sort);
       headerCell.dataset.sort = "asc";
       this._sortByColumn(headerCellIndex);
     }
