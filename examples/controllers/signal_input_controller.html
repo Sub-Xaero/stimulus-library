@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Signal Input Controller</title>
   </head>
   <body>
     <div class="container p-4 text-center">
       <label class="form-label">
         How old are you?
-        <input type="text" name="age" class="form-control" data-controller="signal-input">
+        <input class="form-control" data-controller="signal-input" name="age" type="number">
       </label>
 
       <div
@@ -67,16 +67,15 @@
         data-signal-visibility-name-value="age"
         data-signal-visibility-show-value=">=60"
       >
-        <p>This content only applies to over 60s</p>
+        <p>This content only applies to people aged 60 or over</p>
       </div>
-
 
       <hr>
       <div class="">
         <div class="row justify-content-center mb-4">
           <div class="col col-3">
             <div class="form-check">
-              <input type="checkbox" name="showMe" class="form-check-input" data-controller="signal-input">
+              <input class="form-check-input" data-controller="signal-input" name="showMe" type="checkbox">
               <label class="form-check-label">Show me more</label>
             </div>
           </div>
@@ -104,11 +103,12 @@
       <div>
         <label class="form-label">
           Select your favourite colour
-          <select name="colour" class="form-control" data-controller="signal-input">
+          <select class="form-control" data-controller="signal-input" name="colour">
             <option value=""></option>
             <option value="red">Red</option>
             <option value="green">Green</option>
             <option value="blue">Blue</option>
+            <option value="blue & purple">Blue & Purple</option>
           </select>
         </label>
 
@@ -121,33 +121,123 @@
           Pick a colour, any colour.
         </div>
         <div
-          style="background: #ff4242"
           class="favourite-colour"
           data-controller="signal-visibility"
           data-signal-visibility-name-value="colour"
           data-signal-visibility-show-value="==red"
+          style="background: #ff4242"
         >
           OMG me too! I LOVE Red
         </div>
         <div
-          style="background: #04ef04"
           class="favourite-colour"
           data-controller="signal-visibility"
           data-signal-visibility-name-value="colour"
           data-signal-visibility-show-value="==green"
+          style="background: #04ef04"
         >
           OMG me too! I LOVE Green
         </div>
         <div
-          style="background: #3838d2"
           class="favourite-colour"
           data-controller="signal-visibility"
           data-signal-visibility-name-value="colour"
           data-signal-visibility-show-value="==blue"
+          style="background: #3838d2"
         >
           OMG me too! I LOVE Blue
         </div>
+        <div
+          class="favourite-colour"
+          data-controller="signal-visibility"
+          data-signal-visibility-name-value="colour"
+          data-signal-visibility-show-value="==blue & purple"
+          style="background: #5028ad"
+        >
+          OMG me too! I LOVE Blurple
+        </div>
+      </div>
 
+
+      <div>
+        <label class="form-label">
+          Do coconuts migrate?
+        </label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input"
+                   data-controller="signal-input"
+                   name="coconutMigration"
+                   type="radio"
+                   value="N/A"/>
+            What kind of question is this?
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input"
+                   data-controller="signal-input"
+                   name="coconutMigration"
+                   type="radio"
+                   value="Yes"/>
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input"
+                   data-controller="signal-input"
+                   name="coconutMigration"
+                   type="radio"
+                   value="No"/>
+            No
+          </label>
+        </div>
+      </div>
+
+      <div
+        class="alert alert-dark"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="coconutMigration"
+        data-signal-visibility-show-value="default"
+      >
+        Answer me, these questions three.
+      </div>
+
+      <div
+        class="alert alert-dark"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="coconutMigration"
+        data-signal-visibility-show-value="==N/A"
+      >
+        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                frameborder="0"
+                height="315"
+                src="https://www.youtube.com/embed/H4_9kDO3q0w"
+                title="YouTube video player"
+                width="560"></iframe>
+      </div>
+
+      <div
+        class="alert alert-dark"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="coconutMigration"
+        data-signal-visibility-show-value="==Yes"
+      >
+        Coconuts can not migrate.
+        They could, however, be carried by a swallow.
+        An African Swallow, if it were migratory, could grasp the coconut by the husk, or two European swallows flying
+        together using a strand of creeper held under the dorsal guiding feathers.
+      </div>
+
+      <div
+        class="alert alert-dark"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="coconutMigration"
+        data-signal-visibility-show-value="==No"
+      >
+        Who are You, Who are so Wise in the Ways of Science?
       </div>
 
     </div>
@@ -164,6 +254,6 @@
         border: 1px solid white;
       }
     </style>
-    <script type="module" src="/main.js"></script>
+    <script src="/main.js" type="module"></script>
   </body>
 </html>
