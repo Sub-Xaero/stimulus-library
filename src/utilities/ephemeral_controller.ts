@@ -1,4 +1,4 @@
-import camelCase from "camelcase";
+import {camelCase} from "lodash-es";
 import {BaseController} from "./base_controller";
 
 export class EphemeralController extends BaseController {
