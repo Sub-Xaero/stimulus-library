@@ -1,6 +1,6 @@
 describe('PreloadController', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/preload_controller.html');
+    cy.visit('controllers/preload_controller.html');
   });
   it('When the user hovers over a preload enabled element, a link[ref="prefetch"] is created in the DOM', () => {
     cy.get('link[rel="prefetch"]').should('not.exist');

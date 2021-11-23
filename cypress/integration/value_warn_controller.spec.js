@@ -1,6 +1,6 @@
 describe('Value Warn Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/value_warn_controller.html');
+    cy.visit('controllers/value_warn_controller.html');
   });
   it('sets a warning class when the user inputted value exceeds the given bounds', () => {
     cy.get('input').should('not.have.class', 'warn');

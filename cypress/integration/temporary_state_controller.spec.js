@@ -1,7 +1,7 @@
 describe('TemporaryStateController', () => {
   beforeEach(() => {
     cy.clock();
-    cy.visit('http://localhost:3000/controllers/temporary_state_controller.html');
+    cy.visit('controllers/temporary_state_controller.html');
   });
   it('Should automatically apply a value to an element, and remove it after the given time', () => {
     cy.tick(1000);

@@ -1,6 +1,6 @@
 describe('Fallback Image Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/fallback_image_controller.html');
+    cy.visit('controllers/fallback_image_controller.html');
   });
   it('Hides the element if a suitable fallback image cannot be shown when the src fails to load', () => {
     cy.get('#img-1').should('not.be.visible');

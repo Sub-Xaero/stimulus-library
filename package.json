@@ -39,6 +39,7 @@
     "dev:types": "tsc --emitDeclarationOnly --watch",
     "prepack": "yarn build",
     "release": "standard-version",
+    "test": "cypress run",
     "test:treeshake": "agadoo dist stimulus-library.js"
   },
   "dependencies": {

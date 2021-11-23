@@ -1,6 +1,6 @@
 describe('Word Count Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/word_count_controller.html');
+    cy.visit('controllers/word_count_controller.html');
   });
 
   it('should show the number of words in the textarea', () => {

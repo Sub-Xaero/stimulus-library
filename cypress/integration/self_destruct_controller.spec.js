@@ -1,7 +1,7 @@
 describe('Self destruct controller', () => {
   beforeEach(() => {
     cy.clock();
-    cy.visit('http://localhost:3000/controllers/self_destruct_controller.html');
+    cy.visit('controllers/self_destruct_controller.html');
   });
   it('Should automatically remove the element after the specified time', () => {
     cy.get('.alert[data-controller="self-destruct"]').click();

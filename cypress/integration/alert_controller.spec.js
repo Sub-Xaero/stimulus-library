@@ -1,6 +1,6 @@
 describe('Alert Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/alert_controller.html');
+    cy.visit('controllers/alert_controller.html');
   });
 
   it('Alerts the user when event is fired', () => {

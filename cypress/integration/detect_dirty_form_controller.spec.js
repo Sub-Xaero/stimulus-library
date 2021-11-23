@@ -1,6 +1,6 @@
 describe('Detect dirty form controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/detect_dirty_form_controller.html');
+    cy.visit('controllers/detect_dirty_form_controller.html');
   });
   it('Should set a data-dirty attribute when an of of a form\'s input are modified from the value it was created with', () => {
     cy.get('form').should('not.have.attr', 'data-dirty');

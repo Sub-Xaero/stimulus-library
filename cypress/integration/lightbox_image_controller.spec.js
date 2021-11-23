@@ -1,6 +1,6 @@
 describe('LightboxImageController', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/lightbox_image_controller.html');
+    cy.visit('controllers/lightbox_image_controller.html');
   });
 
   it('Clicking on an enabled image should open a dialogue', () => {

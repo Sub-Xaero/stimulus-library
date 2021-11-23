@@ -1,6 +1,6 @@
 describe('Scroll to controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/scroll_to_controller.html');
+    cy.visit('controllers/scroll_to_controller.html');
   });
   it('TODO');
 });

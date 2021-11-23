@@ -1,6 +1,6 @@
 describe('TabsController', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/tabs_controller.html');
+    cy.visit('controllers/tabs_controller.html');
   });
   it('Should set the appropriate class on the correct tab body when the tab header is clicked', () => {
     cy.get('li.tabs-title:nth-of-type(1)').click();

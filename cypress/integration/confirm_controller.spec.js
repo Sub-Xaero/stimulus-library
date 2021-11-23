@@ -1,6 +1,6 @@
 describe('Confirm Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/confirm_controller.html');
+    cy.visit('controllers/confirm_controller.html');
   });
   it('Shows a confirmation dialogue when the user clicks an enabled link', () => {
     cy.contains('Link with confirm').click();

@@ -1,6 +1,6 @@
 describe('Autosize Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/autosize_controller.html');
+    cy.visit('controllers/autosize_controller.html');
   });
 
   it('resizes the textarea as you type', () => {

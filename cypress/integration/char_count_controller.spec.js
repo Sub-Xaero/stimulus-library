@@ -1,6 +1,6 @@
 describe('Character Count Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/char_count_controller.html');
+    cy.visit('controllers/char_count_controller.html');
   });
 
   it('should show the number of characters in the textarea', () => {

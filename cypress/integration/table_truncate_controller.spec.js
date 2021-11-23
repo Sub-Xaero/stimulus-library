@@ -1,6 +1,6 @@
 describe('TableTruncateController', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/table_truncate_controller.html');
+    cy.visit('controllers/table_truncate_controller.html');
   });
   it('Should only show a subsection of table rows', () => {
     cy.get('tbody>tr:nth-child(1)>td').should('contain.text', 'Sally').should('be.visible');

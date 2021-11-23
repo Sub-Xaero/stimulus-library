@@ -1,7 +1,7 @@
 describe('ClockController', () => {
   beforeEach(() => {
     cy.clock(new Date(2021, 10, 11, 8, 0, 0).getTime());
-    cy.visit('http://localhost:3000/controllers/clock_controller.html');
+    cy.visit('controllers/clock_controller.html');
   });
   it('Shows a clock that ticks on its own and shows the correct time', () => {
     cy.tick(2000);

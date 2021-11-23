@@ -1,6 +1,6 @@
 describe('IntersectionController', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/intersection_controller.html');
+    cy.visit('controllers/intersection_controller.html');
   });
   it('When the viewport scrolls over the video element, the intersection controller should cause it to play', () => {
     cy.get('video').should('have.prop', 'paused', true);

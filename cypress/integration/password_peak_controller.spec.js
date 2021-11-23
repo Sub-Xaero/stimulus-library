@@ -1,6 +1,6 @@
 describe('Password Peak Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/password_peak_controller.html');
+    cy.visit('controllers/password_peak_controller.html');
   });
   it('should toggle the password field type between password and text', () => {
     cy.get('#password').type('password');

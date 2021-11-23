@@ -1,6 +1,6 @@
 describe('Limited selection checkboxes controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/limited_selection_checkboxes_controller.html');
+    cy.visit('controllers/limited_selection_checkboxes_controller.html');
   });
   it('should should an error if the user checks too many boxes', () => {
     cy.get('input[value="Chocolate"]').check();

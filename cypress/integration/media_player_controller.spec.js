@@ -1,6 +1,6 @@
 describe('Media Player Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/media_player_controller.html');
+    cy.visit('controllers/media_player_controller.html');
   });
   it('The controller should be able to control the media element ', () => {
     cy.get('video').should("have.prop", "paused", true)

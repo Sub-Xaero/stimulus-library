@@ -1,6 +1,6 @@
 describe('Signal Controllers', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/signal_input_controller.html');
+    cy.visit('controllers/signal_input_controller.html');
   });
   it('Should show the correct element for each expression', () => {
     let expressionTests = [

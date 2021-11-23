@@ -1,7 +1,7 @@
 describe('Duration Controller', () => {
   beforeEach(() => {
     cy.clock(1621556319 * 1000);
-    cy.visit('http://localhost:3000/controllers/duration_controller.html');
+    cy.visit('controllers/duration_controller.html');
   });
   it('Shows the amount of elapsed time since the given timestamp', () => {
     cy.tick(1500);

@@ -1,6 +1,6 @@
 describe('Password confirm controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/password_confirm_controller.html');
+    cy.visit('controllers/password_confirm_controller.html');
   });
 
   it('Should show an error if the two passwords are not the same', () => {

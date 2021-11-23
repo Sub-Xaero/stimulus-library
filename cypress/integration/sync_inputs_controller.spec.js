@@ -1,6 +1,6 @@
 describe('Sync inputs controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/sync_inputs_controller.html');
+    cy.visit('controllers/sync_inputs_controller.html');
   });
   it('TODO', () => {
     cy.get('span[data-sync-inputs-key-value="name"]').should('have.text', '');

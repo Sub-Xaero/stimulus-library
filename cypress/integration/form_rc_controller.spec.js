@@ -1,6 +1,6 @@
 describe('Form RC Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/form_rc_controller.html');
+    cy.visit('controllers/form_rc_controller.html');
   });
   it('The form should submit when an element from outside the scope triggers the #submit action', () => {
     cy.url().should('not.include', '&');

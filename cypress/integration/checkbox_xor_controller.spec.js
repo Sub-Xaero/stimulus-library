@@ -1,6 +1,6 @@
 describe('Checkbox XOR Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/checkbox_xor_controller.html');
+    cy.visit('controllers/checkbox_xor_controller.html');
   });
 
   it('should only allow one input to be checked at a time', () => {

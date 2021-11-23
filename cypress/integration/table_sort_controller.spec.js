@@ -1,6 +1,6 @@
 describe('Table Sort Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/table_sort_controller.html');
+    cy.visit('controllers/table_sort_controller.html');
   });
   it('Clicking a table header should sort the rows by that column', () => {
     cy.get('tbody>tr:nth-child(2)>td').should('contain', 'Sally');

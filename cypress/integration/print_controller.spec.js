@@ -1,6 +1,6 @@
 describe('PrintController', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/print_controller.html');
+    cy.visit('controllers/print_controller.html');
   });
   it('Triggers a print dialogue when the action fires', () => {
     let printStub;

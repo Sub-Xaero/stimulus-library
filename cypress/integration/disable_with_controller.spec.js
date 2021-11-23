@@ -1,6 +1,6 @@
 describe('Disable with controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/disable_with_controller.html');
+    cy.visit('controllers/disable_with_controller.html');
   });
 
   it('Should disable form buttons for a short time after click', () => {

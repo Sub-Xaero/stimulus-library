@@ -1,6 +1,6 @@
 describe('Checkbox Disable Inputs Controller', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/controllers/checkbox_disable_inputs_controller.html');
+    cy.visit('controllers/checkbox_disable_inputs_controller.html');
   });
   it('should disable other inputs when the checkbox is ticked', () => {
     cy.get('[data-checkbox-disable-inputs-target="disabler"]').should('not.be.checked')
