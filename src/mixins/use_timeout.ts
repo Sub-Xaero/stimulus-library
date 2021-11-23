@@ -7,10 +7,19 @@ export function useTimeout(controller: Controller, handler: (...args: any[]) => 
   handler = handler.bind(controller);
   let timeoutHandle: ReturnType<typeof window.setTimeout> | null = null;
 
-  let setup = () => timeoutHandle = setTimeout(handler, timeout);
+  let newHandler = () => {
+    handler();
+    timeoutHandle = null;
+    Object.assign(controller, {
+      disconnect: controllerDisconnect,
+    });
+  };
+
+  let setup = () => timeoutHandle = setTimeout(newHandler, timeout);
   let teardown = () => {
     if (timeoutHandle !== null) {
       clearTimeout(timeoutHandle);
+      timeoutHandle = null;
     }
   };
 
