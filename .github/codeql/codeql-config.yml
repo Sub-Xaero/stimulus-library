@@ -1,0 +1,7 @@
+paths:
+  - src
+paths-ignore:
+  - node_modules
+  - examples
+  - cypress
+  - '**/*.spec.js'
