@@ -34,6 +34,10 @@ function _predicateForExpression(expression: string): (val: string | number) => 
   let isNumber = /^-?[0-9]\d*(\.\d+)?$/.test(expressionValue);
   expressionValue = isNumber ? parseFloat(expressionValue) : expressionValue;
 
+  if (expressionValue == "") {
+    throw new Error(`Could not find a value in expression: ${expression}`);
+  }
+
   let notEmpty = (signalValue: string | number) => signalValue !== "";
 
   switch (operator) {
