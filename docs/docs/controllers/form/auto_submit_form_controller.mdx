@@ -32,7 +32,7 @@ Auto submits a form when and of its input's values change - i.e. autosave.
 | --- | --- | --- | --- |
 | `submitMode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/>  | `request` |
 | `eventMode` (Optional) | String | The type of event to monitor the form for before submitting, either `change`, `input` or `debounced`. <br/><br/>`change` will monitor all inputs for `change` events, i.e. when the user clicks away from a changed input.<br/><br/>`input` will monitor all inputs for `input` events, i.e. every keypress the user types into a form input.<br/><br/>`debounced` will monitor all inputs for `input` events but only submits the form after `debounceInterval` milliseconds has elapsed after the last `input` event fires, i.e.  when the user stops typing for 2 seconds | `change` |
-| `debounceTimeout` (Optional) | String | The duration in milliseconds before `debounced` `input` events trigger a form submission. | `2000` |
+| `debounceInterval` (Optional) | String | The duration in milliseconds before `debounced` `input` events trigger a form submission. | `2000` |
 
 ## Events
 <NoEvents/>
