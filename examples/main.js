@@ -9,8 +9,8 @@ import {
   AlertController,
   AnchorSpyController,
   AsyncBlockController,
-  AutoSubmitFormController,
   AutosizeController,
+  AutoSubmitFormController,
   BackLinkController,
   CharCountController,
   CheckboxDisableInputsController,
@@ -61,6 +61,7 @@ import {
   ScrollToController,
   ScrollToTopController,
   SelfDestructController,
+  SignalActionController,
   SignalInputController,
   SignalVisibilityController,
   StickyController,
@@ -140,6 +141,7 @@ app.register("print-button", PrintButtonController);
 app.register("remote-form", RemoteFormController);
 app.register("responsive-iframe-body", ResponsiveIframeBodyController);
 app.register("responsive-iframe-wrapper", ResponsiveIframeWrapperController);
+app.register("signal-action", SignalActionController);
 app.register("signal-input", SignalInputController);
 app.register("signal-visibility", SignalVisibilityController);
 app.register("scroll-container", ScrollContainerController);

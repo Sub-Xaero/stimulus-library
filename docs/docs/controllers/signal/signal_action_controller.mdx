@@ -1,0 +1,71 @@
+---
+id: SignalActionController
+title: SignalActionController
+---
+
+
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+import Expressions from "../../_partials/expressions.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+A controller that responds to SignalInputController notifications. This controller trigger actions on other stimulus controllers
+based on the expression given in `whenValue`, which it will use to evaluate the value of the input.
+based on changes to inputs and their values.
+
+This controller can be anywhere in the DOM tree and it will receive notifications from any SignalInputController with
+the same `nameValue` as the `nameValue` of this controller.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value | Type | Description | Default |
+| --- | --- | --- | --- |
+| `name` | String | The name of the input value whose value to react to. This name should be the same as the `nameValue` of the SignalInputController you want to sync with.  | `-` |
+| `when` | String | A simple _expression_ which will be evaluated against the value received from SignalInputController. If the expression evaluates to true, the controller will emit a `match` event. If the expression evaluates to false, the controller will emit a `no-match` event. | `-` |
+
+<Expressions/>
+
+
+## Events
+
+| Event | When | Dispatched on | `event.detail` |
+| --- | --- | --- | --- |
+| `signal:match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _true_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
+| `signal:no-match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _false_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
+
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+```html
+
+<input type="number" name="foo" data-controller="signal-input">
+
+<div
+  data-controller="signal-action bar"
+  data-signal-action-name-value="foo"
+  data-signal-action-when-value="=3 || =5"
+  data-action="signal:match:foo->bar#fizzBuzz"
+>
+  <!-- bar controller's `fizzBuzz` action is called when the value of input[name="foo"] is 3 or 5 -->
+</div>
+
+```
+
+
