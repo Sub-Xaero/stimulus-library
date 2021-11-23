@@ -69,3 +69,8 @@ export function insertHiddenInput(name: string, value: string, targetElement: El
 export function insertHiddenButton(type: "submit" | "reset", targetElement: Element, insertPosition: InsertPosition): HTMLButtonElement {
   return insertElement(targetElement, insertPosition, createHiddenButton(type));
 }
+
+export function getAllRadiosInGroup(radio: HTMLInputElement): HTMLInputElement[] {
+  let parent = radio.form || document;
+  return Array.from(parent.querySelectorAll(`input[type="radio"][name="${radio.name}"]`));
+}
