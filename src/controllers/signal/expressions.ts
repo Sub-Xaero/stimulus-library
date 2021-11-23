@@ -1,5 +1,5 @@
 export function extractPredicates(expressionString: string): Array<(val: string | number) => boolean> {
-  expressionString = expressionString.replaceAll(" ", "").trim();
+  expressionString = expressionString.trim();
 
   let andExpression = expressionString.includes("&&");
   let orExpression = expressionString.includes("||");
@@ -30,7 +30,7 @@ function _predicateForExpression(expression: string): (val: string | number) => 
   if (!operator) {
     throw new Error(`Could not find operator in expression: ${expression}`);
   }
-  let expressionValue: string | number = expression.split(operator)[1];
+  let expressionValue: string | number = expression.split(operator)[1].trim();
   let isNumber = /^-?[0-9]\d*(\.\d+)?$/.test(expressionValue);
   expressionValue = isNumber ? parseFloat(expressionValue) : expressionValue;
 
