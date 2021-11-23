@@ -5,8 +5,9 @@ export function controllerMethod<C extends Controller>(controller: C, methodName
   const method = controller[methodName];
   if (typeof method == 'function') {
     return method;
+  } else if (method != undefined) {
+    return () => method;
   } else {
-    return () => {
-    };
+    return () => void 0;
   }
 }

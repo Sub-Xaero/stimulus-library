@@ -1,10 +1,11 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useEventListener} from "../../mixins/use_event_listener";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class WordCountController extends BaseController {
 
   static targets = ["input", "output"];
-  static values = {min: Number, max: Number};
+  static values = {min: Number, max: Number,};
   static classes = ["error"];
 
   declare readonly inputTarget: HTMLInputElement | HTMLTextAreaElement;
@@ -14,18 +15,11 @@ export class WordCountController extends BaseController {
   declare maxValue: number;
   declare hasMaxValue: boolean;
 
-  declare readonly errorClass: string;
-  declare readonly hasErrorClass: boolean;
-
-  get _errorClasses(): string[] {
-    return this.errorClass.split(' ');
-  }
-
-  get _defaultErrorClasses(): string[] {
-    return [];
-  }
+  declare addErrorClasses: (el?: HTMLElement) => void;
+  declare removeErrorClasses: (el?: HTMLElement) => void;
 
   connect() {
+    installClassMethods(this);
     this._updateWordCount();
     useEventListener(this, this.inputTarget, "input", this._updateWordCount);
   }
@@ -36,28 +30,10 @@ export class WordCountController extends BaseController {
     let matches = textAreaValue.match(/\S+/g);
     wordCount = (matches && matches.length) || 0;
     this.outputTarget.innerText = wordCount.toString();
-    if (this.hasErrorClass) {
-      if (this._isValidCount(wordCount)) {
-        this._removeErrorClasses(this.outputTarget);
-      } else {
-        this._addErrorClasses(this.outputTarget);
-      }
-    }
-  }
-
-  private _addErrorClasses(el: HTMLElement = this.el) {
-    if (this.hasErrorClass) {
-      el.classList.add(...this._errorClasses);
+    if (this._isValidCount(wordCount)) {
+      this.removeErrorClasses(this.outputTarget);
     } else {
-      el.classList.add(...this._defaultErrorClasses);
-    }
-  }
-
-  private _removeErrorClasses(el: HTMLElement = this.el) {
-    if (this.hasErrorClass) {
-      el.classList.remove(...this._errorClasses);
-    } else {
-      el.classList.remove(...this._defaultErrorClasses);
+      this.addErrorClasses(this.outputTarget);
     }
   }
 

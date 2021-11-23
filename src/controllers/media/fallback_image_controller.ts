@@ -7,26 +7,11 @@ export class FallbackImageController extends BaseController {
 
   declare readonly placeholderValue: string;
   declare readonly hasPlaceholderValue: boolean;
-  declare readonly successClass: string;
-  declare readonly hasSuccessClass: boolean;
-  declare readonly failClass: string;
-  declare readonly hasFailClass: boolean;
+  declare addSuccessClasses: (el?: HTMLElement) => void;
+  declare removeSuccessClasses: (el?: HTMLElement) => void;
+  declare addFailClasses: (el?: HTMLElement) => void;
+  declare removeFailClasses: (el?: HTMLElement) => void;
 
-  get _successClasses(): string[] {
-    return this.successClass.split(' ');
-  }
-
-  get _defaultSuccessClasses(): string[] {
-    return [];
-  }
-
-  get _failClasses(): string[] {
-    return this.failClass.split(' ');
-  }
-
-  get _defaultFailClasses(): string[] {
-    return [];
-  }
 
   initialize() {
     this._hasLoadedSuccessfully = this._hasLoadedSuccessfully.bind(this);
@@ -46,17 +31,17 @@ export class FallbackImageController extends BaseController {
   }
 
   disconnect() {
-    this._removeSuccessClasses();
-    this._removeFailClasses();
+    this.removeSuccessClasses();
+    this.removeFailClasses();
   }
 
   private _success() {
-    this._addSuccessClasses();
+    this.addSuccessClasses();
   }
 
   private _fail() {
     let element = this.el as HTMLImageElement;
-    this._addFailClasses();
+    this.addFailClasses();
 
     if (this.hasPlaceholderValue && element.src !== this.placeholderValue) {
       this.dispatch(element, "fallback-image:placeholder");
@@ -71,38 +56,6 @@ export class FallbackImageController extends BaseController {
   private _hasLoadedSuccessfully(): boolean {
     let element = this.el as HTMLImageElement;
     return element.naturalHeight > 0 && element.naturalWidth > 0;
-  }
-
-  private _addFailClasses(el: HTMLElement = this.el) {
-    if (this.hasFailClass) {
-      el.classList.add(...this._failClasses);
-    } else {
-      el.classList.add(...this._defaultFailClasses);
-    }
-  }
-
-  private _removeFailClasses(el: HTMLElement = this.el) {
-    if (this.hasFailClass) {
-      el.classList.remove(...this._failClasses);
-    } else {
-      el.classList.remove(...this._defaultFailClasses);
-    }
-  }
-
-  private _addSuccessClasses(el: HTMLElement = this.el) {
-    if (this.hasSuccessClass) {
-      el.classList.add(...this._successClasses);
-    } else {
-      el.classList.add(...this._defaultSuccessClasses);
-    }
-  }
-
-  private _removeSuccessClasses(el: HTMLElement = this.el) {
-    if (this.hasSuccessClass) {
-      el.classList.remove(...this._successClasses);
-    } else {
-      el.classList.remove(...this._defaultSuccessClasses);
-    }
   }
 
 }

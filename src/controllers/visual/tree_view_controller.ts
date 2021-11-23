@@ -1,5 +1,6 @@
 import {useMutation} from "stimulus-use";
 import {BaseController} from "../../utilities/base_controller";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class TreeViewController extends BaseController {
 
@@ -8,25 +9,18 @@ export class TreeViewController extends BaseController {
     "collapsed",
   ];
 
-  declare readonly activeClass: string;
-  declare readonly hasActiveClass: boolean;
-  declare readonly collapsedClass: string;
-  declare readonly hasCollapsedClass: boolean;
+  declare activeClasses: string[];
+  declare addActiveClasses: (el?: HTMLElement) => void;
+  declare removeActiveClasses: (el?: HTMLElement) => void;
+  declare addCollapsedClasses: (el?: HTMLElement) => void;
+  declare removeCollapsedClasses: (el?: HTMLElement) => void;
 
-  get _collapsedClasses(): string[] {
-    return this.hasCollapsedClass ? this.collapsedClass.split(' ') : this._defaultCollapsedClasses;
+  get defaultActiveClasses(): string[] {
+    return ["active"];
   }
 
-  get _defaultCollapsedClasses(): string[] {
-    return ['collapsed'];
-  }
-
-  get _activeClasses(): string[] {
-    return this.hasActiveClass ? this.activeClass.split(' ') : this._defaultActiveClasses;
-  }
-
-  get _defaultActiveClasses(): string[] {
-    return ['active'];
+  get defaultCollapsedClasses(): string[] {
+    return ["collapsed"];
   }
 
   initialize() {
@@ -34,6 +28,7 @@ export class TreeViewController extends BaseController {
   }
 
   connect() {
+    installClassMethods(this);
     this._setup();
     useMutation(this, {subtree: true, childList: true});
   }
@@ -70,8 +65,8 @@ export class TreeViewController extends BaseController {
   _teardownNode(el: HTMLElement) {
     [el, ...Array.from(el.querySelectorAll('ul, ol, li')) as HTMLElement[]].forEach((x) => {
       x.removeEventListener("click", this._nodeClicked);
-      this._removeActiveClasses(x);
-      this._removeCollapsedClasses(x);
+      this.removeActiveClasses(x);
+      this.removeCollapsedClasses(x);
     });
   }
 
@@ -94,17 +89,17 @@ export class TreeViewController extends BaseController {
   }
 
   _nodeActive(el: HTMLElement): boolean {
-    return this._activeClasses.every(klass => el.classList.contains(klass));
+    return this.activeClasses.every(klass => el.classList.contains(klass));
   }
 
   _showNode(el: HTMLElement) {
-    this._removeCollapsedClasses(el);
-    this._addActiveClasses(el);
+    this.removeCollapsedClasses(el);
+    this.addActiveClasses(el);
   }
 
   _hideNode(el: HTMLElement) {
-    this._removeActiveClasses(el);
-    this._addCollapsedClasses(el);
+    this.removeActiveClasses(el);
+    this.addCollapsedClasses(el);
   }
 
   _hasNested(el: HTMLElement): boolean {
@@ -120,35 +115,4 @@ export class TreeViewController extends BaseController {
     }
   }
 
-  private _addCollapsedClasses(el: HTMLElement = this.el) {
-    if (this.hasCollapsedClass) {
-      el.classList.add(...this._collapsedClasses);
-    } else {
-      el.classList.add(...this._defaultCollapsedClasses);
-    }
-  }
-
-  private _removeCollapsedClasses(el: HTMLElement = this.el) {
-    if (this.hasCollapsedClass) {
-      el.classList.remove(...this._collapsedClasses);
-    } else {
-      el.classList.remove(...this._defaultCollapsedClasses);
-    }
-  }
-
-  private _addActiveClasses(el: HTMLElement = this.el) {
-    if (this.hasActiveClass) {
-      el.classList.add(...this._activeClasses);
-    } else {
-      el.classList.add(...this._defaultActiveClasses);
-    }
-  }
-
-  private _removeActiveClasses(el: HTMLElement = this.el) {
-    if (this.hasActiveClass) {
-      el.classList.remove(...this._activeClasses);
-    } else {
-      el.classList.remove(...this._defaultActiveClasses);
-    }
-  }
 }

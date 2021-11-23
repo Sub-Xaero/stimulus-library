@@ -1,6 +1,7 @@
 import {BaseController} from "../../utilities/base_controller";
 import {scrollToElement} from "../../utilities/scroll";
 import {clamp} from "lodash-es";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class NavigateFormErrorsController extends BaseController {
   static values = {
@@ -17,8 +18,6 @@ export class NavigateFormErrorsController extends BaseController {
   declare readonly previousTarget: HTMLElement;
   declare readonly hasCurrentTarget: boolean;
   declare readonly currentTarget: HTMLElement;
-  declare readonly currentClass: string;
-  declare readonly hasCurrentClass: boolean;
   declare selectorValue: string;
   declare readonly hasSelectorValue: boolean;
   declare indexValue: number;
@@ -26,11 +25,10 @@ export class NavigateFormErrorsController extends BaseController {
   _errors: HTMLElement[] = [];
   _firstClick = false;
 
-  get _currentClasses(): string[] {
-    return this.currentClass.split(' ');
-  }
+  declare addCurrentClasses: (el?: HTMLElement) => void;
+  declare removeCurrentClasses: (el?: HTMLElement) => void;
 
-  get _defaultCurrentClasses(): string[] {
+  get defaultCurrentClasses(): string[] {
     return ["currentError"];
   }
 
@@ -75,6 +73,7 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   connect() {
+    installClassMethods(this);
     requestAnimationFrame(() => {
         this._firstClick = true;
         this._toggleButtons();
@@ -129,24 +128,8 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   private _updateClasses() {
-    this._addCurrentClasses(this._currentError);
-    this._otherErrors.forEach((error) => this._removeCurrentClasses(error));
-  }
-
-  private _addCurrentClasses(el: HTMLElement = this.el) {
-    if (this.hasCurrentClass) {
-      el.classList.add(...this._currentClasses);
-    } else {
-      el.classList.add(...this._defaultCurrentClasses);
-    }
-  }
-
-  private _removeCurrentClasses(el: HTMLElement = this.el) {
-    if (this.hasCurrentClass) {
-      el.classList.remove(...this._currentClasses);
-    } else {
-      el.classList.remove(...this._defaultCurrentClasses);
-    }
+    this.addCurrentClasses(this._currentError);
+    this._otherErrors.forEach((error) => this.removeCurrentClasses(error));
   }
 
   private _toggleVisibility() {

@@ -4,6 +4,7 @@ import {SignalPayload} from "./signal_input_controller";
 import {extractPredicates} from "./expressions";
 import {signalConnectEvent, signalValueEvent} from "./events";
 import {EventBus} from "../../utilities";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class SignalVisibilityController extends BaseController {
 
@@ -16,22 +17,19 @@ export class SignalVisibilityController extends BaseController {
 
   declare nameValue: string;
   declare showValue: string;
-  declare readonly hideClass: string;
-  declare readonly hasHideClass: boolean;
+  declare addHideClasses: (el?: HTMLElement) => void;
+  declare removeHideClasses: (el?: HTMLElement) => void;
 
   get _predicates(): Array<(val: string | number) => boolean> {
     return extractPredicates(this.showValue);
   }
 
-  get _hideClasses(): string[] {
-    return this.hideClass.split(' ');
-  }
-
-  get _defaultHideClasses(): string[] {
+  get defaultHideClasses(): string[] {
     return ["hide"];
   }
 
   connect() {
+    installClassMethods(this);
     EventBus.emit(signalConnectEvent(this.nameValue));
     useEventBus(this, signalValueEvent(this.nameValue), this._onSignal);
   }
@@ -40,33 +38,18 @@ export class SignalVisibilityController extends BaseController {
     let value = payload.value;
     if (this.showValue == "default") {
       if (value == "") {
-        this._removeHideClasses(this.el);
+        this.removeHideClasses(this.el);
       } else {
-        this._addHideClasses(this.el);
+        this.addHideClasses(this.el);
       }
       return;
     }
     if (this._predicates.every(predicate => predicate(value))) {
-      this._removeHideClasses(this.el);
+      this.removeHideClasses(this.el);
     } else {
-      this._addHideClasses(this.el);
+      this.addHideClasses(this.el);
     }
   }
 
-  private _addHideClasses(el: HTMLElement = this.el) {
-    if (this.hasHideClass) {
-      el.classList.add(...this._hideClasses);
-    } else {
-      el.classList.add(...this._defaultHideClasses);
-    }
-  }
-
-  private _removeHideClasses(el: HTMLElement = this.el) {
-    if (this.hasHideClass) {
-      el.classList.remove(...this._hideClasses);
-    } else {
-      el.classList.remove(...this._defaultHideClasses);
-    }
-  }
 
 }

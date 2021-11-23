@@ -1,43 +1,24 @@
 import {PrintController} from "./utility/print_controller";
 import {useEventListener} from "../mixins/use_event_listener";
+import {installClassMethods} from "../mixins/install_class_methods";
 
 export class PrintButtonController extends PrintController {
 
   static classes = [
     'unsupported',
   ];
-  declare readonly unsupportedClass: string;
-  declare readonly hasUnsupportedClass: boolean;
+  declare addUnsupportedClasses: (el?: HTMLElement) => void;
 
-  get _unsupportedClasses(): string[] {
-    return this.unsupportedClass.split(' ');
-  }
-
-  get _defaultUnsupportedClasses(): string[] {
+  get defaultUnsupportedClasses(): string[] {
     return ["unsupported"];
   }
 
   connect() {
+    installClassMethods(this);
     if (!("print" in window)) {
-      this._addUnsupportedClasses(this.el);
+      this.addUnsupportedClasses();
     }
     useEventListener(this, this.el, 'click', this.print);
-  }
-
-  private _addUnsupportedClasses(el: HTMLElement = this.el) {
-    if (this.hasUnsupportedClass) {
-      el.classList.add(...this._unsupportedClasses);
-    } else {
-      el.classList.add(...this._defaultUnsupportedClasses);
-    }
-  }
-
-  private _removeUnsupportedClasses(el: HTMLElement = this.el) {
-    if (this.hasUnsupportedClass) {
-      el.classList.remove(...this._unsupportedClasses);
-    } else {
-      el.classList.remove(...this._defaultUnsupportedClasses);
-    }
   }
 
 }

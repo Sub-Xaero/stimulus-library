@@ -15,24 +15,16 @@ export class TabsController extends BaseController {
   declare hasEqualizeValue: boolean;
   declare readonly linkTargets: HTMLElement[];
   declare readonly contentTargets: HTMLElement[];
-  declare readonly activeClass: string;
-  declare readonly hasActiveClass: boolean;
-  declare readonly hideClass: string;
-  declare readonly hasHideClass: boolean;
+  declare addHideClasses: (el?: HTMLElement) => void;
+  declare removeHideClasses: (el?: HTMLElement) => void;
+  declare addActiveClasses: (el?: HTMLElement) => void;
+  declare removeActiveClasses: (el?: HTMLElement) => void;
 
-  get _hideClasses(): string[] {
-    return this.hideClass.split(' ');
-  }
-
-  get _defaultHideClasses(): string[] {
+  get defaultHideClasses(): string[] {
     return ["hide"];
   }
 
-  get _activeClasses(): string[] {
-    return this.activeClass.split(' ');
-  }
-
-  get _defaultActiveClasses(): string[] {
+  get defaultActiveClasses(): string[] {
     return ["is-active"];
   }
 
@@ -74,20 +66,19 @@ export class TabsController extends BaseController {
     let otherPanels = [...panels.slice(0, index), ...panels.slice(index + 1)];
     let otherLinks = [...links.slice(0, index), ...links.slice(index + 1)];
 
-    this._addActiveClasses(activeLink);
+    this.addActiveClasses(activeLink);
     activeLink.setAttribute('aria-selected', "true");
 
-    this._addActiveClasses(activePanel);
-    this._removeHideClasses(activePanel);
+    this.addActiveClasses(activePanel);
+    this.removeHideClasses(activePanel);
 
     otherLinks.forEach((link) => {
       link.removeAttribute('aria-selected');
-
-      this._removeActiveClasses(link);
+      this.removeActiveClasses(link);
     });
     otherPanels.forEach((panel) => {
-      this._removeActiveClasses(panel);
-      this._addHideClasses(panel);
+      this.removeActiveClasses(panel);
+      this.addHideClasses(panel);
     });
   }
 
@@ -102,7 +93,7 @@ export class TabsController extends BaseController {
     this.contentTargets.forEach((content) => {
       let hidden = content.hasAttribute("tab-hidden");
       if (hidden) {
-        this._removeHideClasses(content);
+        this.removeHideClasses(content);
       }
 
       let height = content.offsetHeight;
@@ -111,7 +102,7 @@ export class TabsController extends BaseController {
       }
 
       if (hidden) {
-        this._addHideClasses(content);
+        this.addHideClasses(content);
       }
     });
 
@@ -119,37 +110,4 @@ export class TabsController extends BaseController {
     this.contentTargets.forEach((content) => content.style.minHeight = minHeight + "px");
   }
 
-  private _addHideClasses(el: HTMLElement = this.el) {
-    el.setAttribute("tab-hidden", "true");
-    if (this.hasHideClass) {
-      el.classList.add(...this._hideClasses);
-    } else {
-      el.classList.add(...this._defaultHideClasses);
-    }
-  }
-
-  private _removeHideClasses(el: HTMLElement = this.el) {
-    el.removeAttribute("tab-hidden");
-    if (this.hasHideClass) {
-      el.classList.remove(...this._hideClasses);
-    } else {
-      el.classList.remove(...this._defaultHideClasses);
-    }
-  }
-
-  private _addActiveClasses(el: HTMLElement = this.el) {
-    if (this.hasActiveClass) {
-      el.classList.add(...this._activeClasses);
-    } else {
-      el.classList.add(...this._defaultActiveClasses);
-    }
-  }
-
-  private _removeActiveClasses(el: HTMLElement = this.el) {
-    if (this.hasActiveClass) {
-      el.classList.remove(...this._activeClasses);
-    } else {
-      el.classList.remove(...this._defaultActiveClasses);
-    }
-  }
 }
