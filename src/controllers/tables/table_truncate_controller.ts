@@ -36,11 +36,6 @@ export class TableTruncateController extends BaseController {
     return this.hasLimitValue ? this.limitValue : 20;
   }
 
-  initialize() {
-    this.truncate = this.truncate.bind(this);
-    this.expand = this.expand.bind(this);
-  }
-
   connect() {
     useMutation(this, {childList: true, element: this._tableBody});
 

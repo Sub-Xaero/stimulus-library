@@ -36,10 +36,6 @@ export class TimeDistanceController extends BaseController {
     this._timestamp = toDate(this.timestampValue * 1000);
   }
 
-  initialize() {
-    this._update = this._update.bind(this);
-  }
-
   connect() {
     if (!this.hasTimestampValue) {
       throw new Error("Expected `timestampValue` to be present");

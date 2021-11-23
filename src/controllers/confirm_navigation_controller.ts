@@ -12,12 +12,6 @@ export class ConfirmNavigationController extends BaseController {
     return this.hasMessageValue ? this.messageValue : "Do you want to leave this page? Changes you made may not be saved";
   }
 
-  initialize() {
-    this.allowSubmit = this.allowSubmit.bind(this);
-    this.confirmNavigation = this.confirmNavigation.bind(this);
-    this.confirmTurboNavigation = this.confirmTurboNavigation.bind(this);
-  }
-
   connect() {
     window.onbeforeunload = () => this._message;
     useEventListener(this, window, "popstate", this.confirmNavigation);

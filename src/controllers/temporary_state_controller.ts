@@ -39,11 +39,6 @@ export class TemporaryStateController extends EphemeralController {
     throw new Error("Expected `secondsValue` to be present");
   }
 
-  initialize() {
-    this.setState = this.setState.bind(this);
-    this.removeState = this.removeState.bind(this);
-  }
-
   connect() {
     this.setState();
     useTimeout(this, this.removeState, this._seconds);

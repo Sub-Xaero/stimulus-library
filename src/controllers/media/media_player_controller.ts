@@ -6,15 +6,6 @@ export class MediaPlayerController extends BaseController {
 
   declare readonly mediaTarget: HTMLMediaElement;
 
-  initialize() {
-  }
-
-  connect() {
-  }
-
-  disconnect() {
-  }
-
   async play(event?: Event) {
     event?.preventDefault();
     await this.mediaTarget.play();

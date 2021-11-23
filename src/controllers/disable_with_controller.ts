@@ -25,9 +25,6 @@ export class DisableWithController extends BaseController {
     return this.hasTimeoutValue ? this.timeoutValue : 1000;
   }
 
-  initialize() {
-  }
-
   connect() {
     requestAnimationFrame(() => {
       useEventListener(this, this.el, ["click"], this.disable);
