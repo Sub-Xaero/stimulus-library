@@ -1,6 +1,6 @@
 import {BaseController} from '../utilities/base_controller';
 import {isHTMLAnchorElement, isHTMLButtonElement, isHTMLInputElement} from "../utilities/elements";
-import {useEventListeners} from "../mixins/use_event_listener";
+import {useEventListener} from "../mixins/use_event_listener";
 import {useTimeout} from "../mixins/use_timeout";
 
 export class DisableWithController extends BaseController {
@@ -30,8 +30,8 @@ export class DisableWithController extends BaseController {
 
   connect() {
     requestAnimationFrame(() => {
-      useEventListeners(this, this.el, ["click"], this.disable);
-      useEventListeners(this, window, ["turbo:load", "turbolinks:load"], this._enable);
+      useEventListener(this, this.el, ["click"], this.disable);
+      useEventListener(this, window, ["turbo:load", "turbolinks:load"], this._enable);
     });
   }
 

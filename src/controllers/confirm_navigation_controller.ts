@@ -1,5 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
-import {useEventListener, useEventListeners} from "../mixins/use_event_listener";
+import {useEventListener} from "../mixins/use_event_listener";
 
 export class ConfirmNavigationController extends BaseController {
 
@@ -22,7 +22,7 @@ export class ConfirmNavigationController extends BaseController {
     window.onbeforeunload = () => this._message;
     useEventListener(this, window, "popstate", this.confirmNavigation);
     useEventListener(this, window, "submit", this.allowSubmit);
-    useEventListeners(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this.confirmTurboNavigation);
+    useEventListener(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this.confirmTurboNavigation);
   }
 
   disconnect() {

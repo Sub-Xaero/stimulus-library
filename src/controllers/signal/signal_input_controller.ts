@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {EventBus} from "../../utilities/event_bus";
-import {useEventListeners} from "../../mixins/use_event_listener";
+import {useEventListener} from "../../mixins/use_event_listener";
 import {isHTMLInputElement} from "../../utilities";
 
 export interface SignalPayload {
@@ -25,8 +25,8 @@ export class SignalInputController extends BaseController {
   }
 
   connect() {
-    useEventListeners(this, this.el, ["input"], this.emitValue, {debounce: 1000});
-    useEventListeners(this, this.el, ["change"], this.emitValue);
+    useEventListener(this, this.el, "input", this.emitValue, {debounce: 1000});
+    useEventListener(this, this.el, "change", this.emitValue);
     requestAnimationFrame(() => this.emitValue());
   }
 

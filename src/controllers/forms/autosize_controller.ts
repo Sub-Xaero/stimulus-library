@@ -1,7 +1,7 @@
 import {BaseController} from '../../utilities/base_controller';
 import {useIntersection, useWindowResize} from "stimulus-use";
 import {isHTMLTextAreaElement} from "../../utilities/elements";
-import {useEventListeners} from "../../mixins/use_event_listener";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class AutosizeController extends BaseController {
 
@@ -21,8 +21,8 @@ export class AutosizeController extends BaseController {
       this.el.style.boxSizing = "border-box";
 
       this._handler();
-      useEventListeners(this, window, ['resize'], this._handler);
-      useEventListeners(this, this.el, ['input', 'change', 'focus'], this._handler, {debounce: 100});
+      useEventListener(this, window, ['resize'], this._handler);
+      useEventListener(this, this.el, ['input', 'change', 'focus'], this._handler, {debounce: 100});
     });
   }
 

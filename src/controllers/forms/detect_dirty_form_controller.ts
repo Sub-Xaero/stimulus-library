@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {isElementCheckable, isHTMLSelectElement} from "../../utilities/elements";
-import {useEventListeners} from "../../mixins/use_event_listener";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class DetectDirtyFormController extends BaseController {
 
@@ -17,7 +17,7 @@ export class DetectDirtyFormController extends BaseController {
 
     this._cacheLoadValues();
     this._checkDirty();
-    useEventListeners(this, element, ["input", "change"], this._checkDirty);
+    useEventListener(this, element, ["input", "change"], this._checkDirty);
   }
 
   restore(event?: Event) {

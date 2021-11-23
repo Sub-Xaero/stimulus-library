@@ -1,10 +1,10 @@
 import {BaseController} from "../../utilities/base_controller";
-import {useEventListener, useEventListeners} from "../../mixins/use_event_listener";
+import {useEventListener} from "../../mixins/use_event_listener";
 
 export class UserFocusController extends BaseController {
 
   connect() {
-    useEventListeners(this, window, ["focus", "blur"], this._handleVisibility);
+    useEventListener(this, window, ["focus", "blur"], this._handleVisibility);
     useEventListener(this, document, "visibilitychange", this._handleVisibility);
     requestAnimationFrame(() => {
       this._handleVisibility();
