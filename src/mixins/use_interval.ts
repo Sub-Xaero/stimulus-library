@@ -1,9 +1,7 @@
 import {Controller} from "stimulus";
-
+import {useMixin} from "./create_mixin";
 
 export function useInterval(controller: Controller, handler: (...args: any[]) => void, interval: number) {
-  // keep a copy of the lifecycle functions of the controller
-  const controllerDisconnect = controller.disconnect.bind(controller);
   handler = handler.bind(controller);
   let intervalHandle: ReturnType<typeof window.setInterval> | null = null;
 
@@ -14,14 +12,6 @@ export function useInterval(controller: Controller, handler: (...args: any[]) =>
     }
   };
 
-  setup();
-
-  Object.assign(controller, {
-    disconnect() {
-      teardown();
-      controllerDisconnect();
-    },
-  });
-
+  useMixin(controller, setup, teardown);
   return teardown;
 }

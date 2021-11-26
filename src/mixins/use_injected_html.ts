@@ -1,15 +1,7 @@
 import {Controller} from "stimulus";
+import {useMixin} from "./create_mixin";
 
-
-export function useInjectedFragment(
-  controller: Controller,
-  targetElement: HTMLElement,
-  insertPosition: InsertPosition,
-  fragment: DocumentFragment,
-  options: { cleanup?: boolean } = {},
-): [Array<ChildNode>, () => void] {
-  // keep a copy of the lifecycle functions of the controller
-  const controllerDisconnect = controller.disconnect.bind(controller);
+export function useInjectedFragment(controller: Controller, targetElement: HTMLElement, insertPosition: InsertPosition, fragment: DocumentFragment, options: { cleanup?: boolean } = {}): [ChildNode[], () => void] {
   let nodes = Array.from(fragment.childNodes);
 
   let setup = () => {
@@ -33,42 +25,18 @@ export function useInjectedFragment(
         break;
     }
   };
-  let teardown: () => void;
-  if (options.cleanup) {
-    teardown = () => nodes.forEach(node => node.remove());
-  } else {
-    teardown = () => void 0;
-  }
-  setup();
+  let teardown = options.cleanup ? () => nodes.forEach(node => node.remove()) : () => void 0;
 
-  Object.assign(controller, {
-    disconnect() {
-      teardown();
-      controllerDisconnect();
-    },
-  });
-
+  useMixin(controller, setup, teardown);
   return [nodes, teardown];
 }
 
-export function useInjectedHTML(
-  controller: Controller,
-  targetElement: HTMLElement,
-  insertPosition: InsertPosition,
-  html: string,
-  options: { cleanup?: boolean } = {},
-): [Array<ChildNode>, () => void] {
+export function useInjectedHTML(controller: Controller, targetElement: HTMLElement, insertPosition: InsertPosition, html: string, options: { cleanup?: boolean } = {}): [ChildNode[], () => void] {
   const fragment = document.createRange().createContextualFragment(html);
   return useInjectedFragment(controller, targetElement, insertPosition, fragment, options);
 }
 
-export function useInjectedElement(
-  controller: Controller,
-  targetElement: HTMLElement,
-  insertPosition: InsertPosition,
-  element: HTMLElement,
-  options: { cleanup?: boolean } = {},
-): [ChildNode, () => void] {
+export function useInjectedElement(controller: Controller, targetElement: HTMLElement, insertPosition: InsertPosition, element: HTMLElement, options: { cleanup?: boolean } = {}): [ChildNode, () => void] {
   const fragment = new DocumentFragment();
   fragment.append(element);
   let [nodes, teardown] = useInjectedFragment(controller, targetElement, insertPosition, fragment, options);

@@ -1,33 +1,24 @@
 import {Controller} from "stimulus";
+import {useMixin} from "./create_mixin";
 
-export function useFullscreen(controller: Controller, el?: Element): {
-  isFullscreen: () => boolean
-  enter: () => Promise<void>
-  exit: () => Promise<void>
-  toggle: () => Promise<void>
-} {
-  // keep a copy of the lifecycle functions of the controller
-  const controllerDisconnect = controller.disconnect.bind(controller);
-
+export function useFullscreen(controller: Controller, el?: Element) {
   let element = el || document.documentElement;
   let fullscreenOpen = document.fullscreenElement !== null;
 
-  function updateFullscreenState() {
-    fullscreenOpen = document.fullscreenElement !== null;
-  }
+  const updateFullscreenState = () => fullscreenOpen = document.fullscreenElement !== null;
+  const isFullscreen = (): boolean => fullscreenOpen;
+  const toggle = async () => fullscreenOpen ? await exit() : await enter();
+  let setup = () => document.addEventListener('fullscreenchange', updateFullscreenState);
+  let teardown = () => document.removeEventListener('fullscreenchange', updateFullscreenState);
 
-  function isFullscreen(): boolean {
-    return fullscreenOpen;
-  }
-
-  async function exit() {
+  const exit = async () => {
     if (document.exitFullscreen) {
       fullscreenOpen = false;
       await document.exitFullscreen();
     }
-  }
+  };
 
-  async function enter() {
+  const enter = async () => {
     if (fullscreenOpen) {
       await exit();
     }
@@ -35,29 +26,14 @@ export function useFullscreen(controller: Controller, el?: Element): {
       await element.requestFullscreen();
       fullscreenOpen = true;
     }
-  }
+  };
 
-  async function toggle() {
-    if (fullscreenOpen) {
-      await exit();
-    } else {
-      await enter();
-    }
-  }
-
-  document.addEventListener('fullscreenchange', updateFullscreenState);
-
-  Object.assign(controller, {
-    disconnect() {
-      document.removeEventListener('fullscreenchange', updateFullscreenState);
-      controllerDisconnect();
-    },
-  });
-
+  useMixin(controller, setup, teardown);
   return {
     isFullscreen,
     enter,
     exit,
     toggle,
+    teardown,
   };
 }

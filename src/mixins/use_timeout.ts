@@ -1,18 +1,16 @@
 import {Controller} from "stimulus";
+import {useMixin} from "./create_mixin";
 
 
 export function useTimeout(controller: Controller, handler: (...args: any[]) => void, timeout: number) {
-  // keep a copy of the lifecycle functions of the controller
-  const controllerDisconnect = controller.disconnect.bind(controller);
-  handler = handler.bind(controller);
+  let controllerDisconnect: () => void;
   let timeoutHandle: ReturnType<typeof window.setTimeout> | null = null;
+  handler = handler.bind(controller);
 
   let newHandler = () => {
     handler();
     timeoutHandle = null;
-    Object.assign(controller, {
-      disconnect: controllerDisconnect,
-    });
+    Object.assign(controller, {disconnect: controllerDisconnect});
   };
 
   let setup = () => timeoutHandle = setTimeout(newHandler, timeout);
@@ -23,14 +21,6 @@ export function useTimeout(controller: Controller, handler: (...args: any[]) => 
     }
   };
 
-  setup();
-
-  Object.assign(controller, {
-    disconnect() {
-      teardown();
-      controllerDisconnect();
-    },
-  });
-
+  controllerDisconnect = useMixin(controller, setup, teardown);
   return teardown;
 }
