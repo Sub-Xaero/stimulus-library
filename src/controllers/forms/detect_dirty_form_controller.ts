@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {isElementCheckable, isHTMLSelectElement} from "../../utilities/elements";
+import {getOtherRadiosInGroup, isElementCheckable, isHTMLInputElement, isHTMLSelectElement} from "../../utilities/elements";
 import {useEventListener} from "../../mixins/use_event_listener";
 
 export class DetectDirtyFormController extends BaseController {
@@ -17,7 +17,7 @@ export class DetectDirtyFormController extends BaseController {
 
     this._cacheLoadValues();
     this._checkDirty();
-    useEventListener(this, element, ["input", "change"], this._checkDirty);
+    useEventListener(this, element, ["input", "change"], this._checkDirty, {debounce: 10});
   }
 
   restore(event?: Event) {
@@ -33,11 +33,7 @@ export class DetectDirtyFormController extends BaseController {
     let value = element.getAttribute(this._cacheAttrName);
     if (isElementCheckable(element)) {
       return value == null ? element.defaultChecked : value == "true";
-    } else if (value !== null) {
-      return value;
-    }
-
-    if (isHTMLSelectElement(element)) {
+    } else if (isHTMLSelectElement(element)) {
       let options = Array.from(element.options);
       options.forEach((option) => {
         if (option.defaultSelected) {
@@ -45,6 +41,8 @@ export class DetectDirtyFormController extends BaseController {
           return option.value;
         }
       });
+    } else if (value !== null) {
+      return value;
     }
 
     return value!;
@@ -55,6 +53,9 @@ export class DetectDirtyFormController extends BaseController {
   }
 
   private _checkElementDirty(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
+    if (isHTMLInputElement(element) && element.type == "radio") {
+      getOtherRadiosInGroup(element).forEach((radio) => radio.removeAttribute('data-dirty'));
+    }
     if (this._isElementDirty(element)) {
       element.setAttribute('data-dirty', "true");
     } else {
