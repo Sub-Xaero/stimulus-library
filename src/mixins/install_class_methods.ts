@@ -6,38 +6,27 @@ export class InstallClassMethodComposableController extends Controller {
   [index: string]: any
 }
 
-function methodsForClassDefinition(controller: InstallClassMethodComposableController, name: string) {
-  let methods = {
-    [`add${capitalize(name)}Classes`](element: HTMLElement = controller.element as HTMLElement) {
-      let klasses = controller[`has${capitalize(name)}Class`]
-        ? controller[`${capitalize(name)}Classes`]
-        : controllerMethod(controller, `default${capitalize(name)}Classes`).call(controller) || [];
-      element.classList.add(...klasses);
-    },
-    [`remove${capitalize(name)}Classes`](element: HTMLElement = controller.element as HTMLElement) {
-      let klasses = controller[`has${capitalize(name)}Class`]
-        ? controller[`${capitalize(name)}Classes`]
-        : controllerMethod(controller, `default${capitalize(name)}Classes`).call(controller) || [];
-      element.classList.remove(...klasses);
-    },
-  };
+function addMethodsForClassDefinition(controller: InstallClassMethodComposableController, name: string) {
+  let defaultElement = controller.element as HTMLElement;
+  let hasClass = (): boolean => controller[`has${capitalize(name)}Class`] == true;
+  let classes = (): string[] => controller[`${name}Classes`];
+  let defaultClasses = (): string[] => controllerMethod(controller, `default${capitalize(name)}Classes`).call(controller) || [];
+  let classOrDefault = (): string[] => hasClass() ? classes() : defaultClasses();
 
   if (controller[`${name}Classes`] == undefined) {
     Object.defineProperty(controller, `${name}Classes`, {
-      get(): string[] {
-        return controller[`${capitalize(name)}Class`].split(' ');
-      },
+      get: () => controller[`${name}Class`].split(' '),
     });
   }
-
-  return methods;
+  Object.assign(controller, {
+    [`add${capitalize(name)}Classes`]: (element = defaultElement) => element.classList.add(...classOrDefault()),
+    [`remove${capitalize(name)}Classes`]: (element = defaultElement) => element.classList.remove(...classOrDefault()),
+    [`${name}ClassesPresent`]: (element = defaultElement) => classOrDefault().every((klass: string) => element.classList.contains(klass)),
+  });
 }
 
 export function installClassMethods(controller: InstallClassMethodComposableController) {
   // @ts-ignore
   let classes = controller.constructor.classes || [];
-
-  classes.forEach(
-    (classDefinition: string) => Object.assign(controller, methodsForClassDefinition(controller, classDefinition)),
-  );
+  classes.forEach((classDefinition: string) => addMethodsForClassDefinition(controller, classDefinition));
 }
