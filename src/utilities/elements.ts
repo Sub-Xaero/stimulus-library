@@ -74,3 +74,7 @@ export function getAllRadiosInGroup(radio: HTMLInputElement): HTMLInputElement[]
   let parent = radio.form || document;
   return Array.from(parent.querySelectorAll(`input[type="radio"][name="${radio.name}"]`));
 }
+
+export function getOtherRadiosInGroup(radio: HTMLInputElement): HTMLInputElement[] {
+  return getAllRadiosInGroup(radio).filter((r) => r !== radio);
+}
