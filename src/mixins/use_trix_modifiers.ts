@@ -11,7 +11,7 @@ export class TrixComposableController extends Controller {
   declare uninstall?: (elements: TrixElementsPayload) => void;
 }
 
-export function installsTrixBehaviour(controller: TrixComposableController) {
+export function useTrixModifiers(controller: TrixComposableController) {
   // keep a copy of the lifecycle function of the controller
   const controllerDisconnect = controller.disconnect.bind(controller);
   let observing = false;

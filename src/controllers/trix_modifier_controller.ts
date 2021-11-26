@@ -1,5 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
-import {installsTrixBehaviour, TrixElementsPayload} from "../mixins/installsTrixBehaviour";
+import {TrixElementsPayload, useTrixModifiers} from "../mixins/use_trix_modifiers";
 
 interface TrixInstallable {
   install: (elements: TrixElementsPayload) => void,
@@ -109,7 +109,7 @@ export class TrixModifierController extends BaseController {
   }
 
   connect() {
-    installsTrixBehaviour(this);
+    useTrixModifiers(this);
   }
 
   install(elements: TrixElementsPayload) {
