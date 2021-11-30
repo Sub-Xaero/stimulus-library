@@ -140,6 +140,9 @@ function logProperty(prop: string): boolean {
   if (/^.*?Classes$/.test(prop)) {
     return false;
   }
+  if (/^.*?ClassesPresent$/.test(prop)) {
+    return false;
+  }
 
   return true;
 }
