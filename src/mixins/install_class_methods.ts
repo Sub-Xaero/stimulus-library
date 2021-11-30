@@ -15,7 +15,7 @@ function addMethodsForClassDefinition(controller: InstallClassMethodComposableCo
 
   if (controller[`${name}Classes`] == undefined) {
     Object.defineProperty(controller, `${name}Classes`, {
-      get: () => controller[`${name}Class`].split(' '),
+      get: () => hasClass() ? controller[`${name}Class`].split(' ') : defaultClasses(),
     });
   }
   Object.assign(controller, {
