@@ -1,4 +1,4 @@
-import {useMutation} from "stimulus-use";
+import {useMutationObserver} from "../mixins/use_mutation_observer";
 import {BaseController} from "../utilities/base_controller";
 import {installClassMethods} from "../mixins/install_class_methods";
 
@@ -34,7 +34,7 @@ export class EmptyDomController extends BaseController {
 
   connect() {
     installClassMethods(this);
-    useMutation(this, {element: this._container, childList: true});
+    useMutationObserver(this, this._container, this.mutate, {childList: true});
     this.checkEmpty();
   }
 

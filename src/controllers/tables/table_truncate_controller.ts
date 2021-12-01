@@ -1,6 +1,6 @@
-import {useMutation} from "stimulus-use";
 import {BaseController} from "../../utilities/base_controller";
 import {useEventListener} from "../../mixins/use_event_listener";
+import {useMutationObserver} from "../../mixins/use_mutation_observer";
 
 export class TableTruncateController extends BaseController {
 
@@ -37,7 +37,7 @@ export class TableTruncateController extends BaseController {
   }
 
   connect() {
-    useMutation(this, {childList: true, element: this._tableBody});
+    useMutationObserver(this, this._tableBody, this.mutate, {childList: true});
 
     requestAnimationFrame(() => {
       this.truncate();

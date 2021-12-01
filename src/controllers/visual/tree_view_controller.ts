@@ -1,4 +1,4 @@
-import {useMutation} from "stimulus-use";
+import {useMutationObserver} from "../../mixins/use_mutation_observer";
 import {BaseController} from "../../utilities/base_controller";
 import {installClassMethods} from "../../mixins/install_class_methods";
 
@@ -10,6 +10,7 @@ export class TreeViewController extends BaseController {
   ];
 
   declare activeClasses: string[];
+  declare activeClassesPresent: (el?: HTMLElement) => boolean;
   declare addActiveClasses: (el?: HTMLElement) => void;
   declare removeActiveClasses: (el?: HTMLElement) => void;
   declare addCollapsedClasses: (el?: HTMLElement) => void;
@@ -29,8 +30,8 @@ export class TreeViewController extends BaseController {
 
   connect() {
     installClassMethods(this);
+    useMutationObserver(this, this.el, this.mutate, {subtree: true, childList: true});
     this._setup();
-    useMutation(this, {subtree: true, childList: true});
   }
 
   disconnect() {
@@ -89,7 +90,7 @@ export class TreeViewController extends BaseController {
   }
 
   _nodeActive(el: HTMLElement): boolean {
-    return this.activeClasses.every(klass => el.classList.contains(klass));
+    return this.activeClassesPresent(el);
   }
 
   _showNode(el: HTMLElement) {
@@ -107,6 +108,7 @@ export class TreeViewController extends BaseController {
   }
 
   mutate(entries: MutationRecord[]) {
+    console.log("mutate", entries);
     for (const mutation of entries) {
       if (mutation.type === "childList") {
         (Array.from(mutation.addedNodes || []) as HTMLElement[]).forEach(el => this._setupNode(el));
