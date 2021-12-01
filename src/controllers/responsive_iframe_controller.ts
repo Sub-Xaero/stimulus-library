@@ -1,5 +1,3 @@
-import {useDebounce, useWindowResize} from "stimulus-use";
-import type {WindowResizePayload} from "stimulus-use/dist/use-window-resize/use-window-resize";
 import {BaseController} from "../utilities/base_controller";
 import {useEventListener} from "../mixins/use_event_listener";
 
@@ -29,25 +27,13 @@ export class ResponsiveIframeWrapperController extends BaseController {
 
 export class ResponsiveIframeBodyController extends BaseController {
 
-  static debounces = ["postUpdate"];
-
-  declare observe: () => void;
-  declare unobserve: () => void;
-
   connect() {
     // If this Window is inside a frame
     if (window.self !== window.top) {
-      useWindowResize(this);
-      useDebounce(this, {});
+      useEventListener(this, window, "resize", this.postUpdate, {debounce: 200});
       this.postUpdate();
-    } else {
-      // Not an iframe
     }
   }
-
-  windowResize(payload: WindowResizePayload) {
-    this.postUpdate();
-  };
 
   postUpdate() {
     let payload: ResponsiveIframeMessage = {name: "iframe-body", height: this.getHeight()};

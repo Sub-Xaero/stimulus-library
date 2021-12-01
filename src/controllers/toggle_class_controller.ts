@@ -1,5 +1,6 @@
-import {useClickOutside, useHover} from "stimulus-use";
 import {BaseController} from "../utilities/base_controller";
+import {useClickOutside} from "../mixins/use_click_outside";
+import {useHover} from "../mixins/use_hover";
 
 export type ToggleClassMode = "on" | "off" | "toggle"
 
@@ -37,11 +38,11 @@ export class ToggleClassController extends BaseController {
     }
 
     if (this.hasMouseEnterValue || this.hasMouseLeaveValue) {
-      useHover(this);
+      useHover(this, this.el, this.mouseEnter, this.mouseLeave);
     }
 
     if (this.hasClickAwayValue && this.clickAwayValue) {
-      useClickOutside(this);
+      useClickOutside(this, this.el, this.clickOutside);
     }
 
     requestAnimationFrame(() => {
