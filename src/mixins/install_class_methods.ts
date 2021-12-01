@@ -1,6 +1,6 @@
 import {Controller} from "stimulus";
-import {capitalize} from "lodash-es";
 import {controllerMethod} from "../utilities/stimulus";
+import {pascalCase} from "../utilities/strings";
 
 export class InstallClassMethodComposableController extends Controller {
   [index: string]: any
@@ -8,9 +8,9 @@ export class InstallClassMethodComposableController extends Controller {
 
 function addMethodsForClassDefinition(controller: InstallClassMethodComposableController, name: string) {
   let defaultElement = controller.element as HTMLElement;
-  let hasClass = (): boolean => controller[`has${capitalize(name)}Class`] == true;
+  let hasClass = (): boolean => controller[`has${pascalCase(name)}Class`] == true;
   let classes = (): string[] => controller[`${name}Classes`];
-  let defaultClasses = (): string[] => controllerMethod(controller, `default${capitalize(name)}Classes`).call(controller) || [];
+  let defaultClasses = (): string[] => controllerMethod(controller, `default${pascalCase(name)}Classes`).call(controller) || [];
   let classOrDefault = (): string[] => hasClass() ? classes() : defaultClasses();
 
   if (controller[`${name}Classes`] == undefined) {
@@ -18,15 +18,18 @@ function addMethodsForClassDefinition(controller: InstallClassMethodComposableCo
       get: () => hasClass() ? controller[`${name}Class`].split(' ') : defaultClasses(),
     });
   }
-  Object.assign(controller, {
-    [`add${capitalize(name)}Classes`]: (element = defaultElement) => element.classList.add(...classOrDefault()),
-    [`remove${capitalize(name)}Classes`]: (element = defaultElement) => element.classList.remove(...classOrDefault()),
+  let methods = {
+    [`add${pascalCase(name)}Classes`]: (element = defaultElement) => element.classList.add(...classOrDefault()),
+    [`remove${pascalCase(name)}Classes`]: (element = defaultElement) => element.classList.remove(...classOrDefault()),
     [`${name}ClassesPresent`]: (element = defaultElement) => classOrDefault().every((klass: string) => element.classList.contains(klass)),
-  });
+  };
+  console.log(methods);
+  Object.assign(controller, methods);
 }
 
 export function installClassMethods(controller: InstallClassMethodComposableController) {
   // @ts-ignore
   let classes = controller.constructor.classes || [];
+  console.log(classes);
   classes.forEach((classDefinition: string) => addMethodsForClassDefinition(controller, classDefinition));
 }
