@@ -1,5 +1,5 @@
-import {useIntersection} from "stimulus-use";
 import {LoadBlockController} from "./load_block_controller";
+import {useIntersection} from "../../mixins/use_intersection";
 
 export class LazyBlockController extends LoadBlockController {
 
@@ -12,7 +12,9 @@ export class LazyBlockController extends LoadBlockController {
     let element = this.el;
 
     if ("IntersectionObserver" in window) {
-      [this.observe, this.unobserve] = useIntersection(this, {element, threshold: 0.3});
+      let {observe, unobserve} = useIntersection(this, element, this.appear, null, {threshold: 0.3});
+      this.observe = observe;
+      this.unobserve = unobserve;
     } else {
       // Client doesn't support intersection observer, fallback to pre-loading
       await this.loadContent();

@@ -1,5 +1,5 @@
-import {useIntersection} from "stimulus-use";
 import {BaseController} from "../../utilities/base_controller";
+import {useIntersection} from "../../mixins/use_intersection";
 
 export class IntersectionController extends BaseController {
 
@@ -18,34 +18,15 @@ export class IntersectionController extends BaseController {
   }
 
   connect() {
-    useIntersection(this, {
-      threshold: this._threshold,
-      element: this.el,
-    });
+    useIntersection(this, this.el, this.appear, this.disappear, {threshold: this._threshold});
   }
 
   appear(entry: IntersectionObserverEntry) {
-    this.dispatch(
-      this.el,
-      "intersection:appear",
-      {
-        detail: {
-          element: this.el,
-        },
-      },
-    );
+    this.dispatch(this.el, "intersection:appear");
   };
 
   disappear(entry: IntersectionObserverEntry) {
-    this.dispatch(
-      this.el,
-      "intersection:disappear",
-      {
-        detail: {
-          element: this.el,
-        },
-      },
-    );
+    this.dispatch(this.el, "intersection:disappear");
   };
 
 }

@@ -1,16 +1,15 @@
 import {BaseController} from '../../utilities/base_controller';
-import {useIntersection, useWindowResize} from "stimulus-use";
 import {isHTMLTextAreaElement} from "../../utilities/elements";
 import {useEventListener} from "../../mixins/use_event_listener";
+import {useIntersection} from "../../mixins/use_intersection";
 
 export class AutosizeController extends BaseController {
 
-  declare unobserveIntersection: () => void;
-  declare isVisible: boolean;
+  declare _unobserveIntersection: () => void;
 
   connect() {
-    let [, unobserveIntersection] = useIntersection(this);
-    this.unobserveIntersection = unobserveIntersection;
+    let {teardown} = useIntersection(this, this.el, this.appear);
+    this._unobserveIntersection = teardown;
     if (!isHTMLTextAreaElement(this.el)) {
       throw new Error(`Expected controller to be attached to a textarea, but was a '${this.el.tagName}'`);
     }
@@ -27,7 +26,7 @@ export class AutosizeController extends BaseController {
 
   appear(_entry: IntersectionObserverEntry) {
     this.autosize(this.el as HTMLTextAreaElement);
-    this.unobserveIntersection();
+    this._unobserveIntersection();
   }
 
   private _handler() {
