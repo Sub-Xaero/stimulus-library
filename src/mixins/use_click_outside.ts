@@ -14,10 +14,10 @@ export function useClickOutside(controller: Controller, element: HTMLElement, ca
   };
 
   let {teardown} = useEventListener(controller, window, ["click", "touchend"], handler);
-  useMixin(controller, () => {}, teardown);
+  useMixin(controller, () => void 0, teardown);
 
   return {
-    teardown
+    teardown,
   };
 
 }

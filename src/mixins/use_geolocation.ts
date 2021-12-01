@@ -67,7 +67,7 @@ export function useGeolocation(controller: Controller, options: GeolocationOptio
           values.locatedAt = position.timestamp;
           values.coords = position.coords;
           values.error = null;
-           // Fire user callback if provided
+          // Fire user callback if provided
           if (update) {
             update(position);
           }
@@ -75,7 +75,7 @@ export function useGeolocation(controller: Controller, options: GeolocationOptio
         (err: GeolocationPositionError) => {
           // Update reactive values
           values.error = err;
-           // Fire user callback if provided
+          // Fire user callback if provided
           if (error) {
             error(err);
           }
