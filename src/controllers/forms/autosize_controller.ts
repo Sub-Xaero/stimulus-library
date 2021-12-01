@@ -9,7 +9,6 @@ export class AutosizeController extends BaseController {
   declare isVisible: boolean;
 
   connect() {
-    useWindowResize(this);
     let [, unobserveIntersection] = useIntersection(this);
     this.unobserveIntersection = unobserveIntersection;
     if (!isHTMLTextAreaElement(this.el)) {
