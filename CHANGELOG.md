@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.3...v0.6.4) (2021-12-06)
+
+
+### Features
+
+* TableSortController - Allow columns to be ignored when data-sort="false" is specified. ([8e71844](https://github.com/Sub-Xaero/stimulus-library/commit/8e71844d3d650f838eb49a0717a28c2c40068165))
+* **Mixins:** useGeolocation - A mixin to enable a controller to subscribe to a device's location updates ([47d485d](https://github.com/Sub-Xaero/stimulus-library/commit/47d485d04bd00d71e421390c2a9ea564f1d666c2))
+* Improvements to DetectDirtyController and DetectDirtyController to better handle changes in radio button groups ([c67bb05](https://github.com/Sub-Xaero/stimulus-library/commit/c67bb05f5200365d5a701dc7420daeadc916b201))
+* New controller SignalActionController - A controller that receives value change updates from SignalInputController and can fire actions on other controllers. ([06df0c0](https://github.com/Sub-Xaero/stimulus-library/commit/06df0c02d5f5a04038dc0c5fe9791ce573c86708))
+* SignalInputController now works as expected on radio button groups. Add some extra functionality to ensure that values sync up when the SignalInputController connects before the SignalVisibilityControllers. Add a configurable debounceIntervalValue to SignalInputController ([018d5a8](https://github.com/Sub-Xaero/stimulus-library/commit/018d5a8b79ff724859ef632bccf8be13826d3ff6))
+* Throw an error in Signal controllers if the right-hand side of an expression is blank ([1d3eb68](https://github.com/Sub-Xaero/stimulus-library/commit/1d3eb6877bd154694ba5d7c6e7d904019f3ec6e7))
+
+
+### Bug Fixes
+
+* **Mixins:** Fix case where default classes was ignored in Stimulus2 polyfill for plural fooClasses method ([d949875](https://github.com/Sub-Xaero/stimulus-library/commit/d9498753f6cbeed31b8204c9d582d1e8d22c4cc1))
+* Fix regex in ephemeral controller for whitespace ([8bd462f](https://github.com/Sub-Xaero/stimulus-library/commit/8bd462f4b58b0bd1311817887d54c72621108fb8))
+* Fix Signal expressions being stripped of spaces, breaking compatibility with text inputs. Added better handling of whitespace to compensate. ([b0a494e](https://github.com/Sub-Xaero/stimulus-library/commit/b0a494e019a818db8bc89c1e3b23939efcc6523f))
+
 ### [0.6.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.2...v0.6.3) (2021-11-19)
 
 
