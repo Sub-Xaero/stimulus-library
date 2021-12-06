@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.4...v0.6.5) (2021-12-06)
+
+
+### Bug Fixes
+
+* TableSortController - data-sort="false" property for preventing sort should be data-sortable="false" to avoid shadowing dataset property used internally to track current state of column ([cbcadb4](https://github.com/Sub-Xaero/stimulus-library/commit/cbcadb45ce0fbabfb2ea13da61cfe380777ffd11))
+
 ### [0.6.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.3...v0.6.4) (2021-12-06)
 
 
