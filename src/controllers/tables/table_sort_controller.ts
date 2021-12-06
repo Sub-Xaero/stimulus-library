@@ -47,7 +47,7 @@ export class TableSortController extends BaseController {
     event.preventDefault();
     let headerCell = event.target! as HTMLTableHeaderCellElement;
     let headerCellIndex = this._indexOfHeaderCell(headerCell);
-    if (headerCell.dataset.sort == "false") {
+    if (headerCell.dataset.sortable == "false") {
       return;
     }
     if (headerCell.dataset.sort == "asc") {
