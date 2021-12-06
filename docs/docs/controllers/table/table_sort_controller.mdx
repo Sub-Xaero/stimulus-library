@@ -44,6 +44,7 @@ This is a fire-and-forget controller, there are no actions, targets or events to
 The controller expects a well-formed table, including a `<thead>` with one row of header cells, and `<tbody>` with all of your table data.
 
 Once the controller is installed, users can sort table data by clicking on `<th>` cells in the table's header.
+If you want to mark a column as unsortable, add `data-sort="false"` to the `<th>` element for that column.
 
 If `startSortValue` is set, the table will be sorted on load, otherwise the table will stay as it loaded until a user clicks on a column heading.
 
