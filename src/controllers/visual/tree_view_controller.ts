@@ -108,7 +108,6 @@ export class TreeViewController extends BaseController {
   }
 
   mutate(entries: MutationRecord[]) {
-    console.log("mutate", entries);
     for (const mutation of entries) {
       if (mutation.type === "childList") {
         (Array.from(mutation.addedNodes || []) as HTMLElement[]).forEach(el => this._setupNode(el));

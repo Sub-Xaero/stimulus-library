@@ -23,13 +23,11 @@ function addMethodsForClassDefinition(controller: InstallClassMethodComposableCo
     [`remove${pascalCase(name)}Classes`]: (element = defaultElement) => element.classList.remove(...classOrDefault()),
     [`${name}ClassesPresent`]: (element = defaultElement) => classOrDefault().every((klass: string) => element.classList.contains(klass)),
   };
-  console.log(methods);
   Object.assign(controller, methods);
 }
 
 export function installClassMethods(controller: InstallClassMethodComposableController) {
   // @ts-ignore
   let classes = controller.constructor.classes || [];
-  console.log(classes);
   classes.forEach((classDefinition: string) => addMethodsForClassDefinition(controller, classDefinition));
 }
