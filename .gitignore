@@ -1,6 +1,6 @@
-
 .idea
 node_modules
 /dist
 .gitassembly
 yarn-error.log
+.DS_STORE
