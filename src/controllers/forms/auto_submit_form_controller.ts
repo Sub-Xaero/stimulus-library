@@ -31,7 +31,7 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   get _debounceTimeout(): number {
-    return this.hasDebounceIntervalValue ? this.debounceIntervalValue : 1000;
+    return this.hasDebounceIntervalValue ? this.debounceIntervalValue : -1;
   }
 
   get _mode(): "direct" | "request" {
@@ -62,7 +62,7 @@ export class AutoSubmitFormController extends BaseController {
         el as HTMLElement,
         this._eventModes,
         this.submit,
-        {debounce: this._eventMode == 'debounced' ? this._debounceTimeout : undefined},
+        {debounce: this._debounceTimeout && this._debounceTimeout > 0 ? this._debounceTimeout : undefined},
       );
     });
   }
