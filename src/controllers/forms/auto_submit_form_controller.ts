@@ -12,14 +12,21 @@ export class AutoSubmitFormController extends BaseController {
   declare debounceIntervalValue: number;
   declare readonly hasDebounceIntervalValue: boolean;
 
-  get _eventMode(): 'change' | 'input' | 'debounced' {
+  get _eventModes(): Array<'change' | 'input'> {
     if (this.hasEventModeValue) {
-      if (!['change', 'input', 'debounced'].includes(this.eventModeValue)) {
+      let modes = this.eventModeValue.split(' ').map(mode => mode.trim());
+
+      if (modes.length === 1 && modes[0] === 'debounced') {
+        return ['change', 'input'];
+      }
+
+      if (!modes.every(mode => ['change', 'input'].includes(mode))) {
         throw new Error(`The modeValue provided '${this.eventModeValue}' is not one of the recognised configuration options`);
       }
-      return this.eventModeValue;
+
+      return modes as Array<'change' | 'input'>;
     } else {
-      return "change";
+      return ["change"];
     }
   }
 
@@ -53,7 +60,7 @@ export class AutoSubmitFormController extends BaseController {
       return useEventListener(
         this,
         el as HTMLElement,
-        this._eventMode == 'change' ? 'change' : 'input',
+        this._eventModes,
         this.submit,
         {debounce: this._eventMode == 'debounced' ? this._debounceTimeout : undefined},
       );
