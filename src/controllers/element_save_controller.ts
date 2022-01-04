@@ -1,5 +1,6 @@
 import {debounce, get as _get, set as _set} from "lodash-es";
 import {BaseController} from '../utilities/base_controller';
+import {LocalStorageProxy, useLocalStorage} from "../mixins";
 
 export class ElementSaveController extends BaseController {
 
@@ -19,6 +20,7 @@ export class ElementSaveController extends BaseController {
   declare readonly hasIdValue: boolean;
   declare readonly restoreOnLoadValue: boolean;
   declare readonly hasRestoreOnLoadValue: boolean;
+  declare _store: LocalStorageProxy<{ [idx: string]: string; }>;
 
   get _id() {
     if (this.hasIdValue) {
@@ -51,6 +53,7 @@ export class ElementSaveController extends BaseController {
   }
 
   connect() {
+    this._store = useLocalStorage(this, this._uniqueIdentifier, {});
     requestAnimationFrame(() => {
       if (this._restoreOnLoad) {
         this.restore();
@@ -62,7 +65,7 @@ export class ElementSaveController extends BaseController {
     if (event) {
       event.preventDefault();
     }
-    localStorage.removeItem(this._uniqueIdentifier);
+    this._store.clear();
     this.dispatch(this._element, `element-save:cleared`);
   }
 
@@ -74,7 +77,7 @@ export class ElementSaveController extends BaseController {
     let attributes = this.attributesValue.split(" ");
     let data: { [idx: string]: any } = {};
     attributes.forEach((attr: string) => data[attr] = _get(element, attr));
-    localStorage.setItem(this._uniqueIdentifier, JSON.stringify(data));
+    this._store.value = data;
     this.dispatch(element, `element-save:save:success`);
   }
 
@@ -83,11 +86,11 @@ export class ElementSaveController extends BaseController {
       event.preventDefault();
     }
     let element = this._element;
-    if (localStorage.getItem(this._uniqueIdentifier)) {
-      const savedData = JSON.parse(localStorage.getItem(this._uniqueIdentifier)!); // get and parse the saved data from localStorage
-      Object.keys(savedData).forEach((attr: string) => {
-        _set(element as HTMLElement, attr, savedData[attr]);
-      });
+    if (!this._store.isEmpty()) {
+      const savedData = this._store.value; // get and parse the saved data from localStorage
+      Object.keys(savedData).forEach(
+        (attr: string) => _set(element as HTMLElement, attr, savedData[attr]),
+      );
       this.dispatch(element, `element-save:restore:success`);
     } else {
       this.dispatch(element, `element-save:restore:empty`);
