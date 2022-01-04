@@ -1,0 +1,48 @@
+---
+id: useLocalStorage
+title: useLocalStorage
+---
+
+
+## Purpose
+
+A mixin to enable easy use of the [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API.
+
+### useLocalStorage
+
+| Parameters           |               | Type                 | Purpose                                                                                                                                               | Default |
+|----------------------|---------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`         |               | `Controller`         | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this`  |
+| `identifier`         |               | `String`             |                                                                                                                                                       | `-`     |
+| `defaultValue`       |               | `Function(position)` | The default value to use if there is none stored. The value given here will determine how the mixin serializes future data read/writes                | `-`     |
+| `options` (Optional) |               | `Object`             | An object of options to configure the mixin's behaviour                                                                                               | `-`     |
+|                      | writeDefaults | `Boolean`            | If the LocalStorage value is empty, whether to write the given default to storage on load                                                             | `true`  |
+
+
+## Side Effects
+
+Stores a JSON value in LocalStorage.
+
+
+## How to Use
+
+```js
+
+import {Controller} from 'stimulus';
+import {useLocalStorage} from 'stimulus-library';
+
+export default class extends Controller {
+
+  connect() {
+    this.store = useLocalStorage(this, 'my-value', 42)
+
+    this.store.value // Reactive property that reflects the value in LocalStorage
+    this.store.isEmpty // Reactive value that is true if the store is empty
+    this.store.read() // returns the value stored in LocalStorage
+    this.store.write(value) // the raw value to be stored in LocalStorage. Should be the same type as the default value.
+    this.store.clear() // clears the stored value
+  }
+
+}
+
+```
