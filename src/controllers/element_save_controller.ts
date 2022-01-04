@@ -1,4 +1,4 @@
-import {get as _get, set as _set} from "lodash-es";
+import {debounce, get as _get, set as _set} from "lodash-es";
 import {BaseController} from '../utilities/base_controller';
 
 export class ElementSaveController extends BaseController {
@@ -44,6 +44,10 @@ export class ElementSaveController extends BaseController {
 
   get _element(): HTMLElement {
     return this.hasElementTarget ? this.elementTarget : this.el;
+  }
+
+  initialize() {
+    this.save = debounce(this.save.bind(this), 300);
   }
 
   connect() {
