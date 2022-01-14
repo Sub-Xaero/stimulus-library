@@ -24,12 +24,12 @@ This controller provides the following properties to controllers that extend it.
 
 This controller provides the following methods to controllers that extend it.
 
-| Name       | Parameters           | Purpose                                                                                                                                     | Default                                                                    |
-|------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| `dispatch` |                      | Dispatch a custom event                                                                                                                     |                                                                            |
-|            | `element`            | The element to dispatch the event on                                                                                                        |                                                                            |
-|            | `eventName`          | The fully qualified name of the event. Usually follows the format `controller-identifier:event`                                             |                                                                            |
-|            | `options` (Optional) | The options to initialize the event with. See the options `eventInit` accepts: https://developer.mozilla.org/en-US/docs/Web/API/Event/Event | `{ bubbles: true, cancellable: true, details: { element: this.element } }` |
+| Name            | Parameters           | Purpose                                                                                                                                     | Default                                                                    |
+|-----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `dispatchEvent` |                      | Dispatch a custom event                                                                                                                     |                                                                            |
+|                 | `element`            | The element to dispatch the event on                                                                                                        |                                                                            |
+|                 | `eventName`          | The fully qualified name of the event. Usually follows the format `controller-identifier:event`                                             |                                                                            |
+|                 | `options` (Optional) | The options to initialize the event with. See the options `eventInit` accepts: https://developer.mozilla.org/en-US/docs/Web/API/Event/Event | `{ bubbles: true, cancellable: true, details: { element: this.element } }` |
 
 | Name        | Parameters | Purpose                                                            | Return value       |
 |-------------|------------|--------------------------------------------------------------------|--------------------|
