@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Trix Underline Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <trix-editor
+        data-controller="trix-underline"
+      ></trix-editor>
+
+    </div>
+    <style>
+      .trix-button.trix-button--icon.trix-button--icon-underline::before {
+        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTI0IDM0YzYuNjMgMCAxMi01LjM3IDEyLTEydi0xNmgtNXYxNmMwIDMuODctMy4xMyA3LTcgN3MtNy0zLjEzLTctN3YtMTZoLTV2MTZjMCA2LjYzIDUuMzcgMTIgMTIgMTJ6bS0xNCA0djRoMjh2LTRoLTI4eiIvPjwvc3ZnPg==");
+      }
+    </style>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
