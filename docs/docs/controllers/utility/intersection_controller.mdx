@@ -24,16 +24,16 @@ Utility controller to wire up other controller actions when an element comes int
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `threshold` | String | The single number or comma-separated list of thresholds to report intersection at. [See `IntersectionObserver` constructor options for more.](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver)  | `0,1` |
+| Value       | Type   | Description                                                                                                                                                                                                                               | Default |
+|-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `threshold` | String | The single number or comma-separated list of thresholds to report intersection at. [See `IntersectionObserver` constructor options for more.](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver) | `0,1`   |
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- |--- | --- |
-|`intersection:appear` | When the observed element enters the viewport | the controller root element | `element`: the observed controller root element |
-|`intersection:disappear` | When the observed element leaves the viewport | the controller root element | `element`: the observed controller root element |
+| Event                    | When                                          | Dispatched on               | `event.detail`                                  |
+|--------------------------|-----------------------------------------------|-----------------------------|-------------------------------------------------|
+| `intersection:appear`    | When the observed element enters the viewport | the controller root element | `element`: the observed controller root element |
+| `intersection:disappear` | When the observed element leaves the viewport | the controller root element | `element`: the observed controller root element |
 
 ## Side Effects
 

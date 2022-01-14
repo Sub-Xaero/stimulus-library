@@ -18,8 +18,8 @@ When the page loads with a matching anchor, fire events that can wire up other c
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
+| Action  | Purpose                                                    |
+|---------|------------------------------------------------------------|
 | `write` | Write the value of `keyValue` to the current URL's anchor. |
 
 
@@ -27,26 +27,27 @@ When the page loads with a matching anchor, fire events that can wire up other c
 <NoTargets/>
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
-| Class | Purpose | Default |
-| --- | --- | --- | --- |
-| `active` | The class to apply to the controller root element when the URL's anchor matches `keyValue` | | `active` |
+
+| Class      | Purpose                                                                                           | Default    |
+|------------|---------------------------------------------------------------------------------------------------|------------|
+| `active`   | The class to apply to the controller root element when the URL's anchor matches `keyValue`        | `active`   |
 | `inactive` | The class to apply to the controller root element when the URL's anchor does not match `keyValue` | `inactive` |
 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `key` | String | The anchor to associate with the behaviour you want to drive. | - |
+| Value | Type   | Description                                                   | Default |
+|-------|--------|---------------------------------------------------------------|---------|
+| `key` | String | The anchor to associate with the behaviour you want to drive. | -       |
 
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- |--- |
-|`anchor-spy:active` | When the page loads or the url changes and the anchor matches `keyValue` | The controller root element | - |
-|`anchor-spy:inactive` | When the page loads or the url changes and the anchor *does not match* `keyValue` | The controller root element | - |
+| Event                 | When                                                                              | Dispatched on               | `event.detail` |
+|-----------------------|-----------------------------------------------------------------------------------|-----------------------------|----------------|
+| `anchor-spy:active`   | When the page loads or the url changes and the anchor matches `keyValue`          | The controller root element | -              |
+| `anchor-spy:inactive` | When the page loads or the url changes and the anchor *does not match* `keyValue` | The controller root element | -              |
 
 ## Side Effects
 

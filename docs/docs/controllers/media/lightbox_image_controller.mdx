@@ -14,9 +14,9 @@ To expand/show images in a lightbox view, for galleries or expanding thumbnails.
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `open` | Creates and opens a `<dialog>`, with a copy of the given image. |
+| Action  | Purpose                                                                                                                                                         |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `open`  | Creates and opens a `<dialog>`, with a copy of the given image.                                                                                                 |
 | `close` | Called automatically when the used presses `Esc` or clicks away from the `<dialog>`, but can be called manually to close and remove the `<dialog>` and cleanup. |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -24,18 +24,18 @@ To expand/show images in a lightbox view, for galleries or expanding thumbnails.
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
-| Class | Purpose | Default |
-| --- | --- | --- |
-| `modal` (Optional) | The class(es) to apply to the created `<dialog>` element | `image-lightbox-dialog` |
-| `image` (Optional)| The class(es) to apply to the `<img>` inside the `<dialog>` | `image-lightbox-image` |
+| Class              | Purpose                                                     | Default                 |
+|--------------------|-------------------------------------------------------------|-------------------------|
+| `modal` (Optional) | The class(es) to apply to the created `<dialog>` element    | `image-lightbox-dialog` |
+| `image` (Optional) | The class(es) to apply to the `<img>` inside the `<dialog>` | `image-lightbox-image`  |
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `src` (Optional) | String | If you wish to override the `src` given to the image rendered inside the `<dialogue>`  to be different to the `src` of the controller attached image | The `src` attribute of the controller element |
+| Value               | Type   | Description                                                                                                                                                | Default                                          |
+|---------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| `src` (Optional)    | String | If you wish to override the `src` given to the image rendered inside the `<dialogue>`  to be different to the `src` of the controller attached image       | The `src` attribute of the controller element    |
 | `srcSet` (Optional) | String | If you wish to override the `srcSet` given to the image rendered inside the `<dialogue>`  to be different to the controller `srcSet` of the attached image | The `srcSet` attribute of the controller element |
-| `sizes` (Optional) | String | If you wish to override the `sizes` given to the image rendered inside the `<dialogue>`  to be different to the `sizes` of the controller attached image | The `sizes` attribute of the controller element |
+| `sizes` (Optional)  | String | If you wish to override the `sizes` given to the image rendered inside the `<dialogue>`  to be different to the `sizes` of the controller attached image   | The `sizes` attribute of the controller element  |
 
 ## Events
 <NoEvents/>

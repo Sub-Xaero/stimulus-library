@@ -23,15 +23,15 @@ Utility controller to wire up other controller actions that need to fire after a
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `seconds` | Number | The number of seconds until the action fires | - |
+| Value     | Type   | Description                                  | Default |
+|-----------|--------|----------------------------------------------|---------|
+| `seconds` | Number | The number of seconds until the action fires | -       |
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- |--- | --- |
-|`timeout:action` | Fired after `secondsValue` seconds, used to wire your desired controller actions to | the controller root element | `element`: the controller root element |
+| Event            | When                                                                                | Dispatched on               | `event.detail`                         |
+|------------------|-------------------------------------------------------------------------------------|-----------------------------|----------------------------------------|
+| `timeout:action` | Fired after `secondsValue` seconds, used to wire your desired controller actions to | the controller root element | `element`: the controller root element |
 
 ## Side Effects
 

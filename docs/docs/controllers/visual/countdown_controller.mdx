@@ -17,36 +17,36 @@ A controller that displays a countdown clock to a specified date/time.
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-| Target | Purpose | Default |
-| --- | --- | --- |
-| `years` (Optional) | The target to display the number of years left in the countdown | - |
-| `months` (Optional) | The target to display the number of months left in the countdown | - |
-| `days` (Optional) | The target to display the number of days left in the countdown | - |
-| `hours` (Optional) | The target to display the number of hours left in the countdown | - |
-| `minutes` (Optional) | The target to display the number of minutes left in the countdown | - |
-| `seconds` (Optional) | The target to display the number of seconds left in the countdown | - |
+| Target               | Purpose                                                           | Default |
+|----------------------|-------------------------------------------------------------------|---------|
+| `years` (Optional)   | The target to display the number of years left in the countdown   | -       |
+| `months` (Optional)  | The target to display the number of months left in the countdown  | -       |
+| `days` (Optional)    | The target to display the number of days left in the countdown    | -       |
+| `hours` (Optional)   | The target to display the number of hours left in the countdown   | -       |
+| `minutes` (Optional) | The target to display the number of minutes left in the countdown | -       |
+| `seconds` (Optional) | The target to display the number of seconds left in the countdown | -       |
 
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
-| Class | Purpose | Default |
-| --- | --- | --- |
-| `countingDown` (Optional) | The class to apply while the countdown is running | - |
-| `ended` (Optional) | The class to apply when the countdown has ended | - |
+| Class                     | Purpose                                           | Default |
+|---------------------------|---------------------------------------------------|---------|
+| `countingDown` (Optional) | The class to apply while the countdown is running | -       |
+| `ended` (Optional)        | The class to apply when the countdown has ended   | -       |
 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `deadline` | Date | The date/time to count down to | - |
+| Value          | Type    | Description                                                                   | Default |
+|----------------|---------|-------------------------------------------------------------------------------|---------|
+| `deadline`     | Date    | The date/time to count down to                                                | -       |
 | `removeUnused` | Boolean | Whether to remove unused targets. i.e. if there are no years in the countdown | `false` |
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- |--- |
-|`countdown:ended` | When the countdown ends | The controller root element | - |
+| Event             | When                    | Dispatched on               | `event.detail` |
+|-------------------|-------------------------|-----------------------------|----------------|
+| `countdown:ended` | When the countdown ends | The controller root element | -              |
 
 ## Side Effects
 

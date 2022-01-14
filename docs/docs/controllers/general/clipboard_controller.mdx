@@ -21,27 +21,27 @@ You can also wire up the controller to have a copy button, and an optional fallb
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `select` | Selects the content of the `source` target |
-| `copy` | Selects the content of the `source` target, and executes a copy, if supported |
+| Action   | Purpose                                                                       |
+|----------|-------------------------------------------------------------------------------|
+| `select` | Selects the content of the `source` target                                    |
+| `copy`   | Selects the content of the `source` target, and executes a copy, if supported |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-| Target | Purpose | Default |
-| --- | --- | --- |
-| `source` | The `<input>`, `<select>` or `<textarea>` to select/copy the value from | - |
-| `copy` (Optional) | The element to remove if `removeUnused`  value is `true` and copy **is** supported | - |
-| `fallback` (Optional) | The element to remove if `removeUnused` value  is `true` and copy is **not** supported | - |
+| Target                | Purpose                                                                                | Default |
+|-----------------------|----------------------------------------------------------------------------------------|---------|
+| `source`              | The `<input>`, `<select>` or `<textarea>` to select/copy the value from                | -       |
+| `copy` (Optional)     | The element to remove if `removeUnused`  value is `true` and copy **is** supported     | -       |
+| `fallback` (Optional) | The element to remove if `removeUnused` value  is `true` and copy is **not** supported | -       |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 <NoClasses/>
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false |
+| Value               | Type    | Description                                                                                                              | Default |
+|---------------------|---------|--------------------------------------------------------------------------------------------------------------------------|---------|
+| `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false   |
 
 ## Events
 <NoEvents/>

@@ -15,16 +15,16 @@ Controller to be used on a scrollable container element, to enable control over 
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `scrollTop` | Scroll to the very top of the element |
-| `scrollBottom` |  Scroll to the very bottom of the element  |
-| `scrollLeft` | Scroll to the very left of the element |
-| `scrollRight` |  Scroll to the very right of the element  |
-| `up` | Scroll up by `incrementAmount` in 'px' |
-| `down` | Scroll down by `incrementAmount` in 'px' |
-| `left` | Scroll left by `incrementAmount` in 'px' |
-| `right` | Scroll right by `incrementAmount` in 'px' |
+| Action         | Purpose                                   |
+|----------------|-------------------------------------------|
+| `scrollTop`    | Scroll to the very top of the element     |
+| `scrollBottom` | Scroll to the very bottom of the element  |
+| `scrollLeft`   | Scroll to the very left of the element    |
+| `scrollRight`  | Scroll to the very right of the element   |
+| `up`           | Scroll up by `incrementAmount` in 'px'    |
+| `down`         | Scroll down by `incrementAmount` in 'px'  |
+| `left`         | Scroll left by `incrementAmount` in 'px'  |
+| `right`        | Scroll right by `incrementAmount` in 'px' |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 <NoTargets/>
@@ -36,10 +36,10 @@ Controller to be used on a scrollable container element, to enable control over 
 
 See [ScrollToOptions documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollToOptions) for possible values for `behaviour`
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `behaviour` | String | One of `auto`, `smooth`. **Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default. | `auto` |
-| `increment` | Number | The amount to scroll by when using `up`, `down`, `left`, `right` actions | `50` |
+| Value       | Type   | Description                                                                                                                                                            | Default |
+|-------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `behaviour` | String | One of `auto`, `smooth`. **Note**: If the user's browser does not support smooth scrolling, the browser will ignore these values and scroll using the browser default. | `auto`  |
+| `increment` | Number | The amount to scroll by when using `up`, `down`, `left`, `right` actions                                                                                               | `50`    |
 
 ## Events
 <NoEvents/>

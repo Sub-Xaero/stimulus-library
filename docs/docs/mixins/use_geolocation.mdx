@@ -14,15 +14,15 @@ The controller will setup an an event listener using `navigator.watchPosition`
 ## Usage
 
 ### useGeolocation
-| Parameters          | | Type | Purpose | Default |
-|---------------------| --- | --- | --- |--- |
-| `controller`        | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this` |
-| `options`           | | `Object` | Options to modify how the location data is polled. Any of the options allowed by the `options` parameter accepted by [`Geolocation.getCurrentPosition()`](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) | `-` |
-| `update` (Optional) | | `Function(position)` | A callback that is fired when the user's position updates | `-` |
-|  |  |  |  |  |
-| | `position` | `Position` | The position object returned by the `Geolocation.getCurrentPosition()` call | `-` |
-| `error` (Optional)  | | `Function(positionError)` | A callback that is fired when there is an error, either because the user denied permission or because of a bad GPS signal | `-` |
-| | `positionError` | [`GeolocationPositionError`](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError) | The error object raised by the Geolocation service | `-` |
+| Parameters          |                 | Type                                                                                                    | Purpose                                                                                                                                                                                                                                    | Default |
+|---------------------|-----------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`        |                 | `Controller`                                                                                            | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                                                                      | `this`  |
+| `options`           |                 | `Object`                                                                                                | Options to modify how the location data is polled. Any of the options allowed by the `options` parameter accepted by [`Geolocation.getCurrentPosition()`](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition) | `-`     |
+| `update` (Optional) |                 | `Function(position)`                                                                                    | A callback that is fired when the user's position updates                                                                                                                                                                                  | `-`     |
+|                     |                 |                                                                                                         |                                                                                                                                                                                                                                            |         |
+|                     | `position`      | `Position`                                                                                              | The position object returned by the `Geolocation.getCurrentPosition()` call                                                                                                                                                                | `-`     |
+| `error` (Optional)  |                 | `Function(positionError)`                                                                               | A callback that is fired when there is an error, either because the user denied permission or because of a bad GPS signal                                                                                                                  | `-`     |
+|                     | `positionError` | [`GeolocationPositionError`](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPositionError) | The error object raised by the Geolocation service                                                                                                                                                                                         | `-`     |
 
 
 ## How to Use

@@ -14,10 +14,10 @@ A controller to allow users to navigate between form errors when a submission co
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `current` | Scroll to the current error |
-| `next` | Scroll to the next error |
+| Action     | Purpose                      |
+|------------|------------------------------|
+| `current`  | Scroll to the current error  |
+| `next`     | Scroll to the next error     |
 | `previous` | Scroll to the previous error |
 
 
@@ -25,24 +25,24 @@ A controller to allow users to navigate between form errors when a submission co
 
 If these targets are specified, the controller will automatically disable and re-enable the buttons as the user clicks between errors
 
-| Target | Purpose | Default |
-| --- | --- | --- |
-| `current` (Optional) | The button that navigate to the current error.  | - |
-| `next` (Optional) | The button that navigate to the next error. | - |
-| `previous` (Optional) | The button that navigate to the previous error. | - |
+| Target                | Purpose                                         | Default |
+|-----------------------|-------------------------------------------------|---------|
+| `current` (Optional)  | The button that navigate to the current error.  | -       |
+| `next` (Optional)     | The button that navigate to the next error.     | -       |
+| `previous` (Optional) | The button that navigate to the previous error. | -       |
 
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
-| Class | Purpose | Default |
-| --- | --- | --- |
+| Class     | Purpose                                                                                  | Default        |
+|-----------|------------------------------------------------------------------------------------------|----------------|
 | `current` | The class to apply to the targeted element that the controller is currently pointing at. | `currentError` |
 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `selector` | String | The CSS selector the controller should use to find the form errors | - |
+| Value      | Type   | Description                                                        | Default |
+|------------|--------|--------------------------------------------------------------------|---------|
+| `selector` | String | The CSS selector the controller should use to find the form errors | -       |
 
 
 ## Events

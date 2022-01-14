@@ -17,27 +17,27 @@ Primarily for Rails `accepts_nested_attributes_for` associations, enabling a for
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `add` | Add a new record to the form using the given template |
-| `remove` | Remove the nearest parent record from the form. If the record is a new record, just removes it from the DOm, otherwise looks for a hidden input with `name="_destroy"` sets it to `1` (true) and hides the record using `display: none`|
+| Action   | Purpose                                                                                                                                                                                                                                 |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `add`    | Add a new record to the form using the given template                                                                                                                                                                                   |
+| `remove` | Remove the nearest parent record from the form. If the record is a new record, just removes it from the DOm, otherwise looks for a hidden input with `name="_destroy"` sets it to `1` (true) and hides the record using `display: none` |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-| Target | Purpose | Default |
-| --- | --- | --- |
-| `template` | The `<template>` or `<script type="text/x-template">` tag containing the HTML for a sub record. | - |
-| `target` | Where to add the created sub-records. | - |
+| Target     | Purpose                                                                                         | Default |
+|------------|-------------------------------------------------------------------------------------------------|---------|
+| `template` | The `<template>` or `<script type="text/x-template">` tag containing the HTML for a sub record. | -       |
+| `target`   | Where to add the created sub-records.                                                           | -       |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 <NoClasses/>
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `wrapperClass` | String | The class of the `<div>` that wraps each sub-record.  | `nested-fields` |
-| `insert` | String | How to insert records around `target`. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | `beforeend` (append) |
+| Value          | Type   | Description                                                                                                                                                                              | Default              |
+|----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| `wrapperClass` | String | The class of the `<div>` that wraps each sub-record.                                                                                                                                     | `nested-fields`      |
+| `insert`       | String | How to insert records around `target`. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | `beforeend` (append) |
 
 ## Events
 <NoEvents/>

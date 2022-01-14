@@ -32,19 +32,19 @@ the same `nameValue` as the `nameValue` of this controller.
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `name` | String | The name of the input value whose value to react to. This name should be the same as the `nameValue` of the SignalInputController you want to sync with.  | `-` |
-| `when` | String | A simple _expression_ which will be evaluated against the value received from SignalInputController. If the expression evaluates to true, the controller will emit a `match` event. If the expression evaluates to false, the controller will emit a `no-match` event. | `-` |
+| Value  | Type   | Description                                                                                                                                                                                                                                                            | Default |
+|--------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `name` | String | The name of the input value whose value to react to. This name should be the same as the `nameValue` of the SignalInputController you want to sync with.                                                                                                               | `-`     |
+| `when` | String | A simple _expression_ which will be evaluated against the value received from SignalInputController. If the expression evaluates to true, the controller will emit a `match` event. If the expression evaluates to false, the controller will emit a `no-match` event. | `-`     |
 
 <Expressions/>
 
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- | --- |
-| `signal:match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _true_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
+| Event                          | When                                                                                                                                  | Dispatched on               | `event.detail`                                                               |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|------------------------------------------------------------------------------|
+| `signal:match:${nameValue}`    | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _true_ against the new updated value  | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
 | `signal:no-match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _false_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
 
 

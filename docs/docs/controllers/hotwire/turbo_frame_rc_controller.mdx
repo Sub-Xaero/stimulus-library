@@ -23,10 +23,10 @@ out the frame widget, or selectively load/unload it.
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `setSrc` | Sets the src of the remote `<TurboFrame>` to the specified value, triggering a content load  |
-| `clear` | Clear the `src` of the remote `<TurboFrame>`, and remove its `innerHTML` |
+| Action   | Purpose                                                                                                      |
+|----------|--------------------------------------------------------------------------------------------------------------|
+| `setSrc` | Sets the src of the remote `<TurboFrame>` to the specified value, triggering a content load                  |
+| `clear`  | Clear the `src` of the remote `<TurboFrame>`, and remove its `innerHTML`                                     |
 | `toggle` | If the `src` is empty, or different to the current specified value, calls `setSrc`. Otherwise, calls `clear` |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -37,11 +37,11 @@ out the frame widget, or selectively load/unload it.
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `frameId` | String | The ID of the frame to drive | - |
-| `src` (Optional) | String | The URL set the remote frame's `src` to | If the controller root element is an `<a>`, the `href` of the element. Otherwise, throws an error. |
-| `loadingMessage` (Optional) | String | The message to display while content is loading | - |
+| Value                       | Type   | Description                                     | Default                                                                                            |
+|-----------------------------|--------|-------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `frameId`                   | String | The ID of the frame to drive                    | -                                                                                                  |
+| `src` (Optional)            | String | The URL set the remote frame's `src` to         | If the controller root element is an `<a>`, the `href` of the element. Otherwise, throws an error. |
+| `loadingMessage` (Optional) | String | The message to display while content is loading | -                                                                                                  |
 
 ## Events
 <NoEvents/>

@@ -23,8 +23,8 @@ Mostly useful for AJAX loaded/"HTML over the wire" elements that need to be plac
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
+| Action    | Purpose                           |
+|-----------|-----------------------------------|
 | `execute` | Perform the moving of the element |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -35,22 +35,22 @@ Mostly useful for AJAX loaded/"HTML over the wire" elements that need to be plac
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `immediate` | Boolean | Set to `true` to immediately teleport the element on controller `connect` | `false` |
-| `target` | String | The CSS selector corresponding to the desired position in the DOM | - |
-| `insert` | String | How to add the element to the DOM. Possible values: | - |
-| | | Any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | - |  
-| | | `replaceOuter` - replace the destination element entirely | - |
-| | | `replaceInner` - replace the inner contents of the destination element | - |
-| | | `prepend` - add the element as the first child of the destination element (alias for `afterbegin`)  | - |
-| | | `append` - add the element as the last child of the destination element (alias for `beforeend`) | - |
+| Value       | Type    | Description                                                                                                                               | Default |
+|-------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `immediate` | Boolean | Set to `true` to immediately teleport the element on controller `connect`                                                                 | `false` |
+| `target`    | String  | The CSS selector corresponding to the desired position in the DOM                                                                         | -       |
+| `insert`    | String  | How to add the element to the DOM. Possible values:                                                                                       | -       |
+|             |         | Any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | -       |
+|             |         | `replaceOuter` - replace the destination element entirely                                                                                 | -       |
+|             |         | `replaceInner` - replace the inner contents of the destination element                                                                    | -       |
+|             |         | `prepend` - add the element as the first child of the destination element (alias for `afterbegin`)                                        | -       |
+|             |         | `append` - add the element as the last child of the destination element (alias for `beforeend`)                                           | -       |
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- | --- |
-| `teleport:error` | When the controller cannot find the target destination from the given selector | The controller element | - |
+| Event            | When                                                                           | Dispatched on          | `event.detail` |
+|------------------|--------------------------------------------------------------------------------|------------------------|----------------|
+| `teleport:error` | When the controller cannot find the target destination from the given selector | The controller element | -              |
 
 ## Side Effects
 <NoSideEffects/>

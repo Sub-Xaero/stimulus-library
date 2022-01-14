@@ -20,24 +20,24 @@ If an image fails to load from the source, provide a fallback image, or hide it 
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
-| Class | Purpose | Default |
-| --- | --- | --- |
-| `success` (Optional) | The class that will be applied to the image if the image loads successfully | - |
-| `fail` (Optional) | The class that will be applied to the image if the fallback is triggered | - |
+| Class                | Purpose                                                                     | Default |
+|----------------------|-----------------------------------------------------------------------------|---------|
+| `success` (Optional) | The class that will be applied to the image if the image loads successfully | -       |
+| `fail` (Optional)    | The class that will be applied to the image if the fallback is triggered    | -       |
 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
+| Value                    | Type   | Description                                                                          | Default             |
+|--------------------------|--------|--------------------------------------------------------------------------------------|---------------------|
 | `placeholder` (Optional) | String | The URL of a fallback image to be displayed if the `<img>`'s `src` cannot be loaded. | The `<img>`'s `src` |
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- | --- |
-| `fallback-image:placeholder` | When the image fails to load and falls back to the placeholder | The controller root element | - |
-| `fallback-image:fail` | When the image and the placeholder (if any) fails to load | The controller root element | - |
+| Event                        | When                                                           | Dispatched on               | `event.detail` |
+|------------------------------|----------------------------------------------------------------|-----------------------------|----------------|
+| `fallback-image:placeholder` | When the image fails to load and falls back to the placeholder | The controller root element | -              |
+| `fallback-image:fail`        | When the image and the placeholder (if any) fails to load      | The controller root element | -              |
 
 
 ## Side Effects

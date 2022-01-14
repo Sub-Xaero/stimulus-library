@@ -2,27 +2,27 @@ Expressions follow the syntax of `[operator][value]` e.g. `<3` or `>=3` and can 
 
 Example expressions that can be used:
 
-| Expression | Explanation |
-| --- | --- |
-|`default`| will be shown when the value is empty |
-|`>0`| |
-|`>= 50 && <100`| |
-|`=red`| |
-|`!=black and yellow`| Everything that is not an operator is treated as a value. This is evaluated as `inputValue != "black and yellow"` |
-|<code>=23 &#124;&#124; =25</code>| |
+| Expression                        | Explanation                                                                                                       |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `default`                         | will be shown when the value is empty                                                                             |
+| `>0`                              |                                                                                                                   |
+| `>= 50 && <100`                   |                                                                                                                   |
+| `=red`                            |                                                                                                                   |
+| `!=black and yellow`              | Everything that is not an operator is treated as a value. This is evaluated as `inputValue != "black and yellow"` |
+| <code>=23 &#124;&#124; =25</code> |                                                                                                                   |
 
 Supported operators:
 
-| Operator |
-| --- |
-|`default` <br/>evaluates to true when value is empty, e.g. `""` |
-| `=` |
-| <code>&amp;&amp;</code> |
-| <code>&#124;&#124;</code> |
-| <code>&gt;</code> |
-| <code>&gt;=</code> |
-| <code>&lt;</code> |
-| <code>&lt;=</code> |
+| Operator                                                        |
+|-----------------------------------------------------------------|
+| `default` <br/>evaluates to true when value is empty, e.g. `""` |
+| `=`                                                             |
+| <code>&amp;&amp;</code>                                         |
+| <code>&#124;&#124;</code>                                       |
+| <code>&gt;</code>                                               |
+| <code>&gt;=</code>                                              |
+| <code>&lt;</code>                                               |
+| <code>&lt;=</code>                                              |
 
 ___Note___: Only _simple_ expressions are supported.
 Logical groupings e.g. `(a || b) && c` are not supported. <br/>

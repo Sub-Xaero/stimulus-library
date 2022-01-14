@@ -12,17 +12,17 @@ Returns
 
 
 ### useFullscreen
-| Parameters | | Type | Purpose | Default |
-| --- | --- | --- | --- |--- |
-| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this` |
-| `element` | | `Window` or `Document` or `HTMLElement` | The element to open in fullscreen | Document |
+| Parameters   |     | Type                                    | Purpose                                                                                                                                               | Default  |
+|--------------|-----|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `controller` |     | `Controller`                            | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this`   |
+| `element`    |     | `Window` or `Document` or `HTMLElement` | The element to open in fullscreen                                                                                                                     | Document |
 
-| Return values | | Type | Purpose |
-| --- | --- | --- | --- |
-| `isFullscreen` | | `Function` | A function that returns whether or not the element is currently in fullscreen |
-| `enter` | | `Function` | A function that when called enters fullscreen |
-| `exit` | | `Function` | A function that when called exits fullscreen |
-| `toggle` | | `Function` | A function that enters fullscreen if not already in fullscreen and exits if already in fullscreen |
+| Return values  |     | Type       | Purpose                                                                                           |
+|----------------|-----|------------|---------------------------------------------------------------------------------------------------|
+| `isFullscreen` |     | `Function` | A function that returns whether or not the element is currently in fullscreen                     |
+| `enter`        |     | `Function` | A function that when called enters fullscreen                                                     |
+| `exit`         |     | `Function` | A function that when called exits fullscreen                                                      |
+| `toggle`       |     | `Function` | A function that enters fullscreen if not already in fullscreen and exits if already in fullscreen |
 
 
 ## How to Use

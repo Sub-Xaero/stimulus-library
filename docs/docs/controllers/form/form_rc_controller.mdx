@@ -14,34 +14,34 @@ Submit and/or reset a form, using links/buttons that are outside the child DOM o
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
-| `reset` | Reset the form |
+| Action   | Purpose         |
+|----------|-----------------|
+| `reset`  | Reset the form  |
 | `submit` | Submit the form |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-| Target | Purpose | Default |
-| --- | --- | --- |
-| `form` (Optional) | The form to target the controller's actions on | - |
+| Target            | Purpose                                        | Default |
+|-------------------|------------------------------------------------|---------|
+| `form` (Optional) | The form to target the controller's actions on | -       |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 <NoClasses/>
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `formSelector` (Optional) | String | The CSS selector to find the form to remotely submit/reset | - |
-| `submitMode` (Optional) | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/>  | `request` |
+| Value                     | Type   | Description                                                                                                                                                                                                                                                                                                                                     | Default   |
+|---------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `formSelector` (Optional) | String | The CSS selector to find the form to remotely submit/reset                                                                                                                                                                                                                                                                                      | -         |
+| `submitMode` (Optional)   | String | The mode to submit the form using, either `direct` or `request`. <br/><br/>`direct` calls `.submit()` on the form without dispatching the `submit` event. <br/>`request` synthesizes a normal `submit` event on the form, a submit event will still be fired and any listeners that modify the behaviours of the form will still run.<br/><br/> | `request` |
 
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- | --- |
-| `submit` [Native Browser Event] | When the form is submitted, via the `submit` action | The `form` target. | - |
-| `reset` [Native Browser Event] | When the form is reset, via the `reset` action | The `form` target. | - |
+| Event                           | When                                                | Dispatched on      | `event.detail` |
+|---------------------------------|-----------------------------------------------------|--------------------|----------------|
+| `submit` [Native Browser Event] | When the form is submitted, via the `submit` action | The `form` target. | -              |
+| `reset` [Native Browser Event]  | When the form is reset, via the `reset` action      | The `form` target. | -              |
 
 ## Side Effects
 

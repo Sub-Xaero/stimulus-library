@@ -23,28 +23,28 @@ and
 `useInjectedFragment` for an HTML DocumentFragment you have already constructed,
 
 ### useInjectedHTML
-| Parameters | | Type | Purpose | Default |
-| --- | --- | --- | --- |--- |
-| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this` |
-| `targetElement` | | `HTMLElement` | The element to insert the given elements near | |
-| `insertPosition` | | `String` | Where to place the given elements. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | |
-| `html`| | `String` | The HTML string to inject into the DOM |  |
+| Parameters       |     | Type          | Purpose                                                                                                                                                                              | Default |
+|------------------|-----|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`     |     | `Controller`  | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                | `this`  |
+| `targetElement`  |     | `HTMLElement` | The element to insert the given elements near                                                                                                                                        |         |
+| `insertPosition` |     | `String`      | Where to place the given elements. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) |         |
+| `html`           |     | `String`      | The HTML string to inject into the DOM                                                                                                                                               |         |
 
 ### useInjectedElement
-| Parameters | | Type | Purpose | Default |
-| --- | --- | --- | --- |--- |
-| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this` |
-| `targetElement` | | `HTMLElement` | The element to insert the given elements near | |
-| `insertPosition` | | `String` | Where to place the given elements. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | |
-| `element`| | `HTMLElement` | The HTMLElement to inject into the DOM |  |
+| Parameters       |     | Type          | Purpose                                                                                                                                                                              | Default |
+|------------------|-----|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`     |     | `Controller`  | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                | `this`  |
+| `targetElement`  |     | `HTMLElement` | The element to insert the given elements near                                                                                                                                        |         |
+| `insertPosition` |     | `String`      | Where to place the given elements. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) |         |
+| `element`        |     | `HTMLElement` | The HTMLElement to inject into the DOM                                                                                                                                               |         |
 
 ### useInjectedElement
-| Parameters | | Type | Purpose | Default |
-| --- | --- | --- | --- |--- |
-| `controller` | | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this` |
-| `targetElement` | | `HTMLElement` | The element to insert the given elements near | |
-| `insertPosition` | | `String` | Where to place the given elements. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | |
-| `fragment`| | `DocumentFragment` | The DocumentFragment to inject into the DOM |  |
+| Parameters       |     | Type               | Purpose                                                                                                                                                                              | Default |
+|------------------|-----|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`     |     | `Controller`       | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                | `this`  |
+| `targetElement`  |     | `HTMLElement`      | The element to insert the given elements near                                                                                                                                        |         |
+| `insertPosition` |     | `String`           | Where to place the given elements. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) |         |
+| `fragment`       |     | `DocumentFragment` | The DocumentFragment to inject into the DOM                                                                                                                                          |         |
 
 ## How to Use
 

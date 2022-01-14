@@ -17,10 +17,10 @@ Designed to emulate UJS's `data-disable="true"` and  `data-disable-with="Please 
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
+| Action    | Purpose                                                                                                                                                                                                            |
+|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `disable` | Disable the connected element, cache its default text/label and set its text/label to the `messageValue`. Repeated calls to `disable`  will simply `event.preventDefault` to prevent clicks on the disabled event. |
-| `enable` | Enable the connected element, and restore its default text value/label. Calling `enable` on an element that has not been disabled is a no-op.  |
+| `enable`  | Enable the connected element, and restore its default text value/label. Calling `enable` on an element that has not been disabled is a no-op.                                                                      |
 
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -31,8 +31,8 @@ Designed to emulate UJS's `data-disable="true"` and  `data-disable-with="Please 
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
+| Value                | Type   | Description                                                    | Default           |
+|----------------------|--------|----------------------------------------------------------------|-------------------|
 | `message` (Optional) | String | The text to show in the connected element while it is disabled | `"Submitting..."` |
 
 ## Events

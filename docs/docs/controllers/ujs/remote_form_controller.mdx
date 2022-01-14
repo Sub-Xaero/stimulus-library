@@ -19,8 +19,8 @@ Acts like [LoadBlockController](../ajax/LoadBlockController) in that it will rec
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 
-| Action | Purpose |
-| --- | --- |
+| Action    | Purpose                                                                                                                                 |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | `replace` | Replace the attached form with the contents of the response. Needs to be wired up to the UJS `ajax:success` and/or `ajax:error` events. |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
@@ -31,15 +31,15 @@ Acts like [LoadBlockController](../ajax/LoadBlockController) in that it will rec
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value | Type | Description | Default |
-| --- | --- | --- | --- |
-| `selector` (Optional) | String | A css selector to query the response with. The selected element(s) are what the attached form will be replaced with.  | The controller identifier. It looks for another form with the same controller in the response |
+| Value                 | Type   | Description                                                                                                          | Default                                                                                       |
+|-----------------------|--------|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `selector` (Optional) | String | A css selector to query the response with. The selected element(s) are what the attached form will be replaced with. | The controller identifier. It looks for another form with the same controller in the response |
 
 ## Events
 
-| Event | When | Dispatched on | `event.detail` |
-| --- | --- | --- | --- |
-| `remote-form:replace` | After the form has been replaced with the response | The _new_ form element | - |
+| Event                 | When                                               | Dispatched on          | `event.detail` |
+|-----------------------|----------------------------------------------------|------------------------|----------------|
+| `remote-form:replace` | After the form has been replaced with the response | The _new_ form element | -              |
 
 ## Side Effects
 <NoSideEffects/>
