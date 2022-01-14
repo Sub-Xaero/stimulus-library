@@ -5,6 +5,7 @@ export * from './media';
 export * from './scroll';
 export * from './signal';
 export * from './tables';
+export * from './trix';
 export * from './utility';
 export * from './visual';
 

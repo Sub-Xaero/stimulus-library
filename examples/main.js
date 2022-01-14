@@ -1,6 +1,8 @@
 import './style.scss';
 import 'trix/dist/trix.css';
-import 'trix';
+import Trix from 'trix';
+
+window.Trix = Trix;
 
 import { Application } from "stimulus";
 import { UpdateDateController } from "./src/helper_controllers/update_date_controller";
@@ -78,6 +80,7 @@ import {
   ToggleClassController,
   TreeViewController,
   TrixModifierController,
+  TrixStrikethroughController,
   TurboFrameRCController,
   TurboFrameRefreshController,
   UserFocusController,
