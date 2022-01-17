@@ -1,55 +1,35 @@
-import {BaseController} from "../../utilities/base_controller";
-import {TrixElementsPayload, useTrixModifiers} from "../../mixins/use_trix_modifiers";
+import {TrixElementsPayload} from "../../mixins/use_trix_modifiers";
+import {TrixBaseController} from "./base_controller";
 
-export class TrixStrikethroughController extends BaseController {
+export class TrixStrikethroughController extends TrixBaseController {
 
-  declare __button: HTMLElement;
-
-  get button(): HTMLElement {
+  get button(): HTMLButtonElement {
     if (this.__button) {
       return this.__button;
     }
 
-    let newButton = document.createElement('button');
-    newButton.type = 'button';
-    newButton.className = "trix-button trix-button--icon trix-button--icon-strikethrough";
-    newButton.dataset.trixAttribute = "strikethrough";
-    newButton.dataset.trixKey = "s";
-    newButton.title = "Strikethrough";
-    newButton.tabIndex = -1;
-    newButton.innerText = "Strikethrough";
-    this.__button = newButton;
+    this.__button = this.newButton({
+      className: 'trix-button--icon-strikethrough',
+      attribute: 'strikethrough',
+      key: 's',
+      title: 'Strikethrough',
+    });
 
     return this.__button;
   }
 
-  get trix(): any {
-    // @ts-ignore
-    if (window.Trix == undefined) {
-      throw new Error("This controller does not have access to the global Trix instance. Please set window.Trix to point to your Trix instance.");
-    }
-    // @ts-ignore
-    return window.Trix;
-  }
-
-  connect() {
-    useTrixModifiers(this);
-  }
-
-  install({toolbar}: TrixElementsPayload) {
-    // @ts-ignore
-    if (window.Trix == undefined) {
-      throw new Error("This controller does not have access to the global Trix instance. Please set window.Trix to point to your Trix instance.");
-    }
-
+  initialize() {
     this.trix.config.textAttributes.strikethrough = {
       tagName: 's',
       inheritable: true,
       parser: function (element: HTMLElement) {
         let style = window.getComputedStyle(element);
-        return style.textDecoration === "strikethrough";
+        return style.textDecoration.includes("line-through") || element.tagName === "S";
       },
     };
+  }
+
+  install({toolbar}: TrixElementsPayload) {
     let textTools = toolbar.querySelector(".trix-button-group--text-tools");
     if (!textTools) {
       throw new Error("Could not find the text tools button group.");
@@ -57,8 +37,8 @@ export class TrixStrikethroughController extends BaseController {
     textTools.insertAdjacentElement("beforeend", this.button);
   }
 
-  uninstall(elements: TrixElementsPayload) {
-    this.trix.config.textAttributes.strikethrough = undefined;
+  uninstall({}: TrixElementsPayload) {
+    this.button.remove();
   }
 
 }
