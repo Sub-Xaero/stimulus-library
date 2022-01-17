@@ -80,6 +80,7 @@ import {
   ToggleClassController,
   TreeViewController,
   TrixHighlightController,
+  TrixKeyboardController,
   TrixModifierController,
   TrixStrikethroughController,
   TrixUnderlineController,
@@ -170,6 +171,7 @@ app.register("timeout", TimeoutController);
 app.register("toggle-class", ToggleClassController);
 app.register("tree-view", TreeViewController);
 app.register("trix-highlight", TrixHighlightController);
+app.register("trix-keyboard", TrixKeyboardController);
 app.register("trix-modifier", TrixModifierController);
 app.register("trix-strikethrough", TrixStrikethroughController);
 app.register("trix-underline", TrixUnderlineController);
