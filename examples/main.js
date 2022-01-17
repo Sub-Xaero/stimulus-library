@@ -79,6 +79,7 @@ import {
   TimeoutController,
   ToggleClassController,
   TreeViewController,
+  TrixHighlightController,
   TrixModifierController,
   TrixStrikethroughController,
   TrixUnderlineController,
@@ -168,6 +169,7 @@ app.register("time-distance", TimeDistanceController);
 app.register("timeout", TimeoutController);
 app.register("toggle-class", ToggleClassController);
 app.register("tree-view", TreeViewController);
+app.register("trix-highlight", TrixHighlightController);
 app.register("trix-modifier", TrixModifierController);
 app.register("trix-strikethrough", TrixStrikethroughController);
 app.register("trix-underline", TrixUnderlineController);
