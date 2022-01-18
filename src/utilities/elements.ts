@@ -34,6 +34,42 @@ export function isHTMLImageElement(element: Element): element is HTMLImageElemen
   return element.nodeName == "IMG";
 }
 
+export function isHTMLButtonInputElement(element: Element): element is HTMLInputElement & { type: "button" } {
+  return element.nodeName == "INPUT" && (element as HTMLInputElement).type == "button";
+}
+
+export function isHTMLSubmitInputElement(element: Element): element is HTMLInputElement & { type: "submit" } {
+  return element.nodeName == "INPUT" && (element as HTMLInputElement).type == "submit";
+}
+
+export function isHTMLResetInputElement(element: Element): element is HTMLInputElement & { type: "reset" } {
+  return element.nodeName == "INPUT" && (element as HTMLInputElement).type == "reset";
+}
+
+export function isHTMLButtonButtonElement(element: Element): element is HTMLButtonElement & { type: "button" } {
+  return element.nodeName == "BUTTON" && (element as HTMLButtonElement).type == "button";
+}
+
+export function isHTMLSubmitButtonElement(element: Element): element is HTMLButtonElement & { type: "submit" } {
+  return element.nodeName == "BUTTON" && (element as HTMLButtonElement).type == "submit";
+}
+
+export function isHTMLResetButtonElement(element: Element): element is HTMLButtonElement & { type: "reset" } {
+  return element.nodeName == "BUTTON" && (element as HTMLButtonElement).type == "reset";
+}
+
+export function isTypeOfResetButtonElement(element: Element): element is (HTMLButtonElement | HTMLInputElement) & { type: "reset" } {
+  return isHTMLResetButtonElement(element) || isHTMLResetInputElement(element);
+}
+
+export function isTypeOfSubmitButtonElement(element: Element): element is (HTMLButtonElement | HTMLInputElement) & { type: "submit" } {
+  return isHTMLSubmitButtonElement(element) || isHTMLSubmitInputElement(element);
+}
+
+export function isTypeOfButtonableElement(element: Element): element is HTMLButtonElement | (HTMLInputElement & { type: "submit" | "reset" }) {
+  return isTypeOfResetButtonElement(element) || isTypeOfSubmitButtonElement(element) || isHTMLButtonButtonElement(element);
+}
+
 export function isElementCheckable(element: Element): element is HTMLInputElement & { checked: boolean } {
   return isHTMLInputElement(element) && (element.type === "radio" || element.type === "checkbox");
 }
