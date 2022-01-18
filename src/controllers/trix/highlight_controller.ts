@@ -41,6 +41,7 @@ export class TrixHighlightController extends TrixBaseController {
 
   uninstall({}: TrixElementsPayload) {
     this.button.remove();
+    this.__button = null;
   }
 
 }

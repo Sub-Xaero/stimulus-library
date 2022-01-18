@@ -38,8 +38,9 @@ export class TrixUnderlineController extends TrixBaseController {
   }
 
 
-  uninstall({toolbar, editor}: TrixElementsPayload) {
+  uninstall({}: TrixElementsPayload) {
     this.button.remove();
+    this.__button = null;
   }
 
 }
