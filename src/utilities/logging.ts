@@ -44,8 +44,7 @@ export function logProperty(prop: string): boolean {
 
 
 export function log(controller: Controller, functionName: string, args: {} = {}): void {
-  // @ts-ignore
-  if (!this.application.debug) {
+  if (!controller.application.debug) {
     return;
   }
   let logger = console;
@@ -59,8 +58,7 @@ export function log(controller: Controller, functionName: string, args: {} = {})
 }
 
 export function warn(controller: Controller, warning: string, args: {} = {}): void {
-  // @ts-ignore
-  if (!this.application.debug) {
+  if (!controller.application.debug) {
     return;
   }
   let logger = console;
@@ -74,7 +72,6 @@ export function warn(controller: Controller, warning: string, args: {} = {}): vo
 }
 
 export function logEvent(controller: Controller, eventName: string, event: CustomEvent, element: HTMLElement) {
-  // @ts-ignore
   if (!controller.application.debug) {
     return;
   }
