@@ -82,7 +82,6 @@ export function useTrixModifiers(controller: TrixComposableController) {
     disconnect() {
       observer.disconnect();
       teardown();
-      controllerMethod(controller, 'uninstall').call({toolbar, editor: controller.element});
       controllerDisconnect();
     },
   });
