@@ -1,5 +1,10 @@
 import {TrixElementsPayload} from "../../mixins/use_trix_modifiers";
 import {TrixBaseController} from "./base_controller";
+import {TrixTextAttribute} from "../../utilities/trix";
+
+function globalInstall() {
+
+}
 
 export class TrixKeyboardController extends TrixBaseController {
 
@@ -25,7 +30,7 @@ export class TrixKeyboardController extends TrixBaseController {
       parser(element: HTMLElement) {
         return element.tagName === 'KBD';
       },
-    };
+    } as TrixTextAttribute;
   }
 
   install({toolbar}: TrixElementsPayload) {

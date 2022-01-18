@@ -1,5 +1,6 @@
 import {TrixElementsPayload} from "../../mixins/use_trix_modifiers";
 import {TrixBaseController} from "./base_controller";
+import {TrixTextAttribute} from "../../utilities/trix";
 
 export class TrixStrikethroughController extends TrixBaseController {
 
@@ -26,7 +27,7 @@ export class TrixStrikethroughController extends TrixBaseController {
         let style = window.getComputedStyle(element);
         return style.textDecoration.includes("line-through") || element.tagName === "S";
       },
-    };
+    } as TrixTextAttribute;
   }
 
   install({toolbar}: TrixElementsPayload) {

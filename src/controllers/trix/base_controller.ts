@@ -1,5 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {useTrixModifiers} from "../../mixins/use_trix_modifiers";
+import {getTrix} from "../../utilities/trix";
 
 interface TrixButtonAttributes {
   className: string,
@@ -13,12 +14,7 @@ export class TrixBaseController extends BaseController {
   declare __button: HTMLButtonElement | null;
 
   get trix(): any {
-    // @ts-ignore
-    if (window.Trix == undefined) {
-      throw new Error("This controller does not have access to the global Trix instance. Please set window.Trix to point to your Trix instance.");
-    }
-    // @ts-ignore
-    return window.Trix;
+    return getTrix();
   }
 
   newButton({className, key, attribute, title}: TrixButtonAttributes): HTMLButtonElement {

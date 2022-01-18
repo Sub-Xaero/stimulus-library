@@ -1,5 +1,6 @@
 import {TrixElementsPayload} from "../../mixins/use_trix_modifiers";
 import {TrixBaseController} from "./base_controller";
+import {TrixTextAttribute} from "../../utilities/trix";
 
 export class TrixHighlightController extends TrixBaseController {
 
@@ -27,7 +28,7 @@ export class TrixHighlightController extends TrixBaseController {
         let style = window.getComputedStyle(element);
         return element.tagName === 'MARK' || style.backgroundColor === 'yellow';
       },
-    };
+    } as TrixTextAttribute;
   }
 
   install({toolbar}: TrixElementsPayload) {
