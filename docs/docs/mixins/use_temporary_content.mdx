@@ -1,0 +1,107 @@
+---
+id: useTemporaryContent
+title: useTemporaryContent
+---
+
+
+
+
+
+
+
+
+
+
+import NoSideEffects from '../_partials/no-side-effects.md';
+
+## Purpose
+
+Set the `innerHTML` of elements (or `value` of `<input type="submit">` & etc elements) either for a set period of time,
+or until the returned cleanup function is called.
+
+Useful for showing loading indicators, placeholder content, or other temporary content.
+
+## Side Effects
+<NoSideEffects/>
+
+## Usage
+
+
+### useTemporaryContent
+| Parameters            | Type          | Purpose                                                                                                                                                      | Default |
+|-----------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`          | `Controller`  | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.        |         |
+| `target`              | `HTMLElement` | The element to change the content of                                                                                                                         |         |
+| `content`             | `String`      | The content to temporarily set the element to contain                                                                                                        |         |
+| `timeout` (Optional)  | `Integer`     | The time in ms before the original content is restored to the element. If left blank, the content will only be restored when you call the teardown function. |         |
+| `callback` (Optional) | `Function`    | A function, which if provided, will be called when the the original content is restored. Useful if you want to hook your own code into the cleanup process   |         |
+
+| Return Values | Type       | Purpose                                                                                                                                                                                                 |
+|---------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `teardown`    | `Function` | Call this function when you want the original content to be restored to your element                                                                                                                    |
+| `update`      | `Function` | Call this function with a different string to change the temporary content in your element, the original content from when the mixin was first called will still be remembered and restored on teardown |
+
+
+## How to Use
+
+### Automatic Teardown
+```js
+
+import {Controller} from 'stimulus';
+import {useTemporaryContent} from 'stimulus-library';
+
+export default class ClipboardController extends Controller {
+
+  static targets = ['source', 'prompt'];
+
+  copy() {
+    this.sourceTarget.select();
+    document.execCommand('copy');
+
+    useTemporaryContent(this, this.promptTarget, 'Copied!', 3000);
+  }
+
+  disconnect() {
+    // All temporary content will be automatically restored to the originals when the controller is disconnected
+    // No need to do anything here
+  }
+
+
+}
+```
+
+### Manual Teardown
+```js
+
+import {Controller} from 'stimulus';
+import {useTemporaryContent} from 'stimulus-library';
+
+export default class extends Controller {
+
+  async loadContent() {
+    if (this.previousTeardown) {
+      this.previousTeardown();
+    }
+    let {teardown, update} = useTemporaryContent(this, this.element, `Loading...<i class="fa fa-spinner fa-spin"></i>`);
+    this.previousTeardown = teardown;
+
+    let results = await fetch(`example.com/api/data`);
+
+    if (results.ok) {
+      let data = await results.text();
+      teardown();
+      this.element.innerHTML = data.html;
+    } else {
+      update('Error loading content. Please try again');
+    }
+  }
+
+  disconnect() {
+    // All temporary content will be automatically restored to the originals when the controller is disconnected
+    // No need to do anything here
+  }
+
+
+}
+
+```
