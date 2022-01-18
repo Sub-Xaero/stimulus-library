@@ -14,6 +14,10 @@ export function isHTMLInputElement(element: Element): element is HTMLInputElemen
   return element.nodeName == "INPUT";
 }
 
+export function isHTMLLabelElement(element: Element): element is HTMLLabelElement {
+  return element.nodeName == "LABEL";
+}
+
 export function isHTMLTextAreaElement(element: Element): element is HTMLTextAreaElement {
   return element.nodeName == "TEXTAREA";
 }
