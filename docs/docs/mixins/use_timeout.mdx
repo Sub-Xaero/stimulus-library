@@ -13,6 +13,20 @@ Automatically sets the correct Javascript binding so that `this` inside the even
 
 The controller will use `setInterval` to register the given callback to be run after the provided interval.
 
+## Usage
+
+### useTimeout
+
+| Parameters   |     | Type         | Purpose                                                                                                                                               | Default |
+|--------------|-----|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller` |     | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. |         |
+| `callback`   |     | `Function`   | A function to run after the elapsed time                                                                                                              |         |
+| `timeout`    |     | `Integer`    | The time in ms before the handler function is run.                                                                                                    |         |
+
+| Return Values |     | Type       | Purpose                                                                        |
+|---------------|-----|------------|--------------------------------------------------------------------------------|
+| `teardown`    |     | `Function` | Call this function if you want to cancel the timeout before the scheduled time |
+
 
 ## How to Use
 
@@ -26,6 +40,10 @@ export default class extends Controller {
   connect() {
     // Run `handler` after 5 seconds
     useTimeout(this, this.handler, 5000)
+
+    // Setup `handler` to run after 5 seconds, but cancel it before the scheduled time
+    let cleanupTimeout = useTimeout(this, this.handler, 5000)
+    cleanupTimeout();
   }
 
   handler() {

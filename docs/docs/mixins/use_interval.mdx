@@ -13,6 +13,19 @@ Automatically sets the correct Javascript binding so that `this` inside the even
 
 The controller will use `setInterval` to register the given callback at the provided interval.
 
+## Usage
+
+### useInterval
+
+| Parameters   |     | Type         | Purpose                                                                                                                                               | Default |
+|--------------|-----|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller` |     | `Controller` | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. |         |
+| `callback`   |     | `Function`   | A function to run after the elapsed time                                                                                                              |         |
+| `timeout`    |     | `Integer`    | The time in ms between each handler function being run.                                                                                               |         |
+
+| Return Values |     | Type       |     | Purpose                                                           |
+|---------------|-----|------------|:----|-------------------------------------------------------------------|
+| `teardown`    |     | `Function` |     | Call this function if you want to cancel the interval             |
 
 ## How to Use
 
