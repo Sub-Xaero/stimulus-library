@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.5...v0.7.0) (2022-01-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Support for Stimulus 3.
+* AutoSubmitFormController - Removed default debounce interval
+
+### Features
+
+* **Mixins:** New mixin useTemporaryContent for setting content of an element temporarily and restoring it either on demand or after a set time ([8f1d254](https://github.com/Sub-Xaero/stimulus-library/commit/8f1d254c78a1691b0e55ee4307030e37d2466789))
+* AutoSubmitFormController - Change eventModeValue to support multiple events. Backwards compatible with old syntax. ([efaa124](https://github.com/Sub-Xaero/stimulus-library/commit/efaa1242a3772f20c840703f357590fa60fbfd67))
+* AutoSubmitFormController - Removed default debounce interval ([7d0aa0b](https://github.com/Sub-Xaero/stimulus-library/commit/7d0aa0bf47b02b51c6575cdb54dfd35da78e36c2))
+* Renamed `this.dispatch` to `this.dispatchEvent` to avoid collision with Stimulus 3. Stimulus 3 only supports dispatch on the controller root element, while dispatchEvent can be fired on any element. ([e7868e7](https://github.com/Sub-Xaero/stimulus-library/commit/e7868e780e7d61c962a0eefb113782a0385b616b))
+* Support for Stimulus 3. ([60c84d8](https://github.com/Sub-Xaero/stimulus-library/commit/60c84d8ad46aff9745aaa2e25a5a79e6162fc2bf))
+* **Mixins:** New mixin UseLocalstorage ([c323e7f](https://github.com/Sub-Xaero/stimulus-library/commit/c323e7f3e16f56686a85b56eb97735a559f982f8))
+
+
+### Bug Fixes
+
+* Exclude Trix/ActionText editors from AutoSubmitFormController, fixes Trix hyperlink dialogue submitting forms ([e0e2f52](https://github.com/Sub-Xaero/stimulus-library/commit/e0e2f52f50bc4191582ede7055c87a2e33380aab))
+
 ### [0.6.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.4...v0.6.5) (2021-12-06)
 
 
