@@ -8,10 +8,7 @@
   </head>
   <body>
     <div class="container text-center p-4">
-      <p>
-        The following form will submit as soon as the input loses focus after
-        editing.
-      </p>
+
       <div class="d-flex m-4 justify-content-center align-items-center">
         <form
           action=""
@@ -20,9 +17,22 @@
           data-auto-submit-form-debounce-value="2000"
           data-auto-submit-form-event-mode-value="change input"
         >
+          <p>
+            The following form will submit as soon as the input loses focus after
+            editing.
+          </p>
           <label class="form-label">
             What is your quest?
             <textarea class="form-control" name="user[quest]"></textarea>
+          </label>
+
+          <p>
+            This input has been annotated with <code>data-no-autosubmit</code> and will not submit
+            the form when it changed.
+          </p>
+          <label class="form-label">
+            What is your secret quest?
+            <textarea class="form-control" name="user[secret_quest]" data-no-autosubmit></textarea>
           </label>
         </form>
       </div>
