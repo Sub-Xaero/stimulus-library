@@ -52,7 +52,9 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   get inputElements() {
-    return this.element.querySelectorAll(this._cssSelector);
+    let subElements = Array.from(this.element.querySelectorAll(this._cssSelector));
+    subElements = subElements.filter(el => !this._ancestorIsTrix(el));
+    return subElements;
   }
 
   connect() {
@@ -65,6 +67,10 @@ export class AutoSubmitFormController extends BaseController {
         {debounce: this._debounceTimeout && this._debounceTimeout > 0 ? this._debounceTimeout : undefined},
       );
     });
+  }
+
+  _ancestorIsTrix(element: Element) {
+    return element.closest('trix-toolbar') !== null && element.closest('trix-editor') !== null;
   }
 
   private submit() {
