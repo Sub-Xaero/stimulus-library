@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.0...v0.7.1) (2022-01-25)
+
+
+### Bug Fixes
+
+* BaseController infinite loop when dispatching an event ([6618122](https://github.com/Sub-Xaero/stimulus-library/commit/6618122063238d2cf4adcab1197d7d8f69cf9f0a))
+
 ## [0.7.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.6.5...v0.7.0) (2022-01-20)
 
 
