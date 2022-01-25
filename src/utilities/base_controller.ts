@@ -1,5 +1,6 @@
 import {Context, Controller} from "stimulus";
 import {log, logProperty} from "./logging";
+import {dispatchEvent} from "./events";
 
 export class BaseController extends Controller {
 
@@ -54,7 +55,7 @@ export class BaseController extends Controller {
   }
 
   dispatchEvent(element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
-    this.dispatchEvent(element, eventName, options);
+    dispatchEvent(this, element, eventName, options);
   }
 
 }
