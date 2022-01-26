@@ -14,6 +14,9 @@ export class BaseController extends Controller {
       get: (obj, prop) => {
         let returnVal = Reflect.get(obj, prop);
         let self = this;
+        if ("logFormattedMessage" in this.application) {
+          return returnVal;
+        }
         if (logProperty(prop.toString())) {
           if (typeof returnVal == "function") {
             return new Proxy(returnVal, {
