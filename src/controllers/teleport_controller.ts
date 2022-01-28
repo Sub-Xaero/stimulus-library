@@ -28,7 +28,7 @@ export class TeleportController extends EphemeralController {
     let destination = document.querySelector(this.targetValue);
 
     if (destination == null) {
-      this.dispatchEvent(element, "teleport:error");
+      this.dispatchEvent(element, `${this.identifier}:error`);
       return;
     }
 

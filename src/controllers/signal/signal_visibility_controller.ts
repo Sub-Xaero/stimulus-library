@@ -45,10 +45,10 @@ export class SignalVisibilityController extends BaseController {
       return;
     }
     if (this._predicates.every(predicate => predicate(value))) {
-      this.dispatchEvent(this.el, signalVisibilityEvent(this.nameValue, "show"), {detail: {predicate: this.showValue, value}});
+      this.dispatchEvent(this.el, `${this.identifier}:${signalVisibilityEvent(this.nameValue, "show")}`, {detail: {predicate: this.showValue, value}});
       this.removeHideClasses(this.el);
     } else {
-      this.dispatchEvent(this.el, signalVisibilityEvent(this.nameValue, "hide"), {detail: {predicate: this.showValue, value}});
+      this.dispatchEvent(this.el, `${this.identifier}:${signalVisibilityEvent(this.nameValue, "hide")}`, {detail: {predicate: this.showValue, value}});
       this.addHideClasses(this.el);
     }
   }

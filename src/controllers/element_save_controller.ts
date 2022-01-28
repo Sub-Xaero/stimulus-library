@@ -66,7 +66,7 @@ export class ElementSaveController extends BaseController {
       event.preventDefault();
     }
     this._store.clear();
-    this.dispatchEvent(this._element, `element-save:cleared`);
+    this.dispatchEvent(this._element, `${this.identifier}:cleared`);
   }
 
   save(event?: Event) {
@@ -78,7 +78,7 @@ export class ElementSaveController extends BaseController {
     let data: { [idx: string]: any } = {};
     attributes.forEach((attr: string) => data[attr] = _get(element, attr));
     this._store.value = data;
-    this.dispatchEvent(element, `element-save:save:success`);
+    this.dispatchEvent(element, `${this.identifier}:save:success`);
   }
 
   restore(event?: Event) {
@@ -91,9 +91,9 @@ export class ElementSaveController extends BaseController {
       Object.keys(savedData).forEach(
         (attr: string) => _set(element as HTMLElement, attr, savedData[attr]),
       );
-      this.dispatchEvent(element, `element-save:restore:success`);
+      this.dispatchEvent(element, `${this.identifier}:restore:success`);
     } else {
-      this.dispatchEvent(element, `element-save:restore:empty`);
+      this.dispatchEvent(element, `${this.identifier}:restore:empty`);
     }
   }
 

@@ -90,7 +90,7 @@ export class FormSaveController extends BaseController {
 
   _clear() {
     localStorage.removeItem(this._formIdentifier);
-    this.dispatchEvent(this.el, `form-save:cleared`);
+    this.dispatchEvent(this.el, `${this.identifier}:cleared`);
   }
 
   clear(event?: Event) {
@@ -102,7 +102,7 @@ export class FormSaveController extends BaseController {
     event.preventDefault();
     let data = this._formData;
     localStorage.setItem(this._formIdentifier, JSON.stringify(data[this._formIdentifier]));
-    this.dispatchEvent(this.el, `form-save:save:success`);
+    this.dispatchEvent(this.el, `${this.identifier}:save:success`);
   }
 
   restore(event?: Event) {
@@ -123,9 +123,9 @@ export class FormSaveController extends BaseController {
           }
         }
       }
-      this.dispatchEvent(this.el, `form-save:restore:success`);
+      this.dispatchEvent(this.el, `${this.identifier}:restore:success`);
     } else {
-      this.dispatchEvent(this.el, `form-save:restore:empty`);
+      this.dispatchEvent(this.el, `${this.identifier}:restore:empty`);
     }
   }
 

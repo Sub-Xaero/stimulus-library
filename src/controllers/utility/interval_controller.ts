@@ -18,7 +18,7 @@ export class IntervalController extends BaseController {
   }
 
   _interval() {
-    this.dispatchEvent(this.el, "interval:action");
+    this.dispatchEvent(this.el, `${this.identifier}:action`);
   }
 
 }
