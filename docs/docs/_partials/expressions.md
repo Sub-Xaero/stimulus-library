@@ -26,7 +26,7 @@ Supported operators:
 
 ___Note___: Only _simple_ expressions are supported.
 Logical groupings e.g. `(a || b) && c` are not supported. <br/>
-Variable bindings e.e. `<=a` are not supported. <br/>
+Variable bindings e.g. `<=a` are not supported. <br/>
 You can only use only one type of logical concatenation at a time. i.e. `>3 && =5 && <10`, or `>3 || =5 || <10`. Expressions that mix the two, i.e. `>3 || =2 && <10` are not supported.
 
 
