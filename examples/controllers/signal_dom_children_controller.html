@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Signal DOM Children Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+
+      <div data-controller="demo">
+        <div data-controller="signal-dom-children" data-demo-target="output" data-signal-dom-children-name-value="dom-visibility">
+        </div>
+
+        <a class="btn btn-primary" data-action="demo#addElement">Add Element</a>
+        <a class="btn btn-primary" data-action="demo#removeElement">Remove Element</a>
+      </div>
+
+      <div
+        class="alert alert-success my-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="dom-visibility"
+        data-signal-visibility-show-value=">0"
+      >
+        There are elements in the observed container.
+      </div>
+
+      <div
+        class="alert alert-warning my-4"
+        data-controller="signal-visibility"
+        data-signal-visibility-name-value="dom-visibility"
+        data-signal-visibility-show-value="<=0"
+      >
+        No elements in the observed container.
+        Click a button to add one!
+      </div>
+
+    </div>
+
+    <style>
+      .hide {
+        display: none;
+      }
+
+      .favourite-colour {
+        padding: 2em;
+        margin: 2em;
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+    </style>
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>

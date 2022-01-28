@@ -64,6 +64,7 @@ import {
   ScrollToTopController,
   SelfDestructController,
   SignalActionController,
+  SignalDomChildrenController,
   SignalInputController,
   SignalVisibilityController,
   StickyController,
@@ -145,6 +146,7 @@ app.register("remote-form", RemoteFormController);
 app.register("responsive-iframe-body", ResponsiveIframeBodyController);
 app.register("responsive-iframe-wrapper", ResponsiveIframeWrapperController);
 app.register("signal-action", SignalActionController);
+app.register("signal-dom-children", SignalDomChildrenController);
 app.register("signal-input", SignalInputController);
 app.register("signal-visibility", SignalVisibilityController);
 app.register("scroll-container", ScrollContainerController);
