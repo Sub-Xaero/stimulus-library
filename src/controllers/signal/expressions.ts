@@ -31,10 +31,12 @@ function _predicateForExpression(expression: string): (val: string | number) => 
     throw new Error(`Could not find operator in expression: ${expression}`);
   }
   let expressionValue: string | number = expression.split(operator)[1].trim();
-  let isNumber = /^-?[0-9]\d*(\.\d+)?$/.test(expressionValue);
-  expressionValue = isNumber ? parseFloat(expressionValue) : expressionValue;
+  let isNumber = /^-?\d*(\.\d+)?$/.test(expressionValue);
+  if (isNumber) {
+    expressionValue = parseFloat(expressionValue);
+  }
 
-  if (expressionValue == "") {
+  if (expressionValue === "") {
     throw new Error(`Could not find a value in expression: ${expression}`);
   }
 
