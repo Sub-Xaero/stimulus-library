@@ -42,7 +42,11 @@ the same `nameValue` as the `nameValue` of this controller.
 
 
 ## Events
-<NoEvents/>
+| Event                    | When                                                                              | Dispatched on               | `event.detail`                         |
+|--------------------------|-----------------------------------------------------------------------------------|-----------------------------|----------------------------------------|
+| `signal-visibility:show` | When a signalled value matches the predicate expression and this element is shown | The controller root element | `element`: the controller root element |
+| `signal-visibility:hide` | When a signalled value fails the predicate expression and this element is hidden  | The controller root element | `element`: the controller root element |
+
 
 ## Side Effects
 <NoSideEffects/>
