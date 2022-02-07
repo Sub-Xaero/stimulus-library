@@ -12,10 +12,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@popperjs/core": "^2.10.2",
+    "@popperjs/core": "^2.11.2",
     "bootstrap": "^5.1.3",
-    "sass": "^1.43.4",
+    "sass": "^1.49.7",
     "trix": "^1.3.1",
-    "vite": "^2.6.4"
+    "vite": "^2.7.13"
   }
 }
