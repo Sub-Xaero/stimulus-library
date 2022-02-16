@@ -42,11 +42,16 @@ the same `nameValue` as the `nameValue` of this controller.
 
 
 ## Events
-| Event                    | When                                                                              | Dispatched on               | `event.detail`                         |
-|--------------------------|-----------------------------------------------------------------------------------|-----------------------------|----------------------------------------|
-| `signal-visibility:show` | When a signalled value matches the predicate expression and this element is shown | The controller root element | `element`: the controller root element |
-| `signal-visibility:hide` | When a signalled value fails the predicate expression and this element is hidden  | The controller root element | `element`: the controller root element |
-
+| Event                    | When                                                                              | Dispatched on               | `event.detail` |                                                               |
+|--------------------------|-----------------------------------------------------------------------------------|-----------------------------|----------------|---------------------------------------------------------------|
+| `signal-visibility:show` | When a signalled value matches the predicate expression and this element is shown | The controller root element |                |                                                               |
+|                          |                                                                                   |                             | `element`      | the controller root element                                   |
+|                          |                                                                                   |                             | `predicate`    | the expression the controller used to try and match the value |
+|                          |                                                                                   |                             | `value`        | the value that was received                                   |
+| `signal-visibility:hide` | When a signalled value fails the predicate expression and this element is hidden  | The controller root element |                |                                                               |
+|                          |                                                                                   |                             | `element`      | the controller root element                                   |
+|                          |                                                                                   |                             | `predicate`    | the expression the controller used to try and match the value |
+|                          |                                                                                   |                             | `value`        | the value that was received                                   |
 
 ## Side Effects
 <NoSideEffects/>
