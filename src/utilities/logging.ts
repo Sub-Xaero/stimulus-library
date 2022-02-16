@@ -48,7 +48,7 @@ export function log(controller: Controller, functionName: string, args: {} = {})
     return;
   }
   let logger = console;
-  logger.groupCollapsed(`%c${controller.identifier} %c#${functionName}`, "color: #3B82F6", "color: unset");
+  logger.groupCollapsed(...colorize(controller.identifier, "#3B82F6"), `#${functionName}`);
   logger.log({
     element: controller.element,
     controller: controller,
@@ -62,7 +62,7 @@ export function warn(controller: Controller, warning: string, args: {} = {}): vo
     return;
   }
   let logger = console;
-  logger.groupCollapsed(`%c${controller.identifier} %c#${warning}`, "color: F39B1AFF", "color: unset");
+  logger.groupCollapsed(...colorize(controller.identifier, "#F39B1AFF"), `!! ${warning} !!`);
   logger.warn({
     element: controller.element,
     controller: controller,
@@ -76,7 +76,32 @@ export function logEvent(controller: Controller, eventName: string, event: Custo
     return;
   }
   let logger = console;
-  logger.groupCollapsed(`%c${controller.identifier} %c${eventName}%c`, "color: #3B82F6", "color: #0be000", "color: unset");
+  logger.groupCollapsed(
+    ...colorizeMany([
+      {text: controller.identifier, color: "#3B82F6"},
+      {text: eventName, color: "#0be000"},
+    ]),
+    event.detail,
+  );
   logger.log({element});
   logger.groupEnd();
+}
+
+interface ColorMapping {
+  text: string;
+  color: string;
+}
+
+function colorize(text: string, color: string): string[] {
+  return colorizeMany([{text, color}]);
+}
+
+function colorizeMany(texts: ColorMapping[]): string[] {
+  let str = "";
+  let colors = texts.flatMap(x => {
+    str += `%c${x.text}%c `;
+    return [`color: ${x.color}`, "color: unset"];
+  });
+
+  return [str, ...colors];
 }
