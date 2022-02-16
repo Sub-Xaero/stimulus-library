@@ -83,7 +83,9 @@ export function logEvent(controller: Controller, eventName: string, event: Custo
     ]),
     event.detail,
   );
-  logger.log({element});
+  logger.log(...colorize("Dispatched on", "#3b82f6"), element);
+  logger.log(...colorize("event", "#3b82f6"), event);
+  logger.log(...colorize("event details", "#3b82f6"), event.detail);
   logger.groupEnd();
 }
 
