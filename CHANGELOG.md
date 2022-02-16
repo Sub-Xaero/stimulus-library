@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.1...v0.7.2) (2022-02-16)
+
+
+### Features
+
+* **Controllers:** New SignalDomChildrenController which emits signals when its children/descendants are added or removed ([115ab44](https://github.com/Sub-Xaero/stimulus-library/commit/115ab440a0a88d30a5667fe70a9b7e59c13b4a27))
+* **Debugging:** Display more and clearer information for event logging in debug mode ([b9d4b95](https://github.com/Sub-Xaero/stimulus-library/commit/b9d4b95306a0536b1d2ef8ece3a76a0fdff06ea7))
+* **SignalInputController:** Dispatch an event to the DOM when the value changes ([fccc822](https://github.com/Sub-Xaero/stimulus-library/commit/fccc82242993963ab85fa5de6a46c4f410f00f91))
+* **SignalVisibilityController:** Predicate and value information is now attached to the events fired to the DOM. Allows for easier debugging, and can be used in other controllers if desired. ([fc02e05](https://github.com/Sub-Xaero/stimulus-library/commit/fc02e05b109e7a430268a4be1a162c7060b16e23))
+* Add event dispatch to SignalVisibilityController that other controllers can use to trigger actions when the element is shown/hidden ([c62972b](https://github.com/Sub-Xaero/stimulus-library/commit/c62972b6a760a99f299a3b2adefe25786d80e2d7))
+
+
+### Bug Fixes
+
+* **SignalInputController:** Add tiny 1ms debounce to event handlers so that change and input don't both fire for the same change ([bb69d6b](https://github.com/Sub-Xaero/stimulus-library/commit/bb69d6bdb479ec08e25e1ca45c7db81c4ead7311))
+* Don't duplicate Stimulus-3 built in logging. ([e2f64eb](https://github.com/Sub-Xaero/stimulus-library/commit/e2f64eb269251bd6bfdd82e64238b7a0a64cd55d))
+* Ensure that dispatched events always have the target in the details obj ([07aa806](https://github.com/Sub-Xaero/stimulus-library/commit/07aa80686579650242998c2376b807bb870b3f78))
+* Fix bug in SignalControllers expression parsing logic where expressions operating on the value "0" were not detected as valid expressions ([772ab33](https://github.com/Sub-Xaero/stimulus-library/commit/772ab331febeed8ff1ca06e4639612b2cc0c74bc))
+
 ### [0.7.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.0...v0.7.1) (2022-01-25)
 
 
