@@ -2,7 +2,7 @@ import {BaseController} from "../../utilities/base_controller";
 import {useEventBus} from "../../mixins/use_event_bus";
 import {SignalPayload} from "./signal_input_controller";
 import {extractPredicates} from "./expressions";
-import {signalConnectEvent, signalValueEvent} from "./events";
+import {signalConnectEvent, signalValueEvent, signalVisibilityEvent} from "./events";
 import {EventBus} from "../../utilities";
 import {installClassMethods} from "../../mixins/install_class_methods";
 
@@ -45,10 +45,10 @@ export class SignalVisibilityController extends BaseController {
       return;
     }
     if (this._predicates.every(predicate => predicate(value))) {
-      this.dispatchEvent(this.el, "signal-visibility:show", {detail: {predicate: this.showValue, value}});
+      this.dispatchEvent(this.el, signalVisibilityEvent(this.nameValue, "show"), {detail: {predicate: this.showValue, value}});
       this.removeHideClasses(this.el);
     } else {
-      this.dispatchEvent(this.el, "signal-visibility:hide", {detail: {predicate: this.showValue, value}});
+      this.dispatchEvent(this.el, signalVisibilityEvent(this.nameValue, "hide"), {detail: {predicate: this.showValue, value}});
       this.addHideClasses(this.el);
     }
   }
