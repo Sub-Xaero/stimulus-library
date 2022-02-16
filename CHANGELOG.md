@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.2...v0.7.3) (2022-02-16)
+
+
+### Bug Fixes
+
+* **SignalVisibilityController:** New hide/show events added in 0.7.2 should have included the nameValue. Now fixed. ([00dd27b](https://github.com/Sub-Xaero/stimulus-library/commit/00dd27b79a62032c286d16ddff9494c4585963e1))
+
 ### [0.7.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.1...v0.7.2) (2022-02-16)
 
 
