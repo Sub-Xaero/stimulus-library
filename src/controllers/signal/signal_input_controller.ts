@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {EventBus} from "../../utilities/event_bus";
-import {useEventListener} from "../../mixins/use_event_listener";
+import {useEventListeners} from "../../mixins/use_event_listener";
 import {getAllRadiosInGroup, isHTMLInputElement} from "../../utilities";
 import {signalConnectEvent, signalValueEvent} from "./events";
 import {useEventBus} from "../../mixins/use_event_bus";
@@ -23,7 +23,7 @@ export class SignalInputController extends BaseController {
   declare hasNameValue: boolean;
 
   get _debounceTimeout(): number | null {
-    return this.hasDebounceIntervalValue ? this.debounceIntervalValue : null;
+    return this.hasDebounceIntervalValue ? this.debounceIntervalValue : 1;
   }
 
   get _name(): string {
@@ -32,8 +32,7 @@ export class SignalInputController extends BaseController {
 
   connect() {
     useEventBus(this, signalConnectEvent(this._name), () => this.emitValue());
-    useEventListener(this, this.el, "input", this.emitValue, {debounce: this._debounceTimeout || undefined});
-    useEventListener(this, this.el, "change", this.emitValue);
+    useEventListeners(this, this.el, ["input", "change"], this.emitValue, {debounce: this._debounceTimeout || undefined});
     requestAnimationFrame(() => this.emitValue());
   }
 
