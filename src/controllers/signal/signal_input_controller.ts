@@ -46,6 +46,7 @@ export class SignalInputController extends BaseController {
       value = selectedValue ? selectedValue : "";
     }
 
+    this.dispatchEvent(this.el, signalValueEvent(this._name), {detail: {value}});
     EventBus.emit(signalValueEvent(this._name), {element: this.el, value} as SignalPayload);
   }
 

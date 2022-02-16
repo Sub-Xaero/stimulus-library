@@ -6,7 +6,6 @@ title: SignalInputController
 
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
-import NoEvents from "../../_partials/no-events.md";
 import NoActions from "../../_partials/no-actions.md";
 
 ## Purpose
@@ -37,7 +36,10 @@ based on changes to inputs and their values.
 | `debounceInterval` (Optional) | String | The amount of time in milliseconds to [debounce](https://css-tricks.com/debouncing-throttling-explained-examples/) `input` events by. If you only want input events to trigger 1 second after the user stops typing, specify "1000". | `1000`                                                |
 
 ## Events
-<NoEvents/>
+| Event                       | When                                         | Dispatched on               | `event.detail` |                            |
+|-----------------------------|----------------------------------------------|-----------------------------|----------------|----------------------------|
+| `signal:value:#{nameValue}` | When the value of the attached input changes | The controller root element | `value`        | The new value of the input |
+
 
 ## Side Effects
 Installs `change` and `input` event handlers on the element this controller is attached to.
