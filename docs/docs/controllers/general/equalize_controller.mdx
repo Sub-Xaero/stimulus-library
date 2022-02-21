@@ -1,0 +1,48 @@
+---
+id: EqualizeController
+title: EqualizeController
+---
+
+import NoActions from "../../_partials/no-actions.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoValues from "../../_partials/no-values.md";
+
+## Purpose
+
+This controller will equalize the heights of all `watchTargets` that are connected to the controller so that they are all the same height.
+
+*Note:* For the majority of use-cases, Flexbox is a better solution than this controller, but this can be used as a
+fallback in contexts where third-party libraries mean that flexbox doesn't work or your CSS system doesn't support flexbox.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+
+| Target  | Purpose                     | Default |
+|---------|-----------------------------|---------|
+| `watch` | The DOM element(s) to watch | -       |
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+<NoEvents/>
+
+## Side Effects
+- Uses a [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) to observe all watched elements.
+- Sets the `style.minHeight` property on all watched element to the calculated maximum height of all observed elements.
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.app/controllers/equalize_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+

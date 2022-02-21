@@ -18,6 +18,7 @@ export * from './debug_controller';
 export * from './disable_with_controller';
 export * from './dismissable_controller';
 export * from './element_save_controller';
+export * from './equalize_controller';
 export * from './empty_dom_controller';
 export * from './prefetch_controller';
 export * from './print_button_controller';

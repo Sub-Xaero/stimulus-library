@@ -32,6 +32,7 @@ import {
   DurationController,
   ElementSaveController,
   EmptyDomController,
+  EqualizeController,
   EnableInputsController,
   FallbackImageController,
   FocusStealController,
@@ -119,6 +120,7 @@ app.register("disable-with", DisableWithController);
 app.register("dismissable", DismissableController);
 app.register("duration", DurationController);
 app.register("element-save", ElementSaveController);
+app.register("equalize", EqualizeController);
 app.register("empty-dom", EmptyDomController);
 app.register("enable-inputs", EnableInputsController);
 app.register("fallback-image", FallbackImageController);
