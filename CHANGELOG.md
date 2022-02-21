@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.3...v0.7.4) (2022-02-21)
+
+
+### Features
+
+* **New Controller:** EqualizeController - For equalizing the heights of all connected elements to the max observed size, and scaling them responsively to resize and device rotation events ([4ebcbee](https://github.com/Sub-Xaero/stimulus-library/commit/4ebcbee360a534376adc2df787ef5aef2ccb4468))
+
 ### [0.7.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.2...v0.7.3) (2022-02-16)
 
 
