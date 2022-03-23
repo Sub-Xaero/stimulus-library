@@ -76,7 +76,7 @@ export default function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`} description={siteConfig.tagline}
+      title={`${siteConfig.title}`} description={siteConfig.tagline}
     >
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
