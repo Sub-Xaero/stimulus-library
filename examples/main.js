@@ -14,6 +14,7 @@ import {
   AutosizeController,
   AutoSubmitFormController,
   BackLinkController,
+  BlurHashImageController,
   CharCountController,
   CheckboxDisableInputsController,
   CheckboxEnableInputsController,
@@ -106,6 +107,7 @@ app.register("async-block", AsyncBlockController);
 app.register("auto-submit-form", AutoSubmitFormController);
 app.register("autosize", AutosizeController);
 app.register("back-link", BackLinkController);
+app.register("blur-hash-image", BlurHashImageController);
 app.register("char-count", CharCountController);
 app.register("checkbox-disable-inputs", CheckboxDisableInputsController);
 app.register("checkbox-enable-inputs", CheckboxEnableInputsController);
