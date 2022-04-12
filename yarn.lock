@@ -55,11 +55,6 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@hotwired/stimulus-webpack-helpers@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz#4cd74487adeca576c9865ac2b9fe5cb20cef16dd"
-  integrity sha512-wa/zupVG0eWxRYJjC1IiPBdt3Lruv0RqGN+/DTMmUWUyMAEB27KXmVY6a8YpUVTM7QwVuaLNGW4EqDgrS2upXQ==
-
 "@hotwired/stimulus@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
@@ -1702,9 +1697,9 @@ minimist-options@4.1.0:
     kind-of "^6.0.3"
 
 minimist@^1.1.3, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 mitt@^3.0.0:
   version "3.0.0"
@@ -2383,14 +2378,6 @@ standard-version@^9.3.2:
     semver "^7.1.1"
     stringify-package "^1.0.1"
     yargs "^16.0.0"
-
-stimulus@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-3.0.1.tgz#370e3054eb3b8068904af1888949821255d375d3"
-  integrity sha512-73uZG5E5bwH7W2BldieTXg4yJuEmOfIHgtO/aqwU0JkWNjwY75ZaoOAD2EEPvi5AK43N9adEeOQOmlgWf59HOg==
-  dependencies:
-    "@hotwired/stimulus" "^3.0.1"
-    "@hotwired/stimulus-webpack-helpers" "^1.0.0"
 
 string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.3"
