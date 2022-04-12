@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {debounce} from "lodash-es";
 import {EventBus} from "../utilities/event_bus";
 import {wrapArray} from "../utilities/arrays";

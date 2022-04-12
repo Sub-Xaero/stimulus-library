@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {useMixin} from "./create_mixin";
 
 export function useInterval(controller: Controller, handler: (...args: any[]) => void, interval: number) {

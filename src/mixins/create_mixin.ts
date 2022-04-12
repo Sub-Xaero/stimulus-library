@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 
 export function useMixin(controller: Controller, setup: () => void, teardown: () => void) {
   const controllerDisconnect = controller.disconnect.bind(controller);

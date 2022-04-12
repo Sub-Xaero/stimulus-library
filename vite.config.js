@@ -15,14 +15,13 @@ module.exports = defineConfig({
       // make sure to externalize deps that shouldn't be bundled
       // into your library
       external: [
-        'stimulus',
+        // 'stimulus'
         'smoothscroll-polyfill',
         'date-fns',
         'lodash-es',
       ],
       output: {
         globals: {
-          'stimulus': 'stimulus',
           'date-fns': 'dateFns',
           'lodash-es': 'lodashEs',
         },

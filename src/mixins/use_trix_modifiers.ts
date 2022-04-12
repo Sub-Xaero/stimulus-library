@@ -1,5 +1,5 @@
 import {controllerMethod} from "../utilities/stimulus";
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 
 export interface TrixElementsPayload {
   toolbar: HTMLElement,

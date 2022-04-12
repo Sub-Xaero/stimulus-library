@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 
 export function controllerMethod<C extends Controller>(controller: C, methodName: string): (...args: any[]) => any {
   // @ts-ignore

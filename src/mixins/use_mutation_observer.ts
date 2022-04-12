@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {useMixin} from "./create_mixin";
 
 export function useMutationObserver(controller: Controller, element: HTMLElement, handler: (entries: MutationRecord[]) => void, options: MutationObserverInit) {

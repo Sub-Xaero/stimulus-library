@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {isElementInViewport} from "../utilities/elements";
 import {useEventListener} from "../mixins/use_event_listener";
 import {useMixin} from "./create_mixin";

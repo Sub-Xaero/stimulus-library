@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {useMixin} from "./create_mixin";
 import {useTimeout} from "./use_timeout";
 import {isHTMLInputElement} from "../utilities/elements";

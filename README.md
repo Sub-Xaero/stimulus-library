@@ -30,7 +30,7 @@ Then, to get started, import and register the controllers you want to use.
 *Please Note* as below, that when registering the name for the controller, you should use `kebab-case` and omit the `-controller` suffix.
 
 ```js
-import { Application } from "stimulus";
+import { Application } from "@hotwired/stimulus";
 import { AutoSubmitFormController } from "stimulus-library";
 
 const application = Application.start();

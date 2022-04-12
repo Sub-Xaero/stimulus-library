@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 
 export function logProperty(prop: string): boolean {
   switch (prop) {

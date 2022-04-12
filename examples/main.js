@@ -2,7 +2,7 @@ import './style.scss';
 import 'trix/dist/trix.css';
 import 'trix';
 
-import { Application } from "stimulus";
+import { Application } from "@hotwired/stimulus";
 import { UpdateDateController } from "./src/helper_controllers/update_date_controller";
 import { DemoController } from "./src/helper_controllers/demo_controller";
 import { GeolocationController } from "./src/helper_controllers/geolocation_controller";

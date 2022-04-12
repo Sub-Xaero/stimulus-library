@@ -1,4 +1,4 @@
-import {Context, Controller} from "stimulus";
+import {Context, Controller} from "@hotwired/stimulus";
 import {log, logProperty} from "./logging";
 import {dispatchEvent} from "./events";
 

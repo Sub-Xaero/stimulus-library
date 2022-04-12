@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {controllerMethod} from "../utilities/stimulus";
 import {pascalCase} from "../utilities/strings";
 

@@ -1,4 +1,4 @@
-import {Controller} from "stimulus";
+import {Controller} from "@hotwired/stimulus";
 import {logEvent} from "./logging";
 
 export function dispatchEvent(controller: Controller, element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
