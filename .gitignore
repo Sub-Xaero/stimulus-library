@@ -4,3 +4,4 @@ node_modules
 .gitassembly
 yarn-error.log
 .DS_STORE
+.npmrc
