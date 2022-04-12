@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.4...v0.7.5) (2022-04-12)
+
+
+### Features
+
+* For compatibility with multiple versions of Stimulus / @hotwired/stimulus npm packages, the runtime parts of stimulus necessary for the library to function are now bundled with the library instead of required as a peerDependency. Only incurs 2kb Gzipped. Will remove when @hotwired/stimulus has more market-share than stimulus, currently 50/50 ([50a97df](https://github.com/Sub-Xaero/stimulus-library/commit/50a97df7badc9ac4f91502e0cae6b61a2d8cc8c1))
+
 ### [0.7.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.3...v0.7.4) (2022-02-21)
 
 
