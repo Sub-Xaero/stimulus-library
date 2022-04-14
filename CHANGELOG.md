@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.5...v0.8.0) (2022-04-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop UMD and CommonJS builds of the library, and only support ESModules.
+
+### Features
+
+* Drop UMD and CommonJS builds of the library, and only support ESModules. ([83c2a98](https://github.com/Sub-Xaero/stimulus-library/commit/83c2a983a5be071d1da155daf5a66009278daca1))
+
 ### [0.7.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.4...v0.7.5) (2022-04-12)
 
 
