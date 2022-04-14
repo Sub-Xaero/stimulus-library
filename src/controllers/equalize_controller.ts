@@ -1,5 +1,5 @@
 import {BaseController} from "../utilities/base_controller";
-import {debounce} from "lodash-es";
+import debounce from "lodash-es/debounce";
 import {useIntersection} from "../mixins/use_intersection";
 
 export class EqualizeController extends BaseController {

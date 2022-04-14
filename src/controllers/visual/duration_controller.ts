@@ -1,4 +1,7 @@
-import {Duration, formatDuration, intervalToDuration, toDate} from "date-fns";
+import { type Duration } from "date-fns";
+import formatDuration from "date-fns/formatDuration";
+import intervalToDuration from "date-fns/intervalToDuration";
+import toDate from "date-fns/toDate";
 import {BaseController} from "../../utilities/base_controller";
 import {useInterval} from "../../mixins/use_interval";
 

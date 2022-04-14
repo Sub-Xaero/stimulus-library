@@ -1,24 +1,17 @@
-const smoothSupported = "scrollBehavior" in document.documentElement.style;
-let smoothPolyfilled: boolean;
+import smoothScroll from 'smoothscroll-polyfill';
 
 export async function scrollToElement(element: Element, {behavior = "smooth", block = "start", inline = "nearest"}: ScrollIntoViewOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollIntoView({behavior, block, inline});
 }
 
 export async function scrollAbsoluteTop(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollTo({top: 0, left: 0, behavior});
 }
 
 export async function scrollAbsoluteBottom(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   if (element == window) {
     element.scrollTo({top: document.body.scrollHeight, left: 0, behavior});
   } else {
@@ -27,16 +20,12 @@ export async function scrollAbsoluteBottom(element: Window | Element, {behavior 
 }
 
 export async function scrollAbsoluteLeft(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollTo({left: 0, behavior});
 }
 
 export async function scrollAbsoluteRight(element: Window | Element, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   if (element == window) {
     element.scrollTo({left: document.body.scrollWidth, behavior});
   } else {
@@ -45,43 +34,27 @@ export async function scrollAbsoluteRight(element: Window | Element, {behavior =
 }
 
 export async function scrollUp(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollBy({top: -amount, left: 0, behavior});
 }
 
 export async function scrollDown(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollBy({top: amount, left: 0, behavior});
 }
 
 export async function scrollLeft(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollBy({top: 0, left: -amount, behavior});
 }
 
 export async function scrollRight(element: Window | Element, amount: number, {behavior = "smooth"}: ScrollOptions = {}) {
-  if (behavior == "smooth" && !smoothSupported) {
-    await polyfillSmooth();
-  }
+  smoothScroll.polyfill();
   element.scrollBy({top: 0, left: amount, behavior});
 }
 
-async function polyfillSmooth() {
-  const {polyfill} = await import(/* webpackChunkName: "smoothscroll-polyfill" */ "smoothscroll-polyfill");
-  if (smoothPolyfilled) {
-    return;
-  }
-  smoothPolyfilled = true;
-  polyfill();
-}
-
 export function getScrollParent(node: HTMLElement | null): Window | HTMLElement | null {
+  smoothScroll.polyfill();
   if (!node) {
     return null;
   }

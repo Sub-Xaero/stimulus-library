@@ -1,6 +1,7 @@
 import {BaseController} from "../utilities/base_controller";
 import {useEventListener} from "../mixins/use_event_listener";
 import {installClassMethods} from "../mixins/install_class_methods";
+import "../polyfills/string.replaceAll";
 
 export class AnchorSpyController extends BaseController {
   static values = {key: String};
@@ -21,6 +22,7 @@ export class AnchorSpyController extends BaseController {
   }
 
   get _key(): string {
+    // @ts-ignore
     return this.keyValue.replaceAll('#', '');
   }
 

@@ -1,5 +1,5 @@
 import {BaseController} from "../../utilities/base_controller";
-import {clamp} from "lodash-es";
+import clamp from "lodash-es/clamp";
 import {useCollectionEventListener} from "../../mixins/use_event_listener";
 
 export class TabsController extends BaseController {

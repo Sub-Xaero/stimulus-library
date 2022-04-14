@@ -1,4 +1,6 @@
-import {Duration, intervalToDuration, isPast} from "date-fns";
+import {type Duration} from "date-fns";
+import intervalToDuration from "date-fns/intervalToDuration";
+import isPast from "date-fns/isPast";
 import {BaseController} from "../../utilities/base_controller";
 
 export class CountdownController extends BaseController {

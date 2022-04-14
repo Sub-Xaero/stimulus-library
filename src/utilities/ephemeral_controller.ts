@@ -1,5 +1,6 @@
-import {camelCase} from "lodash-es";
+import camelCase from "lodash-es/camelCase";
 import {BaseController} from "./base_controller";
+import '../polyfills/string.replaceAll';
 
 export class EphemeralController extends BaseController {
 
@@ -8,6 +9,7 @@ export class EphemeralController extends BaseController {
   }
 
   cleanup(element: HTMLElement) {
+    // @ts-ignore
     element.dataset.controller = element.dataset.controller?.replaceAll(new RegExp(`(\\s|^)${this.identifier}(\\s|$)`, "g"), "") || "";
     if (element.dataset.controller == "") {
       // If there are no controllers left, remove the attribute
@@ -15,6 +17,7 @@ export class EphemeralController extends BaseController {
     }
 
     let substringIdentifierValueRegex = new RegExp(`(\\s|^)${this.identifier}\\..+?(\\s|$)`, "g");
+    // @ts-ignore
     element.dataset.target = element.dataset.target?.replaceAll(substringIdentifierValueRegex, "") || "";
     delete element.dataset[camelCase(`${this.identifier}-target`)];
     if (element.dataset.target == "") {
@@ -22,6 +25,7 @@ export class EphemeralController extends BaseController {
       delete element.dataset.target;
     }
 
+    // @ts-ignore
     element.dataset.action = element.dataset.target?.replaceAll(substringIdentifierValueRegex, "") || "";
     delete element.dataset[camelCase(`${this.identifier}-action`)];
     if (element.dataset.action == "") {
