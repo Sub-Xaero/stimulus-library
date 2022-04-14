@@ -38,9 +38,9 @@
     "@hotwired/stimulus": "^3.0.1",
     "date-fns": "^2.28.0",
     "dialog-polyfill": "^0.5.6",
+    "lodash-es": "^4.17.21",
     "mitt": "^3.0.0",
-    "smoothscroll-polyfill": "^0.4.4",
-    "lodash-es": "^4.17.21"
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
