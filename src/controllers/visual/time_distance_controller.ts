@@ -1,4 +1,8 @@
-import {Duration, formatDistanceToNow, intervalToDuration, isPast, toDate} from "date-fns";
+import {type Duration} from "date-fns";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import intervalToDuration from "date-fns/intervalToDuration";
+import isPast from "date-fns/isPast";
+import toDate from "date-fns/toDate";
 import {BaseController} from "../../utilities/base_controller";
 import {useTimeout} from "../../mixins/use_timeout";
 

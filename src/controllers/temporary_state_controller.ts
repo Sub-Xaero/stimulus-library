@@ -1,6 +1,9 @@
-import {camelCase, get as _get, set as _set} from "lodash-es";
+import camelCase from "lodash-es/camelCase";
+import _get from "lodash-es/get";
+import _set from "lodash-es/set";
 import {EphemeralController} from "../utilities/ephemeral_controller";
 import {useTimeout} from "../mixins/use_timeout";
+import "../polyfills/string.replaceAll";
 
 export class TemporaryStateController extends EphemeralController {
 
@@ -61,7 +64,10 @@ export class TemporaryStateController extends EphemeralController {
 
 export function applyTemporaryState(element: HTMLElement, propertyString: string, value: any, seconds: number, controllerIdentifier = "temporary-state") {
   if (!element.dataset.controller || !element.dataset.controller?.includes(controllerIdentifier)) {
-    element.dataset.controller = (element.dataset.controller || '' + ` ${controllerIdentifier} `).trim().replaceAll('  ', ' ');
+    let controllerName = (element.dataset.controller || '' + ` ${controllerIdentifier} `).trim();
+    // @ts-ignore
+    controllerName = controllerName.replaceAll('  ', ' ');
+    element.dataset.controller = controllerName;
   }
   // @ts-ignore
   element[camelCase(`${controllerIdentifier}-attribute-value`)] = propertyString;

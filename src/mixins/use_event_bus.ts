@@ -1,5 +1,5 @@
 import {Controller} from "@hotwired/stimulus";
-import {debounce} from "lodash-es";
+import debounce from "lodash-es/debounce";
 import {EventBus} from "../utilities/event_bus";
 import {wrapArray} from "../utilities/arrays";
 import {useMixin} from "./create_mixin";
