@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.5...v0.9.0) (2022-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop UMD and CommonJS builds of the library, and only support ESModules.
+
+### Features
+
+* **Controller:** PersistedDismissableController ([e622660](https://github.com/Sub-Xaero/stimulus-library/commit/e622660bb5b14c47b41522c847d0954f46e1d4cc))
+* Drop UMD and CommonJS builds of the library, and only support ESModules. ([3b374f6](https://github.com/Sub-Xaero/stimulus-library/commit/3b374f62bf4c59501841461319287607246cdb5a))
+
+
+### Bug Fixes
+
+* Fix bug where FormRCController did not check for other config options that might be providing the form ([754d782](https://github.com/Sub-Xaero/stimulus-library/commit/754d782cd34d51b6b1bff6a0ea32d6bec63647a8))
+
 ## [0.8.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.8.0-beta...v0.8.0) (2022-06-07)
 
 ### [0.7.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.4...v0.7.5) (2022-04-12)
