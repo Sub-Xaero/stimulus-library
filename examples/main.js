@@ -50,6 +50,7 @@ import {
   NestedFormController,
   PasswordConfirmController,
   PasswordPeekController,
+  PersistedDismissableController,
   PollBlockController,
   PrefetchController,
   PresenceController,
@@ -86,6 +87,7 @@ import {
   ValueWarnController,
   WordCountController,
 } from "../src";
+import { ClearLocalstorageController } from "./src/helper_controllers/clear_localstorage_controller";
 
 const app = Application.start();
 
@@ -93,6 +95,7 @@ app.debug = true;
 
 // Helper controllers
 app.register("demo", DemoController);
+app.register("clear-localstorage", ClearLocalstorageController);
 app.register("geolocation", GeolocationController);
 app.register("update-date", UpdateDateController);
 
@@ -139,6 +142,7 @@ app.register("navigate-form-errors", NavigateFormErrorsController);
 app.register("nested-form", NestedFormController);
 app.register("password-confirm", PasswordConfirmController);
 app.register("password-peek", PasswordPeekController);
+app.register("persisted-dismissable", PersistedDismissableController);
 app.register("poll-block", PollBlockController);
 app.register("prefetch", PrefetchController);
 app.register("presence", PresenceController);

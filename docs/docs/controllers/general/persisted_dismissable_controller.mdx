@@ -1,0 +1,61 @@
+---
+id: PersistedDismissableController
+title: Persisted Dismissable/Remove Controller
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoValues from "../../_partials/no-values.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+
+## Purpose
+
+Add the ability to dismiss/remove an element from the DOM. i.e. Notifications, Flash messages and alerts, and store
+a key in LocalStorage that means once dismissed, the alert stays dismissed.
+
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+
+| Action  | Purpose                          |
+|---------|----------------------------------|
+| dismiss | Removes the element from the DOM |
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+| Value | Type   | Description                                                                                                             | Default |
+|-------|--------|-------------------------------------------------------------------------------------------------------------------------|---------|
+| `key` | String | The uniquely identifying string key to use in LocalStorage to store whether or not this alert has been dismissed or not | -       |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+
+
+## How to Use
+
+A good example is a notification or call to action message, if you don't want to build out server state to decide
+whether or not a user sees a message, you can just always show the message and once a user has interacted with the message
+it stays gone forever (or until they clean their browser storage).
+
+
+<iframe
+  src="https:///stimulus-library.netlify.app/controllers/persisted_dismissable_controller.html"
+  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+
+# Browser support / Necessary polyfills
+
+Please reference https://caniuse.com/childnode-remove, you may need to polyfill `ChildNode.remove()` using https://www.npmjs.com/package/element-remove-polyfill
+if you need to support IE11 or below. 

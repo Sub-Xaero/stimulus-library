@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Persisted Dismissable Controller</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <p>
+        The below flash message, once dismissed for the first time, creates a key in LocalStorage
+        that will be checked every time the element comes into the page.
+
+        If the key still exists, the message will automatically get dismissed.
+      </p>
+      <div
+        class="alert alert-danger notice"
+        data-controller="persisted-dismissable"
+        data-persisted-dismissable-key="dismissable-123"
+        role="notice"
+      >
+        <div class="text-center">
+          Something went wrong, batten down the hatches
+        </div>
+        <div class="text-center mt-3">
+          <a
+            class="btn btn-danger btn-sm tiny mr-2"
+            data-action="persisted-dismissable#dismiss"
+          >Dismiss</a
+          >
+        </div>
+      </div>
+
+      <p>
+        If you use the below button to clear LocalStorage and refresh the page,
+        the message shows again.
+      </p>
+      <div>
+        <a href="#" data-controller="clear-localstorage" data-action="clear-localstorage#clear" class="btn btn-primary"> Clear localstorage </a>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
