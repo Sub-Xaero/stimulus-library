@@ -7,7 +7,6 @@ title: SignalDOMChildrenController
 import NoTargets from "../../_partials/no-targets.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
-import NoEvents from "../../_partials/no-events.md";
 import NoClasses from "../../_partials/no-classes.md";
 
 ## Purpose
@@ -43,7 +42,9 @@ Other use cases might be to show or hide elements when there is a specific numbe
 | `scopeSelector` (Optional) | String | A CSS selector to pass to `querySelectorAll` to limit what elements are included in the count of empty/not-empty. You can use this to ignore certain elements from the count | All child elements of the controller root element |
 
 ## Events
-<NoEvents/>
+| Event                       | When                                         | Dispatched on               | `event.detail` |                            |
+|-----------------------------|----------------------------------------------|-----------------------------|----------------|----------------------------|
+| `signal:value:#{nameValue}` | When the value of the attached input changes | The controller root element | `value`        | The new value of the input |
 
 ## Side Effects
 <NoSideEffects/>
@@ -74,7 +75,6 @@ Other use cases might be to show or hide elements when there is a specific numbe
 
 <iframe
   src="https://stimulus-library.netlify.app/controllers/signal_dom_children_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
-
