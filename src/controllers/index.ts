@@ -23,6 +23,7 @@ export * from './empty_dom_controller';
 export * from './persisted_dismissable_controller';
 export * from './prefetch_controller';
 export * from './print_button_controller';
+export * from './refresh_page_controller';
 export * from './responsive_iframe_controller';
 export * from './self_destruct_controller';
 export * from './sticky_controller';

@@ -56,6 +56,7 @@ import {
   PresenceController,
   PrintButtonController,
   PrintController,
+  RefreshPageController,
   RemoteFormController,
   ResponsiveIframeBodyController,
   ResponsiveIframeWrapperController,
@@ -149,6 +150,7 @@ app.register("presence", PresenceController);
 app.register("print", PrintController);
 app.register("print-button", PrintButtonController);
 app.register("remote-form", RemoteFormController);
+app.register("refresh-page", RefreshPageController);
 app.register("responsive-iframe-body", ResponsiveIframeBodyController);
 app.register("responsive-iframe-wrapper", ResponsiveIframeWrapperController);
 app.register("signal-action", SignalActionController);
