@@ -1,5 +1,5 @@
-import {SignalPayload} from "src/*";
-import {signalEnableDisableEvent, signalEventName} from "./events";
+import {SignalPayload} from "./signal_input_controller";
+import {signalEventName} from "./events";
 import {SignalBaseController} from "./base_controller";
 
 export class SignalDisableController extends SignalBaseController {

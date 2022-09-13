@@ -1,4 +1,4 @@
-import {SignalPayload} from "src/*";
+import {SignalPayload} from "./signal_input_controller";
 import {signalEventName} from "./events";
 import {SignalBaseController} from "./base_controller";
 

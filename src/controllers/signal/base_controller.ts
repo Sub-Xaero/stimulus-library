@@ -1,7 +1,7 @@
 import {BaseController} from "../../utilities/base_controller";
 import {SignalPayload} from "./signal_input_controller";
 import {extractPredicates} from "./expressions";
-import {EventBus} from "src/*";
+import {EventBus} from "../../utilities/event_bus";
 import {signalConnectEvent, signalValueEvent} from "./events";
 import {useEventBus} from "../../mixins/use_event_bus";
 

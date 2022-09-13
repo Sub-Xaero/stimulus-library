@@ -9,3 +9,7 @@ export function signalConnectEvent(name: string): string {
 export function signalValueEvent(name: string): string {
   return signalEventName(name, 'value');
 }
+
+export function signalVisibilityEvent(name: string, action: "hide" | "show"): string {
+  return signalEventName(`${name}:${action}`, 'visibility');
+}
