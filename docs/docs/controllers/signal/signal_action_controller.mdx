@@ -42,8 +42,8 @@ the same `nameValue` as the `nameValue` of this controller.
 
 | Event                          | When                                                                                                                                  | Dispatched on               | `event.detail`                                                               |
 |--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|------------------------------------------------------------------------------|
-| `signal:match:${nameValue}`    | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _true_ against the new updated value  | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
-| `signal:no-match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `showValue` evaluates to _false_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
+| `signal:match:${nameValue}`    | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _true_ against the new updated value  | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
+| `signal:no-match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _false_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
 
 
 ## Side Effects
@@ -65,5 +65,3 @@ the same `nameValue` as the `nameValue` of this controller.
 </div>
 
 ```
-
-
