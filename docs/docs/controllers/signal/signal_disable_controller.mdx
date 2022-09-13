@@ -1,0 +1,75 @@
+---
+id: SignalDisableController
+title: SignalDisableController
+---
+
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+import Expressions from "../../_partials/expressions.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+A controller that responds to SignalInputController notifications.
+This controller adds the `disabled` attribute from an element when a value-change notification evaluates to
+false against the expression given in `whenValue` evaluate to true, and removes `disabled` when it evaluates to false.
+
+This controller can be anywhere in the DOM tree and it will receive notifications from any SignalInputController with
+the same `nameValue` as the `nameValue` of this controller.
+
+### Example Use Cases
+- Turn off inputs in a form when another input has a certain value, See also: SignalVisibiityController to hide elements when they are not needed.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value  | Type   | Description                                                                                                                                                                                                                                         | Default |
+|--------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `name` | String | The name of the input value whose value to react to. This name should be the same as the `nameValue` of the SignalInputController you want to sync with.                                                                                            | `-`     |
+| `when` | String | A simple _expression_ which will be evaluated against the value received from SignalInputController. If the expression evaluates to true, the controller will add the `disabled` attribute to the controller element, otherwise it will remove it . | `-`     |
+
+<Expressions/>
+
+
+## Events
+
+| Event                         | When                                                                                                                                  | Dispatched on               | `event.detail` |                                                               |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|----------------|---------------------------------------------------------------|
+| `signal:disable:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _true_ against the new updated value  | The controller root element |                |                                                               |
+|                               |                                                                                                                                       |                             | `element`      | the controller root element                                   |
+|                               |                                                                                                                                       |                             | `predicate`    | the expression the controller used to try and match the value |
+|                               |                                                                                                                                       |                             | `value`        | the value that was received                                   |
+| `signal:enable:${nameValue}`  | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _false_ against the new updated value | The controller root element |                |                                                               |
+|                               |                                                                                                                                       |                             | `element`      | the controller root element                                   |
+|                               |                                                                                                                                       |                             | `predicate`    | the expression the controller used to try and match the value |
+|                               |                                                                                                                                       |                             | `value`        | the value that was received                                   |
+
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+```html
+
+<input type="number" name="foo" data-controller="signal-disable">
+
+<div
+  data-controller="signal-disable bar"
+  data-signal-disable-name-value="foo"
+  data-signal-disable-when-value="=3 || =5"
+>
+  <!-- the element will have the [disabled] attribute if the value of input[name="foo"] is 3 or 5 -->
+</div>
+
+```
