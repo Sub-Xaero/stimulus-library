@@ -1,73 +1,31 @@
 // vite.config.js
-const {resolve} = require('path');
-const {defineConfig} = require('vite');
+const { resolve } = require('path');
+const { defineConfig } = require('vite');
+const glob = require('tiny-glob');
 
-module.exports = defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        // Fixtures
-        remote_content: resolve(__dirname, "fixtures/remote_content.html"),
-        // Controllers
-        alert_controller: resolve(__dirname, "controllers/alert_controller.html"),
-        anchor_spy_controller: resolve(__dirname, "controllers/anchor_spy_controller.html"),
-        async_block_controller: resolve(__dirname, "controllers/async_block_controller.html"),
-        auto_submit_form_controller: resolve(__dirname, "controllers/auto_submit_form_controller.html"),
-        autosize_controller: resolve(__dirname, "controllers/autosize_controller.html"),
-        back_link_controller: resolve(__dirname, "controllers/back_link_controller.html"),
-        char_count_controller: resolve(__dirname, "controllers/char_count_controller.html"),
-        checkbox_disable_inputs_controller: resolve(__dirname, "controllers/checkbox_disable_inputs_controller.html"),
-        checkbox_enable_inputs_controller: resolve(__dirname, "controllers/checkbox_enable_inputs_controller.html"),
-        checkbox_select_all_controller: resolve(__dirname, "controllers/checkbox_select_all_controller.html"),
-        checkbox_xor_controller: resolve(__dirname, "controllers/checkbox_xor_controller.html"),
-        clipboard_controller: resolve(__dirname, "controllers/clipboard_controller.html"),
-        clock_controller: resolve(__dirname, "controllers/clock_controller.html"),
-        confirm_controller: resolve(__dirname, "controllers/confirm_controller.html"),
-        confirm_navigation_controller: resolve(__dirname, "controllers/confirm_navigation_controller.html"),
-        countdown_controller: resolve(__dirname, "controllers/countdown_controller.html"),
-        detect_dirty_controller: resolve(__dirname, "controllers/detect_dirty_controller.html"),
-        detect_dirty_form_controller: resolve(__dirname, "controllers/detect_dirty_form_controller.html"),
-        disable_with_controller: resolve(__dirname, "controllers/disable_with_controller.html"),
-        dismissable_controller: resolve(__dirname, "controllers/dismissable_controller.html"),
-        duration_controller: resolve(__dirname, "controllers/duration_controller.html"),
-        element_save_controller: resolve(__dirname, "controllers/element_save_controller.html"),
-        empty_dom_controller: resolve(__dirname, "controllers/empty_dom_controller.html"),
-        fallback_image_controller: resolve(__dirname, "controllers/fallback_image_controller.html"),
-        focus_steal_controller: resolve(__dirname, "controllers/focus_steal_controller.html"),
-        form_rc_controller: resolve(__dirname, "controllers/form_rc_controller.html"),
-        form_save_controller: resolve(__dirname, "controllers/form_save_controller.html"),
-        intersection_controller: resolve(__dirname, "controllers/intersection_controller.html"),
-        lazy_block_controller: resolve(__dirname, "controllers/lazy_block_controller.html"),
-        lightbox_image_controller: resolve(__dirname, "controllers/lightbox_image_controller.html"),
-        limited_selection_checkboxes_controller: resolve(__dirname, "controllers/limited_selection_checkboxes_controller.html"),
-        media_player_controller: resolve(__dirname, "controllers/media_player_controller.html"),
-        navigate_form_errors_controller: resolve(__dirname, "controllers/navigate_form_errors_controller.html"),
-        password_confirm_controller: resolve(__dirname, "controllers/password_confirm_controller.html"),
-        password_peak_controller: resolve(__dirname, "controllers/password_peak_controller.html"),
-        poll_block_controller: resolve(__dirname, "controllers/poll_block_controller.html"),
-        preload_controller: resolve(__dirname, "controllers/preload_controller.html"),
-        presence_controller: resolve(__dirname, "controllers/presence_controller.html"),
-        print_button_controller: resolve(__dirname, "controllers/print_button_controller.html"),
-        print_controller: resolve(__dirname, "controllers/print_controller.html"),
-        scroll_controller: resolve(__dirname, "controllers/scroll_controller.html"),
-        signal_input_controller: resolve(__dirname, "controllers/signal_input_controller.html"),
-        scroll_into_focus_controller: resolve(__dirname, "controllers/scroll_into_focus_controller.html"),
-        scroll_to_controller: resolve(__dirname, "controllers/scroll_to_controller.html"),
-        scroll_top_controller: resolve(__dirname, "controllers/scroll_top_controller.html"),
-        self_destruct_controller: resolve(__dirname, "controllers/self_destruct_controller.html"),
-        sticky_controller: resolve(__dirname, "controllers/sticky_controller.html"),
-        sync_inputs_controller: resolve(__dirname, "controllers/sync_inputs_controller.html"),
-        table_sort_controller: resolve(__dirname, "controllers/table_sort_controller.html"),
-        table_truncate_controller: resolve(__dirname, "controllers/table_truncate_controller.html"),
-        tabs_controller: resolve(__dirname, "controllers/tabs_controller.html"),
-        temporary_state_controller: resolve(__dirname, "controllers/temporary_state_controller.html"),
-        time_distance_controller: resolve(__dirname, "controllers/time_distance_controller.html"),
-        tree_view_controller: resolve(__dirname, "controllers/tree_view_controller.html"),
-        user_focus_controller: resolve(__dirname, "controllers/user_focus_controller.html"),
-        value_warn_controller: resolve(__dirname, "controllers/value_warn_controller.html"),
-        word_count_controller: resolve(__dirname, "controllers/word_count_controller.html"),
+async function processGlob(globStr, opts = { filesOnly: true }) {
+  const entryPoints = await glob(globStr, opts);
+  let obj = {};
+
+  entryPoints.forEach((entry) => {
+    let name = entry.slice(entry.lastIndexOf("/") + 1).replace(".html", "");
+    obj[name] = resolve(__dirname, entry);
+  });
+  return obj;
+}
+
+export default defineConfig(async () => {
+  return {
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(__dirname, 'index.html'),
+          // Fixtures
+          ...await processGlob('./fixtures/*.html'),
+          // Controllers
+          ...await processGlob('./controllers/*.html'),
+        },
       },
     },
-  },
+  };
 });
