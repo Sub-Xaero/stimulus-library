@@ -37,6 +37,12 @@ This controller provides the following methods to controllers that extend it.
 |             | `name`     | The `name` attribute of the `meta` tag to fetch the value of       |                    |
 
 
+| Name        | Parameters  | Purpose                                                                                                                                                      | Return value |
+|-------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| `eventName` |             | Construct an colon separated event name using the controllers identifier .i.e in `FooController` calling `eventName("loaded")` would result in `foo:loaded`. | `string`     |
+|             | `eventName` | The name of the event to append to the controllers identifier to create a fully namespaced event                                                             |              |
+
+
 ## Side Effects / Inherited Behaviour
 
 If [debug mode](/docs/debugging) is enabled, any controller that extends BaseController controller will automatically log calls to any actions or methods, and events dispatched with the `dispatchEvent` method provided by stimulus-library.
@@ -49,11 +55,13 @@ If there are any getters, setters, methods or properties that should not be logg
 ```typescript
 import {BaseController} from "stimulus-library";
 
-export default class extends BaseController {
+export default class FooController extends BaseController {
   // ...
 
  foo() {
-   this.dispatchEvent(this.el, "my-controller:something-happened", { bubbles: true, cancellable: true, detail: { element: this.el, data: 'thing' } } )
+   this.dispatchEvent(this.el, "foo:something-happened", { bubbles: true, cancellable: true, detail: { element: this.el, data: 'thing' } } ) // dispatches a custom event named `foo:something-happened`
+   // or
+   this.dispatchEvent(this.el, this.eventName("something-happened"), { bubbles: true, cancellable: true, detail: { element: this.el, data: 'thing' } } ) // also dispatches `foo:something-happened`
  }
 
 }

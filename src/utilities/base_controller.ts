@@ -57,6 +57,10 @@ export class BaseController extends Controller {
     return element?.getAttribute('content') || null;
   }
 
+  eventName(eventName: string) {
+    return `${this.identifier}:${eventName}`
+  }
+
   dispatchEvent(element: HTMLElement, eventName: string, options: CustomEventInit = {}) {
     dispatchEvent(this, element, eventName, options);
   }
