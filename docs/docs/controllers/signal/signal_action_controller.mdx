@@ -40,10 +40,16 @@ the same `nameValue` as the `nameValue` of this controller.
 
 ## Events
 
-| Event                          | When                                                                                                                                  | Dispatched on               | `event.detail`                                                               |
-|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|------------------------------------------------------------------------------|
-| `signal:match:${nameValue}`    | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _true_ against the new updated value  | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
-| `signal:no-match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _false_ against the new updated value | The controller root element | `element`: the controller root element,<br/><br/> `value`: the changed value |
+| Event                          | When                                                                                                                                  | Dispatched on               | `event.detail` |                                                               |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|----------------|---------------------------------------------------------------|
+| `signal:match:${nameValue}`    | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _true_ against the new updated value  | The controller root element |                |                                                               |
+|                                |                                                                                                                                       |                             | `element`      | the controller root element                                   |
+|                                |                                                                                                                                       |                             | `predicate`    | the expression the controller used to try and match the value |
+|                                |                                                                                                                                       |                             | `value`        | the value that was received                                   |
+| `signal:no-match:${nameValue}` | When value of the input for `nameValue` changes, and the expression in `whenValue` evaluates to _false_ against the new updated value | The controller root element |                |                                                               |
+|                                |                                                                                                                                       |                             | `element`      | the controller root element                                   |
+|                                |                                                                                                                                       |                             | `predicate`    | the expression the controller used to try and match the value |
+|                                |                                                                                                                                       |                             | `value`        | the value that was received                                   |
 
 
 ## Side Effects
