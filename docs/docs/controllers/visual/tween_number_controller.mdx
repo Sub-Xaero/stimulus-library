@@ -1,0 +1,83 @@
+---
+id: TweenNumberController
+title: TweenNumberController
+---
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+Stimulus controller to animate a number for visual effect, using a number of possible easing functions.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value      | Type   | Description                                                                                                                        | Default  |
+|------------|--------|------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `start`    | Number | The number to start at                                                                                                             | -        |
+| `end`      | Number | The number that the animation will end on                                                                                          | -        |
+| `duration` | Number | How long the full animation will take, in milliseconds                                                                             | -        |
+| `easing`   | String | The  easing function that will determine how the number is animated. See https://easings.net/ for examples. Available options are: | `linear` |
+|            |        | `linear`                                                                                                                           |          |
+|            |        | `easeInQuad`                                                                                                                       |          |
+|            |        | `easeOutQuad`                                                                                                                      |          |
+|            |        | `easeInOutQuad`                                                                                                                    |          |
+|            |        | `easeInCubic`                                                                                                                      |          |
+|            |        | `easeOutCubic`                                                                                                                     |          |
+|            |        | `easeInOutCubic`                                                                                                                   |          |
+|            |        | `easeInQuart`                                                                                                                      |          |
+|            |        | `easeOutQuart`                                                                                                                     |          |
+|            |        | `easeInOutQuart`                                                                                                                   |          |
+|            |        | `easeInQuint`                                                                                                                      |          |
+|            |        | `easeOutQuint`                                                                                                                     |          |
+|            |        | `easeInOutQuint`                                                                                                                   |          |
+|            |        | `easeInSine`                                                                                                                       |          |
+|            |        | `easeOutSine`                                                                                                                      |          |
+|            |        | `easeInOutSine`                                                                                                                    |          |
+|            |        | `easeInExpo`                                                                                                                       |          |
+|            |        | `easeOutExpo`                                                                                                                      |          |
+|            |        | `easeInOutExpo`                                                                                                                    |          |
+|            |        | `easeInCirc`                                                                                                                       |          |
+|            |        | `easeOutCirc`                                                                                                                      |          |
+|            |        | `easeInOutCirc`                                                                                                                    |          |
+|            |        | `easeInBack`                                                                                                                       |          |
+|            |        | `easeOutBack`                                                                                                                      |          |
+|            |        | `easeInOutBack`                                                                                                                    |          |
+|            |        | `easeInElastic`                                                                                                                    |          |
+|            |        | `easeOutElastic`                                                                                                                   |          |
+|            |        | `easeInOutElastic`                                                                                                                 |          |
+|            |        | `easeInBounce`                                                                                                                     |          |
+|            |        | `easeOutBounce`                                                                                                                    |          |
+|            |        | `easeInOutBounce`                                                                                                                  |          |
+
+
+
+
+## Events
+<NoEvents/>
+
+## Side Effects
+
+- The controller sets up an IntersectionObserver, so the animation only runs when a user is looking at it.
+- The controller will mutate the `innerHTML` of the attached element.
+- The controller will use `requestAnimationFrame` to keyframe animate the tweening of the number.
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.app/controllers/tween_number_controller.html"
+  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

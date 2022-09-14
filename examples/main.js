@@ -84,6 +84,7 @@ import {
   TrixModifierController,
   TurboFrameRCController,
   TurboFrameRefreshController,
+  TweenNumberController,
   UserFocusController,
   ValueWarnController,
   WordCountController,
@@ -177,6 +178,7 @@ app.register("tree-view", TreeViewController);
 app.register("trix-modifier", TrixModifierController);
 app.register("turbo-frame-rc", TurboFrameRCController);
 app.register("turbo-frame-refresh", TurboFrameRefreshController);
+app.register("tween-number", TweenNumberController);
 app.register("user-focus", UserFocusController);
 app.register("value-warn", ValueWarnController);
 app.register("word-count", WordCountController);
