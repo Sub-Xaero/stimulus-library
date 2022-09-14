@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.0...v0.9.1) (2022-09-14)
+
+
+### Features
+
+* **BaseController:** New method `eventName` to generate an event name using the controllers identifier ([c8a8d41](https://github.com/Sub-Xaero/stimulus-library/commit/c8a8d410f9f2e24c26026e76619f531eb9cecc51))
+* **Controller:** New RefreshPageController that refreshes the users page, either as an action or on load ([d9aad93](https://github.com/Sub-Xaero/stimulus-library/commit/d9aad9335fabe5647550c63672259960934ae093))
+* **Controller:** New SignalEnable and SignalDisable controllers which can enable/disable elements based on whether a value matches a given expression ([54d1757](https://github.com/Sub-Xaero/stimulus-library/commit/54d17571e551a4ab6cbe3089bb54815d4ed4ca19))
+* **Controller:** New TweenNumberController that animates a number for visual effect, using a number of possible easing functions. ([75ec44d](https://github.com/Sub-Xaero/stimulus-library/commit/75ec44d27ea9207e1fb8d8fd76e7b8e98c6772bc))
+* **Controller:** SignalDomChildrenController now emits the number of child nodes as a browser event as well an a signal ([7163747](https://github.com/Sub-Xaero/stimulus-library/commit/7163747afabcc1f1b15329afcf372f0e6fdf3abf))
+
 ## [0.9.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.7.5...v0.9.0) (2022-09-08)
 
 
