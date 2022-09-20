@@ -8,6 +8,7 @@ export class TableTruncateController extends BaseController {
   static values = {
     limit: Number,
     truncated: Boolean,
+    expanded: Boolean,
   };
 
   declare readonly showMoreTarget: HTMLElement;
@@ -15,6 +16,8 @@ export class TableTruncateController extends BaseController {
   declare readonly hasLimitValue: boolean;
   declare truncatedValue: boolean;
   declare readonly hasTruncatedValue: boolean;
+  declare expandedValue: boolean;
+  declare readonly hasExpandedValue: boolean;
 
   get _truncated(): boolean {
     return this.hasTruncatedValue ? this.truncatedValue : false;
@@ -22,6 +25,14 @@ export class TableTruncateController extends BaseController {
 
   set _truncated(value) {
     this.truncatedValue = value;
+  }
+
+  get _expanded(): boolean {
+    return this.hasExpandedValue ? this.expandedValue : false;
+  }
+
+  set _expanded(value) {
+    this.expandedValue = value;
   }
 
   get _tableBody(): HTMLTableSectionElement {
@@ -47,8 +58,8 @@ export class TableTruncateController extends BaseController {
 
   truncate(event?: Event) {
     event?.preventDefault();
-    this._truncated = true;
     if (this._tableRows.length >= this._limit) {
+      this._truncated = true;
       this._tableRows.slice(this._limit).forEach((el) => {
         if (el !== this.showMoreTarget) {
           this._hideElement(el);
@@ -56,12 +67,13 @@ export class TableTruncateController extends BaseController {
       });
       this._showElement(this.showMoreTarget);
     } else {
+      this._truncated = false;
       this._hideElement(this.showMoreTarget);
     }
   }
 
   expand(event?: Event) {
-    this._truncated = false;
+    this._expanded = true;
     event?.preventDefault();
     this._tableRows.slice(this._limit).forEach((el) => {
       if (el !== this.showMoreTarget) {
@@ -72,7 +84,7 @@ export class TableTruncateController extends BaseController {
   }
 
   mutate(entries: MutationRecord[]) {
-    if (this._truncated) {
+    if (this._tableRows.length >= this._limit && !this._expanded) {
       this._reTruncate();
     }
   }
