@@ -38,14 +38,22 @@ export class TableSortController extends BaseController {
     requestAnimationFrame(() => {
       useCollectionEventListener(this, this._tableHeaders, "click", this.sort);
       if (this.hasStartSortValue) {
-        this._sortByColumn(this.startSortValue);
+        this.sort(
+          this._headerCellByIndex(this.startSortValue),
+        );
       }
     });
   }
 
-  sort(event: Event) {
-    event.preventDefault();
-    let headerCell = event.target! as HTMLTableHeaderCellElement;
+  sort(event_or_target: Event | HTMLTableHeaderCellElement) {
+    let headerCell;
+    if (event_or_target instanceof Event) {
+      event_or_target.preventDefault();
+      headerCell = event_or_target.target! as HTMLTableHeaderCellElement;
+    } else {
+      headerCell = event_or_target;
+    }
+
     let headerCellIndex = this._indexOfHeaderCell(headerCell);
     if (headerCell.dataset.sortable == "false") {
       return;
@@ -65,6 +73,14 @@ export class TableSortController extends BaseController {
 
   private _indexOfHeaderCell(cell: HTMLTableHeaderCellElement): number {
     return this._tableHeaders.indexOf(cell);
+  }
+
+  private _headerCellByIndex(index: number): HTMLTableHeaderCellElement {
+    let cell = this._tableHeaders.at(index);
+    if (!cell) {
+      throw new Error(`No cell at index ${index}`);
+    }
+    return cell;
   }
 
   private _otherHeaderCells(cell: HTMLTableHeaderCellElement): HTMLTableHeaderCellElement[] {
