@@ -1,0 +1,64 @@
+---
+id: SignalAttributeSyncController
+title: SignalAttributeSyncController
+---
+
+
+import NoClasses from "../../_partials/no-classes.md";
+import NoTargets from "../../_partials/no-targets.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+import Expressions from "../../_partials/expressions.md";
+
+## Purpose
+
+A controller that responds to SignalInputController notifications.
+This controller can update an attribute on the element it is mounted on, to the value of an input somewhere else on the page using a SignalInputController.
+
+This controller can be anywhere in the DOM tree and it will receive notifications from any SignalInputController with
+the same `nameValue` as the `nameValue` of this controller.
+
+# Use Cases
+To implement a filterable HTML table. You might implement a Stimulus controller that hides all rows of a column that
+don't contain the given keyword(s). Those keywords are provided to the controller via a `data-table-filter-search-value`
+attribute, which Stimulus is able to listen to and react to changes on.
+
+You might then create a search box with an input field, that users can type into to update the filter.
+So, you mount a SignalInputController on that input, so that anything that is typed into the box is signalled to other signal controllers listening
+for the same `data-signal-input-name-value`.
+
+You can then mount a SignalAttributeSyncController on the same table element as your TableFilterController, and give it
+an attribute of `data-signal-attribute-sync-attribute-value="data-table-filter-search-value"`, and then everything typed into
+your search form will live update the filter on your table.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value       | Type   | Description                                                                                                                                              | Default |
+|-------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `name`      | String | The name of the input value whose value to react to. This name should be the same as the `nameValue` of the SignalInputController you want to sync with. | `-`     |
+| `attribute` | String | The name of the HTML attribute to update when new values are received from SignalInputController.                                                        | `-`     |
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+<iframe
+  src="https://stimulus-library.netlify.app/controllers/signal_attribute_sync_controller.html"
+  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

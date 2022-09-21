@@ -1,4 +1,6 @@
 export * from './signal_action_controller';
+export * from './signal_attribute_sync_controller';
+export * from './signal_content_sync_controller';
 export * from './signal_disable_controller';
 export * from './signal_dom_children_controller';
 export * from './signal_enable_controller';
