@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.1...v0.9.2) (2022-10-20)
+
+
+### Features
+
+* **Controller:** TableSortController - Improvements to the default sort mechanism to correctly set `data-sort-asc`/`data-sort-desc` on first sort ([0ee8c86](https://github.com/Sub-Xaero/stimulus-library/commit/0ee8c866224784658bc241a09cc702ef05b532fb))
+
+
+### Bug Fixes
+
+* **Controller:** TableTruncateController - Small bug fixes for when controller is used on the same table as TableSortController. The "show more" element would appear on a table with too few elements, when it is sorted. This is now fixed. ([10689c4](https://github.com/Sub-Xaero/stimulus-library/commit/10689c4cf29fee912d8075751cdfd8830b490abe))
+* CountdownController - Runtime error from missing CSS class toggling methods ([8c680e0](https://github.com/Sub-Xaero/stimulus-library/commit/8c680e0953a6c7415cb8addf4c1b80dc0a7cd18f))
+* TurboFrameRefreshController - Latest version of turbo has a .reload() method, re-setting src no longer works ([6a32d71](https://github.com/Sub-Xaero/stimulus-library/commit/6a32d71c3ee7d86a6dab6d3134731c7660fcbcbd))
+
 ### [0.9.1](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.0...v0.9.1) (2022-09-14)
 
 
