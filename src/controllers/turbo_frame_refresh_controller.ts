@@ -35,7 +35,8 @@ export class TurboFrameRefreshController extends BaseController {
   refresh(event?: Event) {
     event?.preventDefault();
     let element = this.el as TurboFrame;
-    element.src = element.src;
+    // @ts-ignore
+    element.reload();
   }
 
 }
