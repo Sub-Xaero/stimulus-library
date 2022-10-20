@@ -2,6 +2,7 @@ import {type Duration} from "date-fns";
 import intervalToDuration from "date-fns/intervalToDuration";
 import isPast from "date-fns/isPast";
 import {BaseController} from "../../utilities/base_controller";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class CountdownController extends BaseController {
 
@@ -39,13 +40,13 @@ export class CountdownController extends BaseController {
     return this.hasRemoveUnusedValue ? this.removeUnusedValue : false;
   }
 
-
   get _deadlineDate() {
     return new Date(this.deadlineValue);
   }
 
   connect() {
     this._interval = setInterval(this._tick.bind(this), 1000);
+    installClassMethods(this);
     this.addCountingDownClasses();
   }
 
