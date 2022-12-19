@@ -1,6 +1,7 @@
 import {SignalPayload} from "./signal_input_controller";
 import {signalVisibilityEvent} from "./events";
 import {SignalBaseController} from "./base_controller";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class SignalVisibilityController extends SignalBaseController {
 
@@ -18,6 +19,15 @@ export class SignalVisibilityController extends SignalBaseController {
 
   get defaultHideClasses(): string[] {
     return ["hide"];
+  }
+
+  get predicateString() {
+    return this.showValue;
+  }
+
+  connect() {
+    super.connect();
+    installClassMethods(this);
   }
 
   _onSignal(payload: SignalPayload) {
