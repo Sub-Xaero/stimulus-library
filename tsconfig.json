@@ -7,7 +7,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "module": "ES6",
-    "target": "ES6",
+    "target": "ES2022",
     "sourceMap": false,
     "outDir": "dist",
     "rootDir": "src",

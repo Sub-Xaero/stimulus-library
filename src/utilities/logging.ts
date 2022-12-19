@@ -100,7 +100,7 @@ function colorize(text: string, color: string): string[] {
 
 function colorizeMany(texts: ColorMapping[]): string[] {
   let str = "";
-  let colors = texts.flatMap(x => {
+  let colors = texts.flatMap((x: ColorMapping) => {
     str += `%c${x.text}%c `;
     return [`color: ${x.color}`, "color: unset"];
   });
