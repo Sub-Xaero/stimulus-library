@@ -12,6 +12,10 @@ export class SignalDisableController extends SignalBaseController {
   declare nameValue: string;
   declare whenValue: string;
 
+  get predicateString() {
+    return this.whenValue;
+  }
+
   disable() {
     this.el.setAttribute("disabled", "true");
   }
@@ -31,10 +35,18 @@ export class SignalDisableController extends SignalBaseController {
       return;
     }
     if (this.allPredicatesMatch(value)) {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, "disable"), {detail: {predicate: this.whenValue, value}});
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, "disable"), {
+        detail: {
+          predicate: this.whenValue, value
+        }
+      });
       this.disable();
     } else {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, "enable"), {detail: {predicate: this.whenValue, value}});
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, "enable"), {
+        detail: {
+          predicate: this.whenValue, value
+        }
+      });
       this.enable();
     }
   }

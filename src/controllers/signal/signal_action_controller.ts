@@ -14,6 +14,10 @@ export class SignalActionController extends SignalBaseController {
 
   declare nameValue: string;
 
+  get predicateString() {
+    return this.whenValue;
+  }
+
   _onSignal(payload: SignalPayload) {
     let value = payload.value;
     if (!this.hasWhenValue) {
