@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.3...v0.9.4) (2022-12-19)
+
+
+### Bug Fixes
+
+* TabsController - valueChanged getting called before class methods mixin. ([5ababe3](https://github.com/Sub-Xaero/stimulus-library/commit/5ababe3e286144bdee608e2949e21cb8b6dcac1a))
+
 ### [0.9.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.2...v0.9.3) (2022-12-19)
 
 
