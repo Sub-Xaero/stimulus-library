@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.3](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.2...v0.9.3) (2022-12-19)
+
+
+### Bug Fixes
+
+* **Controller:** Fix bug in Signal controllers preventing controllers seeing any expressions. Regression introduced in 2430d07ac60c06d25a9e50f67c47919fbb536e0a ([9bc878c](https://github.com/Sub-Xaero/stimulus-library/commit/9bc878c80bee51d195db701e0bba99ed6322941e))
+* **Controller:** Fix bug in SignalVisibility controllers, where visibility classes weren't set. Regression introduced by 2430d07ac60c06d25a9e50f67c47919fbb536e0a ([bb062f2](https://github.com/Sub-Xaero/stimulus-library/commit/bb062f28554bc551b9892eee1a9ead32e59cb522))
+
 ### [0.9.2](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.1...v0.9.2) (2022-10-20)
 
 
