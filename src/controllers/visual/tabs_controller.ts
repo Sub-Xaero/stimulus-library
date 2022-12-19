@@ -1,6 +1,7 @@
 import {BaseController} from "../../utilities/base_controller";
 import clamp from "lodash-es/clamp";
 import {useCollectionEventListener} from "../../mixins/use_event_listener";
+import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class TabsController extends BaseController {
 
@@ -38,7 +39,7 @@ export class TabsController extends BaseController {
 
   connect() {
     useCollectionEventListener(this, this.linkTargets, "click", this.switchTabs);
-
+    installClassMethods(this);
     if (this._equalize) {
       this._setMinHeight();
     }
@@ -54,7 +55,7 @@ export class TabsController extends BaseController {
   currentTabValueChanged() {
     let index = this._currentTab;
     index = this._clampIndex(index);
-    this._selectTab(index);
+    requestAnimationFrame(() => this._selectTab(index));
   }
 
   _selectTab(index: number) {
