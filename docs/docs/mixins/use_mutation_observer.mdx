@@ -1,0 +1,26 @@
+---
+id: useMutationObserver
+title: useMutationObserver
+---
+
+## Purpose
+
+The `useMutationObserver` hook allows you to observe changes to the DOM. It is a wrapper around the [MutationObserver API](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver).
+
+
+## Side Effects
+
+The `useMutationObserver` hook will create an instance of `MutationObserver` when it is called. It will also register the observer with the DOM. When the component is unmounted, the observer will be disconnected.
+
+## Usage
+
+
+### useMutationObserver
+| Parameters            |     | Type                                                                                                          | Purpose                                                                                                                                                                                       | Default |
+|-----------------------|-----|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`          |     | `Controller`                                                                                                  | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                         | `this`  |
+| `element`             |     | `HTMLElement`                                                                                                 | The element to observe.                                                                                                                                                                       |         |
+| `handler`  (Optional) |     | `Function`                                                                                                    | The callback to invoke when the changes occur. Accepts a single parameter which is an array of `MutationRecord` [Reference](https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord). |         |
+| `options` (Optional)  |     | `MutationObserverInit` [Reference](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/observe) | The raw options to pass to to the `observe` call when initializing the MutationObserver                                                                                                       |         |
+
+<!-- TODO: Add example -->

@@ -5,5 +5,6 @@ export * from './use_injected_html';
 export * from './use_intersection';
 export * from './use_interval';
 export * from './use_localstorage';
+export * from './use_mutation_observer';
 export * from './use_temporary_content';
 export * from './use_timeout';
