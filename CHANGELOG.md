@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.4...v0.9.5) (2022-12-20)
+
+
+### Features
+
+* **Mixin:** UseIntersection - A mixin that wraps setting up an IntersectionObserver ([ea27e1b](https://github.com/Sub-Xaero/stimulus-library/commit/ea27e1bb19a19c5a8f30641e6b058cc80e29b9c1))
+* **Mixin:** UseMutationObserver - A mixin that wraps setting up an MutationObserver ([03e41bf](https://github.com/Sub-Xaero/stimulus-library/commit/03e41bf4c9cff3f73919290f87ae7092842458e3))
+
 ### [0.9.4](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.3...v0.9.4) (2022-12-19)
 
 
