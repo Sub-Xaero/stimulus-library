@@ -1,0 +1,28 @@
+---
+id: useIntersection
+title: useIntersection
+---
+
+## Purpose
+
+The `useIntersection` hook allows you to observe the intersection of a target element with an ancestor element or with a top-level document's viewport.
+
+This behavior is built on top of the Intersection Observer API. See [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) for more information.
+
+## Side Effects
+
+The `useIntersection` hook will create an `IntersectionObserver` instance when the hook is called. The `IntersectionObserver` instance will be destroyed when the component unmounts.
+
+## Usage
+
+
+### useIntersection
+| Parameters             |     | Type                       | Purpose                                                                                                                                               | Default |
+|------------------------|-----|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`           |     | `Controller`               | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this`  |
+| `element`              |     | `HTMLElement`              | The element to observe.                                                                                                                               |         |
+| `appear`  (Optional)   |     | `Function`                 | The callback to invoke when the element scrolls into the viewport. Accepts a single parameter of type `IntersectionObserverEntry`                     |         |
+| `disappear` (Optional) |     | `Function`                 | The callback to invoke when the element scrolls out of the viewport. Accepts a single parameter of type `IntersectionObserverEntry`                   |         |
+| `options` (Optional)   |     | `IntersectionObserverInit` | The raw options to pass to initialize the IntersectionObserver                                                                                        |         |
+
+[//]: # (TODO: Add example)
