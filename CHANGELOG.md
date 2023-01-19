@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.6](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.5...v0.9.6) (2023-01-19)
+
+
+### Bug Fixes
+
+* TweenNumberController - Only run on first intersect, not every time the element enters the viewport ([39f6e3c](https://github.com/Sub-Xaero/stimulus-library/commit/39f6e3c34e20eed6edd83c40fb8c8dcc8d9fcf46))
+
 ### [0.9.5](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.4...v0.9.5) (2022-12-20)
 
 
