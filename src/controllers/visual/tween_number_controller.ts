@@ -19,6 +19,10 @@ export class TweenNumberController extends BaseController {
   declare readonly hasDurationValue: boolean;
   declare easingValue: keyof typeof EasingFunctions;
   declare readonly hasEasingValue: boolean;
+  private observer?: IntersectionObserver;
+  private observe?: () => void;
+  private unobserve?: () => void;
+  private teardownObserver?: () => void;
 
   get start(): number {
     if (this.hasStartValue) {
@@ -55,7 +59,16 @@ export class TweenNumberController extends BaseController {
   }
 
   connect() {
-    useIntersection(this, this.el, this.appear);
+    let {
+      observer,
+      observe,
+      unobserve,
+      teardown,
+    } = useIntersection(this, this.el, this.appear);
+    this.observer = observer;
+    this.observe = observe;
+    this.unobserve = unobserve;
+    this.teardownObserver = teardown;
   }
 
   appear(_entry: IntersectionObserverEntry) {
@@ -65,6 +78,7 @@ export class TweenNumberController extends BaseController {
   tween(): void {
     let startTimestamp: number | null = null;
 
+    let self = this;
     const step = (timestamp: number) => {
       if (!startTimestamp) {
         startTimestamp = timestamp;
@@ -73,14 +87,20 @@ export class TweenNumberController extends BaseController {
       const elapsed: number = timestamp - startTimestamp;
       const progress: number = Math.min(elapsed / this.durationMs, 1);
 
-      this.element.innerHTML = Math.floor(this.easingFunction(progress) * (this.end - this.start) + this.start).toString();
+      this.element.innerHTML =
+        Math.floor(this.easingFunction(progress) * (
+          this.end - this.start
+        ) + this.start).toString();
 
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else {
+        self.unobserve?.();
+        self.teardownObserver?.();
       }
     };
 
-    requestAnimationFrame(step)
+    requestAnimationFrame(step);
   }
 
 }
