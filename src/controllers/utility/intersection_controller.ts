@@ -23,11 +23,11 @@ export class IntersectionController extends BaseController {
   }
 
   appear(entry: IntersectionObserverEntry) {
-    dispatchEvent(this, this.el, "intersection:appear");
+    dispatchEvent(this, this.el, this.eventName("appear"));
   };
 
   disappear(entry: IntersectionObserverEntry) {
-    dispatchEvent(this, this.el, "intersection:disappear");
+    dispatchEvent(this, this.el, this.eventName("disappear"));
   };
 
 }

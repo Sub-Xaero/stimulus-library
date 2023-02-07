@@ -34,7 +34,7 @@ export class ConfirmController extends BaseController {
   confirm(event: Event) {
     if (!(window.confirm(this._message))) {
       event.preventDefault();
-      this.dispatchEvent(this.el, "confirm:cancelled");
+      this.dispatchEvent(this.el, this.eventName("cancelled"));
     }
   }
 

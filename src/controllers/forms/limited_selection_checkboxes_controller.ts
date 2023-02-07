@@ -24,12 +24,12 @@ export class LimitedSelectionCheckboxesController extends BaseController {
       event.preventDefault();
       target.checked = false;
       this.dispatchEvent(target, "change");
-      this.dispatchEvent(target, "limited-selection:too-many");
+      this.dispatchEvent(target, this.eventName("too-many"));
       if (this.hasErrorTarget && this.hasMessageValue) {
         this.errorTarget.innerHTML = this.messageValue;
       }
     } else {
-      this.dispatchEvent(target, "limited-selection:selection");
+      this.dispatchEvent(target, this.eventName("selection"));
       if (this.hasErrorTarget) {
         this.errorTarget.innerHTML = "";
       }

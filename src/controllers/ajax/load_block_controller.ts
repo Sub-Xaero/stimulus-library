@@ -43,7 +43,7 @@ export class LoadBlockController extends BaseController {
 
     let failure = () => {
       el.replaceWith(this._errorMessage);
-      self.dispatchEvent(el, "ajax:error");
+      self.dispatchEvent(el, this.eventName("error"));
     };
 
     try {
@@ -62,11 +62,11 @@ export class LoadBlockController extends BaseController {
         el.replaceWith(...newEl.children);
       }
       // Trigger event to show block has loaded
-      self.dispatchEvent(el, "ajax:success");
+      self.dispatchEvent(el, this.eventName("success"));
     } catch (e) {
       failure();
     } finally {
-      self.dispatchEvent(el, "ajax:complete");
+      self.dispatchEvent(el, this.eventName("complete"));
     }
   }
 }
