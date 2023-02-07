@@ -46,10 +46,46 @@ The controller expects a well-formed table, including a `<thead>` with one row o
 Once the controller is installed, users can sort table data by clicking on `<th>` cells in the table's header.
 If you want to mark a column as unsortable, add `data-sortable="false"` to the `<th>` element for that column.
 
+If you want to sort a column by some other value than its text content, add `data-sort-value="something-else"` to each cell in that column.
+i.e.
+```html
+<tr>
+    <td>Sally</td>
+    <td>21</td>
+    <td>sally@example.com</td>
+    <td data-sort-value="2021-01-19">January 19th, 2021</td>
+</tr>
+<tr>
+    <td>Trevor</td>
+    <td>45</td>
+    <td>trevor@example.com</td>
+    <td data-sort-value="2020-02-18">February 18th, 2020</td>
+</tr>
+```
+
 If `startSortValue` is set, the table will be sorted on load, otherwise the table will stay as it loaded until a user clicks on a column heading.
 
-You can also set `data-sort-bottom` and `data-sort-top` attributes on `<tr>`s to pin a row to the top or bottom of the table.
+You can also set `data-sort-bottom` and `data-sort-top` attributes on `<tr>`s to pin a row to the top or bottom of the table, i.e.
+```html
+<tr data-sort-top="true">
+    <td colspan="4">
+This row is always at the top
+    </td>
+</tr>
+<tr>
+    <td>Sally</td>
+    <td>21</td>
+    <td>sally@example.com</td>
+    <td>January 19th, 2021</td>
+</tr>
+<tr data-sort-bottom="true">
+    <td colspan="4">
+This row is always at the bottom
+    </td>
+</tr>
+```
 
+## Demo
 <iframe
   src="https:///stimulus-library.netlify.app/controllers/table_sort_controller.html"
   style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}

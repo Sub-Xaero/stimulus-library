@@ -96,8 +96,8 @@ export class TableSortController extends BaseController {
       let otherCells = Array.from(otherRow.cells);
 
       // TODO: Handle colspans?
-      let x = cells[index]?.innerText || "";
-      let y = otherCells[index]?.innerText || "";
+      let x = cells[index]?.dataset?.sortValue || cells[index]?.innerText || "";
+      let y = otherCells[index]?.dataset?.sortValue || otherCells[index]?.innerText || "";
 
       let sortVal = x.localeCompare(y, "en", {sensitivity: "base", numeric: true, caseFirst: "upper"});
 
