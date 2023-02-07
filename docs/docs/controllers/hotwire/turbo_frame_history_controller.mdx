@@ -1,0 +1,51 @@
+---
+id: TurboFrameHistoryController
+title: TurboFrameHistoryController
+---
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoEvents from "../../_partials/no-events.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoValues from "../../_partials/no-values.md";
+
+## Purpose
+
+TurboFrames usually navigate independently of the browser URL, this controller allows you to update the browser URL and history when a TurboFrame navigates.
+If you have one main TurboFrame on your page that you want to link the browser navigation to, you can use this controller to keep the turbo-frame and browser history in sync,
+so that browser back and forward buttons work as expected, and refreshing the page maintains the current state of the frame.
+
+## Caveats
+This obviously works best with a single TurboFrame on the page, if you have multiple TurboFrames using this controller to maintain browser history, and those frames have significantly different URLs,
+you may have some unexpected behavior as each frame navigation updates the browser history and URL to its own URL.
+
+This controller requires Turbo/Hotwired to be installed and active on the page for it to work, and expects `Turbo` to be defined on the `window` object.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+<NoEvents/>
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+```html
+<turbo-frame id="frame" src="/frame" data-controller="turbo-frame-history" >
+  <!--This link would normally navigate the turbo frame, but the URL would be unchanged, with this controller, clicking the link will update -->
+  <!-- the browser URL to "yourwebsite.com/your-page?tag=foo&filter=bar"  -->
+  <a href="?tag=foo&filter=bar"></a>
+</turbo-frame>
+```

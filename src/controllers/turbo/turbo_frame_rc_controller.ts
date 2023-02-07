@@ -1,6 +1,6 @@
-import {BaseController} from "../utilities/base_controller";
-import {isHTMLAnchorElement} from "../utilities/elements";
-import {isTurboFrame} from "../utilities/turbo";
+import {BaseController} from "../../utilities/base_controller";
+import {isHTMLAnchorElement} from "../../utilities/elements";
+import {isTurboFrame} from "../../utilities/turbo";
 
 export class TurboFrameRCController extends BaseController {
 
