@@ -21,7 +21,7 @@ To make seamless, responsive iframes that resize themselves to the size of their
 This behaviour uses two controllers.
 
 1. `ResponsiveIframeWrapperController`
-1. `ResponsiveIframeBodyController`
+2. `ResponsiveIframeBodyController`
 
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
@@ -86,4 +86,4 @@ The parent scope listens for messages from iframes, and when it receives a messa
 `iframe-body`, it will set the `height` of the iframe to the value passed.
 
 You can then set a `max-height` on the `<iframe>` to make sure it fits your design and never grows too large.
-You can either fix the width, or let it be responsive - the ResizeObserver inside the `<iframe>` will handle any size changes and adjust the height automatically to compensate. 
+You can either fix the width, or let it be responsive - the ResizeObserver inside the `<iframe>` will handle any size changes and adjust the height automatically to compensate.
