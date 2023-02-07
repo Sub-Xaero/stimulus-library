@@ -34,7 +34,7 @@ export class CountdownController extends BaseController {
   declare removeCountingDownClasses: (el?: HTMLElement) => void;
 
   // Instance Data
-  _interval: null | ReturnType<typeof window.setInterval> = null;
+  _timeout: null | ReturnType<typeof window.setTimeout> = null;
 
   get _removeUnused(): boolean {
     return this.hasRemoveUnusedValue ? this.removeUnusedValue : false;
@@ -44,8 +44,13 @@ export class CountdownController extends BaseController {
     return new Date(this.deadlineValue);
   }
 
+  initialize() {
+    this._tick = this._tick.bind(this);
+  }
+
   connect() {
-    this._interval = setInterval(this._tick.bind(this), 1000);
+    this._timeout = setTimeout(this._tick, 1000);
+    console.log(this._timeout);
     installClassMethods(this);
     this.addCountingDownClasses();
   }
@@ -58,8 +63,8 @@ export class CountdownController extends BaseController {
 
   deadlineValueChanged() {
     // Countdown had previously ended, restart ticking. Updating mid-tick will just work.
-    if (this._interval == null) {
-      this._interval = setInterval(this._tick.bind(this), 1000);
+    if (this._timeout == null) {
+      this._timeout = setTimeout(this._tick, 1000);
     }
   }
 
@@ -75,8 +80,10 @@ export class CountdownController extends BaseController {
         this.removeCountingDownClasses();
         this.addEndedClasses();
         this.dispatchEvent(this.el, "countdown:ended");
+        return;
       } else {
         distance = intervalToDuration({start: this._deadlineDate, end: now});
+        this._timeout = setTimeout(this._tick, 1000);
       }
 
       if (this.hasYearsTarget) {
@@ -104,9 +111,9 @@ export class CountdownController extends BaseController {
   }
 
   _clearTick() {
-    if (this._interval) {
-      clearInterval(this._interval);
-      this._interval = null;
+    if (this._timeout) {
+      clearTimeout(this._timeout);
+      this._timeout = null;
     }
   }
 
