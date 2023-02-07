@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.7](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.6...v0.9.7) (2023-02-07)
+
+
+### Features
+
+* **Controllers:** TurboFrameHistoryController - a controller that syncs the navigation of a turbo-frame element with the browser history and URL. ([f2b5d2a](https://github.com/Sub-Xaero/stimulus-library/commit/f2b5d2a201a029f1c8607caeeecbfa6edcc0a7ef)), closes [#97](https://github.com/Sub-Xaero/stimulus-library/issues/97)
+* **Mixins:** useResizeObserver - a mixin that wraps up the ResizeObserver API for use in Stimulus components, automating registering and cleaning up the observer on connect and disconnect. ([b535a17](https://github.com/Sub-Xaero/stimulus-library/commit/b535a170a64d1f5837c8ef478b2a2abe31fc2a39)), closes [#98](https://github.com/Sub-Xaero/stimulus-library/issues/98)
+* **TableSortController:** Allow sorting by custom values other than the cell content ([d50e9d9](https://github.com/Sub-Xaero/stimulus-library/commit/d50e9d9f0c0e985c81c5609bc3f66c838b1a344b))
+
+
+### Bug Fixes
+
+* **CountdownController:** Stop ticking and firing events after countdown ended ([621d26e](https://github.com/Sub-Xaero/stimulus-library/commit/621d26eec75855cf0286cd5a2129331e2b3dbae7)), closes [#86](https://github.com/Sub-Xaero/stimulus-library/issues/86)
+
 ### [0.9.6](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.5...v0.9.6) (2023-01-19)
 
 
