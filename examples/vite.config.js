@@ -16,6 +16,10 @@ async function processGlob(globStr, opts = { filesOnly: true }) {
 
 export default defineConfig(async () => {
   return {
+    server: {
+      strictPort: true,
+      port: 3000,
+    },
     build: {
       rollupOptions: {
         input: {
