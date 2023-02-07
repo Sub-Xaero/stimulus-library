@@ -1,0 +1,26 @@
+---
+id: useResizeObserver
+title: useResizeObserver
+---
+
+## Purpose
+
+The `useResizeObserver` hook allows you to observe when elements change size.
+It is a wrapper around the [ResizeObserver API](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver),
+making it easier to use in Stimulus components and automating registering and cleaning up the observer on connect and disconnect.
+
+## Side Effects
+
+The `useResizeObserver` hook will create an instance of `ResizeObserver` when it is called, and registers the observer with the DOM, observing the element passed in.
+
+When the component is unmounted, the observer will be disconnected and cleaned up.
+
+## Usage
+
+### useResizeObserver
+| Parameters            |     | Type                                                                                                         | Purpose                                                                                                                                                                                                 | Default |
+|-----------------------|-----|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`          |     | `Controller`                                                                                                 | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                                   | `this`  |
+| `element`             |     | `HTMLElement`                                                                                                | The element to observe.                                                                                                                                                                                 |         |
+| `handler`  (Optional) |     | `Function`                                                                                                   | The callback to invoke when the changes occur. Accepts a single parameter which is an array of `ResizeObserverEntry` [Reference](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry). |         |
+| `options` (Optional)  |     | `ResizeObserverOptions` [Reference](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver/observe) | The raw options to pass to to the `observe` call when initializing the ResizeObserver                                                                                                                   |         |
