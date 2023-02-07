@@ -26,7 +26,7 @@ export class RemoteFormController extends BaseController {
         throw new Error('expected form to have a DOM parent, could not execute replaceChild');
       }
       parentNode.replaceChild(newElement, this.el);
-      this.dispatchEvent(newElement, 'remote-form:replace');
+      this.dispatchEvent(newElement, this.eventName('replace'));
     } else {
       console.log('Unknown', data);
     }

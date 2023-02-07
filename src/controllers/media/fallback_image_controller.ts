@@ -44,11 +44,11 @@ export class FallbackImageController extends BaseController {
     this.addFailClasses();
 
     if (this.hasPlaceholderValue && element.src !== this.placeholderValue) {
-      this.dispatchEvent(element, "fallback-image:placeholder");
+      this.dispatchEvent(element, this.eventName("placeholder"));
       element.src = this.placeholderValue;
       element.onerror = this._fail;
     } else {
-      this.dispatchEvent(element, "fallback-image:fail");
+      this.dispatchEvent(element, this.eventName("fail"));
       element.style.display = "none";
     }
   }

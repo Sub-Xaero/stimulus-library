@@ -48,11 +48,11 @@ export class EmptyDomController extends BaseController {
     if (children.length === 0) {
       this.removeNotEmptyClasses();
       this.addEmptyClasses();
-      this.dispatchEvent(element as HTMLElement, "dom:empty");
+      this.dispatchEvent(element as HTMLElement, this.eventName("empty"));
     } else {
       this.addNotEmptyClasses();
       this.removeEmptyClasses();
-      this.dispatchEvent(element as HTMLElement, "dom:not-empty", {detail: {count: children.length}});
+      this.dispatchEvent(element as HTMLElement, this.eventName("not-empty"), {detail: {count: children.length}});
     }
   }
 

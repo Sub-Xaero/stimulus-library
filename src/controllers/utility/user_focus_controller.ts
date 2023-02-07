@@ -12,11 +12,11 @@ export class UserFocusController extends BaseController {
   }
 
   appear() {
-    this.dispatchEvent(this.el, "user-focus:active");
+    this.dispatchEvent(this.el, this.eventName("active"));
   }
 
   away() {
-    this.dispatchEvent(this.el, "user-focus:away");
+    this.dispatchEvent(this.el, this.eventName("away"));
   }
 
   private _handleVisibility() {
