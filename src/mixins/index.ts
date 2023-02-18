@@ -6,5 +6,6 @@ export * from './use_intersection';
 export * from './use_interval';
 export * from './use_localstorage';
 export * from './use_mutation_observer';
+export * from './use_resize_observer';
 export * from './use_temporary_content';
 export * from './use_timeout';
