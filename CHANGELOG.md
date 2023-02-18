@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.8](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.7...v0.9.8) (2023-02-18)
+
+
+### Bug Fixes
+
+* **Exports:** Fix missing export for useResizeObserver mixin ([cc01f5e](https://github.com/Sub-Xaero/stimulus-library/commit/cc01f5e464509487578bef4866d02a4d514e2ec2))
+
 ### [0.9.7](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.6...v0.9.7) (2023-02-07)
 
 
