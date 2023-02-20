@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.9](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.8...v0.9.9) (2023-02-20)
+
+
+### Bug Fixes
+
+* Type declarations weren't being exported ([1f877b3](https://github.com/Sub-Xaero/stimulus-library/commit/1f877b3ee86493f44f030a2aa502e54f055dae75))
+
 ### [0.9.8](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.7...v0.9.8) (2023-02-18)
 
 
