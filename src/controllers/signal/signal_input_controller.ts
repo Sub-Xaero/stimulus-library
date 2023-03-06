@@ -32,6 +32,7 @@ export class SignalInputController extends BaseController {
 
   connect() {
     useEventBus(this, signalConnectEvent(this._name), () => this.emitValue());
+    useEventBus(this, signalValueEvent(this._name), this._onSignal);
     useEventListeners(this, this.el, ["input", "change"], this.emitValue, {debounce: this._debounceTimeout || undefined});
     requestAnimationFrame(() => this.emitValue());
   }
@@ -50,4 +51,17 @@ export class SignalInputController extends BaseController {
     EventBus.emit(signalValueEvent(this._name), {element: this.el, value} as SignalPayload);
   }
 
+  _onSignal(payload: SignalPayload) {
+    let {element, value} = payload;
+    if (element === this.el) {
+      return;
+    }
+    if (isHTMLInputElement(this.el) && this.el.type === "checkbox") {
+      this.el.checked = value === "true";
+    } else if (isHTMLInputElement(this.el) && this.el.type === "radio") {
+      this.el.checked = this.el.value === value;
+    } else {
+      (this.el as HTMLInputElement).value = value;
+    }
+  }
 }
