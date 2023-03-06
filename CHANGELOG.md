@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.11](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.10...v0.9.11) (2023-03-06)
+
+
+### Features
+
+* **SignalInputController:** Add stimulus config values to allow SignalInputController to optionally synthesize input and change events when they sync values ([c694625](https://github.com/Sub-Xaero/stimulus-library/commit/c694625350c2cb1ca93c66abbbd4374cbcfc3d60))
+
 ### [0.9.10](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.9...v0.9.10) (2023-03-06)
 
 
