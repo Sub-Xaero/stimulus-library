@@ -1,9 +1,9 @@
-import {BaseController} from "../../utilities/base_controller";
-import {EventBus} from "../../utilities/event_bus";
-import {useEventListeners} from "../../mixins/use_event_listener";
-import {getAllRadiosInGroup, isHTMLInputElement} from "../../utilities";
-import {signalConnectEvent, signalValueEvent} from "./events";
-import {useEventBus} from "../../mixins/use_event_bus";
+import { BaseController } from "../../utilities/base_controller";
+import { EventBus } from "../../utilities/event_bus";
+import { useEventListeners } from "../../mixins/use_event_listener";
+import { getAllRadiosInGroup, isHTMLInputElement } from "../../utilities";
+import { signalConnectEvent, signalValueEvent } from "./events";
+import { useEventBus } from "../../mixins/use_event_bus";
 
 export interface SignalPayload {
   element: HTMLElement;
@@ -15,12 +15,24 @@ export class SignalInputController extends BaseController {
   static values = {
     name: String,
     debounceInterval: Number,
+    triggerChange: {
+      type: Boolean,
+      default: false,
+    },
+    triggerInput: {
+      type: Boolean,
+      default: false,
+    },
   };
 
   declare debounceIntervalValue: number;
   declare readonly hasDebounceIntervalValue: boolean;
   declare nameValue: string;
   declare hasNameValue: boolean;
+  declare triggerChangeValue: boolean;
+  declare readonly hasTriggerChangeValue: boolean;
+  declare triggerInputValue: boolean;
+  declare readonly hasTriggerInputValue: boolean;
 
   get _debounceTimeout(): number | null {
     return this.hasDebounceIntervalValue ? this.debounceIntervalValue : 1;
@@ -62,6 +74,12 @@ export class SignalInputController extends BaseController {
       this.el.checked = this.el.value === value;
     } else {
       (this.el as HTMLInputElement).value = value;
+    }
+    if (this.triggerChangeValue) {
+      this.dispatchEvent(this.el, 'change');
+    }
+    if (this.triggerInputValue) {
+      this.dispatchEvent(this.el, 'change');
     }
   }
 }
