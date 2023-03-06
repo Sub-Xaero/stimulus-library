@@ -1,6 +1,7 @@
 import './style.scss';
 import 'trix/dist/trix.css';
 import 'trix';
+import 'bootstrap';
 
 import { Application } from "@hotwired/stimulus";
 import { UpdateDateController } from "./src/helper_controllers/update_date_controller";

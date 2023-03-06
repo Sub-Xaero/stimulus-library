@@ -8,359 +8,469 @@
   </head>
   <body>
     <div class="container p-4 text-center">
-      <label class="form-label">
-        How old are you?
-        <input class="form-control" data-controller="signal-input" name="age" type="number">
-      </label>
 
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value="default"
-      >
-        <p>Please type something</p>
-      </div>
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value="<12"
-      >
-        <p>This content only applies to children</p>
-      </div>
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value=">12&&<20"
-      >
-        <p>This content only applies to teenagers</p>
-      </div>
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value="<15"
-      >
-        <p>This content only applies to everyone under 15</p>
-      </div>
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value=">18&&<60&&!=23"
-      >
-        <p>This content only applies to over 18s</p>
-      </div>
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value="==23"
-      >
-        <p>This content only applies to people who are exactly 23</p>
-      </div>
-      <div
-        class="mt-4"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="age"
-        data-signal-visibility-show-value=">=60"
-      >
-        <p>This content only applies to people aged 60 or over</p>
-      </div>
+      <p>
+        Open the dev tools inspector and look at the `[data-signal-visibility-show-value]` attribute on the elements
+        below to see how the controllers work.
+      </p>
 
-      <hr>
-      <!-- Synced Text Inputs -->
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-control"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-text"
-              name="symbiote-text"
-              type="text"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-control"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-text"
-              name="symbiote-text"
-              type="text"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <!-- Synced Checkbox Inputs -->
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-checkbox"
-              name="symbiote-checkbox"
-              type="checkbox"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-checkbox"
-              name="symbiote-checkbox"
-              type="checkbox"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <!-- Synced Radio Inputs -->
-      <div class="row">
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-radio"
-              name="symbiote-radio"
-              type="radio"
-              value="1"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-radio"
-              name="symbiote-radio"
-              type="radio"
-              value="2"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-radio"
-              name="symbiote-radio-1"
-              type="radio"
-              value="1"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              data-signal-input-name-value="symbiote-radio"
-              name="symbiote-radio-1"
-              type="radio"
-              value="2"
-            >
-            <label class="form-check-label">These two inputs are synced</label>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-      <div class="">
-        <div class="row justify-content-center mb-4">
-          <div class="col col-3">
-            <div class="form-check">
-              <input class="form-check-input" data-controller="signal-input" name="showMe" type="checkbox">
-              <label class="form-check-label">Show me more</label>
+      <div class="accordion accordion-flush" id="signal-example-accordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#synced-text" data-bs-toggle="collapse">
+              Sync two text inputs together
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="synced-text">
+            <div class="accordion-body">
+              <div class="row">
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-control"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-text"
+                      name="symbiote-text"
+                      type="text"
+                    >
+                    <label class="form-check-label">These two inputs are synced</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-control"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-text"
+                      name="symbiote-text"
+                      type="text"
+                    >
+                    <label class="form-check-label">These two inputs are synced</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-
-        <div
-          class="alert alert-info"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="showMe"
-          data-signal-visibility-show-value="==true"
-        >
-          Gabaliums congregabo, tanquam regius candidatus.
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#synced-textarea" data-bs-toggle="collapse">
+              Sync two textareas together
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="synced-textarea">
+            <div class="accordion-body">
+              <div class="row">
+                <div class="col">
+                  <div class="form-check">
+                    <textarea
+                      class="form-control"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-textarea"
+                      name="symbiote-textarea"
+                    ></textarea>
+                    <label class="form-check-label">These two textareas are synced</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <textarea
+                      class="form-control"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-textarea"
+                      name="symbiote-textarea"
+                    ></textarea>
+                    <label class="form-check-label">These two textareas are synced</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          class="alert alert-dark"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="showMe"
-          data-signal-visibility-show-value="==false"
-        >
-          Fine then, I won't show you more
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#checkbox-sync" data-bs-toggle="collapse">
+              Sync two checkbox inputs together
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="checkbox-sync">
+            <div class="accordion-body">
+              <!-- Synced Checkbox Inputs -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-checkbox"
+                      name="symbiote-checkbox"
+                      type="checkbox"
+                    >
+                    <label class="form-check-label">These two inputs are synced</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-checkbox"
+                      name="symbiote-checkbox"
+                      type="checkbox"
+                    >
+                    <label class="form-check-label">These two inputs are synced</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#radio-sync" data-bs-toggle="collapse">
+              Sync two radio inputs together
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="radio-sync">
+            <div class="accordion-body">
+              <!-- Synced Radio Inputs -->
+              <div class="row">
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-radio"
+                      name="symbiote-radio"
+                      type="radio"
+                      value="1"
+                    >
+                    <label class="form-check-label">Value 1</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-radio"
+                      name="symbiote-radio"
+                      type="radio"
+                      value="2"
+                    >
+                    <label class="form-check-label">Value 2</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-radio"
+                      name="symbiote-radio-1"
+                      type="radio"
+                      value="1"
+                    >
+                    <label class="form-check-label">Value 1</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      data-signal-input-name-value="symbiote-radio"
+                      name="symbiote-radio-1"
+                      type="radio"
+                      value="2"
+                    >
+                    <label class="form-check-label">Value 2</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#number-predicate" data-bs-toggle="collapse">
+              Show or hide content based on whether the value of a number input, and whether the number is more than,
+              less than, or equal to a given value
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="number-predicate">
+            <div class="accordion-body">
+              <label class="form-label">
+                How old are you?
+                <input class="form-control" data-controller="signal-input" name="age" type="number">
+              </label>
+
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value="default"
+              >
+                <p>Please type something</p>
+              </div>
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value="<12"
+              >
+                <p>This content only applies to children</p>
+              </div>
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value=">12&&<20"
+              >
+                <p>This content only applies to teenagers</p>
+              </div>
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value="<15"
+              >
+                <p>This content only applies to everyone under 15</p>
+              </div>
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value=">18&&<60&&!=23"
+              >
+                <p>This content only applies to over 18s</p>
+              </div>
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value="==23"
+              >
+                <p>This content only applies to people who are exactly 23</p>
+              </div>
+              <div
+                class="mt-4"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="age"
+                data-signal-visibility-show-value=">=60"
+              >
+                <p>This content only applies to people aged 60 or over</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#boolean-predicate" data-bs-toggle="collapse">
+              Show/hide content based on whether a checkbox is ticked
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="boolean-predicate">
+            <div class="accordion-body">
+              <div class="row justify-content-center mb-4">
+                <div class="col col-3">
+                  <div class="form-check">
+                    <input class="form-check-input" data-controller="signal-input" name="showMe" type="checkbox">
+                    <label class="form-check-label">Show me more</label>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="alert alert-info"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="showMe"
+                data-signal-visibility-show-value="==true"
+              >
+                Gabaliums congregabo, tanquam regius candidatus.
+              </div>
+              <div
+                class="alert alert-dark"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="showMe"
+                data-signal-visibility-show-value="==false"
+              >
+                Fine then, I won't show you more
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#options-predicate" data-bs-toggle="collapse">
+              Show/hide content based on the values in a dropdown select
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="options-predicate">
+            <div class="accordion-body">
+
+              <div>
+                <label class="form-label">
+                  Select your favourite colour
+                  <select class="form-control" data-controller="signal-input" name="colour">
+                    <option value=""></option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="blue & purple">Blue & Purple</option>
+                  </select>
+                </label>
+
+                <div
+                  class="favourite-colour"
+                  data-controller="signal-visibility"
+                  data-signal-visibility-name-value="colour"
+                  data-signal-visibility-show-value="default"
+                >
+                  Pick a colour, any colour.
+                </div>
+                <div
+                  class="favourite-colour"
+                  data-controller="signal-visibility"
+                  data-signal-visibility-name-value="colour"
+                  data-signal-visibility-show-value="==red"
+                  style="background: #FF4242"
+                >
+                  OMG me too! I LOVE Red
+                </div>
+                <div
+                  class="favourite-colour"
+                  data-controller="signal-visibility"
+                  data-signal-visibility-name-value="colour"
+                  data-signal-visibility-show-value="==green"
+                  style="background: #04EF04"
+                >
+                  OMG me too! I LOVE Green
+                </div>
+                <div
+                  class="favourite-colour"
+                  data-controller="signal-visibility"
+                  data-signal-visibility-name-value="colour"
+                  data-signal-visibility-show-value="==blue"
+                  style="background: #3838D2"
+                >
+                  OMG me too! I LOVE Blue
+                </div>
+                <div
+                  class="favourite-colour"
+                  data-controller="signal-visibility"
+                  data-signal-visibility-name-value="colour"
+                  data-signal-visibility-show-value="==blue & purple"
+                  style="background: #5028AD"
+                >
+                  OMG me too! I LOVE Blurple
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#radio-predicate" data-bs-toggle="collapse">
+              Show/hide content based on the value of a radio button
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#signal-example-accordion" id="radio-predicate">
+            <div class="accordion-body">
+              <div class="mb-3">
+                <label class="form-label">
+                  Do coconuts migrate?
+                </label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      name="coconutMigration"
+                      type="radio"
+                      value="N/A"
+                    />
+                    What kind of question is this?
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      name="coconutMigration"
+                      type="radio"
+                      value="Yes"
+                    />
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      data-controller="signal-input"
+                      name="coconutMigration"
+                      type="radio"
+                      value="No"
+                    />
+                    No
+                  </label>
+                </div>
+              </div>
+              <div
+                class="alert alert-dark"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="coconutMigration"
+                data-signal-visibility-show-value="default"
+              >
+                Answer me, these questions three. Ere the other side you see.
+              </div>
+
+              <div
+                class="alert alert-dark"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="coconutMigration"
+                data-signal-visibility-show-value="==N/A"
+              >
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  frameborder="0"
+                  height="315"
+                  src="https://www.youtube.com/embed/H4_9kDO3q0w"
+                  title="YouTube video player"
+                  width="560"
+                ></iframe>
+              </div>
+
+              <div
+                class="alert alert-dark"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="coconutMigration"
+                data-signal-visibility-show-value="==Yes"
+              >
+                Coconuts can not migrate.
+                They could, however, be carried by a swallow.
+                An African Swallow, if it were migratory, could grasp the coconut by the husk, or two European swallows
+                flying
+                together using a strand of creeper held under the dorsal guiding feathers.
+              </div>
+
+              <div
+                class="alert alert-dark"
+                data-controller="signal-visibility"
+                data-signal-visibility-name-value="coconutMigration"
+                data-signal-visibility-show-value="==No"
+              >
+                Who are You, Who are so Wise in the Ways of Science?
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
-      <hr>
-      <div>
-        <label class="form-label">
-          Select your favourite colour
-          <select class="form-control" data-controller="signal-input" name="colour">
-            <option value=""></option>
-            <option value="red">Red</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-            <option value="blue & purple">Blue & Purple</option>
-          </select>
-        </label>
-
-        <div
-          class="favourite-colour"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="colour"
-          data-signal-visibility-show-value="default"
-        >
-          Pick a colour, any colour.
-        </div>
-        <div
-          class="favourite-colour"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="colour"
-          data-signal-visibility-show-value="==red"
-          style="background: #FF4242"
-        >
-          OMG me too! I LOVE Red
-        </div>
-        <div
-          class="favourite-colour"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="colour"
-          data-signal-visibility-show-value="==green"
-          style="background: #04EF04"
-        >
-          OMG me too! I LOVE Green
-        </div>
-        <div
-          class="favourite-colour"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="colour"
-          data-signal-visibility-show-value="==blue"
-          style="background: #3838D2"
-        >
-          OMG me too! I LOVE Blue
-        </div>
-        <div
-          class="favourite-colour"
-          data-controller="signal-visibility"
-          data-signal-visibility-name-value="colour"
-          data-signal-visibility-show-value="==blue & purple"
-          style="background: #5028AD"
-        >
-          OMG me too! I LOVE Blurple
-        </div>
-      </div>
-
-
-      <div>
-        <label class="form-label">
-          Do coconuts migrate?
-        </label>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              name="coconutMigration"
-              type="radio"
-              value="N/A"
-            />
-            What kind of question is this?
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              name="coconutMigration"
-              type="radio"
-              value="Yes"
-            />
-            Yes
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input
-              class="form-check-input"
-              data-controller="signal-input"
-              name="coconutMigration"
-              type="radio"
-              value="No"
-            />
-            No
-          </label>
-        </div>
-      </div>
-
-      <div
-        class="alert alert-dark"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="coconutMigration"
-        data-signal-visibility-show-value="default"
-      >
-        Answer me, these questions three.
-      </div>
-
-      <div
-        class="alert alert-dark"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="coconutMigration"
-        data-signal-visibility-show-value="==N/A"
-      >
-        <iframe
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          frameborder="0"
-          height="315"
-          src="https://www.youtube.com/embed/H4_9kDO3q0w"
-          title="YouTube video player"
-          width="560"
-        ></iframe>
-      </div>
-
-      <div
-        class="alert alert-dark"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="coconutMigration"
-        data-signal-visibility-show-value="==Yes"
-      >
-        Coconuts can not migrate.
-        They could, however, be carried by a swallow.
-        An African Swallow, if it were migratory, could grasp the coconut by the husk, or two European swallows flying
-        together using a strand of creeper held under the dorsal guiding feathers.
-      </div>
-
-      <div
-        class="alert alert-dark"
-        data-controller="signal-visibility"
-        data-signal-visibility-name-value="coconutMigration"
-        data-signal-visibility-show-value="==No"
-      >
-        Who are You, Who are so Wise in the Ways of Science?
-      </div>
-
     </div>
 
     <style>
