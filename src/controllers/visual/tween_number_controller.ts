@@ -1,6 +1,6 @@
-import {BaseController} from "../../utilities/base_controller";
-import {useIntersection} from "../../mixins/use_intersection";
-import {EasingFunction, EasingFunctions} from "../../utilities/easingFunctions";
+import { BaseController } from "../../utilities/base_controller";
+import { useIntersection } from "../../mixins/use_intersection";
+import { EasingFunction, EasingFunctions } from "../../utilities/easingFunctions";
 
 export class TweenNumberController extends BaseController {
 
@@ -9,6 +9,10 @@ export class TweenNumberController extends BaseController {
     end: Number,
     duration: Number,
     easing: String,
+    formatting: {
+      type: Object,
+      default: {},
+    },
   };
 
   declare startValue: number;
@@ -19,6 +23,11 @@ export class TweenNumberController extends BaseController {
   declare readonly hasDurationValue: boolean;
   declare easingValue: keyof typeof EasingFunctions;
   declare readonly hasEasingValue: boolean;
+
+  declare formattingValue: Intl.NumberFormatOptions;
+  declare formatter: Intl.NumberFormat;
+  declare readonly hasFormattingValue: boolean;
+
   private observer?: IntersectionObserver;
   private observe?: () => void;
   private unobserve?: () => void;
@@ -69,6 +78,10 @@ export class TweenNumberController extends BaseController {
     this.observe = observe;
     this.unobserve = unobserve;
     this.teardownObserver = teardown;
+    this.formatter = new Intl.NumberFormat(
+      Intl.NumberFormat().resolvedOptions().locale,
+      this.formattingValue,
+    );
   }
 
   appear(_entry: IntersectionObserverEntry) {
@@ -87,10 +100,9 @@ export class TweenNumberController extends BaseController {
       const elapsed: number = timestamp - startTimestamp;
       const progress: number = Math.min(elapsed / this.durationMs, 1);
 
-      this.element.innerHTML =
-        Math.floor(this.easingFunction(progress) * (
-          this.end - this.start
-        ) + this.start).toString();
+      this.element.innerHTML = this.formatter.format(
+        Math.floor(this.easingFunction(progress) * (this.end - this.start) + this.start),
+      );
 
       if (progress < 1) {
         requestAnimationFrame(step);
