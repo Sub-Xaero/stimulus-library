@@ -1,6 +1,6 @@
 import {BaseController} from "../../utilities/base_controller";
 import {scrollToElement} from "../../utilities/scroll";
-import clamp from "lodash-es/clamp";
+import { clamp } from "../../utilities/numbers"
 import {installClassMethods} from "../../mixins/install_class_methods";
 
 export class NavigateFormErrorsController extends BaseController {
