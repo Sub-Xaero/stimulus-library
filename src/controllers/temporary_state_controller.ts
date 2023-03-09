@@ -1,4 +1,4 @@
-import camelCase from "lodash-es/camelCase";
+import { camelCase } from '../utilities/strings'
 import _get from "lodash-es/get";
 import _set from "lodash-es/set";
 import {EphemeralController} from "../utilities/ephemeral_controller";
