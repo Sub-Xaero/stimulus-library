@@ -1,4 +1,4 @@
-import camelCase from "lodash-es/camelCase";
+import { camelCase } from "../utilities/strings";
 import {BaseController} from "./base_controller";
 import '../polyfills/string.replaceAll';
 
