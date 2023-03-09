@@ -8,3 +8,5 @@ yarn-error.log
 /cypress/screenshots/
 /cypress/videos/
 dist
+
+lerna-debug.log
