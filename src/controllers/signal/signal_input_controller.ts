@@ -1,9 +1,9 @@
-import {BaseController} from "../../utilities/base_controller";
-import {EventBus} from "../../utilities/event_bus";
-import {useEventListeners} from "../../mixins/use_event_listener";
-import {getAllRadiosInGroup, isHTMLInputElement} from "../../utilities";
-import {signalConnectEvent, signalValueEvent} from "./events";
-import {useEventBus} from "../../mixins/use_event_bus";
+import { BaseController } from "../../utilities/base_controller";
+import { EventBus } from "../../utilities/event_bus";
+import { useEventListeners } from "../../mixins/use_event_listener";
+import { getAllRadiosInGroup, isHTMLInputElement } from "../../utilities";
+import { signalConnectEvent, signalValueEvent } from "./events";
+import { useEventBus } from "../../mixins/use_event_bus";
 
 export interface SignalPayload {
   element: HTMLElement;
@@ -15,12 +15,24 @@ export class SignalInputController extends BaseController {
   static values = {
     name: String,
     debounceInterval: Number,
+    triggerChange: {
+      type: Boolean,
+      default: false,
+    },
+    triggerInput: {
+      type: Boolean,
+      default: false,
+    },
   };
 
   declare debounceIntervalValue: number;
   declare readonly hasDebounceIntervalValue: boolean;
   declare nameValue: string;
   declare hasNameValue: boolean;
+  declare triggerChangeValue: boolean;
+  declare readonly hasTriggerChangeValue: boolean;
+  declare triggerInputValue: boolean;
+  declare readonly hasTriggerInputValue: boolean;
 
   get _debounceTimeout(): number | null {
     return this.hasDebounceIntervalValue ? this.debounceIntervalValue : 1;
@@ -32,6 +44,7 @@ export class SignalInputController extends BaseController {
 
   connect() {
     useEventBus(this, signalConnectEvent(this._name), () => this.emitValue());
+    useEventBus(this, signalValueEvent(this._name), this._onSignal);
     useEventListeners(this, this.el, ["input", "change"], this.emitValue, {debounce: this._debounceTimeout || undefined});
     requestAnimationFrame(() => this.emitValue());
   }
@@ -50,4 +63,23 @@ export class SignalInputController extends BaseController {
     EventBus.emit(signalValueEvent(this._name), {element: this.el, value} as SignalPayload);
   }
 
+  _onSignal(payload: SignalPayload) {
+    let {element, value} = payload;
+    if (element === this.el) {
+      return;
+    }
+    if (isHTMLInputElement(this.el) && this.el.type === "checkbox") {
+      this.el.checked = value === "true";
+    } else if (isHTMLInputElement(this.el) && this.el.type === "radio") {
+      this.el.checked = this.el.value === value;
+    } else {
+      (this.el as HTMLInputElement).value = value;
+    }
+    if (this.triggerChangeValue) {
+      this.dispatchEvent(this.el, 'change');
+    }
+    if (this.triggerInputValue) {
+      this.dispatchEvent(this.el, 'input');
+    }
+  }
 }

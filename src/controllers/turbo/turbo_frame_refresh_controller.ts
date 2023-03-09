@@ -1,6 +1,6 @@
-import {BaseController} from "../utilities/base_controller";
-import {isTurboFrame} from "../utilities/turbo";
-import {useTimeout} from "../mixins/use_timeout";
+import {BaseController} from "../../utilities/base_controller";
+import {isTurboFrame} from "../../utilities/turbo";
+import {useTimeout} from "../../mixins/use_timeout";
 
 // noinspection SillyAssignmentJS
 export class TurboFrameRefreshController extends BaseController {
