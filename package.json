@@ -28,7 +28,9 @@
   "scripts": {
     "build": "lerna run build",
     "build:watch": "lerna run build:watch",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "prepack": "npm run build",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "lerna": "^6.5.1"
