@@ -37,11 +37,9 @@
     "@babel/runtime": "^7.20.13",
     "@hotwired/stimulus": "^3.2.1",
     "date-fns": "^2.29.3",
-    "mitt": "^3.0.0",
-    "smoothscroll-polyfill": "^0.4.4"
+    "mitt": "^3.0.0"
   },
   "devDependencies": {
-    "@types/smoothscroll-polyfill": "^0.3.1",
     "agadoo": "^3.0.0",
     "cypress": "^12.5.1",
     "fast-glob": "^3.2.12",
