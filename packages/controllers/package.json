@@ -34,8 +34,8 @@
     "test:treeshake": "agadoo dist"
   },
   "dependencies": {
-    "@stimulus-library/utilities": "*",
-    "@stimulus-library/mixins": "*"
+    "@stimulus-library/mixins": "*",
+    "@stimulus-library/utilities": "*"
   },
   "devDependencies": {
     "agadoo": "^3.0.0",
