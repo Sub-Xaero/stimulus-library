@@ -1,6 +1,20 @@
-# Changelog
+# Change Log
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.0.0-alpha.0](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.11...v1.0.0-alpha.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* **SignalInputController:** Fix wrong event triggered when SignalInputController set to synthesize input  events when they sync values ([a0fde82](https://github.com/Sub-Xaero/stimulus-library/commit/a0fde821907a16872916ea2a65f6e73dd36de87e))
+
+
+### Features
+
+* **TweenNumberController:** Add options to allow formatting of the tweened number ([b660317](https://github.com/Sub-Xaero/stimulus-library/commit/b660317cc3d014aee7d60b52fe8f89af54789e87))
+
 
 ### [0.9.11](https://github.com/Sub-Xaero/stimulus-library/compare/v0.9.10...v0.9.11) (2023-03-06)
 
