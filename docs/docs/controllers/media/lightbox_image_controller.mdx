@@ -55,16 +55,13 @@ This controller needs to be mounted on an `<img>` tag to work.
 On the `open` action - the controller will create a `<dialog>` element, insert it into the DOM after the controller root element, and immediately open it. You will want to style this according to your application, some examples are given below.
 The `<dialog>` will have only one element inside of it, a new `<img>` with the `src`, `srcset` and `sizes` attributes either taken from the values API or copied from the controller root element.
 
-This uses the [DialogPolyfill](https://github.com/GoogleChrome/dialog-polyfill) library to make sure this behaviour is compatible with all browsers, but as such, is subject to the same limitations.
 
-In particular - when styling the `::backdrop`(https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop) you will need to style both `dialog::backdrop` and `dialog + .backdrop` to account for the polyfilled behaviour.
+### Polyfills
 
-### Warning
+If you are building applications for browser versions that do not support the `<dialog>` element,
+you will need to include the [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill).
 
-While in testing, this component has always performed perfectly - the polyfill mentioned above warns that if you experience issues with stacking contexts, and the dialogue not properly rendering at the topmost Z-Index, it is likely due to your browser having poor support for `<dialog>` and this library being able
-to fully mock the behaviour. [See the limitations section of DialogPolyfill](https://github.com/GoogleChrome/dialog-polyfill#limitations) for more
-information.
-
+This is not included in the Stimulus library.
 
 
 <iframe

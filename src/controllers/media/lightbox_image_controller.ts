@@ -1,4 +1,3 @@
-import dialogPolyfill from "dialog-polyfill";
 import {BaseController} from "../../utilities/base_controller";
 import {scrollToElement} from "../../utilities/scroll";
 import {useEventListener} from "../../mixins/use_event_listener";
@@ -71,9 +70,7 @@ export class LightboxImageController extends BaseController {
     this._dialog.appendChild(image);
 
     element.insertAdjacentElement("afterend", this._dialog);
-    dialogPolyfill.registerDialog(this._dialog);
     this._dialog.className = this._modalClassName;
-    // @ts-ignore Experimental API
     this._dialog.showModal();
     scrollToElement(this._dialog, {behavior: "smooth", block: "end"}).catch(() => this._dialog!.scrollIntoView(false));
     useEventListener(this, this._dialog, "click", this.close);
