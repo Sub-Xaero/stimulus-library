@@ -28,7 +28,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "prepack": "yarn build",
+    "prepack": "npm run build",
     "release": "standard-version",
     "test": "cypress run",
     "test:treeshake": "agadoo dist"

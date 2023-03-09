@@ -28,16 +28,16 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "prepack": "yarn build",
+    "prepack": "npm run build",
     "release": "standard-version",
     "test": "cypress run",
     "test:treeshake": "agadoo dist"
   },
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
     "@stimulus-library/controllers": "*",
-    "@stimulus-library/utilities": "*",
     "@stimulus-library/mixins": "*",
-    "@hotwired/stimulus": "^3.2.1"
+    "@stimulus-library/utilities": "*0"
   },
   "devDependencies": {
     "agadoo": "^3.0.0",
