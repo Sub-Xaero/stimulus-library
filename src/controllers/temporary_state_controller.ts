@@ -1,6 +1,5 @@
 import { camelCase } from '../utilities/strings'
-import _get from "lodash-es/get";
-import _set from "lodash-es/set";
+import { get as _get, set as _set } from "../utilities/get_set";
 import {EphemeralController} from "../utilities/ephemeral_controller";
 import {useTimeout} from "../mixins/use_timeout";
 import "../polyfills/string.replaceAll";
