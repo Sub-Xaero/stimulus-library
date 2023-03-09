@@ -24,43 +24,45 @@ Stimulus controller to animate a number for visual effect, using a number of pos
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value      | Type   | Description                                                                                                                        | Default  |
-|------------|--------|------------------------------------------------------------------------------------------------------------------------------------|----------|
-| `start`    | Number | The number to start at                                                                                                             | -        |
-| `end`      | Number | The number that the animation will end on                                                                                          | -        |
-| `duration` | Number | How long the full animation will take, in milliseconds                                                                             | -        |
-| `easing`   | String | The  easing function that will determine how the number is animated. See https://easings.net/ for examples. Available options are: | `linear` |
-|            |        | `linear`                                                                                                                           |          |
-|            |        | `easeInQuad`                                                                                                                       |          |
-|            |        | `easeOutQuad`                                                                                                                      |          |
-|            |        | `easeInOutQuad`                                                                                                                    |          |
-|            |        | `easeInCubic`                                                                                                                      |          |
-|            |        | `easeOutCubic`                                                                                                                     |          |
-|            |        | `easeInOutCubic`                                                                                                                   |          |
-|            |        | `easeInQuart`                                                                                                                      |          |
-|            |        | `easeOutQuart`                                                                                                                     |          |
-|            |        | `easeInOutQuart`                                                                                                                   |          |
-|            |        | `easeInQuint`                                                                                                                      |          |
-|            |        | `easeOutQuint`                                                                                                                     |          |
-|            |        | `easeInOutQuint`                                                                                                                   |          |
-|            |        | `easeInSine`                                                                                                                       |          |
-|            |        | `easeOutSine`                                                                                                                      |          |
-|            |        | `easeInOutSine`                                                                                                                    |          |
-|            |        | `easeInExpo`                                                                                                                       |          |
-|            |        | `easeOutExpo`                                                                                                                      |          |
-|            |        | `easeInOutExpo`                                                                                                                    |          |
-|            |        | `easeInCirc`                                                                                                                       |          |
-|            |        | `easeOutCirc`                                                                                                                      |          |
-|            |        | `easeInOutCirc`                                                                                                                    |          |
-|            |        | `easeInBack`                                                                                                                       |          |
-|            |        | `easeOutBack`                                                                                                                      |          |
-|            |        | `easeInOutBack`                                                                                                                    |          |
-|            |        | `easeInElastic`                                                                                                                    |          |
-|            |        | `easeOutElastic`                                                                                                                   |          |
-|            |        | `easeInOutElastic`                                                                                                                 |          |
-|            |        | `easeInBounce`                                                                                                                     |          |
-|            |        | `easeOutBounce`                                                                                                                    |          |
-|            |        | `easeInOutBounce`                                                                                                                  |          |
+| Value        | Type   | Description                                                                                                                                                                                            | Default  |
+|--------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `start`      | Number | The number to start at                                                                                                                                                                                 | -        |
+| `end`        | Number | The number that the animation will end on                                                                                                                                                              | -        |
+| `duration`   | Number | How long the full animation will take, in milliseconds                                                                                                                                                 | -        |
+| `formatting` | Object | The config object passed to the number formatter, to determine how the number is shown. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat for options. | -        |
+|              |        | e.g. `{ "style": "currency", "currency": "GBP" }`                                                                                                                                                      |          |
+| `easing`     | String | The  easing function that will determine how the number is animated. See https://easings.net/ for examples. Available options are:                                                                     | `linear` |
+|              |        | `linear`                                                                                                                                                                                               |          |
+|              |        | `easeInQuad`                                                                                                                                                                                           |          |
+|              |        | `easeOutQuad`                                                                                                                                                                                          |          |
+|              |        | `easeInOutQuad`                                                                                                                                                                                        |          |
+|              |        | `easeInCubic`                                                                                                                                                                                          |          |
+|              |        | `easeOutCubic`                                                                                                                                                                                         |          |
+|              |        | `easeInOutCubic`                                                                                                                                                                                       |          |
+|              |        | `easeInQuart`                                                                                                                                                                                          |          |
+|              |        | `easeOutQuart`                                                                                                                                                                                         |          |
+|              |        | `easeInOutQuart`                                                                                                                                                                                       |          |
+|              |        | `easeInQuint`                                                                                                                                                                                          |          |
+|              |        | `easeOutQuint`                                                                                                                                                                                         |          |
+|              |        | `easeInOutQuint`                                                                                                                                                                                       |          |
+|              |        | `easeInSine`                                                                                                                                                                                           |          |
+|              |        | `easeOutSine`                                                                                                                                                                                          |          |
+|              |        | `easeInOutSine`                                                                                                                                                                                        |          |
+|              |        | `easeInExpo`                                                                                                                                                                                           |          |
+|              |        | `easeOutExpo`                                                                                                                                                                                          |          |
+|              |        | `easeInOutExpo`                                                                                                                                                                                        |          |
+|              |        | `easeInCirc`                                                                                                                                                                                           |          |
+|              |        | `easeOutCirc`                                                                                                                                                                                          |          |
+|              |        | `easeInOutCirc`                                                                                                                                                                                        |          |
+|              |        | `easeInBack`                                                                                                                                                                                           |          |
+|              |        | `easeOutBack`                                                                                                                                                                                          |          |
+|              |        | `easeInOutBack`                                                                                                                                                                                        |          |
+|              |        | `easeInElastic`                                                                                                                                                                                        |          |
+|              |        | `easeOutElastic`                                                                                                                                                                                       |          |
+|              |        | `easeInOutElastic`                                                                                                                                                                                     |          |
+|              |        | `easeInBounce`                                                                                                                                                                                         |          |
+|              |        | `easeOutBounce`                                                                                                                                                                                        |          |
+|              |        | `easeInOutBounce`                                                                                                                                                                                      |          |
 
 
 

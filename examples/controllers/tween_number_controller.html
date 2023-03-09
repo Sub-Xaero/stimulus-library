@@ -2,91 +2,158 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>TweenNumberController</title>
   </head>
   <body>
     <div class="container p-4 text-center">
 
-      <div class="d-flex flex-column gap-4">
-
-        <div class="card">
-          <div class="card-body text-black">
-            <p>Linear</p>
-            <h2
-              data-controller="tween-number"
-              data-tween-number-start-value="0"
-              data-tween-number-end-value="10"
-              data-tween-number-duration-value="3000"
-            >
-            </h2>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body text-black">
-
-            <p>easeOutCubic</p>
-            <h2
-              data-controller="tween-number"
-              data-tween-number-start-value="0"
-              data-tween-number-end-value="10"
-              data-tween-number-duration-value="3000"
-              data-tween-number-easing-value="easeOutCubic"
-            >
-            </h2>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body text-black">
-
-            <p>easeOutSine</p>
-            <h2
-              data-controller="tween-number"
-              data-tween-number-start-value="0"
-              data-tween-number-end-value="10"
-              data-tween-number-duration-value="3000"
-              data-tween-number-easing-value="easeOutSine"
-            >
-            </h2>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body text-black">
-
-            <p>easeOutElastic</p>
-            <h2
-              data-controller="tween-number"
-              data-tween-number-start-value="0"
-              data-tween-number-end-value="10"
-              data-tween-number-duration-value="3000"
-              data-tween-number-easing-value="easeOutElastic"
-            >
-            </h2>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body text-black">
-
-            <p>easeInCirc</p>
-            <h2
-              data-controller="tween-number"
-              data-tween-number-start-value="0"
-              data-tween-number-end-value="10000000"
-              data-tween-number-duration-value="5000"
-              data-tween-number-easing-value="easeInCirc"
-            >
-            </h2>
-          </div>
-        </div>
-
-        <a href="#" class="btn btn-primary" data-controller="refresh-page" data-action="refresh-page#refresh">
+      <div class="mb-4">
+        <a class="btn btn-primary" data-action="refresh-page#refresh" data-controller="refresh-page" href="#">
           Replay
         </a>
-
       </div>
+
+      <div class="accordion accordion-flush" id="tween-number-accordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#formatted" data-bs-toggle="collapse">
+              With formatting
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#tween-number-accordion" id="formatted">
+            <div class="accordion-body">
+              <h2
+                data-controller="tween-number"
+                data-tween-number-duration-value="3000"
+                data-tween-number-easing-value="easeOutCubic"
+                data-tween-number-end-value="1000000"
+                data-tween-number-formatting-value='{ "style":"currency", "currency": "USD", "currencyDisplay": "name"  }'
+                data-tween-number-start-value="0"
+              >
+              </h2>
+
+              <h2
+                data-controller="tween-number"
+                data-tween-number-duration-value="3000"
+                data-tween-number-easing-value="easeOutCubic"
+                data-tween-number-end-value="1000000"
+                data-tween-number-formatting-value='{ "style":"currency", "currency": "JPY", "currencyDisplay": "narrowSymbol"  }'
+                data-tween-number-start-value="0"
+              >
+              </h2>
+
+              <h2
+                data-controller="tween-number"
+                data-tween-number-duration-value="3000"
+                data-tween-number-easing-value="easeOutCubic"
+                data-tween-number-end-value="1000000"
+                data-tween-number-formatting-value='{ "style":"unit", "unit": "mile-per-hour"  }'
+                data-tween-number-start-value="0"
+              >
+              </h2>
+
+              <h2
+                data-controller="tween-number"
+                data-tween-number-duration-value="10000"
+                data-tween-number-easing-value="easeOutCubic"
+                data-tween-number-end-value="10000"
+                data-tween-number-formatting-value='{ "notation":"compact", "compactDisplay": "short" }'
+                data-tween-number-start-value="0"
+              >
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" data-bs-target="#easing" data-bs-toggle="collapse">
+              Easing functions
+            </button>
+          </h2>
+          <div class="accordion-collapse collapse" data-bs-parent="#tween-number-accordion" id="easing">
+            <div class="accordion-body">
+
+              <div class="d-flex flex-column gap-4">
+                <div class="card">
+                  <div class="card-body text-black">
+                    <p>Linear</p>
+                    <h2
+                      data-controller="tween-number"
+                      data-tween-number-duration-value="3000"
+                      data-tween-number-end-value="10"
+                      data-tween-number-start-value="0"
+                    >
+                    </h2>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body text-black">
+
+                    <p>easeOutCubic</p>
+                    <h2
+                      data-controller="tween-number"
+                      data-tween-number-duration-value="3000"
+                      data-tween-number-easing-value="easeOutCubic"
+                      data-tween-number-end-value="10"
+                      data-tween-number-start-value="0"
+                    >
+                    </h2>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body text-black">
+
+                    <p>easeOutSine</p>
+                    <h2
+                      data-controller="tween-number"
+                      data-tween-number-duration-value="3000"
+                      data-tween-number-easing-value="easeOutSine"
+                      data-tween-number-end-value="10"
+                      data-tween-number-start-value="0"
+                    >
+                    </h2>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body text-black">
+
+                    <p>easeOutElastic</p>
+                    <h2
+                      data-controller="tween-number"
+                      data-tween-number-duration-value="3000"
+                      data-tween-number-easing-value="easeOutElastic"
+                      data-tween-number-end-value="10"
+                      data-tween-number-start-value="0"
+                    >
+                    </h2>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body text-black">
+
+                    <p>easeInCirc</p>
+                    <h2
+                      data-controller="tween-number"
+                      data-tween-number-duration-value="5000"
+                      data-tween-number-easing-value="easeInCirc"
+                      data-tween-number-end-value="10000000"
+                      data-tween-number-start-value="0"
+                    >
+                    </h2>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-    <script type="module" src="/main.js"></script>
+    <script src="/main.js" type="module"></script>
   </body>
 </html>
