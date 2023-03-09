@@ -1,5 +1,4 @@
-import {BaseController} from "../../../src";
-import {GeolocationData, useGeolocation} from "../../../src/mixins/use_geolocation";
+import { BaseController, GeolocationData, useGeolocation } from "../../../packages/stimulus-library";
 
 export class GeolocationController extends BaseController {
 

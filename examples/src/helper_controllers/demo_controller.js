@@ -1,4 +1,4 @@
-import { BaseController } from "../../../src";
+import { BaseController } from "../../../packages/stimulus-library/src";
 
 export class DemoController extends BaseController {
   static targets = ["output"];
@@ -21,8 +21,9 @@ export class DemoController extends BaseController {
   }
 
   removeElement() {
-    if (this.outputTarget.children.length > 0)
+    if (this.outputTarget.children.length > 0) {
       this.outputTarget.children[0].remove();
+    }
   }
 
   removeElements() {

@@ -26,26 +26,19 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "prepack": "yarn build",
-    "release": "standard-version",
-    "test": "cypress run",
-    "test:treeshake": "agadoo dist"
+    "build": "lerna run build",
+    "build:watch": "lerna run build:watch",
+    "test": "lerna run test"
   },
+  "devDependencies": {
+    "lerna": "^6.5.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
-    "@babel/runtime": "^7.20.13",
     "@hotwired/stimulus": "^3.2.1",
     "date-fns": "^2.29.3",
     "mitt": "^3.0.0"
-  },
-  "devDependencies": {
-    "agadoo": "^3.0.0",
-    "cypress": "^12.5.1",
-    "fast-glob": "^3.2.12",
-    "rimraf": "^4.1.2",
-    "standard-version": "^9.5.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.1"
   }
 }

@@ -7,3 +7,4 @@ yarn-error.log
 .npmrc
 /cypress/screenshots/
 /cypress/videos/
+dist
