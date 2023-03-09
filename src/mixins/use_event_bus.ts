@@ -1,8 +1,8 @@
-import {Controller} from "@hotwired/stimulus";
-import debounce from "lodash-es/debounce";
-import {EventBus} from "../utilities/event_bus";
-import {wrapArray} from "../utilities/arrays";
-import {useMixin} from "./create_mixin";
+import { Controller } from "@hotwired/stimulus";
+import debounce from '../utilities/debounce';
+import { EventBus } from "../utilities/event_bus";
+import { wrapArray } from "../utilities/arrays";
+import { useMixin } from "./create_mixin";
 
 export function useEventBus(controller: Controller, eventNameOrNames: string | string[], handler: (...args: any[]) => void, opts?: { debounce?: number }) {
   let options = opts;

@@ -1,4 +1,4 @@
-import debounce from "lodash-es/debounce";
+import debounce from "../utilities/debounce";
 import _get from "lodash-es/get";
 import _set from "lodash-es/set";
 import {BaseController} from '../utilities/base_controller';
