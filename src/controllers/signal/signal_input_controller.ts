@@ -79,7 +79,7 @@ export class SignalInputController extends BaseController {
       this.dispatchEvent(this.el, 'change');
     }
     if (this.triggerInputValue) {
-      this.dispatchEvent(this.el, 'change');
+      this.dispatchEvent(this.el, 'input');
     }
   }
 }
