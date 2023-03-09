@@ -1,6 +1,5 @@
 import debounce from "../utilities/debounce";
-import _get from "lodash-es/get";
-import _set from "lodash-es/set";
+import { get as _get, set as _set } from "../utilities/get_set";
 import {BaseController} from '../utilities/base_controller';
 import {LocalStorageProxy, useLocalStorage} from "../mixins";
 
