@@ -37,7 +37,7 @@
     "@hotwired/stimulus": "^3.2.1",
     "@stimulus-library/controllers": "^1.0.0-alpha.0",
     "@stimulus-library/mixins": "^1.0.0-alpha.0",
-    "@stimulus-library/utilities": "*0"
+    "@stimulus-library/utilities": "^1.0.0-alpha.0"
   },
   "devDependencies": {
     "agadoo": "^3.0.0",

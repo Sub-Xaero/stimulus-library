@@ -37,10 +37,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "@hotwired/stimulus": "^3.2.1",
-    "date-fns": "^2.29.3",
-    "mitt": "^3.0.0"
-  }
+  ]
 }
