@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./createMixin";
+import { useMixin } from "./create_mixin";
 
-export function useMutationObserver(
+export function useResizeObserver(
   controller: Controller,
   element: HTMLElement,
-  handler: (entries: MutationRecord[]) => void,
-  options: MutationObserverInit,
+  handler: (entries: ResizeObserverEntry[]) => void,
+  options: ResizeObserverOptions,
 ) {
   handler = handler.bind(controller);
-  let observer: MutationObserver = new MutationObserver(handler);
+  let observer: ResizeObserver = new ResizeObserver(handler);
 
   let setup = () => observer.observe(element, options);
   let teardown = () => observer.disconnect();

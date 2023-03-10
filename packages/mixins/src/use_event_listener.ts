@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { debounce, wrapArray } from "@stimulus-library/utilities";
-import { useMixin } from "./createMixin";
+import { useMixin } from "./create_mixin";
 
 export function useEventListener(controller: Controller, element: Document | Window | HTMLElement, eventNameOrNames: string | string[], handler: (...args: any[]) => void, opts?: AddEventListenerOptions & { debounce?: number }) {
   if (opts?.debounce) {

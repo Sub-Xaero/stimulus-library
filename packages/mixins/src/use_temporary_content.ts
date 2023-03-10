@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./createMixin";
-import { useTimeout } from "./useTimeout";
+import { useMixin } from "./create_mixin";
+import { useTimeout } from "./use_timeout";
 import { isHTMLInputElement } from "@stimulus-library/utilities";
 
 export function useTemporaryContent(controller: Controller, target: HTMLElement, content: string, timeout?: number, teardownCallback?: () => void) {

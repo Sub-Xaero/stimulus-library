@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./createMixin";
+import { useMixin } from "./create_mixin";
 
 export function useIntersectionObserver(controller: Controller, handler: IntersectionObserverCallback, options?: IntersectionObserverInit) {
   handler = handler.bind(controller);

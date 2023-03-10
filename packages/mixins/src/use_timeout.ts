@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./createMixin";
+import { useMixin } from "./create_mixin";
 
 
 export function useTimeout(controller: Controller, handler: (...args: any[]) => void, timeout: number) {
