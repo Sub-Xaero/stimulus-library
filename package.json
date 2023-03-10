@@ -26,8 +26,8 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "lerna run build",
-    "build:watch": "lerna run build:watch",
+    "build": "rm -rf packages/**/dist/** && lerna run build",
+    "build:watch": "rm -rf packages/**/dist/** && lerna run build:watch",
     "test": "lerna run test",
     "prepack": "npm run build",
     "publish": "lerna publish --conventional-commits"
