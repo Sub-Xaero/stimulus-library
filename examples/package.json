@@ -18,6 +18,6 @@
     "stimulus-library": "latest",
     "trix": "^2.0.4",
     "tiny-glob": "^0.2.9",
-    "vite": "^4.1.1"
+    "vite": "^4.1.5"
   }
 }
