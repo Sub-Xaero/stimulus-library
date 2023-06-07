@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 import { isElementInViewport } from "@stimulus-library/utilities";
 import { useEventListener } from "./use_event_listener";
-import { useMixin } from "./create_mixin";
+import { useMixin } from "./use_mixin";
 
 export function useClickOutside(controller: Controller, element: HTMLElement, callback: (event: Event) => void) {
   callback = callback.bind(controller);

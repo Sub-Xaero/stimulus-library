@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { debounce, EventBus, wrapArray } from "@stimulus-library/utilities";
-import { useMixin } from "./create_mixin";
+import { useMixin } from "./use_mixin";
 
 export function useEventBus(controller: Controller, eventNameOrNames: string | string[], handler: (...args: any[]) => void, opts?: { debounce?: number }) {
   let options = opts;

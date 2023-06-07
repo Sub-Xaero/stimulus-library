@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./create_mixin";
+import { useMixin } from "./use_mixin";
 import { useTimeout } from "./use_timeout";
 import { isHTMLInputElement } from "@stimulus-library/utilities";
 

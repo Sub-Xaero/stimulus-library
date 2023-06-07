@@ -5,8 +5,8 @@ node_modules
 yarn-error.log
 .DS_STORE
 .npmrc
-/cypress/screenshots/
-/cypress/videos/
+/packages/stimulus-library/cypress/screenshots/
+/packages/stimulus-library/cypress/videos/
 dist
 
 lerna-debug.log

@@ -30,7 +30,9 @@
     "dev": "tsc --watch",
     "prepack": "npm run build",
     "release": "standard-version",
-    "test": "cypress run",
+    "pretest": "cd ../../examples && npm install && npm run dev &",
+    "test": "cd ../../packages/stimulus-library && cypress run -q -C cypress.config.ts",
+    "posttest": "kill $(lsof -t -i:3000)",
     "test:treeshake": "agadoo dist"
   },
   "dependencies": {

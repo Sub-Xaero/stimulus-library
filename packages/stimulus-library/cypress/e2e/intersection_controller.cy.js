@@ -7,6 +7,7 @@ describe('IntersectionController', () => {
 
     cy.get('video').scrollIntoView();
     cy.get('video').should('have.prop', 'paused', false);
+    cy.wait(1000); // Wait for video to play
 
     cy.get('p:first-of-type').scrollIntoView();
     cy.get('video').should('have.prop', 'paused', true);

@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./create_mixin";
+import { useMixin } from "./use_mixin";
 
 export function useInterval(controller: Controller, handler: (...args: any[]) => void, interval: number) {
   handler = handler.bind(controller);
