@@ -33,7 +33,7 @@
     "publish": "lerna publish --conventional-commits"
   },
   "devDependencies": {
-    "lerna": "^6.6.0",
+    "lerna": "^7.0.0",
     "sinon": "^15.1.0"
   },
   "workspaces": [
