@@ -41,7 +41,7 @@
     "agadoo": "^3.0.0",
     "cypress": "^12.5.1",
     "fast-glob": "^3.2.12",
-    "lerna": "^6.5.1",
+    "lerna": "^7.0.0",
     "rimraf": "^5.0.1",
     "standard-version": "^9.5.0",
     "typescript": "^5.1.3",
