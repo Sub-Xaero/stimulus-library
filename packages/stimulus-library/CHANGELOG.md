@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.3](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.0...v1.0.0-alpha.3) (2023-06-10)
+
+
+### Features
+
+* **FormDirtyConfirmNavigationController:** New controller to prevent users from accidentally leaving a page that has unsaved changes on it ([2c6f7d3](https://github.com/Sub-Xaero/stimulus-library/commit/2c6f7d37b93212c7c6feabb18ac4f1a768ad9504))
+
+
+
+
+
 # [1.0.0-alpha.2](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.0...v1.0.0-alpha.2) (2023-03-10)
 
 **Note:** Version bump only for package stimulus-library
