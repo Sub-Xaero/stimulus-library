@@ -1,0 +1,91 @@
+---
+id: useDirtyFormTracking
+title: useDirtyFormTracking
+---
+
+## Purpose
+
+These mixins allow you to track whether a form or individual input have been changed from its original value
+or not. This is useful for example to warn the user that they have unsaved changes when they try to navigate
+away from the page.
+
+Use the `useDirtyFormTracking` mixin for tracking a whole form, or `useDirtyInputTracking` for tracking
+individual inputs.
+
+The mixins will monitor the given elements for change, and set a `data-dirty` attribute on them if they
+have been changed, and remove the attribute if they have been restored to their original value.
+
+The `isDirty` utility function can be used to check whether a element is dirty or not.
+
+## Side Effects
+
+The mixin will install several event listeners on the form's input elements to track changes.
+These listeners will be removed when the controller is disconnected.
+
+All form elements will have a `data-dirty` attribute added to them if they have been changed, and a
+`data-detect-dirty-load-value` attribute added to them with their original value, in order to
+compare changes to the original value.
+
+## Usage
+
+### useDirtyFormTracking(controller, formElement)
+
+| Parameters   |     | Type              | Purpose                                                                                                                                               | Default |
+|--------------|-----|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller` |     | `Controller`      | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. |         |
+| `form`       |     | `HTMLFormElement` | The form element to track.                                                                                                                            |         |
+
+| Return Values |            | Type       |     | Purpose                                                                   |
+|---------------|------------|------------|:----|---------------------------------------------------------------------------|
+| ReturnValues  |            | `Object`   |     |                                                                           |
+|               | `restore`  | `Function` |     | Call this function if you want to restore the form to its original values |
+|               | `teardown` | `Function` |     | Call this function if you want to cancel the interval                     |
+
+
+### useDirtyInputTracking(controller, inputElement)
+
+| Parameters   |     | Type               | Purpose                                                                                                                                               | Default |
+|--------------|-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller` |     | `Controller`       | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. |         |
+| `input`      |     | `HTMLInputElement` | The input element to track.                                                                                                                           |         |
+
+| Return Values |            | Type       |     | Purpose                                                                   |
+|---------------|------------|------------|:----|---------------------------------------------------------------------------|
+| ReturnValues  |            | `Object`   |     |                                                                           |
+|               | `restore`  | `Function` |     | Call this function if you want to restore the form to its original values |
+|               | `teardown` | `Function` |     | Call this function if you want to cancel the interval                     |
+
+
+## How to Use
+
+```js
+import {Controller} from '@hotwired/stimulus';
+import {useDirtyFormTracking, isDirty} from 'stimulus-library';
+
+export default class extends Controller {
+
+  static targets = [
+    'form'
+  ]
+
+  connect() {
+    useDirtyFormTracking(this, this.formTarget);
+  }
+
+  someAction() {
+    if (isDirty(this.formTarget)) {
+      // do something if the form is dirty
+    } else {
+      // do something else
+    }
+  }
+}
+```
+
+## Interactive Example
+
+<iframe
+  src="https:///stimulus-library.netlify.app/controllers/detect_dirty_form_controller.html"
+  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
