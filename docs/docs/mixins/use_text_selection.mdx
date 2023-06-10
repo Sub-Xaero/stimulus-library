@@ -1,0 +1,47 @@
+---
+id: useTextSelection
+title: useTextSelection
+---
+
+## Purpose
+
+The `useTextSelection` hook allows you to be notified when a user selects text on the page.
+
+
+This behavior is built on top of the Selection API. See [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection_API) for more information.
+
+## Side Effects
+
+- Adds a `selectionchange` event listener to the `document` object.
+
+## Usage
+
+
+### useTextSelection
+
+| Parameters        |                       | Type              | Purpose                                                                                                                                                                                                                                                        | Default |
+|-------------------|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`      |                       | `Controller`      | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`.                                                                                                          | `this`  |
+| `handlerFunction` |                       | `Function(event)` | The function that will handle the selection event, receives a single parameter, the [`Selection`](https://developer.mozilla.org/en-US/docs/Web/API/Selection) object representing what the user has currently selected or `null` if they have nothing selected |         |
+
+
+```javascript
+import { useTextSelection } from '@stimulus-library/mixins';
+import { Controller } from '@hotwired/stimulus';
+
+export default class extends Controller {
+  connect() {
+    useTextSelection(this, this.selectionChanged);
+  }
+
+  selectionChanged(selection) {
+    if (selection) {
+      console.log('User has selected: ', selection.toString());
+    } else {
+      console.log('User has not selected any text');
+    }
+  }
+}
+
+```
+
