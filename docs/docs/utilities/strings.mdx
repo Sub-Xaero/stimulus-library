@@ -1,0 +1,90 @@
+---
+id: strings
+title: String Utilities
+---
+
+### upperFirst
+
+Takes a string and returns a new string with the first character capitalized.
+
+| Argument | Type   | Required | Description         |
+|----------|--------|----------|---------------------|
+| str      | string | Yes      | The string to parse |
+
+| Returns | Type   | Description            |
+|---------|--------|------------------------|
+| string  | string | The transformed string |
+
+```js
+import {upperFirst} from '@stimulus-library/utilities';
+// or
+import {upperFirst} from '@stimulus-library';
+
+upperFirst('hello world') // 'Hello world'
+upperFirst('helloWorld') // 'HelloWorld'
+```
+
+### lowerFirst
+
+Takes a string and returns a new string with the first character lowercased.
+
+| Argument | Type   | Required | Description         |
+|----------|--------|----------|---------------------|
+| str      | string | Yes      | The string to parse |
+
+| Returns | Type   | Description            |
+|---------|--------|------------------------|
+| string  | string | The transformed string |
+
+
+```js
+import {lowerFirst} from 'stimulus-library';
+// or
+import {lowerFirst} from '@stimulus-library/utilities';
+
+lowerFirst('Hello world') // 'hello world'
+lowerFirst('HelloWorld') // 'helloWorld'
+```
+
+### camelCase
+
+Takes a string and returns a new string in camelCase.
+
+| Argument | Type   | Required | Description         |
+|----------|--------|----------|---------------------|
+| str      | string | Yes      | The string to parse |
+
+| Returns | Type   | Description            |
+|---------|--------|------------------------|
+| string  | string | The transformed string |
+
+
+```js
+import {camelCase} from '@stimulus-library/utilities';
+// or
+import {camelCase} from '@stimulus-library';
+
+camelCase('hello world'); // 'helloWorld'
+camelCase('hello-world'); // 'helloWorld'
+```
+
+### pascalCase
+
+Takes a string and returns a new string in PascalCase.
+
+| Argument | Type   | Required | Description         |
+|----------|--------|----------|---------------------|
+| str      | string | Yes      | The string to parse |
+
+| Returns | Type   | Description            |
+|---------|--------|------------------------|
+| string  | string | The transformed string |
+
+```js
+import {pascalCase} from '@stimulus-library/utilities';
+// or
+import {pascalCase} from 'stimulus-library';
+
+pascalCase('hello world') // 'HelloWorld'
+pascalCase('hello-world') // 'HelloWorld'
+```
