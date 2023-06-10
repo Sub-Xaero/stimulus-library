@@ -2,7 +2,7 @@ describe('Detect dirty controller', () => {
   beforeEach(() => {
     cy.visit('controllers/detect_dirty_controller.html');
   });
-  it('Should set a data-dirty attribute when an input is modified from the value it was created with', () => {
+  it('Should set a data-dirty attribute when any input is modified from the value it was created with', () => {
     let selector;
 
     // Text

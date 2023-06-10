@@ -32,7 +32,10 @@ Adds `data-dirty` to the input being watched if it changes value, and removes it
 <NoValues/>
 
 ## Events
-<NoEvents/>
+| Event           | When | Dispatched on                                    | `event.detail`                   |
+|-----------------|------|--------------------------------------------------|----------------------------------|
+| `input-dirtied` | -    | the `input`, `textarea` or `select` that changed | `target`: the input that changed |
+| `input-cleaned` | -    | the `input`, `textarea` or `select` that changed | `target`: the input that changed |
 
 ## Side Effects
 
