@@ -1,0 +1,62 @@
+---
+id: FormDirtyConfirmNavigationController
+title: FormDirtyConfirmNavigationController
+---
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoClasses from "../../_partials/no-classes.md";
+import NoValues from "../../_partials/no-values.md";
+import NoActions from "../../_partials/no-actions.md";
+
+## Purpose
+
+Track whether any of the inputs elements of a `<form>` have changed their value from the value they loaded with,
+and if so prevent navigation away from the page without confirmation.
+
+Adds `data-dirty` to any inputs being watched that change value, and removes `data-dirty` if it returns to its initial value.
+Adds `data-dirty` to the form if any of the child inputs are different to the value they loaded with, and removes it when all elements are returned to their initial values.
+Alert the user when they try to navigate away from a page that might have unsaved changes on it.
+Form submissions will not trigger the dialogue, but closing the page or navigating away will get a confirmation dialogue.
+
+Works with Turbolinks and Hotwire/Turbo.
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+<NoValues/>
+
+## Events
+
+| Event           | When | Dispatched on                                    | `event.detail`                   |
+|-----------------|------|--------------------------------------------------|----------------------------------|
+| `input-dirtied` | -    | the `input`, `textarea` or `select` that changed | `target`: the input that changed |
+| `input-cleaned` | -    | the `input`, `textarea` or `select` that changed | `target`: the input that changed |
+| `form-dirtied`  | -    | the `form`   that changed                        | `target`: the form that changed  |
+| `form-cleaned`  | -    | the `form`   that changed                        | `target`: the form that changed  |
+
+## Side Effects
+
+Adds `input` and `change` event listeners to the attached form, bubbled up from any child inputs.
+
+Adds event listeners onto the `window`, and shows a confirmation dialogue for:
+- `popstate`
+- `submit`.
+- `turbolinks:before-visit`
+- `turbo:before-visit`.
+
+Also adds a native confirmation dialogue using `window.onbeforeunload`, to detect tab closing.
+
+## How to Use
+
+<iframe
+  src="https:///stimulus-library.netlify.app/controllers/form_dirty_confirm_navigation_controller.html"
+  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>

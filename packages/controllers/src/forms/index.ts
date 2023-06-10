@@ -10,6 +10,7 @@ export * from './detect_dirty_form_controller';
 export * from './enable_inputs_controller';
 export * from './focus_steal_controller';
 export * from './form_rc_controller';
+export * from './form_dirty_confirm_navigation_controller';
 export * from './form_save_controller';
 export * from './limited_selection_checkboxes_controller';
 export * from './navigate_form_errors_controller';

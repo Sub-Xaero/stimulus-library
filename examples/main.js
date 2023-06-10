@@ -33,10 +33,11 @@ import {
   DurationController,
   ElementSaveController,
   EmptyDomController,
-  EqualizeController,
   EnableInputsController,
+  EqualizeController,
   FallbackImageController,
   FocusStealController,
+  FormDirtyConfirmNavigationController,
   FormRcController,
   FormSaveController,
   FullscreenController,
@@ -131,6 +132,7 @@ app.register("empty-dom", EmptyDomController);
 app.register("enable-inputs", EnableInputsController);
 app.register("fallback-image", FallbackImageController);
 app.register("focus-steal", FocusStealController);
+app.register("form-dirty-confirm-navigation", FormDirtyConfirmNavigationController);
 app.register("form-rc", FormRcController);
 app.register("form-save", FormSaveController);
 app.register("fullscreen", FullscreenController);
