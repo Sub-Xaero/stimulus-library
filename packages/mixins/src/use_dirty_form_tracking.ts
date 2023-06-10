@@ -41,7 +41,6 @@ export function useDirtyFormTracking(controller: Controller, form: HTMLFormEleme
 
     });
     useEventListener(controller, form, 'input-dirtied', () => {
-      console.log("input-dirtied");
       form.setAttribute('data-dirty', 'true');
       form.dispatchEvent(
         new CustomEvent('form-dirtied', {
@@ -54,7 +53,6 @@ export function useDirtyFormTracking(controller: Controller, form: HTMLFormEleme
       );
     });
     useEventListener(controller, form, 'input-cleaned', () => {
-      console.log("input-cleaned");
       if (form.querySelectorAll('[data-dirty="true"]').length === 0) {
         form.removeAttribute('data-dirty');
         form.dispatchEvent(
@@ -117,7 +115,6 @@ function checkDirty(element: HTMLInputElement | HTMLSelectElement | HTMLTextArea
   if (isElementDirty(element)) {
     element.setAttribute('data-dirty', "true");
     element.form?.setAttribute('data-dirty', "true");
-    console.log("input-dirtied event");
     element.dispatchEvent(
       new CustomEvent('input-dirtied', {
         bubbles: true,
