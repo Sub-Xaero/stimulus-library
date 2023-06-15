@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.5](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2023-06-15)
+
+
+### Bug Fixes
+
+* **FormDirtyConfirmNavigationController:** Fix bug where form submissions were asking for confirmation. ([a9f869e](https://github.com/Sub-Xaero/stimulus-library/commit/a9f869e38fdd5a53570ccad36667c37bc3a3e8f7))
+
+
+
+
+
 # [1.0.0-alpha.4](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2023-06-10)
 
 **Note:** Version bump only for package @stimulus-library/controllers
