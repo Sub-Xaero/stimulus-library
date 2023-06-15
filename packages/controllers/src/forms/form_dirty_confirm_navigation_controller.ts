@@ -25,15 +25,16 @@ export class FormDirtyConfirmNavigationController extends BaseController {
     if (this._enabled) {
       return;
     }
+    this._enabled = true;
     window.onbeforeunload = () => this._message;
-    let {teardown: submitTeardown} = useEventListener(this, window, "submit", this._disable);
+    let {teardown: submitTeardown} = useEventListener(this, window, ["submit", "turbo:submit-start"], this._disable);
     let {teardown: popstateTeardown} = useEventListener(this, window, "popstate", this._confirmNavigation);
     let {teardown: turbolinksTeardown} = useEventListener(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this._confirmTurboNavigation);
     this._teardowns = [submitTeardown, popstateTeardown, turbolinksTeardown];
-    this._enabled = true;
   }
 
   private _disable() {
+    this._enabled = false;
     window.onbeforeunload = null;
     this._teardowns.forEach(teardown => teardown());
     this._teardowns = [];
