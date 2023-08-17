@@ -93,7 +93,6 @@ function getElementLoadValue(element: HTMLInputElement | HTMLSelectElement | HTM
     let options = Array.from(element.options);
     options.forEach((option) => {
       if (option.defaultSelected) {
-        element.value = option.value;
         return option.value;
       }
     });
