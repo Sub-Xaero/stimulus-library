@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.8...v1.0.1) (2023-08-17)
+
+
+### Features
+
+* **useLocalStorage:** useLocalStorage mixin now listens for `storage` events and updates the key accordingly. ([b78833f](https://github.com/Sub-Xaero/stimulus-library/commit/b78833f3609f43eda92c9d143bc204b0ee2b40b1))
+
+
+
+
+
 # [1.0.0-alpha.8](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2023-08-17)
 
 
