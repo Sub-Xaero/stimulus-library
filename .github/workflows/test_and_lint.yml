@@ -1,0 +1,30 @@
+name: Test & Lint
+on:
+  pull_request:
+
+jobs:
+  linters:
+    timeout-minutes: 10
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - run: git -c protocol.version=2 fetch --prune --progress --no-recurse-submodules --depth=200 origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* && git checkout --progress --force origin/$GITHUB_HEAD_REF
+      - name: Comparing with base branch
+        run: echo Linting changes since base branch \"$GITHUB_BASE_REF\"
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.14.0
+          cache: 'npm'
+      - name: NPM Install
+        run: |
+          npm install
+      - name: Run Eslint
+        run: |
+          git diff-tree -r --no-commit-id --name-only --diff-filter=d origin/$GITHUB_BASE_REF HEAD -- '*.ts' '*.js' | xargs node_modules/.bin/eslint

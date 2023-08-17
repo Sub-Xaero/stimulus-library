@@ -33,9 +33,12 @@
     "publish": "lerna publish --conventional-commits"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^8.47.0",
     "lerna": "^7.0.0",
-    "sinon": "^15.1.0",
-    "chokidar-cli": "^3.0.0"
+    "sinon": "^15.1.0"
   },
   "workspaces": [
     "packages/*"
