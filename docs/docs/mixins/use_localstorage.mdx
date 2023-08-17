@@ -10,13 +10,14 @@ A mixin to enable easy use of the [localStorage](https://developer.mozilla.org/e
 
 ### useLocalStorage
 
-| Parameters           |               | Type                 | Purpose                                                                                                                                               | Default |
-|----------------------|---------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| `controller`         |               | `Controller`         | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this`  |
-| `identifier`         |               | `String`             |                                                                                                                                                       | `-`     |
-| `defaultValue`       |               | `Function(position)` | The default value to use if there is none stored. The value given here will determine how the mixin serializes future data read/writes                | `-`     |
-| `options` (Optional) |               | `Object`             | An object of options to configure the mixin's behaviour                                                                                               | `-`     |
-|                      | writeDefaults | `Boolean`            | If the LocalStorage value is empty, whether to write the given default to storage on load                                                             | `true`  |
+| Parameters           |               | Type                                        | Purpose                                                                                                                                               | Default |
+|----------------------|---------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `controller`         |               | `Controller`                                | The instance of the controller to install the behaviour on. This allows the mixin to automatically register cleanup on the controller's `disconnect`. | `this`  |
+| `identifier`         |               | `String`                                    |                                                                                                                                                       | `-`     |
+| `defaultValue`       |               | `Set\|Map\|Boolean\|String\|Object\|Number` | The default value to use if there is none stored. The value given here will determine how the mixin serializes future data read/writes                | `-`     |
+| `options` (Optional) |               | `Object`                                    | An object of options to configure the mixin's behaviour                                                                                               | `-`     |
+|                      | writeDefaults | `Boolean`                                   | If the LocalStorage value is empty, whether to write the given default to storage on load                                                             | `true`  |
+|                      | onChange      | `Function(newValue, oldValue) => void`      | A callback that will be called every time the localstorage value changes                                                                              | `true`  |
 
 
 ## Side Effects
@@ -34,13 +35,18 @@ import {useLocalStorage} from 'stimulus-library';
 export default class extends Controller {
 
   connect() {
-    this.store = useLocalStorage(this, 'my-value', 42)
+    this.store = useLocalStorage(this, 'my-value', 42, { onChange: this.valueChanged })
 
+    // 'Reactive' means that the value will be updated automatically when the value in LocalStorage changes. The value you read here will always be in sync with the value in LocalStorage, even if it was updated elsewhere.
     this.store.value // Reactive property that reflects the value in LocalStorage
     this.store.isEmpty // Reactive value that is true if the store is empty
     this.store.read() // returns the value stored in LocalStorage
     this.store.write(value) // the raw value to be stored in LocalStorage. Should be the same type as the default value.
     this.store.clear() // clears the stored value
+  }
+
+  valueChanged(newValue, oldValue) {
+    // Called every time the value changes
   }
 
 }
