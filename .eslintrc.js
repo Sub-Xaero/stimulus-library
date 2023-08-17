@@ -1,75 +1,75 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
+  "env": {
+    "browser": true,
+    "es2021": true,
   },
-  'extends': [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
-  'ignorePatterns': [
-    'packages/stimulus-library/cypress.config.ts',
-    'packages/stimulus-library/cypress/',
-    'packages/stimulus-library/dist/',
-    'packages/controllers/dist/',
-    'packages/utilities/dist/',
-    'packages/mixins/dist/',
+  "ignorePatterns": [
+    "packages/stimulus-library/cypress.config.ts",
+    "packages/stimulus-library/cypress/",
+    "packages/stimulus-library/dist/",
+    "packages/controllers/dist/",
+    "packages/utilities/dist/",
+    "packages/mixins/dist/",
   ],
-  'overrides': [
+  "overrides": [
     {
-      'env': {
-        'node': true,
+      "env": {
+        "node": true,
       },
-      'files': [
-        '.eslintrc.{js,cjs}',
+      "files": [
+        ".eslintrc.{js,cjs}",
       ],
-      'parserOptions': {
-        'sourceType': 'script',
+      "parserOptions": {
+        "sourceType": "script",
       },
     },
   ],
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module',
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
   },
-  'plugins': [
-    '@typescript-eslint',
+  "plugins": [
+    "@typescript-eslint",
   ],
-  'rules': {
-    'indent': [
-      'error',
+  "rules": {
+    "indent": [
+      "error",
       2,
     ],
-    'linebreak-style': [
-      'error',
-      'unix',
+    "linebreak-style": [
+      "error",
+      "unix",
     ],
-    'quotes': [
-      'error',
-      'double',
+    "quotes": [
+      "error",
+      "double",
     ],
-    'semi': [
-      'error',
-      'always',
+    "semi": [
+      "error",
+      "always",
     ],
-    'max-len': [
-      'error',
+    "max-len": [
+      "error",
       {
         code: 250,
         ignoreComments: true,
         ignoreTrailingComments: true,
       },
     ],
-    '@typescript-eslint/no-this-alias': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
+    "@typescript-eslint/no-this-alias": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
       {
-        'argsIgnorePattern': '^_',
-        'destructuredArrayIgnorePattern': "^_",
+        "argsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
       }
     ],
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };
