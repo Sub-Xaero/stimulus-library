@@ -22,7 +22,8 @@ A mixin to enable easy use of the [localStorage](https://developer.mozilla.org/e
 
 ## Side Effects
 
-Stores a JSON value in LocalStorage.
+- Adds an event listener on the `Window` object for the `storage` event. This is used to detect changes to the LocalStorage value from other tabs/windows.
+- Stores a JSON value in LocalStorage.
 
 
 ## How to Use

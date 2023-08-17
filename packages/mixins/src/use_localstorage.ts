@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { reactive } from "@stimulus-library/utilities";
+import { useEventListener } from "./use_event_listener";
 
 
 export type Serializer<T> = {
@@ -32,7 +33,14 @@ export const StorageSerializers: Record<"boolean" | "object" | "number" | "any" 
   },
   object: {
     deserialize: (v: any) => JSON.parse(v),
-    serialize: (v: any) => JSON.stringify(v),
+    serialize: (v: any) => {
+      // Change events are triggered with a string value
+      if (typeof v === "string") {
+        return v;
+      } else {
+        return JSON.stringify(v);
+      }
+    },
     isEmpty: (v: any) => {
       const values = Object.values(JSON.parse(v));
       return values.length === 0 || values.every(v => v === "" || v === null);
@@ -121,7 +129,7 @@ export function useLocalStorage<T>(
     const rawValue = storage.getItem(key);
     if (rawValue == null) {
       data.value = defaultValue;
-      if (writeDefaults && defaultValue !== null) {
+      if (writeDefaults && defaultValue !== null && defaultValue !== undefined) {
         storage.setItem(key, serializer.serialize(defaultValue));
       }
     } else {
@@ -131,7 +139,7 @@ export function useLocalStorage<T>(
     return data.value;
   };
 
-  const write = (value: T) => {
+  const write = (value: any) => {
     storage.setItem(key, serializer.serialize(value));
     if (onChange) {
       onChange(value, data.value);
@@ -151,6 +159,18 @@ export function useLocalStorage<T>(
   };
 
   read();
+
+  useEventListener(
+    controller,
+    window,
+    "storage",
+    (event: StorageEvent) => {
+      if (event.key === key) {
+        console.log(event.newValue, event.oldValue);
+        write(event.newValue);
+      }
+    },
+  );
 
   return {
     get value() {

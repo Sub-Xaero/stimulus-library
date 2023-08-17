@@ -52,7 +52,7 @@ export class ElementSaveController extends BaseController {
   }
 
   connect() {
-    this._store = useLocalStorage(this, this._uniqueIdentifier, {});
+    this._store = useLocalStorage(this, this._uniqueIdentifier, {}, { onChange: (newValue: any, oldValue: any) => console.log("changed", newValue) });
     requestAnimationFrame(() => {
       if (this._restoreOnLoad) {
         this.restore();
