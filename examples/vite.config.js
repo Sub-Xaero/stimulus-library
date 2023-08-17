@@ -18,7 +18,7 @@ export default defineConfig(async () => {
   return {
     server: {
       strictPort: true,
-      port: 3000,
+      port: 3030,
     },
     build: {
       rollupOptions: {

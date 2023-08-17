@@ -1,4 +1,4 @@
-import { BaseController } from "../../../packages/stimulus-library";
+import { BaseController } from "../../../packages/stimulus-library/src";
 
 export class UpdateDateController extends BaseController {
   static values = {property: String};

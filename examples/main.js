@@ -90,7 +90,7 @@ import {
   UserFocusController,
   ValueWarnController,
   WordCountController,
-} from "../packages/stimulus-library";
+} from "../packages/stimulus-library/src";
 import { ClearLocalstorageController } from "./src/helper_controllers/clear_localstorage_controller";
 
 const app = Application.start();
