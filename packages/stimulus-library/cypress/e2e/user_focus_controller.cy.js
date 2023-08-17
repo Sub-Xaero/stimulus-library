@@ -1,6 +1,6 @@
-describe('UserFocusController', () => {
+describe("UserFocusController", () => {
   beforeEach(() => {
-    cy.visit('controllers/user_focus_controller.html');
+    cy.visit("controllers/user_focus_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

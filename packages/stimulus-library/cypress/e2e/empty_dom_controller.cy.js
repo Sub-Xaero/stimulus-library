@@ -1,6 +1,6 @@
-describe('Empty DOM Controller', () => {
+describe("Empty DOM Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/empty_dom_controller.html');
+    cy.visit("controllers/empty_dom_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

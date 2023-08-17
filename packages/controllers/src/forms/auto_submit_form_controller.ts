@@ -6,24 +6,24 @@ export class AutoSubmitFormController extends BaseController {
   static values = {submitMode: String, eventMode: String, debounceInterval: Number};
   declare readonly submitModeValue: "direct" | "request";
   declare readonly hasSubmitModeValue: boolean;
-  declare eventModeValue: 'change' | 'input' | 'debounced';
+  declare eventModeValue: "change" | "input" | "debounced";
   declare readonly hasEventModeValue: boolean;
   declare debounceIntervalValue: number;
   declare readonly hasDebounceIntervalValue: boolean;
 
-  get _eventModes(): Array<'change' | 'input'> {
+  get _eventModes(): Array<"change" | "input"> {
     if (this.hasEventModeValue) {
-      let modes = this.eventModeValue.split(' ').map(mode => mode.trim());
+      const modes = this.eventModeValue.split(" ").map(mode => mode.trim());
 
-      if (modes.length === 1 && modes[0] === 'debounced') {
-        return ['change', 'input'];
+      if (modes.length === 1 && modes[0] === "debounced") {
+        return ["change", "input"];
       }
 
-      if (!modes.every(mode => ['change', 'input'].includes(mode))) {
+      if (!modes.every(mode => ["change", "input"].includes(mode))) {
         throw new Error(`The modeValue provided '${this.eventModeValue}' is not one of the recognised configuration options`);
       }
 
-      return modes as Array<'change' | 'input'>;
+      return modes as Array<"change" | "input">;
     } else {
       return ["change"];
     }
@@ -45,9 +45,9 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   get _cssSelector() {
-    let inputTypes = ['input', 'textarea', 'select'];
-    let ignore = ':not([data-no-autosubmit])';
-    return inputTypes.map(type => type.concat(ignore)).join(',');
+    const inputTypes = ["input", "textarea", "select"];
+    const ignore = ":not([data-no-autosubmit])";
+    return inputTypes.map(type => type.concat(ignore)).join(",");
   }
 
   get inputElements() {
@@ -69,12 +69,12 @@ export class AutoSubmitFormController extends BaseController {
   }
 
   _ancestorIsTrix(element: Element) {
-    return element.closest('trix-toolbar') !== null && element.closest('trix-editor') !== null;
+    return element.closest("trix-toolbar") !== null && element.closest("trix-editor") !== null;
   }
 
   private submit() {
-    let el = this.el as HTMLFormElement;
-    if (this._mode == 'request') {
+    const el = this.el as HTMLFormElement;
+    if (this._mode == "request") {
       requestSubmit(el);
     } else {
       el.submit();

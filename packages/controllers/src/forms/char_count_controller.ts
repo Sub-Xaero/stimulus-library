@@ -30,7 +30,7 @@ export class CharCountController extends BaseController {
 
 
   private _updateCharCount() {
-    let charCount = this.inputTarget.value.length;
+    const charCount = this.inputTarget.value.length;
     this.outputTarget.innerText = charCount.toString();
     if (this._isValidCount(charCount)) {
       this.removeErrorClasses(this.outputTarget);

@@ -21,7 +21,7 @@ export class TimeDistanceController extends BaseController {
   }
 
   get _nextUpdate(): number | null {
-    let duration = this._duration;
+    const duration = this._duration;
 
     if (duration.years && duration.years > 0) {
       return null;

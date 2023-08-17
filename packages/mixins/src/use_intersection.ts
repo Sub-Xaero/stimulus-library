@@ -5,12 +5,12 @@ export function useIntersectionObserver(controller: Controller, handler: Interse
   handler = handler.bind(controller);
 
   let observer: IntersectionObserver | null = new IntersectionObserver(handler, options);
-  let teardown = () => {
+  const teardown = () => {
     observer?.disconnect();
     observer = null;
   };
-  let observe = (element: HTMLElement) => observer?.observe(element);
-  let unobserve = (element: HTMLElement) => observer?.unobserve(element);
+  const observe = (element: HTMLElement) => observer?.observe(element);
+  const unobserve = (element: HTMLElement) => observer?.unobserve(element);
 
   return {
     observer,
@@ -33,8 +33,8 @@ export function useIntersection(
   if (disappear) {
     disappear = disappear.bind(controller);
   }
-  let opts = options ?? {};
-  let processEntries = (entries: IntersectionObserverEntry[]) => {
+  const opts = options ?? {};
+  const processEntries = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         appear && appear(entry);
@@ -43,8 +43,8 @@ export function useIntersection(
       }
     });
   };
-  let {observer, observe, unobserve, teardown} = useIntersectionObserver(controller, processEntries, opts);
-  let setup = () => observe(element);
+  const {observer, observe, unobserve, teardown} = useIntersectionObserver(controller, processEntries, opts);
+  const setup = () => observe(element);
   useMixin(controller, setup, teardown);
 
   return {

@@ -24,38 +24,38 @@ export class TeleportController extends EphemeralController {
 
   execute(event?: Event) {
     event?.preventDefault();
-    let element = this.el;
-    let destination = document.querySelector(this.targetValue);
+    const element = this.el;
+    const destination = document.querySelector(this.targetValue);
 
     if (destination == null) {
       this.dispatchEvent(element, this.eventName("error"));
       return;
     }
 
-    let copy = element.cloneNode(true) as HTMLElement;
+    const copy = element.cloneNode(true) as HTMLElement;
     this.cleanup(copy);
 
     switch (this.insertValue) {
-      case "beforebegin":
-      case "beforeend":
-      case "afterend":
-      case "afterbegin":
-        destination.insertAdjacentHTML(this.insertValue, copy.outerHTML);
-        break;
-      case "replaceOuter":
-        destination.outerHTML = copy.outerHTML;
-        break;
-      case "replaceInner":
-        destination.innerHTML = copy.outerHTML;
-        break;
-      case "prepend":
-        destination.insertAdjacentHTML("afterbegin", copy.outerHTML);
-        break;
-      case "append":
-        destination.insertAdjacentHTML("beforeend", copy.outerHTML);
-        break;
-      default:
-        throw new Error("`insert` value was not specified");
+    case "beforebegin":
+    case "beforeend":
+    case "afterend":
+    case "afterbegin":
+      destination.insertAdjacentHTML(this.insertValue, copy.outerHTML);
+      break;
+    case "replaceOuter":
+      destination.outerHTML = copy.outerHTML;
+      break;
+    case "replaceInner":
+      destination.innerHTML = copy.outerHTML;
+      break;
+    case "prepend":
+      destination.insertAdjacentHTML("afterbegin", copy.outerHTML);
+      break;
+    case "append":
+      destination.insertAdjacentHTML("beforeend", copy.outerHTML);
+      break;
+    default:
+      throw new Error("`insert` value was not specified");
 
     }
     element.remove();

@@ -25,7 +25,7 @@ export class ElementSaveController extends BaseController {
     if (this.hasIdValue) {
       return this.idValue;
     }
-    let elementID = this.el.id;
+    const elementID = this.el.id;
 
     if (elementID !== "") {
       return elementID;
@@ -52,7 +52,7 @@ export class ElementSaveController extends BaseController {
   }
 
   connect() {
-    this._store = useLocalStorage(this, this._uniqueIdentifier, {}, { onChange: (newValue: any, oldValue: any) => console.log("changed", newValue) });
+    this._store = useLocalStorage(this, this._uniqueIdentifier);
     requestAnimationFrame(() => {
       if (this._restoreOnLoad) {
         this.restore();
@@ -72,9 +72,9 @@ export class ElementSaveController extends BaseController {
     if (event) {
       event.preventDefault();
     }
-    let element = this._element;
-    let attributes = this.attributesValue.split(" ");
-    let data: { [idx: string]: any } = {};
+    const element = this._element;
+    const attributes = this.attributesValue.split(" ");
+    const data: { [idx: string]: any } = {};
     attributes.forEach((attr: string) => data[attr] = _get(element, attr));
     this._store.value = data;
     this.dispatchEvent(element, this.eventName("save:success"));
@@ -84,7 +84,7 @@ export class ElementSaveController extends BaseController {
     if (event) {
       event.preventDefault();
     }
-    let element = this._element;
+    const element = this._element;
     if (!this._store.isEmpty()) {
       const savedData = this._store.value; // get and parse the saved data from localStorage
       Object.keys(savedData).forEach(

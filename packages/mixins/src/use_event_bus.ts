@@ -3,7 +3,7 @@ import { debounce, EventBus, wrapArray } from "@stimulus-library/utilities";
 import { useMixin } from "./use_mixin";
 
 export function useEventBus(controller: Controller, eventNameOrNames: string | string[], handler: (...args: any[]) => void, opts?: { debounce?: number }) {
-  let options = opts;
+  const options = opts;
 
   if (options?.debounce) {
     handler = debounce(handler.bind(controller), options.debounce);
@@ -12,9 +12,9 @@ export function useEventBus(controller: Controller, eventNameOrNames: string | s
     handler = handler.bind(controller);
   }
 
-  let eventNames = wrapArray(eventNameOrNames);
-  let setup = () => eventNames.forEach(eventName => EventBus.on(eventName, handler));
-  let teardown = () => eventNames.forEach(eventName => EventBus.off(eventName, handler));
+  const eventNames = wrapArray(eventNameOrNames);
+  const setup = () => eventNames.forEach(eventName => EventBus.on(eventName, handler));
+  const teardown = () => eventNames.forEach(eventName => EventBus.off(eventName, handler));
 
   useMixin(controller, setup, teardown);
   return {setup, teardown};

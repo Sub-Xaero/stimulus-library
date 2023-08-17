@@ -1,6 +1,6 @@
-describe('StickyController', () => {
+describe("StickyController", () => {
   beforeEach(() => {
-    cy.visit('controllers/sticky_controller.html');
+    cy.visit("controllers/sticky_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

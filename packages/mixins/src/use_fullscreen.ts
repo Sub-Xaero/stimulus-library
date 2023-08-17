@@ -2,14 +2,14 @@ import { Controller } from "@hotwired/stimulus";
 import { useMixin } from "./use_mixin";
 
 export function useFullscreen(controller: Controller, el?: Element) {
-  let element = el || document.documentElement;
+  const element = el || document.documentElement;
   let fullscreenOpen = document.fullscreenElement !== null;
 
   const updateFullscreenState = () => fullscreenOpen = document.fullscreenElement !== null;
   const isFullscreen = (): boolean => fullscreenOpen;
   const toggle = async () => fullscreenOpen ? await exit() : await enter();
-  let setup = () => document.addEventListener('fullscreenchange', updateFullscreenState);
-  let teardown = () => document.removeEventListener('fullscreenchange', updateFullscreenState);
+  const setup = () => document.addEventListener("fullscreenchange", updateFullscreenState);
+  const teardown = () => document.removeEventListener("fullscreenchange", updateFullscreenState);
 
   const exit = async () => {
     if (document.exitFullscreen) {

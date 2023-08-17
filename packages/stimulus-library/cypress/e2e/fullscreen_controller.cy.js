@@ -1,5 +1,5 @@
-describe('Fullscreen Controller', () => {
+describe("Fullscreen Controller", () => {
 
-  it('TODO');
+  it("TODO");
 
 });

@@ -1,8 +1,5 @@
-import { isHTMLLinkElement } from "../src/elements";
-
-
 describe("isHTMLLinkElement", () => {
-  it;
+  it("returns true when element is ...");
 });
 
 describe("isHTMLAnchorElement", () => {

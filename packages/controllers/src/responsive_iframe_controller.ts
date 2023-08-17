@@ -13,8 +13,8 @@ export class ResponsiveIframeWrapperController extends BaseController {
   }
 
   messageReceived(message: MessageEvent<ResponsiveIframeMessage>) {
-    let data = message.data;
-    if (data.hasOwnProperty("name") && data.name === "iframe-body" && data.hasOwnProperty("height")) {
+    const data = message.data;
+    if (Object.prototype.hasOwnProperty.call(data, "name") && data.name === "iframe-body" && Object.prototype.hasOwnProperty.call(data, "height")) {
       this.resize(data.height);
     }
   }
@@ -30,13 +30,13 @@ export class ResponsiveIframeBodyController extends BaseController {
   connect() {
     // If this Window is inside a frame
     if (window.self !== window.top) {
-      useEventListener(this, window, "resize", this.postUpdate, {debounce: 200});
+      useEventListener(this, window, "resize", this.postUpdate, { debounce: 200 });
       this.postUpdate();
     }
   }
 
   postUpdate() {
-    let payload: ResponsiveIframeMessage = {name: "iframe-body", height: this.getHeight()};
+    const payload: ResponsiveIframeMessage = { name: "iframe-body", height: this.getHeight() };
     window.parent.postMessage(
       payload,
       "*",

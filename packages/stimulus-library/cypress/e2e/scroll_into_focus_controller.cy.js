@@ -1,6 +1,6 @@
-describe('Scroll into focus controller', () => {
+describe("Scroll into focus controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/scroll_into_focus_controller.html');
+    cy.visit("controllers/scroll_into_focus_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

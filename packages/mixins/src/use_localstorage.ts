@@ -89,12 +89,12 @@ export function useLocalStorage<T>(
   },
 ): LocalStorageProxy<T> {
   let type: string;
-  let optsMergedWithDefaults = {
+  const optsMergedWithDefaults = {
     onChange: null,
     writeDefaults: true,
     ...opts,
   };
-  let { writeDefaults } = optsMergedWithDefaults;
+  const { writeDefaults } = optsMergedWithDefaults;
 
   if (defaultValue === null || defaultValue === undefined) {
     type = "any";
@@ -116,13 +116,13 @@ export function useLocalStorage<T>(
     type = "any";
   }
 
-  let onChange = optsMergedWithDefaults.onChange?.bind(controller);
+  const onChange = optsMergedWithDefaults.onChange?.bind(controller);
 
-  let data = reactive({
+  const data = reactive({
     value: defaultValue,
   });
 
-  let storage = localStorage;
+  const storage = localStorage;
   const serializer = StorageSerializers[type];
 
   const read = () => {
@@ -154,7 +154,7 @@ export function useLocalStorage<T>(
   };
 
   const isEmpty = (): boolean => {
-    let rawValue = storage.getItem(key);
+    const rawValue = storage.getItem(key);
     return serializer.isEmpty(rawValue);
   };
 
@@ -166,7 +166,6 @@ export function useLocalStorage<T>(
     "storage",
     (event: StorageEvent) => {
       if (event.key === key) {
-        console.log(event.newValue, event.oldValue);
         write(event.newValue);
       }
     },

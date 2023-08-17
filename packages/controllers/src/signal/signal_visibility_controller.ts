@@ -10,7 +10,7 @@ export class SignalVisibilityController extends SignalBaseController {
     show: String,
   };
 
-  static classes = ['hide'];
+  static classes = ["hide"];
 
   declare nameValue: string;
   declare showValue: string;
@@ -31,7 +31,7 @@ export class SignalVisibilityController extends SignalBaseController {
   }
 
   _onSignal(payload: SignalPayload) {
-    let value = payload.value;
+    const value = payload.value;
     if (this.showValue == "default") {
       if (value == "") {
         this.removeHideClasses(this.el);

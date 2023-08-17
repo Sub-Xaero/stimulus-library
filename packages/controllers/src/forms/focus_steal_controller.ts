@@ -7,14 +7,14 @@ export class FocusStealController extends BaseController {
     mode: String,
   };
 
-  declare modeValue: 'immediate' | 'wait';
+  declare modeValue: "immediate" | "wait";
   declare hasModeValue: boolean;
 
   get _mode() {
-    const MODES = ['immediate', 'wait'];
+    const MODES = ["immediate", "wait"];
     if (this.hasModeValue) {
       if (!MODES.includes(this.modeValue)) {
-        throw new Error(`The given modeValue '${this.modeValue}' is not one of the supported modes: "${MODES.join('", "')}"`);
+        throw new Error(`The given modeValue '${this.modeValue}' is not one of the supported modes: "${MODES.join("\", \"")}"`);
       } else {
         return this.modeValue;
       }
@@ -24,7 +24,7 @@ export class FocusStealController extends BaseController {
   }
 
   connect() {
-    if (this._mode == 'immediate') {
+    if (this._mode == "immediate") {
       this.steal();
     }
   }

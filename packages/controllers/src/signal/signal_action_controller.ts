@@ -19,15 +19,15 @@ export class SignalActionController extends SignalBaseController {
   }
 
   _onSignal(payload: SignalPayload) {
-    let value = payload.value;
+    const value = payload.value;
     if (!this.hasWhenValue) {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, 'match'));
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, "match"));
       return;
     }
     if (this.allPredicatesMatch(value)) {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, 'match'), {detail: {element: this.el, value}});
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, "match"), {detail: {element: this.el, value}});
     } else {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, 'no-match'), {detail: {element: this.el, value}});
+      this.dispatchEvent(this.el, signalEventName(this.nameValue, "no-match"), {detail: {element: this.el, value}});
     }
   }
 

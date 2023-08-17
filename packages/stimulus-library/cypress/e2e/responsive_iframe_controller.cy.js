@@ -1,8 +1,8 @@
-describe('Responsive IFrame Controller', () => {
+describe("Responsive IFrame Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/responsive_iframe_controller.html');
+    cy.visit("controllers/responsive_iframe_controller.html");
   });
 
-  it('TODO');
+  it("TODO");
 
 });

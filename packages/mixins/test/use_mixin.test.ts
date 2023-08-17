@@ -1,9 +1,9 @@
-import { useMixin } from '../src/use_mixin';
-import sinon from 'sinon';
+import { useMixin } from "../src/use_mixin";
+import sinon from "sinon";
 import { BaseController } from "@stimulus-library/utilities";
 
-describe('useMixin', function () {
-  it('should run the passed function on the object, and install a cleanup function on disconnect', function () {
+describe("useMixin", function () {
+  it("should run the passed function on the object, and install a cleanup function on disconnect", function () {
     const obj = {
       disconnect: () => {
       },

@@ -18,13 +18,13 @@ export class TurboFrameRefreshController extends BaseController {
   }
 
   connect() {
-    let element = this.el;
+    const element = this.el;
     if (isTurboFrame(element)) {
-      if (!!element.src) {
-        throw new Error('The provided <turbo-frame> element has no `src` attribute.');
+      if (element.src) {
+        throw new Error("The provided <turbo-frame> element has no `src` attribute.");
       }
     } else {
-      throw new Error('Expected controller to be mounted on a <turbo-frame> element.');
+      throw new Error("Expected controller to be mounted on a <turbo-frame> element.");
     }
     if (this._poll) {
       requestAnimationFrame(() => useTimeout(this, this.refresh, this.intervalValue));
@@ -33,7 +33,7 @@ export class TurboFrameRefreshController extends BaseController {
 
   refresh(event?: Event) {
     event?.preventDefault();
-    let element = this.el as TurboFrame;
+    const element = this.el as TurboFrame;
     // @ts-ignore
     element.reload();
   }

@@ -1,6 +1,6 @@
-describe('ClipboardController', () => {
+describe("ClipboardController", () => {
   beforeEach(() => {
-    cy.visit('controllers/clipboard_controller.html');
+    cy.visit("controllers/clipboard_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

@@ -13,8 +13,8 @@ export class PrefetchController extends BaseController {
   }
 
   get _supportsPrefetch(): boolean {
-    const link: HTMLLinkElement = document.createElement('link');
-    return link.relList?.supports && link.relList?.supports('prefetch');
+    const link: HTMLLinkElement = document.createElement("link");
+    return link.relList?.supports && link.relList?.supports("prefetch");
   }
 
   get _href(): string {
@@ -38,7 +38,7 @@ export class PrefetchController extends BaseController {
     if (connection) {
       // @ts-ignore Experimental API
       if (connection.saveData) {
-        warn(this, 'Data Saving is enabled');
+        warn(this, "Data Saving is enabled");
         return false;
       }
 
@@ -57,14 +57,14 @@ export class PrefetchController extends BaseController {
     }
 
     switch (this._mode) {
-      case "intersect":
-        this._setupObserver();
-        break;
-      case "mouseover":
-        useEventListener(this, this.el, "mouseover", this.prefetch, {once: true});
-        break;
-      default:
-        throw new Error(`'${this._mode}' is not a supported prefetch mode`);
+    case "intersect":
+      this._setupObserver();
+      break;
+    case "mouseover":
+      useEventListener(this, this.el, "mouseover", this.prefetch, {once: true});
+      break;
+    default:
+      throw new Error(`'${this._mode}' is not a supported prefetch mode`);
     }
   }
 
@@ -84,8 +84,8 @@ export class PrefetchController extends BaseController {
     if (this._existingPrefetch || !this._connectionSuitable) {
       return;
     }
-    const link: HTMLLinkElement = document.createElement('link');
-    Object.assign(link, {rel: 'prefetch', href: this._href, as: 'document'});
+    const link: HTMLLinkElement = document.createElement("link");
+    Object.assign(link, {rel: "prefetch", href: this._href, as: "document"});
     document.head.appendChild(link);
   }
 

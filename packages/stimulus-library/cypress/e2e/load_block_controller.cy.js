@@ -1,8 +1,8 @@
-describe('Load Block Controller', () => {
+describe("Load Block Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/load_block_controller.html');
+    cy.visit("controllers/load_block_controller.html");
   });
 
-  it('TODO');
+  it("TODO");
 
 });

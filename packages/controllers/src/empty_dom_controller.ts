@@ -23,7 +23,7 @@ export class EmptyDomController extends BaseController {
   }
 
   get _children(): Element[] {
-    let element = this._container;
+    const element = this._container;
     if (this.hasScopeSelectorValue) {
       return Array.from(element.querySelectorAll(this.scopeSelectorValue));
     } else {
@@ -37,13 +37,13 @@ export class EmptyDomController extends BaseController {
     this.checkEmpty();
   }
 
-  mutate(entries: MutationRecord[]) {
+  mutate(_entries: MutationRecord[]) {
     this.checkEmpty();
   }
 
   checkEmpty() {
-    let element = this._container;
-    let children = this._children;
+    const element = this._container;
+    const children = this._children;
     if (children.length === 0) {
       this.removeNotEmptyClasses();
       this.addEmptyClasses();

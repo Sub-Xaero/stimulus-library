@@ -21,7 +21,7 @@ export class AnchorSpyController extends BaseController {
 
   get _key(): string {
     // @ts-ignore
-    return this.keyValue.replaceAll('#', '');
+    return this.keyValue.replaceAll("#", "");
   }
 
   get _anchor(): string {
@@ -36,7 +36,7 @@ export class AnchorSpyController extends BaseController {
     installClassMethods(this);
     requestAnimationFrame(() => {
       this._checkAnchor();
-      useEventListener(this, window, 'hashchange', this._checkAnchor);
+      useEventListener(this, window, "hashchange", this._checkAnchor);
     });
   }
 

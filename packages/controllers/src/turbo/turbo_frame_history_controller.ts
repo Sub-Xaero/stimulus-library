@@ -11,7 +11,7 @@ export class TurboFrameHistoryController extends BaseController {
   connect() {
     // @ts-ignore
     if (!window.Turbo) {
-      throw new Error('Expected Turbo to be defined on the window.');
+      throw new Error("Expected Turbo to be defined on the window.");
     }
     // @ts-ignore
     const {navigator} = window.Turbo;
@@ -21,8 +21,8 @@ export class TurboFrameHistoryController extends BaseController {
 
   mutate(entries: MutationRecord[]) {
     entries.forEach((mutation) => {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
-        const src = this.element.getAttribute('src');
+      if (mutation.type === "attributes" && mutation.attributeName === "src") {
+        const src = this.element.getAttribute("src");
         if (src != null) {
           this.navigator.history.push(new URL(src));
         }

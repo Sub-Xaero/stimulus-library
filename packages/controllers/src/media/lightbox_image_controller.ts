@@ -55,13 +55,13 @@ export class LightboxImageController extends BaseController {
   }
 
   open() {
-    let element = this.el as HTMLImageElement;
+    const element = this.el as HTMLImageElement;
     if (this._dialog) {
       return;
     }
     this._dialog = document.createElement("dialog");
 
-    let image = document.createElement("img") as HTMLImageElement;
+    const image = document.createElement("img") as HTMLImageElement;
     image.className = this._imageClassName;
     image.src = this._src;
     image.srcset = this._srcSet;

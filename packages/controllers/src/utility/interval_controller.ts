@@ -10,7 +10,7 @@ export class IntervalController extends BaseController {
 
   connect() {
     if (!this.hasSecondsValue) {
-      throw new Error('Expected `secondsValue` to be present');
+      throw new Error("Expected `secondsValue` to be present");
     }
     requestAnimationFrame(() => {
       useInterval(this, this._interval, this.secondsValue * 1000);

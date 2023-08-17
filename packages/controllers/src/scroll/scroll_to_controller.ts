@@ -18,7 +18,7 @@ export class ScrollToController extends BaseController {
   declare hasInlineValue: boolean;
 
   scroll() {
-    let target = document.querySelector(this.selectorValue);
+    const target = document.querySelector(this.selectorValue);
     if (!target) {
       console.warn(`Could not find target for '${this.selectorValue}'`);
       return;

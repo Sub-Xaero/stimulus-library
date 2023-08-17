@@ -26,7 +26,7 @@ export class FormSaveController extends BaseController {
     if (this.hasIdValue) {
       return this.idValue;
     }
-    let elementID = (this.el as HTMLFormElement).id;
+    const elementID = (this.el as HTMLFormElement).id;
 
     if (elementID !== "") {
       return elementID;
@@ -45,9 +45,9 @@ export class FormSaveController extends BaseController {
   }
 
   get _formData(): FormSavePayload {
-    let data: FormSavePayload = {[this._formIdentifier]: {}};
+    const data: FormSavePayload = {[this._formIdentifier]: {}};
     for (const element of this._formElements) {
-      let el = element as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+      const el = element as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
       if (el.name.length > 0) {
         if (isHTMLInputElement(el) && el.type == "checkbox") {
           data[this._formIdentifier][el.name] = el.checked;
@@ -73,23 +73,23 @@ export class FormSaveController extends BaseController {
 
   connect() {
     requestAnimationFrame(() => {
-      let element = this.el;
+      const element = this.el;
       if (!isHTMLFormElement(element)) {
-        throw new Error('Expected controller to be mounted on a form element.');
+        throw new Error("Expected controller to be mounted on a form element.");
       }
 
       if (this._restoreOnLoad) {
         this.restore();
       }
       if (this._clearOnSubmit) {
-        useEventListener(this, this.el, 'submit', this._clear);
+        useEventListener(this, this.el, "submit", this._clear);
       }
     });
   }
 
   _clear() {
     localStorage.removeItem(this._formIdentifier);
-    this.dispatchEvent(this.el, this.eventName(`cleared`));
+    this.dispatchEvent(this.el, this.eventName("cleared"));
   }
 
   clear(event?: Event) {
@@ -99,9 +99,9 @@ export class FormSaveController extends BaseController {
 
   save(event: Event) {
     event.preventDefault();
-    let data = this._formData;
+    const data = this._formData;
     localStorage.setItem(this._formIdentifier, JSON.stringify(data[this._formIdentifier]));
-    this.dispatchEvent(this.el, this.eventName(`save:success`));
+    this.dispatchEvent(this.el, this.eventName("save:success"));
   }
 
   restore(event?: Event) {
@@ -109,7 +109,7 @@ export class FormSaveController extends BaseController {
     if (localStorage.getItem(this._formIdentifier)) {
       const savedData = JSON.parse(localStorage.getItem(this._formIdentifier)!); // get and parse the saved data from localStorage
       for (const element of this._formElements) {
-        let el = element as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+        const el = element as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
         if (el.name in savedData) {
           if (isHTMLInputElement(el) && el.type == "checkbox") {
             el.checked = savedData[el.name];
@@ -122,9 +122,9 @@ export class FormSaveController extends BaseController {
           }
         }
       }
-      this.dispatchEvent(this.el, this.eventName(`restore:success`));
+      this.dispatchEvent(this.el, this.eventName("restore:success"));
     } else {
-      this.dispatchEvent(this.el, this.eventName(`restore:empty`));
+      this.dispatchEvent(this.el, this.eventName("restore:empty"));
     }
   }
 
