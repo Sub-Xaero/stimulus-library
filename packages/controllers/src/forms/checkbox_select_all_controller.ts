@@ -2,7 +2,7 @@ import { BaseController } from "@stimulus-library/utilities";
 import { useCollectionEventListener, useEventListener } from "@stimulus-library/mixins";
 
 export class CheckboxSelectAllController extends BaseController {
-  static targets = ['selectAll', 'checkbox'];
+  static targets = ["selectAll", "checkbox"];
 
   declare readonly hasSelectAllTarget: boolean;
   declare readonly selectAllTarget: HTMLInputElement;
@@ -26,15 +26,15 @@ export class CheckboxSelectAllController extends BaseController {
         return;
       }
 
-      useEventListener(this, this.selectAllTarget, 'change', this._toggle);
-      useCollectionEventListener(this, this.checkboxTargets, 'change', this._refresh);
+      useEventListener(this, this.selectAllTarget, "change", this._toggle);
+      useCollectionEventListener(this, this.checkboxTargets, "change", this._refresh);
       this._refresh();
     });
   }
 
   private _toggle(event: Event) {
     event.preventDefault();
-    let target = event.target as HTMLInputElement;
+    const target = event.target as HTMLInputElement;
     this._enabled.forEach((checkbox) => checkbox.checked = (checkbox.disabled || checkbox.readOnly) ? checkbox.checked : target.checked);
   }
 

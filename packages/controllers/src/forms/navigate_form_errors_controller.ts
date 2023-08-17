@@ -35,7 +35,7 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   get _previousIndex(): number {
-    let index = this._index - 1;
+    const index = this._index - 1;
     if (index < 0) {
       return 0;
     }
@@ -43,7 +43,7 @@ export class NavigateFormErrorsController extends BaseController {
   }
 
   get _nextIndex(): number {
-    let index = this._index + 1;
+    const index = this._index + 1;
     if (index > this._errors.length - 1) {
       return this._errors.length - 1;
     }
@@ -73,10 +73,10 @@ export class NavigateFormErrorsController extends BaseController {
   connect() {
     installClassMethods(this);
     requestAnimationFrame(() => {
-        this._firstClick = true;
-        this._toggleButtons();
-        this._toggleVisibility();
-      },
+      this._firstClick = true;
+      this._toggleButtons();
+      this._toggleVisibility();
+    },
     );
   }
 

@@ -43,7 +43,7 @@ export class DurationController extends BaseController {
     minutes ||= 0;
     seconds ||= 0;
 
-    let largeDenominators = [years, months, weeks, days, hours];
+    const largeDenominators = [years, months, weeks, days, hours];
 
     if (!this._minutes && !this._seconds && largeDenominators.every((x) => x === 0)) {
       minutes = minutes + seconds / 60.0;

@@ -1,4 +1,4 @@
-import { BaseController, isTypeOfButtonableElement } from '@stimulus-library/utilities';
+import { BaseController, isTypeOfButtonableElement } from "@stimulus-library/utilities";
 import { useEventListener, useTemporaryContent } from "@stimulus-library/mixins";
 
 export class DisableWithController extends BaseController {
@@ -14,7 +14,7 @@ export class DisableWithController extends BaseController {
   declare readonly hasTimeoutValue: boolean;
 
   get _message(): string {
-    return this.hasMessageValue ? this.messageValue : 'Submitting...';
+    return this.hasMessageValue ? this.messageValue : "Submitting...";
   }
 
   get _timeout(): number {
@@ -29,7 +29,7 @@ export class DisableWithController extends BaseController {
   }
 
   disable(event?: Event) {
-    let element = this.el;
+    const element = this.el;
 
     if (this._isDisabled(element)) {
       event?.preventDefault();
@@ -42,7 +42,7 @@ export class DisableWithController extends BaseController {
 
   enable(event?: Event) {
     event?.preventDefault();
-    let element = this.el;
+    const element = this.el;
     if (this._isDisabled(element)) {
       this._enable();
     }
@@ -57,7 +57,7 @@ export class DisableWithController extends BaseController {
   }
 
   _disable() {
-    let el = this.el;
+    const el = this.el;
     if (isTypeOfButtonableElement(el)) {
       el.disabled = true;
     } else {
@@ -66,7 +66,7 @@ export class DisableWithController extends BaseController {
   }
 
   _enable() {
-    let el = this.el;
+    const el = this.el;
     if (isTypeOfButtonableElement(el)) {
       el.disabled = false;
     } else {

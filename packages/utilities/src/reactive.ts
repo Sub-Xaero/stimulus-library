@@ -1,6 +1,6 @@
-export function reactive<T extends Object>(object: T): T {
+export function reactive<T extends object>(object: T): T {
 
-  if (object === null || typeof object !== 'object') {
+  if (object === null || typeof object !== "object") {
     return object;
   }
 

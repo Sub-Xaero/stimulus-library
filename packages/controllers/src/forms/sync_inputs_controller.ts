@@ -26,7 +26,7 @@ export class SyncInputsController extends BaseController {
   }
 
   get _value(): string | boolean {
-    let el = this.el as | HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+    const el = this.el as | HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
     if (isHTMLInputElement(el) && el.type === "checkbox") {
       return el.checked;
     } else if (isHTMLInputElement(el) && el.type === "radio") {
@@ -37,7 +37,7 @@ export class SyncInputsController extends BaseController {
   }
 
   set _value(val: string | boolean) {
-    let el = this.el;
+    const el = this.el;
     if (isHTMLInputElement(el) && el.type === "checkbox") {
       el.checked = val.toString() === "true";
     } else if (isHTMLInputElement(el) && el.type === "radio") {
@@ -68,7 +68,7 @@ export class SyncInputsController extends BaseController {
     if (payload === undefined) {
       throw new Error("No payload received");
     }
-    let {dispatcher, value} = payload;
+    const {dispatcher, value} = payload;
     if (dispatcher !== this.el) {
       this._value = value;
     }

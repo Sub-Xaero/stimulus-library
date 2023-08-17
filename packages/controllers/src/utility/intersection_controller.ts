@@ -11,7 +11,7 @@ export class IntersectionController extends BaseController {
 
   get _threshold(): number[] {
     if (this.hasThresholdValue) {
-      return this.thresholdValue.split(',').map(val => Number.parseFloat(val.trim())).filter(val => val >= 0 && val <= 1);
+      return this.thresholdValue.split(",").map(val => Number.parseFloat(val.trim())).filter(val => val >= 0 && val <= 1);
     } else {
       return [0, 1];
     }
@@ -21,12 +21,14 @@ export class IntersectionController extends BaseController {
     useIntersection(this, this.el, this.appear, this.disappear, {threshold: this._threshold});
   }
 
+  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   appear(entry: IntersectionObserverEntry) {
     dispatchEvent(this, this.el, this.eventName("appear"));
-  };
+  }
 
+  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   disappear(entry: IntersectionObserverEntry) {
     dispatchEvent(this, this.el, this.eventName("disappear"));
-  };
+  }
 
 }

@@ -3,18 +3,19 @@ import { useMixin } from "./use_mixin";
 
 
 export function useTimeout(controller: Controller, handler: (...args: any[]) => void, timeout: number) {
+  // eslint-disable-next-line prefer-const
   let controllerDisconnect: () => void;
   let timeoutHandle: ReturnType<typeof window.setTimeout> | null = null;
   handler = handler.bind(controller);
 
-  let newHandler = () => {
+  const newHandler = () => {
     handler();
     timeoutHandle = null;
     Object.assign(controller, {disconnect: controllerDisconnect});
   };
 
-  let setup = () => timeoutHandle = setTimeout(newHandler, timeout);
-  let teardown = () => {
+  const setup = () => timeoutHandle = setTimeout(newHandler, timeout);
+  const teardown = () => {
     if (timeoutHandle !== null) {
       clearTimeout(timeoutHandle);
       timeoutHandle = null;

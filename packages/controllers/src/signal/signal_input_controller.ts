@@ -52,7 +52,7 @@ export class SignalInputController extends BaseController {
     if (isHTMLInputElement(this.el) && this.el.type === "checkbox") {
       value = this.el.checked ? "true" : "false";
     } else if (isHTMLInputElement(this.el) && this.el.type === "radio") {
-      let selectedValue = getAllRadiosInGroup(this.el).find(el => el.checked)?.value;
+      const selectedValue = getAllRadiosInGroup(this.el).find(el => el.checked)?.value;
       value = selectedValue ? selectedValue : "";
     }
 
@@ -61,7 +61,7 @@ export class SignalInputController extends BaseController {
   }
 
   _onSignal(payload: SignalPayload) {
-    let {element, value} = payload;
+    const {element, value} = payload;
     if (element === this.el) {
       return;
     }
@@ -73,10 +73,10 @@ export class SignalInputController extends BaseController {
       (this.el as HTMLInputElement).value = value;
     }
     if (this.triggerChangeValue) {
-      this.dispatchEvent(this.el, 'change');
+      this.dispatchEvent(this.el, "change");
     }
     if (this.triggerInputValue) {
-      this.dispatchEvent(this.el, 'input');
+      this.dispatchEvent(this.el, "input");
     }
   }
 }

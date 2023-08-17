@@ -58,21 +58,21 @@ export class TabsController extends BaseController {
 
   _selectTab(index: number) {
     index = this._clampIndex(index);
-    let links = this.linkTargets;
-    let panels = this.contentTargets;
-    let activePanel = panels[index];
-    let activeLink = links[index];
-    let otherPanels = [...panels.slice(0, index), ...panels.slice(index + 1)];
-    let otherLinks = [...links.slice(0, index), ...links.slice(index + 1)];
+    const links = this.linkTargets;
+    const panels = this.contentTargets;
+    const activePanel = panels[index];
+    const activeLink = links[index];
+    const otherPanels = [...panels.slice(0, index), ...panels.slice(index + 1)];
+    const otherLinks = [...links.slice(0, index), ...links.slice(index + 1)];
 
     this.addActiveClasses(activeLink);
-    activeLink.setAttribute('aria-selected', "true");
+    activeLink.setAttribute("aria-selected", "true");
 
     this.addActiveClasses(activePanel);
     this.removeHideClasses(activePanel);
 
     otherLinks.forEach((link) => {
-      link.removeAttribute('aria-selected');
+      link.removeAttribute("aria-selected");
       this.removeActiveClasses(link);
     });
     otherPanels.forEach((panel) => {
@@ -90,12 +90,12 @@ export class TabsController extends BaseController {
 
     // determine the minimum height
     this.contentTargets.forEach((content) => {
-      let hidden = content.hasAttribute("tab-hidden");
+      const hidden = content.hasAttribute("tab-hidden");
       if (hidden) {
         this.removeHideClasses(content);
       }
 
-      let height = content.offsetHeight;
+      const height = content.offsetHeight;
       if (height > minHeight) {
         minHeight = height;
       }

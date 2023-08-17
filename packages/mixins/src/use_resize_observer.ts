@@ -8,10 +8,10 @@ export function useResizeObserver(
   options: ResizeObserverOptions,
 ) {
   handler = handler.bind(controller);
-  let observer: ResizeObserver = new ResizeObserver(handler);
+  const observer: ResizeObserver = new ResizeObserver(handler);
 
-  let setup = () => observer.observe(element, options);
-  let teardown = () => observer.disconnect();
+  const setup = () => observer.observe(element, options);
+  const teardown = () => observer.disconnect();
 
   useMixin(controller, setup, teardown);
   return teardown;

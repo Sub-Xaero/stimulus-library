@@ -1,6 +1,6 @@
-describe('PresenceController', () => {
+describe("PresenceController", () => {
   beforeEach(() => {
-    cy.visit('controllers/presence_controller.html');
+    cy.visit("controllers/presence_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

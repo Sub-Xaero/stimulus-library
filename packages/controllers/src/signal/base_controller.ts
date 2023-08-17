@@ -25,7 +25,7 @@ export abstract class SignalBaseController extends BaseController {
     return extractPredicates(this.predicateString);
   }
 
-  allPredicatesMatch(value: SignalPayload['value']): boolean {
+  allPredicatesMatch(value: SignalPayload["value"]): boolean {
     return this._predicates.every(predicate => predicate(value));
   }
 

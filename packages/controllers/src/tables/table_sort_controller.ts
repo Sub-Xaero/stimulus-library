@@ -11,17 +11,17 @@ export class TableSortController extends BaseController {
   _reverse: boolean = false;
 
   get _tableHead(): HTMLTableSectionElement {
-    let head = (this.el as HTMLTableElement).tHead;
+    const head = (this.el as HTMLTableElement).tHead;
     if (head == null) {
-      throw new Error('Expected table to have a <thead> element.');
+      throw new Error("Expected table to have a <thead> element.");
     }
     return head;
   }
 
   get _tableHeaders(): HTMLTableHeaderCellElement[] {
-    let rows = this._tableHead.rows;
+    const rows = this._tableHead.rows;
     if (rows.length == 0) {
-      throw new Error('Expected table to have a <thead> element with at least one row.');
+      throw new Error("Expected table to have a <thead> element with at least one row.");
     }
     return Array.from(rows[0].cells);
   }
@@ -54,7 +54,7 @@ export class TableSortController extends BaseController {
       headerCell = event_or_target;
     }
 
-    let headerCellIndex = this._indexOfHeaderCell(headerCell);
+    const headerCellIndex = this._indexOfHeaderCell(headerCell);
     if (headerCell.dataset.sortable == "false") {
       return;
     }
@@ -76,7 +76,7 @@ export class TableSortController extends BaseController {
   }
 
   private _headerCellByIndex(index: number): HTMLTableHeaderCellElement {
-    let cell = this._tableHeaders.at(index);
+    const cell = this._tableHeaders.at(index);
     if (!cell) {
       throw new Error(`No cell at index ${index}`);
     }
@@ -88,18 +88,18 @@ export class TableSortController extends BaseController {
   }
 
   private _sortByColumn(index: number) {
-    let frag = document.createDocumentFragment();
-    let rows = this._tableRows;
+    const frag = document.createDocumentFragment();
+    const rows = this._tableRows;
 
-    let newRows = rows.sort((row, otherRow) => {
-      let cells = Array.from(row.cells);
-      let otherCells = Array.from(otherRow.cells);
+    const newRows = rows.sort((row, otherRow) => {
+      const cells = Array.from(row.cells);
+      const otherCells = Array.from(otherRow.cells);
 
       // TODO: Handle colspans?
-      let x = cells[index]?.dataset?.sortValue || cells[index]?.innerText || "";
-      let y = otherCells[index]?.dataset?.sortValue || otherCells[index]?.innerText || "";
+      const x = cells[index]?.dataset?.sortValue || cells[index]?.innerText || "";
+      const y = otherCells[index]?.dataset?.sortValue || otherCells[index]?.innerText || "";
 
-      let sortVal = x.localeCompare(y, "en", {sensitivity: "base", numeric: true, caseFirst: "upper"});
+      const sortVal = x.localeCompare(y, "en", {sensitivity: "base", numeric: true, caseFirst: "upper"});
 
       if (row.dataset.sortTop || otherRow.dataset.sortBottom) {
         if (row.dataset.sortTop && otherRow.dataset.sortTop) {

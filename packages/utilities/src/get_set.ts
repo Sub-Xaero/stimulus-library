@@ -52,17 +52,17 @@ const reIsPlainProp = /^\w*$/;
 const rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
 const reIsUint = /^(?:0|[1-9]\d*)$/;
 const reEscapeChar = /\\(\\)?/g;
-const symbolTag = '[object Symbol]';
+const symbolTag = "[object Symbol]";
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 const isArray = Array.isArray;
 const symbolProto = Symbol ? Symbol.prototype : undefined;
-const symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
+// const symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
 const symbolToString = symbolProto ? symbolProto.toString : undefined;
 
 const INFINITY = 1 / 0;
 const MAX_SAFE_INTEGER = 9007199254740991;
-const MAX_INTEGER = 1.7976931348623157e+308;
-const NAN = 0 / 0;
+// const MAX_INTEGER = 1.7976931348623157e+308;
+// const NAN = 0 / 0;
 
 function arrayMap<T>(array: T[] | null, iteratee: (value: T, index: number, array: T[]) => any): any[] {
   let index = -1;
@@ -77,32 +77,32 @@ function arrayMap<T>(array: T[] | null, iteratee: (value: T, index: number, arra
 
 function baseToString(value: any): string {
   // Exit early for strings to avoid a performance hit in some environments.
-  if (typeof value == 'string') {
+  if (typeof value == "string") {
     return value;
   }
   if (isArray(value)) {
     // Recursively convert values (susceptible to call stack limits).
-    return arrayMap(value, baseToString) + '';
+    return arrayMap(value, baseToString) + "";
   }
   if (isSymbol(value)) {
-    return symbolToString ? symbolToString.call(value) : '';
+    return symbolToString ? symbolToString.call(value) : "";
   }
-  const result = (value + '');
-  return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
+  const result = (value + "");
+  return (result == "0" && (1 / value) == -INFINITY) ? "-0" : result;
 }
 
 function toString(value: any): string {
-  return value == null ? '' : baseToString(value);
+  return value == null ? "" : baseToString(value);
 }
 
 export function stringToPath(str: string): string[] {
   const result = [];
   if (str.charCodeAt(0) === 46 /* . */) {
-    result.push('');
+    result.push("");
   }
   // @ts-ignore
   str.replace(rePropName, function (match, number, quote, subString) {
-    result.push(quote ? subString.replace(reEscapeChar, '$1') : (number || match));
+    result.push(quote ? subString.replace(reEscapeChar, "$1") : (number || match));
   });
   return result;
 }
@@ -120,20 +120,20 @@ function castPath(value: any, object: object) {
   return isKey(value, object) ? [value] : stringToPath(toString(value));
 }
 
-function toKey(value: any): string | Symbol {
-  if (typeof value == 'string' || isSymbol(value)) {
+function toKey(value: any): string | symbol {
+  if (typeof value == "string" || isSymbol(value)) {
     return value;
   }
-  let result = (value + '');
-  return (result == '0' && (1 / value) == -Infinity) ? '-0' : result;
+  const result = (value + "");
+  return (result == "0" && (1 / value) == -Infinity) ? "-0" : result;
 }
 
 function isKey<T extends object>(value: any, object: T): value is keyof T {
   if (isArray(value)) {
     return false;
   }
-  let type = typeof value;
-  if (type == 'number' || type == 'boolean' ||
+  const type = typeof value;
+  if (type == "number" || type == "boolean" ||
     value == null || isSymbol(value)) {
     return true;
   }
@@ -142,11 +142,11 @@ function isKey<T extends object>(value: any, object: T): value is keyof T {
 }
 
 function isObjectLike<T>(value: T): boolean {
-  return value != null && typeof value == 'object';
+  return value != null && typeof value == "object";
 }
 
 function isSymbol<T>(value: T): boolean {
-  return typeof value == 'symbol' ||
+  return typeof value == "symbol" ||
     (isObjectLike(value) && baseGetTag(value) == symbolTag);
 }
 
@@ -162,7 +162,7 @@ function objectToString<T>(value: T): string {
 const objectProto = Object.prototype;
 
 function baseGet(object: object, path: string): any {
-  let castedPath = castPath(path, object);
+  const castedPath = castPath(path, object);
 
   let index = 0;
   const length = castedPath.length;
@@ -176,15 +176,15 @@ function baseGet(object: object, path: string): any {
 
 function isObject<T>(value: T): boolean {
   const type = typeof value;
-  return value != null && (type == 'object' || type == 'function');
+  return value != null && (type == "object" || type == "function");
 }
 
 function isIndex<T>(value: T, length: number | null = null): boolean {
-  let type = typeof value;
+  const type = typeof value;
   length = length == null ? MAX_SAFE_INTEGER : length;
 
   // @ts-ignore
-  return !!length && (type == 'number' || (type != 'symbol' && reIsUint.test(value))) && (value > -1 && value % 1 == 0 && value < length);
+  return !!length && (type == "number" || (type != "symbol" && reIsUint.test(value))) && (value > -1 && value % 1 == 0 && value < length);
 }
 
 function eq(value: any, other: any): boolean {
@@ -201,12 +201,12 @@ function assignValue<T extends object>(object: T, key: any, value: any) {
 }
 
 function baseAssignValue<T extends object>(object: T, key: any, value: any) {
-  if (key == '__proto__' && defineProperty) {
+  if (key == "__proto__" && defineProperty) {
     defineProperty(object, key, {
-      'configurable': true,
-      'enumerable': true,
-      'value': value,
-      'writable': true,
+      "configurable": true,
+      "enumerable": true,
+      "value": value,
+      "writable": true,
     });
   } else {
     // @ts-ignore
@@ -215,11 +215,11 @@ function baseAssignValue<T extends object>(object: T, key: any, value: any) {
 }
 
 
-function baseSet<T extends Object>(object: T, path: string, value: any) {
+function baseSet<T extends object>(object: T, path: string, value: any) {
   if (!isObject(object)) {
     return object;
   }
-  let castedPath = castPath(path, object);
+  const castedPath = castPath(path, object);
 
   let index = -1;
   const length = castedPath.length;

@@ -20,11 +20,11 @@ export class CheckboxXORController extends BaseController {
       throw new Error("No target found on event");
     }
 
-    let others = this._otherCheckboxes(target);
+    const others = this._otherCheckboxes(target);
     if (target.checked) {
       others.forEach(checkbox => {
         checkbox.checked = false;
-        this.dispatchEvent(this.el, 'change');
+        this.dispatchEvent(this.el, "change");
       });
     }
   }

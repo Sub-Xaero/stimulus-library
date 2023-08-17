@@ -1,8 +1,8 @@
-describe('Timeout Controller', () => {
+describe("Timeout Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/timeout_controller.html');
+    cy.visit("controllers/timeout_controller.html");
   });
 
-  it('TODO');
+  it("TODO");
 
 });

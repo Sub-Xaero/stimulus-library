@@ -57,8 +57,8 @@ export class TweenNumberController extends BaseController {
   }
 
   get easingFunction(): EasingFunction {
-    let str = this.hasEasingValue ? this.easingValue : null;
-    let fallback = EasingFunctions.linear;
+    const str = this.hasEasingValue ? this.easingValue : null;
+    const fallback = EasingFunctions.linear;
     if (str == null) {
       return fallback;
     }
@@ -67,7 +67,7 @@ export class TweenNumberController extends BaseController {
   }
 
   connect() {
-    let {
+    const {
       observer,
       observe,
       unobserve,
@@ -85,12 +85,12 @@ export class TweenNumberController extends BaseController {
 
   appear(_entry: IntersectionObserverEntry) {
     this.tween();
-  };
+  }
 
   tween(): void {
     let startTimestamp: number | null = null;
 
-    let self = this;
+    const self = this;
     const step = (timestamp: number) => {
       if (!startTimestamp) {
         startTimestamp = timestamp;

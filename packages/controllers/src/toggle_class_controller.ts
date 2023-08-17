@@ -67,15 +67,15 @@ export class ToggleClassController extends BaseController {
   mouseEnter() {
     if (this.hasMouseEnterValue) {
       switch (this.mouseEnterValue) {
-        case "on":
-          this.on();
-          break;
-        case "off":
-          this.off();
-          break;
-        case "toggle":
-          this.toggle();
-          break;
+      case "on":
+        this.on();
+        break;
+      case "off":
+        this.off();
+        break;
+      case "toggle":
+        this.toggle();
+        break;
       }
     }
     return {};
@@ -84,35 +84,35 @@ export class ToggleClassController extends BaseController {
   mouseLeave() {
     if (this.hasMouseLeaveValue) {
       switch (this.mouseLeaveValue) {
-        case "on":
-          this.on();
-          break;
-        case "off":
-          this.off();
-          break;
-        case "toggle":
-          this.toggle();
-          break;
+      case "on":
+        this.on();
+        break;
+      case "off":
+        this.off();
+        break;
+      case "toggle":
+        this.toggle();
+        break;
       }
     }
     return {};
   }
 
-  on(event?: Event) {
+  on(_event?: Event) {
     this.toggleTargets.forEach((target) => {
       this._elementToggleStatus(target);
       this._elementOn(target);
     });
   }
 
-  off(event?: Event) {
+  off(_event?: Event) {
     this.toggleTargets.forEach((target) => {
       this._elementToggleStatus(target);
       this._elementOff(target);
     });
   }
 
-  toggle(event?: Event) {
+  toggle(_event?: Event) {
     this.toggleTargets.forEach((target) => {
       this._elementToggleStatus(target);
       this._elementToggle(target);
@@ -132,17 +132,17 @@ export class ToggleClassController extends BaseController {
   }
 
   private _elementToggle(el: HTMLElement) {
-    let classes = this.classValue.split(" ");
+    const classes = this.classValue.split(" ");
     classes.forEach((klass) => el.classList.toggle(klass));
   }
 
   private _elementOn(el: HTMLElement) {
-    let classes = this.classValue.split(" ");
+    const classes = this.classValue.split(" ");
     classes.forEach((klass) => el.classList.toggle(klass, true));
   }
 
   private _elementOff(el: HTMLElement) {
-    let classes = this.classValue.split(" ");
+    const classes = this.classValue.split(" ");
     classes.forEach((klass) => el.classList.toggle(klass, false));
   }
 

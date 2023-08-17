@@ -79,23 +79,23 @@ export function isTypeOfFormInputElement(element: Element): element is (HTMLInpu
 }
 
 export function createHiddenButton(type: "submit" | "reset"): HTMLButtonElement {
-  let button = document.createElement('button');
+  const button = document.createElement("button");
   button.type = type;
-  button.style.display = 'none';
-  button.dataset.sythentic = 'true';
+  button.style.display = "none";
+  button.dataset.sythentic = "true";
   return button;
 }
 
 export function createHiddenInput(name: string, value: string): HTMLInputElement {
-  let input = document.createElement('input');
-  input.type = 'hidden';
+  const input = document.createElement("input");
+  input.type = "hidden";
   input.name = name;
   input.value = value;
   return input;
 }
 
 export function insertElement<T extends Element>(targetElement: Element, insertPosition: InsertPosition, element: T): T {
-  let createdElement = targetElement.insertAdjacentElement(insertPosition, element);
+  const createdElement = targetElement.insertAdjacentElement(insertPosition, element);
   if (!createdElement) {
     throw new Error(`Failed to insert element ${element.nodeName} into ${targetElement.nodeName}`);
   }
@@ -111,7 +111,7 @@ export function insertHiddenButton(type: "submit" | "reset", targetElement: Elem
 }
 
 export function getAllRadiosInGroup(radio: HTMLInputElement): HTMLInputElement[] {
-  let parent = radio.form || document;
+  const parent = radio.form || document;
   return Array.from(parent.querySelectorAll(`input[type="radio"][name="${radio.name}"]`));
 }
 

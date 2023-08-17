@@ -37,13 +37,13 @@ export class SignalDomChildrenController extends BaseController {
     this.emitChildCount();
   }
 
-  mutate(entries: MutationRecord[]) {
+  mutate(_entries: MutationRecord[]) {
     this.emitChildCount();
   }
 
   emitChildCount() {
-    let childCount = this._children.length;
-    let value = childCount.toString();
+    const childCount = this._children.length;
+    const value = childCount.toString();
     this.dispatchEvent(this.el, signalValueEvent(this._name), {detail: {value}});
     EventBus.emit(signalValueEvent(this._name), {element: this.el, value} as SignalPayload);
   }

@@ -37,25 +37,25 @@ export class LoadBlockController extends BaseController {
   async loadContent(event: Event | null = null) {
     event?.preventDefault();
 
-    let self = this;
-    let el = this.hasReplaceTarget ? this.replaceTarget : this.el;
+    const self = this;
+    const el = this.hasReplaceTarget ? this.replaceTarget : this.el;
 
-    let failure = () => {
+    const failure = () => {
       el.replaceWith(this._errorMessage);
       self.dispatchEvent(el, this.eventName("error"));
     };
 
     try {
-      let response = await fetchRetry(this._maxRetries, this.endpointValue);
+      const response = await fetchRetry(this._maxRetries, this.endpointValue);
       if (!response.ok) {
         failure();
       }
-      let text = await response.text();
-      let newEl = document.createElement("div");
+      const text = await response.text();
+      const newEl = document.createElement("div");
 
       newEl.innerHTML = text;
       if (this.hasSelectorValue) {
-        let selectedContent = newEl.querySelectorAll(this.selectorValue);
+        const selectedContent = newEl.querySelectorAll(this.selectorValue);
         el.replaceWith(...selectedContent);
       } else {
         el.replaceWith(...newEl.children);

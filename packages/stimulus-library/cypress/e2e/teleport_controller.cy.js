@@ -1,8 +1,8 @@
-describe('Teleport Controller', () => {
+describe("Teleport Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/teleport_controller.html');
+    cy.visit("controllers/teleport_controller.html");
   });
 
-  it('TODO');
+  it("TODO");
 
 });

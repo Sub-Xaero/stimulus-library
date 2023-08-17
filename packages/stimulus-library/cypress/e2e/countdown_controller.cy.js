@@ -1,6 +1,6 @@
-describe('Countdown Controller', () => {
+describe("Countdown Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/countdown_controller.html');
+    cy.visit("controllers/countdown_controller.html");
   });
-  it('Should show a countdown to the specified time');
+  it("Should show a countdown to the specified time");
 });

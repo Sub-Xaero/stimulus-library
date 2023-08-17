@@ -1,7 +1,7 @@
 import { BaseController } from "@stimulus-library/utilities";
 
 export class NestedFormController extends BaseController {
-  static targets = ['target', 'template'];
+  static targets = ["target", "template"];
   static values = {
     insertMode: String,
     wrapperClass: String,
@@ -16,11 +16,11 @@ export class NestedFormController extends BaseController {
   declare readonly hasInsertModeValue: boolean;
 
   get _wrapperClass() {
-    return this.hasWrapperSelectorValue ? this.wrapperClassValue : 'nested-fields';
+    return this.hasWrapperSelectorValue ? this.wrapperClassValue : "nested-fields";
   }
 
   get _insertMode(): InsertPosition {
-    return this.hasInsertModeValue ? this.insertModeValue : 'beforeend';
+    return this.hasInsertModeValue ? this.insertModeValue : "beforeend";
   }
 
   connect() {
@@ -41,13 +41,13 @@ export class NestedFormController extends BaseController {
       throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class .${this._wrapperClass}`);
     }
 
-    if (wrapper.dataset.newRecord === 'true') {
+    if (wrapper.dataset.newRecord === "true") {
       wrapper.remove();
     } else {
-      wrapper.style.display = 'none';
-      let destroyInput = wrapper.querySelector("input[name*='_destroy']") as HTMLInputElement | null;
+      wrapper.style.display = "none";
+      const destroyInput = wrapper.querySelector("input[name*='_destroy']") as HTMLInputElement | null;
       if (destroyInput == null) {
-        throw new Error(`Could not find a hidden input with name '_destroy'. NestedForm cannot remove an already persisted record without it.`);
+        throw new Error("Could not find a hidden input with name '_destroy'. NestedForm cannot remove an already persisted record without it.");
       }
 
       destroyInput.value = "1";
@@ -59,9 +59,9 @@ export class NestedFormController extends BaseController {
   }
 
   private _checkStructure() {
-    let template = this.templateTarget.innerHTML;
+    const template = this.templateTarget.innerHTML;
 
-    if (template.indexOf('NEW_RECORD')) {
+    if (template.indexOf("NEW_RECORD")) {
       throw new Error("Could not find 'NEW_RECORD' in the provided template. Please make sure you've passed `child_index: 'NEW_RECORD'` to `fields_for`");
     }
   }

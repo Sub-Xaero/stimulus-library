@@ -1,9 +1,9 @@
 export function extractPredicates(expressionString: string): Array<(val: string | number) => boolean> {
   expressionString = expressionString.trim();
 
-  let andExpression = expressionString.includes("&&");
-  let orExpression = expressionString.includes("||");
-  let groupings = expressionString.includes("(") || expressionString.includes(")");
+  const andExpression = expressionString.includes("&&");
+  const orExpression = expressionString.includes("||");
+  const groupings = expressionString.includes("(") || expressionString.includes(")");
 
   if (andExpression && orExpression) {
     throw new Error("Cannot have both && and || in the same expression.");
@@ -13,7 +13,7 @@ export function extractPredicates(expressionString: string): Array<(val: string 
     throw new Error("Cannot have logical groupings `(>3 && <= 9) || (>1 && <2)` in the expression. Only supports simple expressions like  `>1 && <3`");
   }
 
-  let expressions = expressionString.split(andExpression ? "&&" : "||");
+  const expressions = expressionString.split(andExpression ? "&&" : "||");
   if (andExpression) {
     return expressions.map(ex => _predicateForExpression(ex));
   } else if (orExpression) {
@@ -25,13 +25,13 @@ export function extractPredicates(expressionString: string): Array<(val: string 
 
 
 function _predicateForExpression(expression: string): (val: string | number) => boolean {
-  let operators = [">=", "<=", "==", "!=", ">", "<"];
-  let operator = operators.find(part => expression.includes(part));
+  const operators = [">=", "<=", "==", "!=", ">", "<"];
+  const operator = operators.find(part => expression.includes(part));
   if (!operator) {
     throw new Error(`Could not find operator in expression: ${expression}`);
   }
   let expressionValue: string | number = expression.split(operator)[1].trim();
-  let isNumber = /^-?\d*(\.\d+)?$/.test(expressionValue);
+  const isNumber = /^-?\d*(\.\d+)?$/.test(expressionValue);
   if (isNumber) {
     expressionValue = parseFloat(expressionValue);
   }
@@ -40,22 +40,22 @@ function _predicateForExpression(expression: string): (val: string | number) => 
     throw new Error(`Could not find a value in expression: ${expression}`);
   }
 
-  let notEmpty = (signalValue: string | number) => signalValue !== "";
+  const notEmpty = (signalValue: string | number) => signalValue !== "";
 
   switch (operator) {
-    case ">":
-      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue > expressionValue;
-    case "<":
-      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue < expressionValue;
-    case ">=":
-      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue >= expressionValue;
-    case "<=":
-      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue <= expressionValue;
-    case "==":
-      return (signalValue: string | number) => notEmpty(signalValue) && signalValue == expressionValue;
-    case "!=":
-      return (signalValue: string | number) => notEmpty(signalValue) && signalValue != expressionValue;
-    default:
-      throw new Error(`Unknown operator ${operator}`);
+  case ">":
+    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue > expressionValue;
+  case "<":
+    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue < expressionValue;
+  case ">=":
+    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue >= expressionValue;
+  case "<=":
+    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue <= expressionValue;
+  case "==":
+    return (signalValue: string | number) => notEmpty(signalValue) && signalValue == expressionValue;
+  case "!=":
+    return (signalValue: string | number) => notEmpty(signalValue) && signalValue != expressionValue;
+  default:
+    throw new Error(`Unknown operator ${operator}`);
   }
 }

@@ -1,6 +1,6 @@
-describe('TreeViewController', () => {
+describe("TreeViewController", () => {
   beforeEach(() => {
-    cy.visit('controllers/tree_view_controller.html');
+    cy.visit("controllers/tree_view_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

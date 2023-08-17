@@ -11,9 +11,9 @@ const c5 = (2 * PI) / 4.5;
 
 export type EasingFunction = (progress: number) => number;
 
-interface EasingDictionary {
-  [easing: string]: EasingFunction;
-}
+// interface EasingDictionary {
+//   [easing: string]: EasingFunction;
+// }
 
 const bounceOut: EasingFunction = function (x: number): number {
   const n1 = 7.5625;

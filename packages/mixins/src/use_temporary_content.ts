@@ -18,7 +18,7 @@ export function useTemporaryContent(controller: Controller, target: HTMLElement,
   };
 
   let cleanupTimeout: () => void = () => void 0;
-  let originalText: string = getContent(target);
+  const originalText: string = getContent(target);
 
   const teardown = () => {
     setContent(target, originalText);

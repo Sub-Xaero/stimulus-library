@@ -13,22 +13,22 @@ export class RemoteFormController extends BaseController {
   }
 
   replace(event: { detail: [Element, any, XMLHttpRequest] }) {
-    const [data, status, xhr] = event.detail;
+    const [data, _status, _xhr] = event.detail;
     if (data instanceof Node) {
-      let newElement: HTMLElement | null = data.querySelector(this._selector);
+      const newElement: HTMLElement | null = data.querySelector(this._selector);
 
       if (newElement == null) {
         throw new Error(`expected new form DOM with [data-controller="${this.identifier}"] to be present in returned payload`);
       }
 
-      let parentNode = this.el.parentNode;
+      const parentNode = this.el.parentNode;
       if (parentNode == null) {
-        throw new Error('expected form to have a DOM parent, could not execute replaceChild');
+        throw new Error("expected form to have a DOM parent, could not execute replaceChild");
       }
       parentNode.replaceChild(newElement, this.el);
-      this.dispatchEvent(newElement, this.eventName('replace'));
+      this.dispatchEvent(newElement, this.eventName("replace"));
     } else {
-      console.log('Unknown', data);
+      console.log("Unknown", data);
     }
   }
 }

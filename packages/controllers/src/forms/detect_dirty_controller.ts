@@ -6,9 +6,9 @@ export class DetectDirtyController extends BaseController {
   _restore?: () => void;
 
   connect() {
-    let element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    const element = this.el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
-    let {restore} = useDirtyInputTracking(this, element);
+    const {restore} = useDirtyInputTracking(this, element);
     this._restore = restore;
   }
 

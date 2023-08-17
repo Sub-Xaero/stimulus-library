@@ -12,8 +12,8 @@ export class BaseController extends Controller {
     }
     return new Proxy(this, {
       get: (obj, prop) => {
-        let returnVal = Reflect.get(obj, prop);
-        let self = this;
+        const returnVal = Reflect.get(obj, prop);
+        const self = this;
         if ("logFormattedMessage" in this.application) {
           return returnVal;
         }
@@ -41,7 +41,7 @@ export class BaseController extends Controller {
   }
 
   get isTurboPreview(): boolean {
-    return document.documentElement.hasAttribute('data-turbo-preview') || document.documentElement.hasAttribute('data-turbolinks-preview');
+    return document.documentElement.hasAttribute("data-turbo-preview") || document.documentElement.hasAttribute("data-turbolinks-preview");
   }
 
   get isTurbolinksPreview(): boolean {
@@ -49,12 +49,12 @@ export class BaseController extends Controller {
   }
 
   get csrfToken(): string | null {
-    return this.metaValue('csrf-token');
+    return this.metaValue("csrf-token");
   }
 
   metaValue(name: string): string | null {
     const element = document.head.querySelector(`meta[name="${name}"]`);
-    return element?.getAttribute('content') || null;
+    return element?.getAttribute("content") || null;
   }
 
   eventName(eventName: string) {

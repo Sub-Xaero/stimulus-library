@@ -9,10 +9,10 @@ export class LazyBlockController extends LoadBlockController {
   declare disappear: () => void;
 
   async connect() {
-    let element = this.el;
+    const element = this.el;
 
     if ("IntersectionObserver" in window) {
-      let {observe, unobserve} = useIntersection(this, element, this.appear, null, {threshold: 0.3});
+      const {observe, unobserve} = useIntersection(this, element, this.appear, null, {threshold: 0.3});
       this.observe = observe;
       this.unobserve = unobserve;
     } else {

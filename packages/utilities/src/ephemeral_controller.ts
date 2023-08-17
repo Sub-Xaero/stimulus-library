@@ -15,7 +15,7 @@ export class EphemeralController extends BaseController {
       delete element.dataset.controller;
     }
 
-    let substringIdentifierValueRegex = new RegExp(`(\\s|^)${this.identifier}\\..+?(\\s|$)`, "g");
+    const substringIdentifierValueRegex = new RegExp(`(\\s|^)${this.identifier}\\..+?(\\s|$)`, "g");
     // @ts-ignore
     element.dataset.target = element.dataset.target?.replaceAll(substringIdentifierValueRegex, "") || "";
     delete element.dataset[camelCase(`${this.identifier}-target`)];
@@ -33,13 +33,13 @@ export class EphemeralController extends BaseController {
     }
 
     // @ts-ignore
-    let values = this.constructor.values;
+    const values = this.constructor.values;
     if (values) {
       Object.keys(values).forEach(val => delete element.dataset[camelCase(`${this.identifier}-${val}-value`)]);
     }
 
     // @ts-ignore
-    let classes = this.constructor.classes;
+    const classes = this.constructor.classes;
     if (classes) {
       Object.keys(classes).forEach(val => delete element.dataset[camelCase(`${this.identifier}-${val}-class`)]);
     }

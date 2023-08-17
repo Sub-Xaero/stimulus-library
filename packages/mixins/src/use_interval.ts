@@ -5,8 +5,8 @@ export function useInterval(controller: Controller, handler: (...args: any[]) =>
   handler = handler.bind(controller);
   let intervalHandle: ReturnType<typeof window.setInterval> | null = null;
 
-  let setup = () => intervalHandle = setInterval(handler, interval);
-  let teardown = () => {
+  const setup = () => intervalHandle = setInterval(handler, interval);
+  const teardown = () => {
     if (intervalHandle !== null) {
       clearInterval(intervalHandle);
     }

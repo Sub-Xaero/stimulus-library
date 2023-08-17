@@ -27,7 +27,7 @@ export class CheckboxEnableInputsController extends BaseController {
   }
 
   disable() {
-    let shouldClear = this.hasClearValue && this.clearValue;
+    const shouldClear = this.hasClearValue && this.clearValue;
     this.enableTargets.forEach((el, _) => {
       if (shouldClear) {
         el.value = "";

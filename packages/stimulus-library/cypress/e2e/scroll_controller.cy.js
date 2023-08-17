@@ -1,6 +1,6 @@
-describe('ScrollController', () => {
+describe("ScrollController", () => {
   beforeEach(() => {
-    cy.visit('controllers/scroll_controller.html');
+    cy.visit("controllers/scroll_controller.html");
   });
-  it('TODO');
+  it("TODO");
 });

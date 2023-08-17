@@ -16,8 +16,8 @@ export class TurboFrameRCController extends BaseController {
 
   toggle(event?: Event) {
     event?.preventDefault();
-    let frame = this._getFrame();
-    let frameSrc = frame.src;
+    const frame = this._getFrame();
+    const frameSrc = frame.src;
     if (frameSrc == null || frameSrc !== this._getSrc()) {
       this._setSrc();
     } else {
@@ -36,7 +36,7 @@ export class TurboFrameRCController extends BaseController {
   }
 
   private _setSrc() {
-    let frame = this._getFrame();
+    const frame = this._getFrame();
     if (this.hasLoadingMessageValue) {
       frame.innerHTML = this.loadingMessageValue;
     }
@@ -44,13 +44,13 @@ export class TurboFrameRCController extends BaseController {
   }
 
   private _clear() {
-    let frame = this._getFrame();
+    const frame = this._getFrame();
     frame.src = "";
     frame.innerHTML = "";
   }
 
   private _getFrame(): TurboFrame {
-    let frame = document.getElementById(`${this.frameIdValue}`);
+    const frame = document.getElementById(`${this.frameIdValue}`);
     if (frame == null) {
       throw new Error(`Could not find frame with ID '${this.frameIdValue}'`);
     }
@@ -62,7 +62,7 @@ export class TurboFrameRCController extends BaseController {
   }
 
   private _getSrc(): string {
-    let element = this.el;
+    const element = this.el;
     if (this.hasSrcValue) {
       return this.srcValue;
     } else if (isHTMLAnchorElement(element)) {

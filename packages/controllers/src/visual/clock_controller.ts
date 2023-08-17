@@ -34,7 +34,7 @@ export class ClockController extends BaseController {
   }
 
   _tick() {
-    let current = new Date();
+    const current = new Date();
 
     if (this.hasHoursTarget) {
       this.hoursTarget.innerHTML = current

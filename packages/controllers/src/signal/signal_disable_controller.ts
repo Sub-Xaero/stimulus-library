@@ -25,7 +25,7 @@ export class SignalDisableController extends SignalBaseController {
   }
 
   _onSignal(payload: SignalPayload) {
-    let value = payload.value;
+    const value = payload.value;
     if (this.whenValue == "default") {
       if (value == "") {
         this.disable();

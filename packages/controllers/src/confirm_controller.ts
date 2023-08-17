@@ -1,4 +1,4 @@
-import { BaseController, isHTMLAnchorElement, isHTMLFormElement } from '@stimulus-library/utilities';
+import { BaseController, isHTMLAnchorElement, isHTMLFormElement } from "@stimulus-library/utilities";
 import { useEventListener } from "@stimulus-library/mixins";
 
 export class ConfirmController extends BaseController {
@@ -11,7 +11,7 @@ export class ConfirmController extends BaseController {
   declare readonly hasMessageValue: boolean;
 
   get _message(): string {
-    return this.hasMessageValue ? this.messageValue : 'Are you sure?';
+    return this.hasMessageValue ? this.messageValue : "Are you sure?";
   }
 
   get _eventType(): "submit" | "click" {

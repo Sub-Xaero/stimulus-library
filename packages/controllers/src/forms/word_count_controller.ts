@@ -25,8 +25,8 @@ export class WordCountController extends BaseController {
 
   _updateWordCount() {
     let wordCount = 0;
-    let textAreaValue = this.inputTarget.value;
-    let matches = textAreaValue.match(/\S+/g);
+    const textAreaValue = this.inputTarget.value;
+    const matches = textAreaValue.match(/\S+/g);
     wordCount = (matches && matches.length) || 0;
     this.outputTarget.innerText = wordCount.toString();
     if (this._isValidCount(wordCount)) {

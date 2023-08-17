@@ -17,12 +17,12 @@ export class PasswordConfirmController extends BaseController {
   }
 
   private _allPasswordsMatch(): boolean {
-    let values = new Set(this.passwordTargets.map(el => el.value));  // Create a unique set of the password values
+    const values = new Set(this.passwordTargets.map(el => el.value));  // Create a unique set of the password values
     return values.has("") || values.size == 1; // If any of the passwords are still blank, or there is only one distinct password value (i.e. they all are the same)
   }
 
   private _checkPasswordsMatch() {
-    let element = this.el;
+    const element = this.el;
     if (this._allPasswordsMatch()) {
       this.dispatchEvent(element, this.eventName("match"));
       this.passwordTargets.forEach(el => this.removeErrorClasses(el));

@@ -1,8 +1,8 @@
-describe('Prefetch Controller', () => {
+describe("Prefetch Controller", () => {
   beforeEach(() => {
-    cy.visit('controllers/prefetch_controller.html');
+    cy.visit("controllers/prefetch_controller.html");
   });
 
-  it('TODO');
+  it("TODO");
 
 });

@@ -1,4 +1,4 @@
-import { camelCase, EphemeralController, get as _get, set as _set } from '@stimulus-library/utilities';
+import { camelCase, EphemeralController, get as _get, set as _set } from "@stimulus-library/utilities";
 import { useTimeout } from "@stimulus-library/mixins";
 
 export class TemporaryStateController extends EphemeralController {
@@ -60,9 +60,9 @@ export class TemporaryStateController extends EphemeralController {
 
 export function applyTemporaryState(element: HTMLElement, propertyString: string, value: any, seconds: number, controllerIdentifier = "temporary-state") {
   if (!element.dataset.controller || !element.dataset.controller?.includes(controllerIdentifier)) {
-    let controllerName = (element.dataset.controller || '' + ` ${controllerIdentifier} `).trim();
+    let controllerName = (element.dataset.controller || "" + ` ${controllerIdentifier} `).trim();
     // @ts-ignore
-    controllerName = controllerName.replaceAll('  ', ' ');
+    controllerName = controllerName.replaceAll("  ", " ");
     element.dataset.controller = controllerName;
   }
   // @ts-ignore
@@ -72,5 +72,5 @@ export function applyTemporaryState(element: HTMLElement, propertyString: string
 }
 
 export function applyTemporaryClass(element: HTMLElement, value: any, seconds: number) {
-  applyTemporaryState(element, 'className', value, seconds);
+  applyTemporaryState(element, "className", value, seconds);
 }

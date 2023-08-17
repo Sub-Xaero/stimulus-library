@@ -43,7 +43,7 @@ export class TreeViewController extends BaseController {
 
   _setupNode(el: HTMLElement) {
     const process = (e: HTMLElement) => {
-      let parent = e.parentElement;
+      const parent = e.parentElement;
       if (parent) {
         if (!this._nodeActive(parent)) {
           this._hideNode(parent);
@@ -52,7 +52,7 @@ export class TreeViewController extends BaseController {
         parent.addEventListener("click", this._nodeClicked);
       }
     };
-    if (el.tagName === 'UL' || el.tagName === 'OL') {
+    if (el.tagName === "UL" || el.tagName === "OL") {
       process(el);
     }
     el.querySelectorAll("ul, ol").forEach(e => process(e as HTMLElement));
@@ -63,7 +63,7 @@ export class TreeViewController extends BaseController {
   }
 
   _teardownNode(el: HTMLElement) {
-    [el, ...Array.from(el.querySelectorAll('ul, ol, li')) as HTMLElement[]].forEach((x) => {
+    [el, ...Array.from(el.querySelectorAll("ul, ol, li")) as HTMLElement[]].forEach((x) => {
       x.removeEventListener("click", this._nodeClicked);
       this.removeActiveClasses(x);
       this.removeCollapsedClasses(x);
@@ -75,7 +75,7 @@ export class TreeViewController extends BaseController {
       event.stopImmediatePropagation();
     }
 
-    let el = event.target as HTMLElement | null;
+    const el = event.target as HTMLElement | null;
 
     if (!el || !this._hasNested(el)) {
       return;

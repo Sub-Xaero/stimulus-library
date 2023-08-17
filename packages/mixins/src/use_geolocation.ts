@@ -36,7 +36,7 @@ export function useGeolocation(controller: Controller, options: GeolocationOptio
     timeout = 27000,
   } = options;
 
-  const isSupported = navigator && 'geolocation' in navigator;
+  const isSupported = navigator && "geolocation" in navigator;
 
   // Create a reactive object to store the geolocation data
   const values = reactive({
@@ -59,7 +59,7 @@ export function useGeolocation(controller: Controller, options: GeolocationOptio
     },
   } as GeolocationData);
 
-  let setup = () => {
+  const setup = () => {
     if (isSupported) {
       watcher = navigator.geolocation.watchPosition(
         (position: GeolocationPosition) => {

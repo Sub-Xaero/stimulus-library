@@ -8,10 +8,10 @@ export function useMutationObserver(
   options: MutationObserverInit,
 ) {
   handler = handler.bind(controller);
-  let observer: MutationObserver = new MutationObserver(handler);
+  const observer: MutationObserver = new MutationObserver(handler);
 
-  let setup = () => observer.observe(element, options);
-  let teardown = () => observer.disconnect();
+  const setup = () => observer.observe(element, options);
+  const teardown = () => observer.disconnect();
 
   useMixin(controller, setup, teardown);
   return teardown;

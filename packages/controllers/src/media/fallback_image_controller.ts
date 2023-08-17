@@ -20,7 +20,7 @@ export class FallbackImageController extends BaseController {
   }
 
   connect() {
-    let element = this.el as HTMLImageElement;
+    const element = this.el as HTMLImageElement;
 
     element.onerror = this._fail;
     if (element.complete && !this._hasLoadedSuccessfully()) {
@@ -40,7 +40,7 @@ export class FallbackImageController extends BaseController {
   }
 
   private _fail() {
-    let element = this.el as HTMLImageElement;
+    const element = this.el as HTMLImageElement;
     this.addFailClasses();
 
     if (this.hasPlaceholderValue && element.src !== this.placeholderValue) {
@@ -54,7 +54,7 @@ export class FallbackImageController extends BaseController {
   }
 
   private _hasLoadedSuccessfully(): boolean {
-    let element = this.el as HTMLImageElement;
+    const element = this.el as HTMLImageElement;
     return element.naturalHeight > 0 && element.naturalWidth > 0;
   }
 

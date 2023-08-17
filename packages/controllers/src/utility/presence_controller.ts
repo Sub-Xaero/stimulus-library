@@ -8,15 +8,15 @@ export class PresenceController extends BaseController {
   declare readonly hasNameValue: boolean;
 
   get name(): string {
-    return this.hasNameValue ? this.nameValue : ``;
+    return this.hasNameValue ? this.nameValue : "";
   }
 
   get _addedEventName(): string {
-    return [this.name, 'presence', 'added'].filter(el => !!el).join(':');
+    return [this.name, "presence", "added"].filter(el => !!el).join(":");
   }
 
   get _removedEventName(): string {
-    return [this.name, 'presence', 'removed'].filter(el => !!el).join(':');
+    return [this.name, "presence", "removed"].filter(el => !!el).join(":");
   }
 
   connect() {

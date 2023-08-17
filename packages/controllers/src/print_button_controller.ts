@@ -4,7 +4,7 @@ import { installClassMethods, useEventListener } from "@stimulus-library/mixins"
 export class PrintButtonController extends PrintController {
 
   static classes = [
-    'unsupported',
+    "unsupported",
   ];
   declare addUnsupportedClasses: (el?: HTMLElement) => void;
 
@@ -17,7 +17,7 @@ export class PrintButtonController extends PrintController {
     if (!("print" in window)) {
       this.addUnsupportedClasses();
     }
-    useEventListener(this, this.el, 'click', this.print);
+    useEventListener(this, this.el, "click", this.print);
   }
 
 }
