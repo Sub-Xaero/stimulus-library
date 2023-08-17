@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.7](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2023-08-17)
+
+**Note:** Version bump only for package @stimulus-library/mixins
+
+
+
+
+
 # [1.0.0-alpha.4](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2023-06-10)
 
 
