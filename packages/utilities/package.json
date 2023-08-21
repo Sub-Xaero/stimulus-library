@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.0.0",
-    "@stimulus-library/utilities": "^1.0.0-alpha.2",
+    "@stimulus-library/utilities": "^1.0.2",
     "mitt": "^3.0.0"
   },
   "devDependencies": {
