@@ -48,7 +48,7 @@
     "lerna": "^7.0.0",
     "mocha": "^10.2.0",
     "rimraf": "^5.0.1",
-    "sinon": "^15.1.0",
+    "sinon": "^16.0.0",
     "sinon-chai": "^3.7.0",
     "standard-version": "^9.5.0",
     "ts-node": "^10.9.1",
