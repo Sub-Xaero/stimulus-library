@@ -8,7 +8,7 @@ Parent association fields
 -->
 
 <h4> Tasks</h4>
-<div data-controller="nested-form">
+<div data-controller="nested-form" data-nested-form-wrapper-class-value="nested-fields">
   <script type="text/x-template" data-nested-form-target="template">
     <%= f.simple_fields_for :tasks, Task.new, child_index: 'NEW_RECORD' do |task| %>
       <%= render "task_fields", f: task %>
