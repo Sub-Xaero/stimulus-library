@@ -8,7 +8,7 @@
 -#-->
 
 %h4 Tasks
-%div{ data: { controller: "nested-form" } }
+%div{ data: { controller: "nested-form", nested_form_wrapper_class_value: "nested-fields" } }
   %script{ type: "text/x-template", data: { nested_form_target: "template" } }
     = f.simple_fields_for :tasks, Task.new, child_index: 'NEW_RECORD' do |task|
       = render "task_fields", f: task
