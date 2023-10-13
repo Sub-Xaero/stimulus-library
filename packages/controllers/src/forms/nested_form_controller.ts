@@ -11,12 +11,12 @@ export class NestedFormController extends BaseController {
   declare readonly templateTarget: HTMLTemplateElement | HTMLScriptElement;
 
   declare readonly wrapperClassValue: string;
-  declare readonly hasWrapperSelectorValue: boolean;
+  declare readonly hasWrapperClassValue: boolean;
   declare readonly insertModeValue: InsertPosition;
   declare readonly hasInsertModeValue: boolean;
 
   get _wrapperClass() {
-    return this.hasWrapperSelectorValue ? this.wrapperClassValue : "nested-fields";
+    return this.hasWrapperClassValue ? this.wrapperClassValue : "nested-fields";
   }
 
   get _insertMode(): InsertPosition {
