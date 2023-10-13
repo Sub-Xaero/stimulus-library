@@ -3,8 +3,8 @@ import { BaseController } from "@stimulus-library/utilities";
 export class NestedFormController extends BaseController {
   static targets = ["target", "template"];
   static values = {
-    insertMode: String,
-    wrapperClass: String,
+    insertMode: { type: String, default: "beforeend" },
+    wrapperClass: { type: String, default: "nested-fields" },
   };
 
   declare readonly targetTarget: HTMLElement;
@@ -15,14 +15,6 @@ export class NestedFormController extends BaseController {
   declare readonly insertModeValue: InsertPosition;
   declare readonly hasInsertModeValue: boolean;
 
-  get _wrapperClass() {
-    return this.hasWrapperClassValue ? this.wrapperClassValue : "nested-fields";
-  }
-
-  get _insertMode(): InsertPosition {
-    return this.hasInsertModeValue ? this.insertModeValue : "beforeend";
-  }
-
   connect() {
     this._checkStructure();
   }
@@ -31,14 +23,14 @@ export class NestedFormController extends BaseController {
     event?.preventDefault();
 
     const content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, this._generateID());
-    this.targetTarget.insertAdjacentHTML(this._insertMode, content);
+    this.targetTarget.insertAdjacentHTML(this.insertModeValue, content);
   }
 
   remove(event: Event) {
     event.preventDefault();
-    const wrapper: HTMLElement | null = (event.target as HTMLElement).closest(`.${this._wrapperClass}`);
+    const wrapper: HTMLElement | null = (event.target as HTMLElement).closest(`.${this.wrapperClassValue}`);
     if (wrapper == null) {
-      throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class .${this._wrapperClass}`);
+      throw new Error(`#remove was clicked from outside of a child record. Could not find an ancestor with class .${this.wrapperClassValue}`);
     }
 
     if (wrapper.dataset.newRecord === "true") {
