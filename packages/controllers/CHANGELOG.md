@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.3...v1.0.4) (2023-10-13)
+
+
+### Bug Fixes
+
+* NestedFormController _wrapperClass value ([fef66c2](https://github.com/Sub-Xaero/stimulus-library/commit/fef66c262584637c3c74ff95a29edc1409161542))
+* NestedFormController flipped error logic ([963de08](https://github.com/Sub-Xaero/stimulus-library/commit/963de08bc8b2c18ead8f9a7d7600f39559eafcec))
+
+
+
+
+
 ## [1.0.3](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.2...v1.0.3) (2023-09-22)
 
 **Note:** Version bump only for package @stimulus-library/controllers
