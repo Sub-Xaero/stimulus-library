@@ -18,7 +18,7 @@ jobs:
       - name: Comparing with base branch
         run: echo Linting changes since base branch \"$GITHUB_BASE_REF\"
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 16.14.0
           cache: 'npm'
