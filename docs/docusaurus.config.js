@@ -1,5 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+
+export default {
   title: "Stimulus Library",
   tagline: "An extensive library of stimulus controllers for all use cases",
   url: "https://sub-xaero.github.io",
@@ -11,6 +12,9 @@ module.exports = {
   organizationName: "Sub-Xaero", // Usually your GitHub org/user name.
   projectName: "stimulus-library", // Usually your repo name.
   themeConfig: {
+    prism: {
+      additionalLanguages: ["bash", "json"],
+    },
     navbar: {
       title: "Stimulus Library",
       // logo: {
@@ -57,7 +61,7 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: "./sidebars.js",
         },
         // blog: {
         //   showReadingTime: true,
@@ -66,7 +70,9 @@ module.exports = {
         //     'https://github.com/facebook/docusaurus/edit/master/website/blog/',
         // },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [
+            "./src/css/custom.css",
+          ],
         },
       },
     ],
