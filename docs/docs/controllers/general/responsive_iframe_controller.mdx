@@ -10,9 +10,7 @@ import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
 import NoEvents from "../../_partials/no-events.md";
 import ResponsiveIframeWrapperControllerHtml from "../../examples/responsive_iframe_wrapper_controller.mdx";
-import ResponsiveIframeWrapperControllerHaml from "../../examples/responsive_iframe_wrapper_controller.haml.mdx";
 import ResponsiveIframeBodyControllerHtml from "../../examples/responsive_iframe_body_controller.mdx";
-import ResponsiveIframeBodyControllerHaml from "../../examples/responsive_iframe_body_controller.haml.mdx";
 
 ## Purpose
 
@@ -64,20 +62,12 @@ On the parent iframe
 
 <ResponsiveIframeWrapperControllerHtml/>
 
-## HAML
-
-<ResponsiveIframeWrapperControllerHaml/>
-
 
 In the content page
 
 ## HTML
 
 <ResponsiveIframeBodyControllerHtml/>
-
-## HAML
-
-<ResponsiveIframeBodyControllerHaml/>
 
 
 The `responsive-body` controller then installs a resize observer that uses the message-passing ability of the browser to pass messages to the enclosing parent document. Every time the document inside the iframe gets resized, it will report the recalculated size to the parent scope.

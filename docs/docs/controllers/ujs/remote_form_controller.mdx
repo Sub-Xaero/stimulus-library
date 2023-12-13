@@ -6,8 +6,7 @@ title: RemoteFormController
 
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
-import RemoteFormControllerErb from "../../examples/remote_form_controller.erb.mdx";
-import RemoteFormControllerHaml from "../../examples/remote_form_controller.haml.mdx";
+import RemoteFormControllerHtml from "../../examples/remote_form_controller.mdx";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 
 ## Purpose
@@ -52,13 +51,5 @@ Annotate a Rails form with `data-remote: true` and add this controller. You can 
 
 When listening for `remote-form:replace`, it's worth noting that because the `<form>` element is replaced, any event listeners you attach to it will be lost. So make sure to either listen on `document` or an ancestor of the `<form>` element.
 
-## HTML/ERB
-
-
-<RemoteFormControllerErb/>
-
-## HAML
-
-
-<RemoteFormControllerHaml/>
-
+## HTML / ERB
+<RemoteFormControllerHtml/>

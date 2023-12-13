@@ -1,5 +1,6 @@
-```erb
+```html
 <%= simple_form_for model, method: :post, remote: true, data: { controller: 'remote-form', action: 'ajax:success->remote-form#replace ajax:error->remote-form#replace' } do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-<% end %>```
+<% end %>
+```
