@@ -34,19 +34,29 @@ export class SignalDisableController extends SignalBaseController {
       }
       return;
     }
-    if (this.allPredicatesMatch(value)) {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, "disable"), {
-        detail: {
-          predicate: this.whenValue, value,
+    if (this.predicatesMatch(value)) {
+      this.dispatchEvent(
+        this.el,
+        signalEventName(this.nameValue, "disable"),
+        {
+          detail: {
+            predicate: this.whenValue,
+            value,
+          },
         },
-      });
+      );
       this.disable();
     } else {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, "enable"), {
-        detail: {
-          predicate: this.whenValue, value,
+      this.dispatchEvent(
+        this.el,
+        signalEventName(this.nameValue, "enable"),
+        {
+          detail: {
+            predicate: this.whenValue,
+            value,
+          },
         },
-      });
+      );
       this.enable();
     }
   }

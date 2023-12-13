@@ -1,3 +1,8 @@
+export function extractExpressions(expressionString: string): Array<string> {
+  const andExpression = expressionString.includes("&&");
+  return expressionString.split(andExpression ? "&&" : "||");
+}
+
 export function extractPredicates(expressionString: string): Array<(val: string | number) => boolean> {
   expressionString = expressionString.trim();
 
@@ -13,7 +18,8 @@ export function extractPredicates(expressionString: string): Array<(val: string 
     throw new Error("Cannot have logical groupings `(>3 && <= 9) || (>1 && <2)` in the expression. Only supports simple expressions like  `>1 && <3`");
   }
 
-  const expressions = expressionString.split(andExpression ? "&&" : "||");
+  const expressions = extractExpressions(expressionString);
+
   if (andExpression) {
     return expressions.map(ex => _predicateForExpression(ex));
   } else if (orExpression) {

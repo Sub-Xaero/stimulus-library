@@ -34,7 +34,7 @@ export class SignalEnableController extends SignalBaseController {
       }
       return;
     }
-    if (this.allPredicatesMatch(value)) {
+    if (this.predicatesMatch(value)) {
       this.dispatchEvent(this.el, signalEventName(this.nameValue, "enable"), {
         detail: {
           predicate: this.whenValue,

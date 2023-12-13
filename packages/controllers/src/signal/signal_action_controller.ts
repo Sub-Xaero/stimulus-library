@@ -24,10 +24,28 @@ export class SignalActionController extends SignalBaseController {
       this.dispatchEvent(this.el, signalEventName(this.nameValue, "match"));
       return;
     }
-    if (this.allPredicatesMatch(value)) {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, "match"), {detail: {element: this.el, value}});
+    if (this.predicatesMatch(value)) {
+      this.dispatchEvent(
+        this.el,
+        signalEventName(this.nameValue, "match"),
+        {
+          detail: {
+            element: this.el,
+            value,
+          },
+        },
+      );
     } else {
-      this.dispatchEvent(this.el, signalEventName(this.nameValue, "no-match"), {detail: {element: this.el, value}});
+      this.dispatchEvent(
+        this.el,
+        signalEventName(this.nameValue, "no-match"),
+        {
+          detail: {
+            element: this.el,
+            value,
+          },
+        },
+      );
     }
   }
 
