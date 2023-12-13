@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.5...v1.0.6) (2023-12-13)
+
+
+### Bug Fixes
+
+* **SignalControllers:** Fix bug preventing OR expressions ever returning true ([10bffb2](https://github.com/Sub-Xaero/stimulus-library/commit/10bffb2daf858d3edea78458d638542f5b364f12))
+
+
+
+
+
 ## [1.0.5](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.4...v1.0.5) (2023-12-13)
 
 **Note:** Version bump only for package @stimulus-library/controllers
