@@ -29,6 +29,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
+    "clean": "rimraf dist",
     "prepack": "npm run build",
     "release": "standard-version",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --parallel -r ts-node/register 'test/**/*.test.ts' -R dot",
