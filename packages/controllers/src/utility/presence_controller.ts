@@ -2,7 +2,7 @@ import { BaseController } from "@stimulus-library/utilities";
 
 export class PresenceController extends BaseController {
 
-  static values = {name: String};
+  static values = { name: String };
 
   declare nameValue: string;
   declare readonly hasNameValue: boolean;

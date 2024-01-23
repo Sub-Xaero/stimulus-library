@@ -11,18 +11,18 @@ export function useInjectedFragment(controller: Controller, targetElement: HTMLE
     }
 
     switch (insertPosition) {
-    case "beforeend":
-      targetElement.append(fragment);
-      break;
-    case "afterbegin":
-      targetElement.prepend(fragment);
-      break;
-    case "beforebegin":
+      case "beforeend":
+        targetElement.append(fragment);
+        break;
+      case "afterbegin":
+        targetElement.prepend(fragment);
+        break;
+      case "beforebegin":
         parent!.insertBefore(fragment, targetElement);
-      break;
-    case "afterend":
+        break;
+      case "afterend":
         parent!.insertBefore(fragment, targetElement);
-      break;
+        break;
     }
   };
   const teardown = options.cleanup ? () => nodes.forEach(node => node.remove()) : () => void 0;

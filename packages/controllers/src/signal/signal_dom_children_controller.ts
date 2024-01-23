@@ -33,7 +33,7 @@ export class SignalDomChildrenController extends BaseController {
   connect() {
     useEventBus(this, signalConnectEvent(this._name), this.emitChildCount);
     EventBus.emit(signalConnectEvent(this._name));
-    useMutationObserver(this, this.el, this.mutate, {childList: true});
+    useMutationObserver(this, this.el, this.mutate, { childList: true });
     this.emitChildCount();
   }
 
@@ -44,8 +44,8 @@ export class SignalDomChildrenController extends BaseController {
   emitChildCount() {
     const childCount = this._children.length;
     const value = childCount.toString();
-    this.dispatchEvent(this.el, signalValueEvent(this._name), {detail: {value}});
-    EventBus.emit(signalValueEvent(this._name), {element: this.el, value} as SignalPayload);
+    this.dispatchEvent(this.el, signalValueEvent(this._name), { detail: { value } });
+    EventBus.emit(signalValueEvent(this._name), { element: this.el, value } as SignalPayload);
   }
 
 }

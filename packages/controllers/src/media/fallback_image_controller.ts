@@ -2,7 +2,7 @@ import { BaseController } from "@stimulus-library/utilities";
 
 export class FallbackImageController extends BaseController {
 
-  static values = {placeholder: String};
+  static values = { placeholder: String };
   static classes = ["success", "fail"];
 
   declare readonly placeholderValue: string;

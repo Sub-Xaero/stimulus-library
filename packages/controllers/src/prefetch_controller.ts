@@ -3,7 +3,7 @@ import { useEventListener } from "@stimulus-library/mixins";
 
 export class PrefetchController extends BaseController {
 
-  static values = {mode: String};
+  static values = { mode: String };
 
   declare readonly modeValue: "intersect" | "mouseover";
   declare readonly hasModeValue: boolean;
@@ -57,14 +57,14 @@ export class PrefetchController extends BaseController {
     }
 
     switch (this._mode) {
-    case "intersect":
-      this._setupObserver();
-      break;
-    case "mouseover":
-      useEventListener(this, this.el, "mouseover", this.prefetch, {once: true});
-      break;
-    default:
-      throw new Error(`'${this._mode}' is not a supported prefetch mode`);
+      case "intersect":
+        this._setupObserver();
+        break;
+      case "mouseover":
+        useEventListener(this, this.el, "mouseover", this.prefetch, { once: true });
+        break;
+      default:
+        throw new Error(`'${this._mode}' is not a supported prefetch mode`);
     }
   }
 
@@ -85,7 +85,7 @@ export class PrefetchController extends BaseController {
       return;
     }
     const link: HTMLLinkElement = document.createElement("link");
-    Object.assign(link, {rel: "prefetch", href: this._href, as: "document"});
+    Object.assign(link, { rel: "prefetch", href: this._href, as: "document" });
     document.head.appendChild(link);
   }
 

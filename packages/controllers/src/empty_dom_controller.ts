@@ -5,7 +5,7 @@ export class EmptyDomController extends BaseController {
 
   static targets = ["container"];
   static classes = ["empty", "notEmpty"];
-  static values = {scopeSelector: String};
+  static values = { scopeSelector: String };
 
   declare readonly hasContainerTarget: boolean;
   declare readonly containerTarget: HTMLElement;
@@ -33,7 +33,7 @@ export class EmptyDomController extends BaseController {
 
   connect() {
     installClassMethods(this);
-    useMutationObserver(this, this._container, this.mutate, {childList: true});
+    useMutationObserver(this, this._container, this.mutate, { childList: true });
     this.checkEmpty();
   }
 
@@ -51,7 +51,7 @@ export class EmptyDomController extends BaseController {
     } else {
       this.addNotEmptyClasses();
       this.removeEmptyClasses();
-      this.dispatchEvent(element as HTMLElement, this.eventName("not-empty"), {detail: {count: children.length}});
+      this.dispatchEvent(element as HTMLElement, this.eventName("not-empty"), { detail: { count: children.length } });
     }
   }
 

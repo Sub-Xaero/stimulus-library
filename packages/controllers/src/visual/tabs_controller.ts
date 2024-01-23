@@ -3,7 +3,7 @@ import { installClassMethods, useCollectionEventListener } from "@stimulus-libra
 
 export class TabsController extends BaseController {
 
-  static values = {currentTab: Number, equalize: Boolean};
+  static values = { currentTab: Number, equalize: Boolean };
   static targets = ["link", "content"];
   static classes = ["active", "hide"];
 

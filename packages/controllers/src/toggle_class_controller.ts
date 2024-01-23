@@ -67,15 +67,15 @@ export class ToggleClassController extends BaseController {
   mouseEnter() {
     if (this.hasMouseEnterValue) {
       switch (this.mouseEnterValue) {
-      case "on":
-        this.on();
-        break;
-      case "off":
-        this.off();
-        break;
-      case "toggle":
-        this.toggle();
-        break;
+        case "on":
+          this.on();
+          break;
+        case "off":
+          this.off();
+          break;
+        case "toggle":
+          this.toggle();
+          break;
       }
     }
     return {};
@@ -84,15 +84,15 @@ export class ToggleClassController extends BaseController {
   mouseLeave() {
     if (this.hasMouseLeaveValue) {
       switch (this.mouseLeaveValue) {
-      case "on":
-        this.on();
-        break;
-      case "off":
-        this.off();
-        break;
-      case "toggle":
-        this.toggle();
-        break;
+        case "on":
+          this.on();
+          break;
+        case "off":
+          this.off();
+          break;
+        case "toggle":
+          this.toggle();
+          break;
       }
     }
     return {};

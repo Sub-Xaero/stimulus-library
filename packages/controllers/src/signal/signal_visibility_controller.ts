@@ -47,9 +47,9 @@ export class SignalVisibilityController extends SignalBaseController {
         {
           detail: {
             predicate: this.showValue,
-            value
-          }
-        }
+            value,
+          },
+        },
       );
       this.removeHideClasses(this.el);
     } else {
@@ -59,9 +59,9 @@ export class SignalVisibilityController extends SignalBaseController {
         {
           detail: {
             predicate: this.showValue,
-            value
-          }
-        }
+            value,
+          },
+        },
       );
       this.addHideClasses(this.el);
     }

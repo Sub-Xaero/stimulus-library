@@ -94,8 +94,8 @@ export class TrixModifierController extends BaseController {
         self.el.addEventListener("trix-file-accept", preventUploads);
       },
       pasteEvent(event: TrixPasteEvent) {
-        const {dataTransfer, html} = event.paste;
-        const {editor} = element;
+        const { dataTransfer, html } = event.paste;
+        const { editor } = element;
         if (dataTransfer.files.length > 0 || html.includes("<img")) {
           alert("The content you pasted contains images and/or files. File uploads are not supported.");
           editor.undo();
@@ -126,20 +126,20 @@ export class TrixModifierController extends BaseController {
 
   simpleHideShowHandlers(selector: string) {
     return {
-      install: ({toolbar}: TrixElementsPayload) => this.hideToolbarSelector(toolbar, selector),
-      uninstall: ({toolbar}: TrixElementsPayload) => this.showToolbarSelector(toolbar, selector),
+      install: ({ toolbar }: TrixElementsPayload) => this.hideToolbarSelector(toolbar, selector),
+      uninstall: ({ toolbar }: TrixElementsPayload) => this.showToolbarSelector(toolbar, selector),
     };
   }
 
   formattingHandlers(selector: string, trixAttribute: string) {
     const element = this.el as HTMLElement & { editor: any };
-    const {editor} = element;
+    const { editor } = element;
     return {
       install: (elements: TrixElementsPayload) => {
         this.simpleHideShowHandlers(selector).install(elements);
       },
       pasteEvent(pasteEvent: TrixPasteEvent) {
-        const {range} = pasteEvent.paste;
+        const { range } = pasteEvent.paste;
         const prevRange = element.editor.getSelectedRange();
 
         editor.setSelectedRange(range);

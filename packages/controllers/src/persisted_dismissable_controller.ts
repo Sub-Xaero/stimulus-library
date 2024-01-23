@@ -13,7 +13,7 @@ export class PersistedDismissableController extends DismissableController {
   declare localStorage: ReturnType<typeof useLocalStorage>;
 
   connect() {
-    this.localStorage = useLocalStorage(this, this.keyValue, false, {writeDefaults: false});
+    this.localStorage = useLocalStorage(this, this.keyValue, false, { writeDefaults: false });
 
     if (this.localStorage.value == true) {
       this.dismiss();

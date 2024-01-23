@@ -29,7 +29,7 @@ export class TreeViewController extends BaseController {
 
   connect() {
     installClassMethods(this);
-    useMutationObserver(this, this.el, this.mutate, {subtree: true, childList: true});
+    useMutationObserver(this, this.el, this.mutate, { subtree: true, childList: true });
     this._setup();
   }
 

@@ -43,7 +43,7 @@ export function useIntersection(
       }
     });
   };
-  const {observer, observe, unobserve, teardown} = useIntersectionObserver(controller, processEntries, opts);
+  const { observer, observe, unobserve, teardown } = useIntersectionObserver(controller, processEntries, opts);
   const setup = () => observe(element);
   useMixin(controller, setup, teardown);
 

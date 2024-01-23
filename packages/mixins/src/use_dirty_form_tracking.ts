@@ -14,7 +14,7 @@ export function useDirtyInputTracking(controller: Controller, element: HTMLInput
       element,
       ["input", "change"],
       () => checkDirty(element),
-      {debounce: 10},
+      { debounce: 10 },
     );
   };
   const teardown = () => {

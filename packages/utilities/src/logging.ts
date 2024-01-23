@@ -2,19 +2,19 @@ import { Controller } from "@hotwired/stimulus";
 
 export function logProperty(prop: string): boolean {
   switch (prop) {
-  case "application":
-  case "el":
-  case "element":
-  case "constructor":
-  case "initialize":
-  case "log":
-  case "logEvent":
-  case "dispatch":
-  case "data":
-  case "valueDescriptorMap":
-  case "mutate":
-  case "identifier":
-    return false;
+    case "application":
+    case "el":
+    case "element":
+    case "constructor":
+    case "initialize":
+    case "log":
+    case "logEvent":
+    case "dispatch":
+    case "data":
+    case "valueDescriptorMap":
+    case "mutate":
+    case "identifier":
+      return false;
   }
 
   if (/^_.*?$/.test(prop)) {
@@ -78,8 +78,8 @@ export function logEvent(controller: Controller, eventName: string, event: Custo
   const logger = console;
   logger.groupCollapsed(
     ...colorizeMany([
-      {text: controller.identifier, color: "#3B82F6"},
-      {text: eventName, color: "#0be000"},
+      { text: controller.identifier, color: "#3B82F6" },
+      { text: eventName, color: "#0be000" },
     ]),
     event.detail,
   );
@@ -95,7 +95,7 @@ interface ColorMapping {
 }
 
 function colorize(text: string, color: string): string[] {
-  return colorizeMany([{text, color}]);
+  return colorizeMany([{ text, color }]);
 }
 
 function colorizeMany(texts: ColorMapping[]): string[] {

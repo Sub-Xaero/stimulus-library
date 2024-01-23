@@ -4,7 +4,7 @@ import { useCollectionEventListener } from "@stimulus-library/mixins";
 export class LimitedSelectionCheckboxesController extends BaseController {
 
   static targets = ["input", "error"];
-  static values = {max: Number, message: String};
+  static values = { max: Number, message: String };
 
   declare readonly hasErrorTarget: boolean;
   declare readonly errorTarget: HTMLElement;

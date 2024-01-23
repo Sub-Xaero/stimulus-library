@@ -3,7 +3,7 @@ import { useEventListener } from "@stimulus-library/mixins";
 
 export class ConfirmNavigationController extends BaseController {
 
-  static values = {message: String};
+  static values = { message: String };
 
   declare readonly messageValue: string;
   declare readonly hasMessageValue: boolean;

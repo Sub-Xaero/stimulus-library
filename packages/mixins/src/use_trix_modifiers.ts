@@ -45,7 +45,7 @@ export function useTrixModifiers(controller: TrixComposableController) {
     if (!observing && !toolbar) {
       // toolbar is not in the DOM yet, wait for it to arrive before running setup
       observing = true;
-      observer.observe(editorParent, {childList: true});
+      observer.observe(editorParent, { childList: true });
       return;
     } else if (!toolbar) {
       // Fallback, in case this runs twice, or mutation observer logic fails
@@ -55,7 +55,7 @@ export function useTrixModifiers(controller: TrixComposableController) {
       observer.disconnect();
     }
 
-    controllerMethod(controller, "install").call(controller, {toolbar, editor});
+    controllerMethod(controller, "install").call(controller, { toolbar, editor });
   };
 
   const teardown = () => {
@@ -73,7 +73,7 @@ export function useTrixModifiers(controller: TrixComposableController) {
     if (!toolbar) {
       throw new Error("Could not find <trix-toolbar> that is a sibling of this <trix-editor> element");
     }
-    controllerMethod(controller, "uninstall").call(controller, {toolbar, editor});
+    controllerMethod(controller, "uninstall").call(controller, { toolbar, editor });
   };
 
   attemptSetup();
@@ -82,7 +82,7 @@ export function useTrixModifiers(controller: TrixComposableController) {
     disconnect() {
       observer.disconnect();
       teardown();
-      controllerMethod(controller, "uninstall").call({toolbar, editor: controller.element});
+      controllerMethod(controller, "uninstall").call({ toolbar, editor: controller.element });
       controllerDisconnect();
     },
   });

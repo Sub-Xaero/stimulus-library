@@ -61,14 +61,14 @@ export class SyncInputsController extends BaseController {
   }
 
   _emit() {
-    EventBus.emit(this._eventName, {value: this._value, dispatcher: this.el} as SyncValuePayload);
+    EventBus.emit(this._eventName, { value: this._value, dispatcher: this.el } as SyncValuePayload);
   }
 
   _read(payload?: SyncValuePayload) {
     if (payload === undefined) {
       throw new Error("No payload received");
     }
-    const {dispatcher, value} = payload;
+    const { dispatcher, value } = payload;
     if (dispatcher !== this.el) {
       this._value = value;
     }

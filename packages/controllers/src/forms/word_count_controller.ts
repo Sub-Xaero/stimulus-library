@@ -4,7 +4,7 @@ import { installClassMethods, useEventListener } from "@stimulus-library/mixins"
 export class WordCountController extends BaseController {
 
   static targets = ["input", "output"];
-  static values = {min: Number, max: Number};
+  static values = { min: Number, max: Number };
   static classes = ["error"];
 
   declare readonly inputTarget: HTMLInputElement | HTMLTextAreaElement;

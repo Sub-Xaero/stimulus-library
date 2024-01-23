@@ -3,7 +3,7 @@ import { useEventListener, useTimeout } from "@stimulus-library/mixins";
 
 export class BackLinkController extends BaseController {
 
-  static values = {timeout: Number, pages: Number};
+  static values = { timeout: Number, pages: Number };
 
   declare readonly timeoutValue: number;
   declare readonly hasTimeoutValue: boolean;

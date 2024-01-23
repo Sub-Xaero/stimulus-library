@@ -2,7 +2,7 @@ import { BaseController } from "@stimulus-library/utilities";
 import { useDirtyFormTracking, useEventListener } from "@stimulus-library/mixins";
 
 export class FormDirtyConfirmNavigationController extends BaseController {
-  static values = {message: String};
+  static values = { message: String };
 
   declare readonly messageValue: string;
   declare readonly hasMessageValue: boolean;
@@ -27,9 +27,9 @@ export class FormDirtyConfirmNavigationController extends BaseController {
     }
     this._enabled = true;
     window.onbeforeunload = () => this._message;
-    const {teardown: submitTeardown} = useEventListener(this, window, ["submit", "turbo:submit-start"], this._disable);
-    const {teardown: popstateTeardown} = useEventListener(this, window, "popstate", this._confirmNavigation);
-    const {teardown: turbolinksTeardown} = useEventListener(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this._confirmTurboNavigation);
+    const { teardown: submitTeardown } = useEventListener(this, window, ["submit", "turbo:submit-start"], this._disable);
+    const { teardown: popstateTeardown } = useEventListener(this, window, "popstate", this._confirmNavigation);
+    const { teardown: turbolinksTeardown } = useEventListener(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this._confirmTurboNavigation);
     this._teardowns = [submitTeardown, popstateTeardown, turbolinksTeardown];
   }
 

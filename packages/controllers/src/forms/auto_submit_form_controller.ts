@@ -3,7 +3,7 @@ import { useEventListener } from "@stimulus-library/mixins";
 
 export class AutoSubmitFormController extends BaseController {
 
-  static values = {submitMode: String, eventMode: String, debounceInterval: Number};
+  static values = { submitMode: String, eventMode: String, debounceInterval: Number };
   declare readonly submitModeValue: "direct" | "request";
   declare readonly hasSubmitModeValue: boolean;
   declare eventModeValue: "change" | "input" | "debounced";
@@ -63,7 +63,7 @@ export class AutoSubmitFormController extends BaseController {
         el as HTMLElement,
         this._eventModes,
         this.submit,
-        {debounce: this._debounceTimeout && this._debounceTimeout > 0 ? this._debounceTimeout : undefined},
+        { debounce: this._debounceTimeout && this._debounceTimeout > 0 ? this._debounceTimeout : undefined },
       );
     });
   }

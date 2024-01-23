@@ -49,19 +49,19 @@ function _predicateForExpression(expression: string): (val: string | number) => 
   const notEmpty = (signalValue: string | number) => signalValue !== "";
 
   switch (operator) {
-  case ">":
-    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue > expressionValue;
-  case "<":
-    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue < expressionValue;
-  case ">=":
-    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue >= expressionValue;
-  case "<=":
-    return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue <= expressionValue;
-  case "==":
-    return (signalValue: string | number) => notEmpty(signalValue) && signalValue == expressionValue;
-  case "!=":
-    return (signalValue: string | number) => notEmpty(signalValue) && signalValue != expressionValue;
-  default:
-    throw new Error(`Unknown operator ${operator}`);
+    case ">":
+      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue > expressionValue;
+    case "<":
+      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue < expressionValue;
+    case ">=":
+      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue >= expressionValue;
+    case "<=":
+      return (signalValue: string | number) => isNumber && notEmpty(signalValue) && signalValue <= expressionValue;
+    case "==":
+      return (signalValue: string | number) => notEmpty(signalValue) && signalValue == expressionValue;
+    case "!=":
+      return (signalValue: string | number) => notEmpty(signalValue) && signalValue != expressionValue;
+    default:
+      throw new Error(`Unknown operator ${operator}`);
   }
 }

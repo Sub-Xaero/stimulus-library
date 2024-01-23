@@ -17,7 +17,7 @@ export class TimeDistanceController extends BaseController {
   declare _timestamp: Date;
 
   get _duration(): Duration {
-    return isPast(this._timestamp) ? intervalToDuration({start: this._timestamp, end: new Date()}) : intervalToDuration({start: new Date(), end: this._timestamp});
+    return isPast(this._timestamp) ? intervalToDuration({ start: this._timestamp, end: new Date() }) : intervalToDuration({ start: new Date(), end: this._timestamp });
   }
 
   get _nextUpdate(): number | null {

@@ -6,7 +6,7 @@ import { installClassMethods } from "@stimulus-library/mixins";
 
 export class CountdownController extends BaseController {
 
-  static values = {deadline: String, removeUnused: Boolean};
+  static values = { deadline: String, removeUnused: Boolean };
   static targets = ["years", "months", "days", "hours", "minutes", "seconds"];
   static classes = ["countingDown", "ended"];
 
@@ -74,7 +74,7 @@ export class CountdownController extends BaseController {
       let distance: Duration = {};
 
       if (isPast(this._deadlineDate)) {
-        distance = {years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0};
+        distance = { years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0 };
         // Countdown has ended, stop ticking
         this._clearTick();
         this.removeCountingDownClasses();
@@ -82,7 +82,7 @@ export class CountdownController extends BaseController {
         this.dispatchEvent(this.el, this.eventName("ended"));
         return;
       } else {
-        distance = intervalToDuration({start: this._deadlineDate, end: now});
+        distance = intervalToDuration({ start: this._deadlineDate, end: now });
         this._timeout = setTimeout(this._tick, 1000);
       }
 

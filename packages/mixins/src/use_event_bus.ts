@@ -17,5 +17,5 @@ export function useEventBus(controller: Controller, eventNameOrNames: string | s
   const teardown = () => eventNames.forEach(eventName => EventBus.off(eventName, handler));
 
   useMixin(controller, setup, teardown);
-  return {setup, teardown};
+  return { setup, teardown };
 }

@@ -6,7 +6,7 @@ export class DetectDirtyFormController extends BaseController {
   _restore?: () => void;
 
   connect() {
-    const {restore} = useDirtyFormTracking(this, this.el as HTMLFormElement);
+    const { restore } = useDirtyFormTracking(this, this.el as HTMLFormElement);
     this._restore = restore;
   }
 

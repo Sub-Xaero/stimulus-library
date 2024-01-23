@@ -42,7 +42,7 @@ export class SignalInputController extends BaseController {
   connect() {
     useEventBus(this, signalConnectEvent(this._name), () => this.emitValue());
     useEventBus(this, signalValueEvent(this._name), this._onSignal);
-    useEventListeners(this, this.el, ["input", "change"], this.emitValue, {debounce: this._debounceTimeout || undefined});
+    useEventListeners(this, this.el, ["input", "change"], this.emitValue, { debounce: this._debounceTimeout || undefined });
     requestAnimationFrame(() => this.emitValue());
   }
 
@@ -56,12 +56,12 @@ export class SignalInputController extends BaseController {
       value = selectedValue ? selectedValue : "";
     }
 
-    this.dispatchEvent(this.el, signalValueEvent(this._name), {detail: {value}});
-    EventBus.emit(signalValueEvent(this._name), {element: this.el, value} as SignalPayload);
+    this.dispatchEvent(this.el, signalValueEvent(this._name), { detail: { value } });
+    EventBus.emit(signalValueEvent(this._name), { element: this.el, value } as SignalPayload);
   }
 
   _onSignal(payload: SignalPayload) {
-    const {element, value} = payload;
+    const { element, value } = payload;
     if (element === this.el) {
       return;
     }

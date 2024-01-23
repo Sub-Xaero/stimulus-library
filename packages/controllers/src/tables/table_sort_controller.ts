@@ -3,7 +3,7 @@ import { useCollectionEventListener } from "@stimulus-library/mixins";
 
 export class TableSortController extends BaseController {
 
-  static values = {startSort: Number};
+  static values = { startSort: Number };
 
   declare readonly startSortValue: number;
   declare readonly hasStartSortValue: boolean;
@@ -99,7 +99,7 @@ export class TableSortController extends BaseController {
       const x = cells[index]?.dataset?.sortValue || cells[index]?.innerText || "";
       const y = otherCells[index]?.dataset?.sortValue || otherCells[index]?.innerText || "";
 
-      const sortVal = x.localeCompare(y, "en", {sensitivity: "base", numeric: true, caseFirst: "upper"});
+      const sortVal = x.localeCompare(y, "en", { sensitivity: "base", numeric: true, caseFirst: "upper" });
 
       if (row.dataset.sortTop || otherRow.dataset.sortBottom) {
         if (row.dataset.sortTop && otherRow.dataset.sortTop) {

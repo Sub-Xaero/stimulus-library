@@ -8,12 +8,12 @@ export function useHover(controller: Controller, element: HTMLElement, enter?: (
 
   if (enter) {
     enter = enter.bind(controller);
-    const {teardown: _teardownEnter} = useEventListener(controller, element, "mouseenter", enter);
+    const { teardown: _teardownEnter } = useEventListener(controller, element, "mouseenter", enter);
     teardownEnter = _teardownEnter;
   }
   if (leave) {
     leave = leave.bind(controller);
-    const {teardown: _teardownLeave} = useEventListener(controller, element, "mouseleave", leave);
+    const { teardown: _teardownLeave } = useEventListener(controller, element, "mouseleave", leave);
     teardownLeave = _teardownLeave;
   }
 

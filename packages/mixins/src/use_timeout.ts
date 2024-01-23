@@ -11,7 +11,7 @@ export function useTimeout(controller: Controller, handler: (...args: any[]) => 
   const newHandler = () => {
     handler();
     timeoutHandle = null;
-    Object.assign(controller, {disconnect: controllerDisconnect});
+    Object.assign(controller, { disconnect: controllerDisconnect });
   };
 
   const setup = () => timeoutHandle = setTimeout(newHandler, timeout);

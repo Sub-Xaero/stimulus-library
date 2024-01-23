@@ -73,10 +73,10 @@ export class NavigateFormErrorsController extends BaseController {
   connect() {
     installClassMethods(this);
     requestAnimationFrame(() => {
-      this._firstClick = true;
-      this._toggleButtons();
-      this._toggleVisibility();
-    },
+        this._firstClick = true;
+        this._toggleButtons();
+        this._toggleVisibility();
+      },
     );
   }
 
@@ -86,7 +86,7 @@ export class NavigateFormErrorsController extends BaseController {
       this._firstClick = false;
       this._toggleButtons();
     }
-    await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
+    await scrollToElement(this._currentError, { behavior: "smooth", block: "center", inline: "center" });
     this._updateClasses();
   }
 
@@ -98,7 +98,7 @@ export class NavigateFormErrorsController extends BaseController {
     } else {
       this.indexValue = this._nextIndex;
     }
-    await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
+    await scrollToElement(this._currentError, { behavior: "smooth", block: "center", inline: "center" });
     this._updateClasses();
   }
 
@@ -110,7 +110,7 @@ export class NavigateFormErrorsController extends BaseController {
     } else {
       this.indexValue = this._previousIndex;
     }
-    await scrollToElement(this._currentError, {behavior: "smooth", block: "center", inline: "center"});
+    await scrollToElement(this._currentError, { behavior: "smooth", block: "center", inline: "center" });
     this._updateClasses();
   }
 

@@ -4,7 +4,7 @@ import { useInjectedElement } from "@stimulus-library/mixins";
 export class StickyController extends BaseController {
 
   static classes = ["stuck"];
-  static values = {mode: String};
+  static values = { mode: String };
 
   declare addStuckClasses: (el?: HTMLElement) => void;
   declare removeStuckClasses: (el?: HTMLElement) => void;

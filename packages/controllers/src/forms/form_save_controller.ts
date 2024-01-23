@@ -45,7 +45,7 @@ export class FormSaveController extends BaseController {
   }
 
   get _formData(): FormSavePayload {
-    const data: FormSavePayload = {[this._formIdentifier]: {}};
+    const data: FormSavePayload = { [this._formIdentifier]: {} };
     for (const element of this._formElements) {
       const el = element as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
       if (el.name.length > 0) {

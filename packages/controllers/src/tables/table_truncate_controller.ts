@@ -47,7 +47,7 @@ export class TableTruncateController extends BaseController {
   }
 
   connect() {
-    useMutationObserver(this, this._tableBody, this.mutate, {childList: true});
+    useMutationObserver(this, this._tableBody, this.mutate, { childList: true });
 
     requestAnimationFrame(() => {
       this.truncate();

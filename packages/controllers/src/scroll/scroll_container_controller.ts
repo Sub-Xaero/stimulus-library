@@ -31,42 +31,42 @@ export class ScrollContainerController extends BaseController {
 
   async scrollTop(event?: Event) {
     event?.preventDefault();
-    await scrollAbsoluteTop(this.el, {behavior: this._behaviour});
+    await scrollAbsoluteTop(this.el, { behavior: this._behaviour });
   }
 
   async scrollBottom(event?: Event) {
     event?.preventDefault();
-    await scrollAbsoluteBottom(this.el, {behavior: this._behaviour});
+    await scrollAbsoluteBottom(this.el, { behavior: this._behaviour });
   }
 
   async scrollLeft(event?: Event) {
     event?.preventDefault();
-    await scrollAbsoluteLeft(this.el, {behavior: this._behaviour});
+    await scrollAbsoluteLeft(this.el, { behavior: this._behaviour });
   }
 
   async scrollRight(event?: Event) {
     event?.preventDefault();
-    await scrollAbsoluteLeft(this.el, {behavior: this._behaviour});
+    await scrollAbsoluteLeft(this.el, { behavior: this._behaviour });
   }
 
   async up(event?: Event) {
     event?.preventDefault();
-    await scrollUp(this.el, this._increment, {behavior: this._behaviour});
+    await scrollUp(this.el, this._increment, { behavior: this._behaviour });
   }
 
   async down(event?: Event) {
     event?.preventDefault();
-    await scrollDown(this.el, this._increment, {behavior: this._behaviour});
+    await scrollDown(this.el, this._increment, { behavior: this._behaviour });
   }
 
   async left(event?: Event) {
     event?.preventDefault();
-    await scrollLeft(this.el, this._increment, {behavior: this._behaviour});
+    await scrollLeft(this.el, this._increment, { behavior: this._behaviour });
   }
 
   async right(event?: Event) {
     event?.preventDefault();
-    await scrollRight(this.el, this._increment, {behavior: this._behaviour});
+    await scrollRight(this.el, this._increment, { behavior: this._behaviour });
   }
 }
 

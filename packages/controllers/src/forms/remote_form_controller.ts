@@ -3,7 +3,7 @@ import { BaseController } from "@stimulus-library/utilities";
 export class RemoteFormController extends BaseController {
   static targets = [];
 
-  static values = {selector: String};
+  static values = { selector: String };
 
   declare readonly hasSelectorValue: boolean;
   declare readonly selectorValue: string;

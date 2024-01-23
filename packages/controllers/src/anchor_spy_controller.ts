@@ -2,7 +2,7 @@ import { BaseController } from "@stimulus-library/utilities";
 import { installClassMethods, useEventListener } from "@stimulus-library/mixins";
 
 export class AnchorSpyController extends BaseController {
-  static values = {key: String};
+  static values = { key: String };
   static classes = ["active", "inactive"];
 
   declare readonly keyValue: string;

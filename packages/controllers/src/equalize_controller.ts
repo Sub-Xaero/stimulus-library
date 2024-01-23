@@ -15,7 +15,7 @@ export class EqualizeController extends BaseController {
   }
 
   connect() {
-    const {teardown} = useIntersection(this, this.el, this.appear);
+    const { teardown } = useIntersection(this, this.el, this.appear);
     this._unobserveIntersection = teardown;
 
     requestAnimationFrame(this._equalize);

@@ -8,7 +8,7 @@ export class FullscreenController extends BaseController {
   declare toggle: () => void;
 
   connect() {
-    const {enter, exit, toggle} = useFullscreen(this);
+    const { enter, exit, toggle } = useFullscreen(this);
     this.enter = enter;
     this.exit = exit;
     this.toggle = toggle;

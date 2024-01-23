@@ -5,7 +5,7 @@ export class CharCountController extends BaseController {
 
   // Config
   static targets = ["input", "output"];
-  static values = {min: Number, max: Number};
+  static values = { min: Number, max: Number };
   static classes = ["error"];
 
   // Targets

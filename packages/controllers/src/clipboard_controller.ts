@@ -3,7 +3,7 @@ import { BaseController } from "@stimulus-library/utilities";
 export class ClipboardController extends BaseController {
 
   static targets = ["source", "button", "copy", "fallback"];
-  static values = {removeUnused: Boolean};
+  static values = { removeUnused: Boolean };
 
   declare readonly sourceTarget: HTMLElement;
   declare readonly copyTarget: HTMLElement;

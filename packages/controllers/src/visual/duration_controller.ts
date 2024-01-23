@@ -39,7 +39,7 @@ export class DurationController extends BaseController {
   }
 
   get _output(): string {
-    let {years, months, weeks, days, hours, minutes, seconds} = this._duration;
+    let { years, months, weeks, days, hours, minutes, seconds } = this._duration;
 
     years ||= 0;
     months ||= 0;
@@ -56,7 +56,7 @@ export class DurationController extends BaseController {
       return `${(minutes / 60).toFixed(1)} hours`;
     }
 
-    return formatDuration(this._duration, {format: this._format, delimiter: ", "});
+    return formatDuration(this._duration, { format: this._format, delimiter: ", " });
   }
 
   get _seconds(): boolean {
@@ -76,7 +76,7 @@ export class DurationController extends BaseController {
   }
 
   get _duration(): Duration {
-    return intervalToDuration({start: new Date(), end: this._timestamp});
+    return intervalToDuration({ start: new Date(), end: this._timestamp });
   }
 
   get _tickInterval() {

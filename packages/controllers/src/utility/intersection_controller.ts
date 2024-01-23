@@ -3,7 +3,7 @@ import { useIntersection } from "@stimulus-library/mixins";
 
 export class IntersectionController extends BaseController {
 
-  static values = {threshold: String};
+  static values = { threshold: String };
 
   declare readonly isVisible: boolean;
   declare readonly thresholdValue: string;
@@ -18,7 +18,7 @@ export class IntersectionController extends BaseController {
   }
 
   connect() {
-    useIntersection(this, this.el, this.appear, this.disappear, {threshold: this._threshold});
+    useIntersection(this, this.el, this.appear, this.disappear, { threshold: this._threshold });
   }
 
   // eslint-disable-next-line  @typescript-eslint/no-unused-vars

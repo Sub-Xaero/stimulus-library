@@ -3,7 +3,7 @@ import { useTimeout } from "@stimulus-library/mixins";
 
 export class TimeoutController extends BaseController {
 
-  static values = {seconds: Number};
+  static values = { seconds: Number };
 
   declare readonly secondsValue: number;
 

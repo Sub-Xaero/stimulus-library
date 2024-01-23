@@ -9,7 +9,7 @@ export function useTextSelection(controller: Controller, handler: (selectedStrin
     handler(selection);
   };
 
-  const {teardown: unwatch} = useEventListener(controller, window.document, "selectionchange", onSelectionChange);
+  const { teardown: unwatch } = useEventListener(controller, window.document, "selectionchange", onSelectionChange);
 
   const teardown = () => {
     unwatch();

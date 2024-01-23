@@ -6,7 +6,7 @@ export class AutosizeController extends BaseController {
   declare _unobserveIntersection: () => void;
 
   connect() {
-    const {teardown} = useIntersection(this, this.el, this.appear);
+    const { teardown } = useIntersection(this, this.el, this.appear);
     this._unobserveIntersection = teardown;
     if (!isHTMLTextAreaElement(this.el)) {
       throw new Error(`Expected controller to be attached to a textarea, but was a '${this.el.tagName}'`);
@@ -18,7 +18,7 @@ export class AutosizeController extends BaseController {
 
       this._handler();
       useEventListener(this, window, ["resize"], this._handler);
-      useEventListener(this, this.el, ["input", "change", "focus"], this._handler, {debounce: 100});
+      useEventListener(this, this.el, ["input", "change", "focus"], this._handler, { debounce: 100 });
     });
   }
 
