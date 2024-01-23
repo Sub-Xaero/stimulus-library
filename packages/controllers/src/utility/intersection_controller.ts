@@ -21,12 +21,10 @@ export class IntersectionController extends BaseController {
     useIntersection(this, this.el, this.appear, this.disappear, { threshold: this._threshold });
   }
 
-  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   appear(entry: IntersectionObserverEntry) {
     dispatchEvent(this, this.el, this.eventName("appear"));
   }
 
-  // eslint-disable-next-line  @typescript-eslint/no-unused-vars
   disappear(entry: IntersectionObserverEntry) {
     dispatchEvent(this, this.el, this.eventName("disappear"));
   }

@@ -35,10 +35,7 @@
     "publish": "lerna publish --conventional-commits"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin-ts": "^1.5.4",
-    "@typescript-eslint/parser": "^6.19.1",
     "chokidar-cli": "^3.0.0",
-    "eslint": "^8.56.0",
     "lerna": "^8.0.0",
     "sinon": "^17.0.0"
   },
