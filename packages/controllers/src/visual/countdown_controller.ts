@@ -1,6 +1,6 @@
 import { type Duration } from "date-fns";
-import intervalToDuration from "date-fns/intervalToDuration";
-import isPast from "date-fns/isPast";
+import { intervalToDuration } from "date-fns/intervalToDuration";
+import { isPast } from "date-fns/isPast";
 import { BaseController } from "@stimulus-library/utilities";
 import { installClassMethods } from "@stimulus-library/mixins";
 

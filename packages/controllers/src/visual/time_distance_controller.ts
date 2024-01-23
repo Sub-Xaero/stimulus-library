@@ -1,8 +1,8 @@
 import { type Duration } from "date-fns";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import intervalToDuration from "date-fns/intervalToDuration";
-import isPast from "date-fns/isPast";
-import toDate from "date-fns/toDate";
+import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
+import { intervalToDuration } from "date-fns/intervalToDuration";
+import { isPast } from "date-fns/isPast";
+import { toDate } from "date-fns/toDate";
 import { BaseController } from "@stimulus-library/utilities";
 import { useTimeout } from "@stimulus-library/mixins";
 

@@ -1,7 +1,7 @@
 import { type Duration } from "date-fns";
-import formatDuration from "date-fns/formatDuration";
-import intervalToDuration from "date-fns/intervalToDuration";
-import toDate from "date-fns/toDate";
+import { formatDuration } from "date-fns/formatDuration";
+import { intervalToDuration } from "date-fns/intervalToDuration";
+import { toDate } from "date-fns/toDate";
 import { BaseController } from "@stimulus-library/utilities";
 import { useInterval } from "@stimulus-library/mixins";
 
@@ -20,16 +20,22 @@ export class DurationController extends BaseController {
   declare readonly hasTimestampValue: boolean;
   declare _clearInterval: () => void;
 
-  get _format(): string[] {
-    return [
+  get _format(): (keyof Duration)[] {
+    const keys: (keyof Duration)[] = [
       "years",
       "months",
       "weeks",
       "days",
       "hours",
-      ...(this._minutes ? ["minutes"] : []),
-      ...(this._seconds ? ["seconds"] : []),
     ];
+    if (this._minutes) {
+      keys.push("minutes");
+    }
+    if (this._seconds) {
+      keys.push("seconds");
+    }
+
+    return keys;
   }
 
   get _output(): string {
