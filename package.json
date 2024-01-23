@@ -26,6 +26,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "rm -rf packages/**/dist/** && lerna run build",
     "build:watch": "rm -rf packages/**/dist/** && chokidar chokidar --silent --initial 'packages/*/src/**/*.ts' -c 'npm run build'",
@@ -34,10 +35,10 @@
     "publish": "lerna publish --conventional-commits"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
+    "@stylistic/eslint-plugin-ts": "^1.5.4",
+    "@typescript-eslint/parser": "^6.19.1",
     "chokidar-cli": "^3.0.0",
-    "eslint": "^8.47.0",
+    "eslint": "^8.56.0",
     "lerna": "^8.0.0",
     "sinon": "^17.0.0"
   },
