@@ -9,7 +9,7 @@
     "ruby on rails",
     "ruby-on-rails"
   ],
-  "version": "1.0.7",
+  "version": "1.1.0",
   "license": "MIT",
   "author": {
     "name": "Sub-Xaero",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
-    "@stimulus-library/controllers": "^1.0.7",
+    "@stimulus-library/controllers": "^1.1.0",
     "@stimulus-library/mixins": "^1.0.7",
     "@stimulus-library/utilities": "^1.0.7"
   },

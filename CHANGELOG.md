@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.7...v1.1.0) (2024-03-15)
+
+
+### Features
+
+* **AutoSubmitFormController:** Allow AutoSubmitFormController to work with elements outside the form annotated with the `form` attribute ([#330](https://github.com/Sub-Xaero/stimulus-library/issues/330)) ([d37c0ca](https://github.com/Sub-Xaero/stimulus-library/commit/d37c0caeaa883528b11e4af9e70b3adcb10d7cfa)), closes [#329](https://github.com/Sub-Xaero/stimulus-library/issues/329)
+
+
+
+
+
 ## [1.0.7](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.6...v1.0.7) (2024-03-15)
 
 **Note:** Version bump only for package stimulus-library
