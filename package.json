@@ -28,7 +28,9 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
+    "clean": "rm -rf packages/**/dist/**",
     "build": "rm -rf packages/**/dist/** && lerna run build",
+    "build:no-cache": "rm -rf packages/**/dist/** && lerna run build --skip-nx-cache",
     "build:watch": "rm -rf packages/**/dist/** && chokidar chokidar --silent --initial 'packages/*/src/**/*.ts' -c 'npm run build'",
     "test": "lerna run test",
     "prepack": "npm run build",
