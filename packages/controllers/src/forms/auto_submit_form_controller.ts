@@ -44,15 +44,14 @@ export class AutoSubmitFormController extends BaseController {
     }
   }
 
-  get _cssSelector() {
-    const inputTypes = ["input", "textarea", "select"];
-    const ignore = ":not([data-no-autosubmit])";
-    return inputTypes.map(type => type.concat(ignore)).join(",");
-  }
-
   get inputElements() {
-    let subElements = Array.from(this.element.querySelectorAll(this._cssSelector));
-    subElements = subElements.filter(el => !this._ancestorIsTrix(el));
+    const el = this.el as HTMLFormElement;
+    let subElements = Array.from(el.elements);
+
+    subElements = subElements.filter(el => {
+      return !this._ancestorIsTrix(el) && (el as HTMLElement).dataset.noAutosubmit == undefined;
+    });
+
     return subElements;
   }
 
