@@ -2,24 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Auto Submit Form Controller</title>
   </head>
   <body>
     <div class="container text-center p-4">
-
-      <div class="d-flex m-4 justify-content-center align-items-center">
+      <div class="d-flex flex-column m-4 justify-content-center align-items-center gap-5">
         <form
           action=""
-          data-controller="auto-submit-form"
-          data-auto-submit-form-mode-value="direct"
+          class="d-flex flex-column align-items-center"
           data-auto-submit-form-debounce-value="2000"
           data-auto-submit-form-event-mode-value="change"
+          data-auto-submit-form-mode-value="direct"
+          data-controller="auto-submit-form"
+          id="quest_form"
         >
           <p>
-            The following form will submit as soon as the input loses focus after
-            editing.
+            The following form will submit as soon as the input loses focus after editing.
           </p>
           <label class="form-label">
             What is your quest?
@@ -27,16 +27,77 @@
           </label>
 
           <p>
-            This input has been annotated with <code>data-no-autosubmit</code> and will not submit
-            the form when it changed.
+            This input has been annotated with
+            <code>data-no-autosubmit</code>
+            and will not submit the form when it changed.
           </p>
           <label class="form-label">
-            What is your secret quest?
-            <textarea class="form-control" name="user[secret_quest]" data-no-autosubmit></textarea>
+            What is the capital of Assyria?
           </label>
+          <div class="d-flex align-items-start justify-content-start gap-4 text-start">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                data-no-autosubmit
+                id="assyria-ninevah"
+                name="user[capital_of_assyria]"
+                type="radio"
+                value="Nineveh"
+              />
+              <label class="form-check-label" for="assyria-ninevah">Nineveh</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                data-no-autosubmit
+                id="assyria-assur"
+                name="user[capital_of_assyria]"
+                type="radio"
+                value="Assur"
+              />
+              <label class="form-check-label" for="assyria-assur">Assur</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                data-no-autosubmit
+                id="assyria-babylon"
+                name="user[capital_of_assyria]"
+                type="radio"
+                value="Babylon"
+              />
+              <label class="form-check-label" for="assyria-babylon">Babylon</label>
+            </div>
+          </div>
         </form>
+
+        <div class="d-flex flex-column m-4 justify-content-center align-items-center gap-4">
+          <p>
+            It also works with form elements outside of the form that link with the form using the
+            <code>form="form_name"</code>
+            attribute.
+          </p>
+
+          <label class="form-label">
+            What is the airspeed velocity of an unladen swallow?
+            <input class="form-control" form="quest_form" name="user[unladen_swallow_velocity]" type="number"/>
+          </label>
+
+          <p>
+            Unless that input has also been annotated with
+            <code>data-no-autosubmit</code>
+          </p>
+
+          <label class="form-label">
+            Do coconuts migrate?
+            <input
+              class="form-control" data-no-autosubmit form="quest_form" name="user[coconuts_migrate]" type="text"
+            />
+          </label>
+        </div>
+
       </div>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script src="/main.js" type="module"></script>
   </body>
 </html>
