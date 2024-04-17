@@ -6,7 +6,11 @@ import { installClassMethods } from "@stimulus-library/mixins";
 
 export class CountdownController extends BaseController {
 
-  static values = { deadline: String, removeUnused: Boolean };
+  static values = {
+    deadline: String,
+    removeUnused: Boolean,
+    padZeros: Boolean,
+  };
   static targets = ["years", "months", "days", "hours", "minutes", "seconds"];
   static classes = ["countingDown", "ended"];
 
@@ -14,6 +18,8 @@ export class CountdownController extends BaseController {
   declare readonly deadlineValue: string;
   declare readonly removeUnusedValue: boolean;
   declare readonly hasRemoveUnusedValue: boolean;
+  declare readonly padZerosValue: boolean;
+  declare readonly hasPadZerosValue: boolean;
   // Targets
   declare readonly hasYearsTarget: boolean;
   declare readonly yearsTarget: HTMLElement;
@@ -40,6 +46,10 @@ export class CountdownController extends BaseController {
     return this.hasRemoveUnusedValue ? this.removeUnusedValue : false;
   }
 
+  get _padZeros(): boolean {
+    return this.hasPadZerosValue ? this.padZerosValue : true;
+  }
+
   get _deadlineDate() {
     return new Date(this.deadlineValue);
   }
@@ -50,7 +60,6 @@ export class CountdownController extends BaseController {
 
   connect() {
     this._timeout = setTimeout(this._tick, 1000);
-    console.log(this._timeout);
     installClassMethods(this);
     this.addCountingDownClasses();
   }
@@ -82,7 +91,7 @@ export class CountdownController extends BaseController {
         this.dispatchEvent(this.el, this.eventName("ended"));
         return;
       } else {
-        distance = intervalToDuration({ start: this._deadlineDate, end: now });
+        distance = intervalToDuration({ start: now, end: this._deadlineDate });
         this._timeout = setTimeout(this._tick, 1000);
       }
 
@@ -117,47 +126,70 @@ export class CountdownController extends BaseController {
     }
   }
 
-  _updateTarget(target: HTMLElement, value: number) {
+  _updateTarget(target: HTMLElement, value: string) {
     this._removeTargetIfUnused(target, value);
-    target.innerHTML = value.toString();
+    target.innerHTML = value;
   }
 
-  _removeTargetIfUnused(target: HTMLElement, value: number) {
+  _removeTargetIfUnused(target: HTMLElement, value: string) {
+    let intValue = Number.parseInt(value);
     if (this._removeUnused) {
-      if (value === 0 && target.dataset.unused) {
-        if (Number.parseInt(target.dataset.unused) > Date.now() + 1500) {
+      if (intValue === 0 && target.dataset.unused) {
+        let number = Number.parseInt(target.dataset.unused);
+        if (number < Date.now() - 1000) {
           target.remove();
         }
-      } else if (value == 0) {
+      } else if (intValue == 0) {
         target.dataset.unused = Date.now().toString();
       } else {
-        target.dataset.unused = undefined;
+        delete target.dataset.unused;
       }
     }
   }
 
-  _years(duration: Duration): number {
-    return duration.years || 0;
+  _years(duration: Duration): string {
+    let unit = duration.years || 0;
+    return (unit > 0 ? unit : 0).toString();
   }
 
-  _months(duration: Duration): number {
-    return duration.months || 0;
+  _months(duration: Duration): string {
+    let unit = duration.months || 0;
+    return (unit > 0 ? unit : 0).toString();
   }
 
-  _days(duration: Duration): number {
-    return duration.days || 0;
+  _days(duration: Duration): string {
+    let unit = duration.days || 0;
+    return (unit > 0 ? unit : 0).toString();
   }
 
-  _hours(duration: Duration): number {
-    return duration.hours || 0;
+  _hours(duration: Duration): string {
+    let unit = duration.hours || 0;
+    let str = (unit > 0 ? unit : 0).toString();
+    if (this._padZeros) {
+      return str.padStart(2, "0");
+    } else {
+      return str;
+    }
   }
 
-  _minutes(duration: Duration): number {
-    return duration.minutes || 0;
+  _minutes(duration: Duration): string {
+    let unit = duration.minutes || 0;
+    let str = (unit > 0 ? unit : 0).toString();
+    if (this._padZeros) {
+      return str.padStart(2, "0");
+    } else {
+      return str;
+    }
   }
 
-  _seconds(duration: Duration): number {
-    return duration.seconds || 0;
+  _seconds(duration: Duration): string {
+    let unit = duration.seconds || 0;
+    let str = (unit > 0 ? unit : 0).toString();
+    if (this._padZeros) {
+      return str.padStart(2, "0");
+    } else {
+      return str;
+    }
   }
 
 }

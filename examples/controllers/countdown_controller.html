@@ -10,12 +10,14 @@
     <div class="container p-4 text-center">
       <p>Countdown til next Christmas:</p>
       <div
+        class="d-flex justify-content-center"
         data-controller="countdown update-date interval"
         data-interval-seconds-value="10"
         data-action="countdown:ended->update-date#update"
         data-update-date-property-value="countdownDeadlineValue"
         data-countdown-deadline-value="1970/01/01 00:00:00"
         data-countdown-remove-unused-value="true"
+        data-countdown-pad-zeros-value="false"
       >
         <span data-countdown-target="years"></span>
         <span data-countdown-target="months"></span>
