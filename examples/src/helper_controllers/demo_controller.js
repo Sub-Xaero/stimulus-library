@@ -1,4 +1,4 @@
-import { BaseController } from "../../../packages/stimulus-library/src";
+import { BaseController } from "stimulus-library";
 
 export class DemoController extends BaseController {
   static targets = ["output"];
