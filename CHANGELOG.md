@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.1.0...v1.2.0) (2024-04-17)
+
+
+### Features
+
+* **CountdownController:** New configuration value `padZeros` to control whether hours, minutes and seconds are output as zero-padded or not. Also fixed `removeUnused` behaviour. ([#351](https://github.com/Sub-Xaero/stimulus-library/issues/351)) ([9a4ad0b](https://github.com/Sub-Xaero/stimulus-library/commit/9a4ad0bd7ce014a4bb9e827df125c9b52b03dbd2))
+
+
+
+
+
 # [1.1.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.0.7...v1.1.0) (2024-03-15)
 
 
