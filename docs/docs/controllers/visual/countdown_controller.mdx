@@ -37,10 +37,11 @@ A controller that displays a countdown clock to a specified date/time.
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value          | Type    | Description                                                                   | Default |
-|----------------|---------|-------------------------------------------------------------------------------|---------|
-| `deadline`     | Date    | The date/time to count down to                                                | -       |
-| `removeUnused` | Boolean | Whether to remove unused targets. i.e. if there are no years in the countdown | `false` |
+| Value          | Type    | Description                                                                                             | Default |
+|----------------|---------|---------------------------------------------------------------------------------------------------------|---------|
+| `deadline`     | Date    | The date/time to count down to                                                                          | -       |
+| `removeUnused` | Boolean | Whether to remove unused targets. i.e. if there are no years in the countdown                           | `false` |
+| `padZeros`     | Boolean | Whether to pad the countdown values for hours, minutes, and seconds with zeros i.e. "06" instead of "6" | `true`  |
 
 ## Events
 
