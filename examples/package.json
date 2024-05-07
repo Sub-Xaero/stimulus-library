@@ -17,7 +17,7 @@
     "bootstrap": "^5.2.3",
     "sass": "^1.58.0",
     "stimulus-library": "latest",
-    "trix": "^2.0.4",
+    "trix": "^2.1.1",
     "tiny-glob": "^0.2.9",
     "vite": "^5.0.13"
   }
