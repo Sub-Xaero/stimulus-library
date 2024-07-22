@@ -8,7 +8,10 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "monday"
+      time: "14:00"
+      timezone: "Europe/London"
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(CI): "
@@ -16,7 +19,10 @@ updates:
   - package-ecosystem: "npm"
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "monday"
+      time: "14:00"
+      timezone: "Europe/London"
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps): "
