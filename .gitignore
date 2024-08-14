@@ -1,5 +1,6 @@
 .idea
 /.nx/cache
+/.nx/workspace-data
 node_modules
 /dist
 .gitassembly
