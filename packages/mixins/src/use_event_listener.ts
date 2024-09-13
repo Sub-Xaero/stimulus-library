@@ -12,7 +12,7 @@ export function useEventListener(controller: Controller, element: Document | Win
 
   const eventNames = wrapArray(eventNameOrNames);
   const setup = () => eventNames.forEach(eventName => element.addEventListener(eventName, handler, opts));
-  const teardown = () => eventNames.forEach(eventName => element.removeEventListener(eventName, handler));
+  const teardown = () => eventNames.forEach(eventName => element.removeEventListener(eventName, handler, opts));
 
   useMixin(controller, setup, teardown);
   return { setup, teardown };
