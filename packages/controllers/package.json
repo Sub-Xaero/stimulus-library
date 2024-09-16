@@ -37,7 +37,7 @@
   "dependencies": {
     "@stimulus-library/mixins": "^1.2.2",
     "@stimulus-library/utilities": "^1.2.1",
-    "date-fns": "^3.0.0"
+    "date-fns": "^4.0.0"
   },
   "devDependencies": {
     "agadoo": "^3.0.0",
