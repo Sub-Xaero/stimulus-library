@@ -40,7 +40,7 @@
     "@stimulus-library/utilities": "^1.2.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.5",
+    "@types/chai": "^5.0.0",
     "@types/mocha": "^10.0.1",
     "@types/sinon": "^17.0.1",
     "@types/sinon-chai": "^3.2.9",
