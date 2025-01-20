@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "agadoo": "^3.0.0",
-    "cypress": "^13.1.0",
+    "cypress": "^14.0.0",
     "fast-glob": "^3.2.12",
     "lerna": "^8.0.0",
     "rimraf": "^6.0.1",
