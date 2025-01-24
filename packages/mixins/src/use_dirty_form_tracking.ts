@@ -82,14 +82,20 @@ export function useDirtyFormTracking(controller: Controller, form: HTMLFormEleme
 }
 
 function getElementValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
-  return isElementCheckable(element) ? element.checked : element.value;
+  if (isElementCheckable(element)) {
+    return element.checked;
+  } else if (isHTMLSelectElement(element) && element.multiple) {
+    return getMultiSelectValues(element);
+  } else {
+    return element.value;
+  }
 }
 
 function getElementLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
   const value = element.getAttribute(CACHE_ATTR_NAME);
   if (isElementCheckable(element)) {
     return value == null ? element.defaultChecked : value == "true";
-  } else if (isHTMLSelectElement(element)) {
+  } else if (isHTMLSelectElement(element) && value == null) {
     const options = Array.from(element.options);
     options.forEach((option) => {
       if (option.defaultSelected) {
@@ -157,7 +163,7 @@ function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectEleme
         }
       });
     } else {
-      element.value = cacheValue;
+      element.multiple ? restoreMultiSelect(element, cacheValue) : element.value = cacheValue;
     }
 
   } else {
@@ -165,12 +171,26 @@ function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectEleme
   }
 }
 
+function restoreMultiSelect(element, cacheValue) {
+  element.selectedOptions = Array.from(element.options).filter((option) =>
+    cacheValue.split(",").includes(option.value)
+  );
+}
+
 function cacheLoadValues(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): void {
   if (!elementHasCachedLoadValue(element) && isElementCheckable(element)) {
     element.setAttribute(CACHE_ATTR_NAME, element.checked.toString());
+  } else if (isHTMLSelectElement(element) && element.multiple) {
+    element.setAttribute(CACHE_ATTR_NAME, getMultiSelectValues(element));
   } else {
     element.setAttribute(CACHE_ATTR_NAME, element.value.toString());
   }
+}
+
+function getMultiSelectValues(element) {
+  return Array.from(element.selectedOptions)
+    .map((option) => option.value)
+    .join();
 }
 
 export function isDirty(element: HTMLElement) {
