@@ -1,4 +1,4 @@
-import { BaseController, isHTMLAnchorElement, isHTMLFormElement } from "@stimulus-library/utilities";
+import { BaseController, isHTMLAnchorElement, isHTMLButtonElement, isHTMLFormElement, isTypeOfButtonableElement } from "@stimulus-library/utilities";
 import { useEventListener } from "@stimulus-library/mixins";
 
 export class ConfirmController extends BaseController {
@@ -17,9 +17,12 @@ export class ConfirmController extends BaseController {
   get _eventType(): "submit" | "click" {
     if (isHTMLFormElement(this.el)) {
       return "submit";
+    } else if (isTypeOfButtonableElement(this.el)) {
+      return "click";
     } else if (isHTMLAnchorElement(this.el)) {
       return "click";
     } else {
+      console.log("Can't handle confirmation on attached element", this.el);
       throw new Error("Can't handle confirmation on attached element");
     }
   }
