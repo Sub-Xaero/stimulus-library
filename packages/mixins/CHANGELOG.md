@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.2.2...v1.3.0) (2025-04-02)
+
+
+### Features
+
+* **DirtyTracking:** Allow tracking of multi-selects ([d0bed9f](https://github.com/Sub-Xaero/stimulus-library/commit/d0bed9fefb09657cb97b83780fbe1d875ae2e62f))
+
+
+
+
+
 ## [1.2.2](https://github.com/Sub-Xaero/stimulus-library/compare/v1.2.1...v1.2.2) (2024-09-14)
 
 **Note:** Version bump only for package @stimulus-library/mixins

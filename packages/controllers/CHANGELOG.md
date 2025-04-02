@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.2.2...v1.3.0) (2025-04-02)
+
+
+### Bug Fixes
+
+* **ConfirmController:** All confirm on <button> elements ([b14a042](https://github.com/Sub-Xaero/stimulus-library/commit/b14a042eba57faef26ee1157bb2da579ab5c7900))
+
+
+
+
+
 ## [1.2.2](https://github.com/Sub-Xaero/stimulus-library/compare/v1.2.1...v1.2.2) (2024-09-14)
 
 **Note:** Version bump only for package @stimulus-library/controllers
