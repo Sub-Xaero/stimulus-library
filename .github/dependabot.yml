@@ -26,3 +26,27 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps): "
+    groups:
+      babel:
+        patterns:
+          - "babel*"
+          - "@babel/*"
+      chai:
+        patterns:
+          - "chai"
+          - "@types/chai"
+      mocha:
+        patterns:
+          - "mocha"
+          - "@types/mocha"
+      sinon:
+        patterns:
+          - "sinon"
+          - "@types/sinon"
+      typescript:
+        patterns:
+          - "typescript"
+      vite:
+        patterns:
+          - "vite"
+
