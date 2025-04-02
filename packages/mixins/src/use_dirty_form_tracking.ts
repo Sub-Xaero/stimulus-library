@@ -85,10 +85,21 @@ function getElementValue(element: HTMLInputElement | HTMLSelectElement | HTMLTex
   if (isElementCheckable(element)) {
     return element.checked;
   } else if (isHTMLSelectElement(element) && element.multiple) {
-    return getMultiSelectValues(element);
+    return JSON.stringify(getMultiSelectValues(element));
   } else {
     return element.value;
   }
+}
+
+function getMultiSelectLoadValues(element: HTMLSelectElement): string[] {
+  let options = Array.from(element.options);
+  options = options.filter(option => option.defaultSelected);
+  return options.map(option => option.value);
+}
+
+function getMultiSelectValues(element: HTMLSelectElement): string[] {
+  let options = Array.from(element.selectedOptions);
+  return options.map(option => option.value);
 }
 
 function getElementLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
@@ -97,6 +108,9 @@ function getElementLoadValue(element: HTMLInputElement | HTMLSelectElement | HTM
     return value == null ? element.defaultChecked : value == "true";
   } else if (isHTMLSelectElement(element) && value == null) {
     const options = Array.from(element.options);
+    if (element.multiple) {
+      return JSON.stringify(getMultiSelectLoadValues(element));
+    }
     options.forEach((option) => {
       if (option.defaultSelected) {
         return option.value;
@@ -158,22 +172,22 @@ function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectEleme
       const options = Array.from(element.options);
       options.forEach((option) => {
         if (option.defaultSelected) {
-          element.value = option.value;
-          return;
+          option.selected = true;
         }
       });
     } else {
       element.multiple ? restoreMultiSelect(element, cacheValue) : element.value = cacheValue;
     }
-
   } else {
     element.value = cacheValue == null ? element.defaultValue : cacheValue;
   }
+  checkDirty(element);
 }
 
-function restoreMultiSelect(element, cacheValue) {
-  element.selectedOptions = Array.from(element.options).filter((option) =>
-    cacheValue.split(",").includes(option.value)
+function restoreMultiSelect(element: HTMLSelectElement, cacheValue: string) {
+  let selectedOptions = JSON.parse(cacheValue);
+  Array.from(element.options).forEach((option) =>
+    option.selected = selectedOptions.includes(option.value),
   );
 }
 
@@ -181,16 +195,10 @@ function cacheLoadValues(element: HTMLInputElement | HTMLSelectElement | HTMLTex
   if (!elementHasCachedLoadValue(element) && isElementCheckable(element)) {
     element.setAttribute(CACHE_ATTR_NAME, element.checked.toString());
   } else if (isHTMLSelectElement(element) && element.multiple) {
-    element.setAttribute(CACHE_ATTR_NAME, getMultiSelectValues(element));
+    element.setAttribute(CACHE_ATTR_NAME, JSON.stringify(getMultiSelectLoadValues(element)));
   } else {
     element.setAttribute(CACHE_ATTR_NAME, element.value.toString());
   }
-}
-
-function getMultiSelectValues(element) {
-  return Array.from(element.selectedOptions)
-    .map((option) => option.value)
-    .join();
 }
 
 export function isDirty(element: HTMLElement) {
