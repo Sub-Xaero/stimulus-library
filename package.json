@@ -39,7 +39,7 @@
   "devDependencies": {
     "chokidar-cli": "^3.0.0",
     "lerna": "^8.0.0",
-    "sinon": "^19.0.2"
+    "sinon": "^20.0.0"
   },
   "workspaces": [
     "packages/*"
