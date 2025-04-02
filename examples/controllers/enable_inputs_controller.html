@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Enable Inputs Controller</title>
+  </head>
+  <body>
+    <div class="container p-4 text-center">
+      <div data-controller="enable-inputs">
+
+        <div class="row mb-5">
+          <div class="col">
+            <a class="btn btn-primary" data-action="click->enable-inputs#enable" href="#">
+              Enable Inputs
+            </a>
+          </div>
+          <div class="col">
+            <a class="btn btn-primary" data-action="click->enable-inputs#disable" href="#">
+              Disable Inputs
+            </a>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <label class="form-label">Text</label>
+          <input class="form-control" data-enable-inputs-target="input" type="text"/>
+        </div>
+
+        <div class="row mb-2">
+          <label class="form-label">Email</label>
+          <input class="form-control" data-enable-inputs-target="input" type="email"/>
+        </div>
+
+        <div class="row mb-2">
+          <label class="form-check-label">
+            Checkbox
+            <input class="form-check-input" data-enable-inputs-target="input" type="checkbox"/>
+          </label>
+        </div>
+
+        <br>
+        <div class="row mb-2">
+          <input
+            class="btn btn-primary"
+            data-enable-inputs-target="input"
+            type="submit"
+          />
+        </div>
+
+      </div>
+    </div>
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>
