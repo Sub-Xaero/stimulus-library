@@ -7,8 +7,10 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "module": "ES6",
-    "target": "ES2022",
+    "target": "ES2019",
+    "removeComments": true,
     "sourceMap": false,
+
     "outDir": "dist",
     "rootDir": "src",
     "baseUrl": "../..",
