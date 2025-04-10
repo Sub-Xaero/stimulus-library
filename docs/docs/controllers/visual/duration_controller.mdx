@@ -8,7 +8,7 @@ import NoEvents from "../../_partials/no-events.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoTargets from "../../_partials/no-targets.md";
-
+import { Sandpack } from '@codesandbox/sandpack-react';
 
 ## Purpose
 
@@ -47,10 +47,58 @@ All timeouts are cleaned up when the controller disconnects.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/duration_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <br/>
+  <h4>No minutes, no seconds</h4>
+  <hr/>
+  <p>
+    This timer has been running for
+    <span
+      id="no-mins-no-secs"
+      data-controller="duration"
+      data-duration-timestamp-value="1621556319"
+      data-duration-minutes-value="false"
+      data-duration-seconds-value="false"
+    ></span>
+  </p>
+  <br/>
+  <h4>No seconds</h4>
+  <hr/>
+  <p>
+    This timer has been running for
+    <span
+      id="no-secs"
+      data-controller="duration"
+      data-duration-timestamp-value="1621556319"
+      data-duration-minutes-value="true"
+      data-duration-seconds-value="false"
+    ></span>
+  </p>
+  <br/>
+  <h4>Minutes and seconds</h4>
+  <hr/>
+  <p>
+    This timer has been running for
+    <span
+      id="mins-and-secs"
+      data-controller="duration"
+      data-duration-timestamp-value="1621556319"
+      data-duration-minutes-value="true"
+      data-duration-seconds-value="true"
+    ></span>
+  </p>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />
 
 

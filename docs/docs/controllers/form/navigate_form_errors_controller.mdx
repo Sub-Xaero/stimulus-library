@@ -6,6 +6,7 @@ title: NavigateFormErrorsController
 
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -63,10 +64,73 @@ If you tell the controller about your `next`, `current` and/or `previous` target
 
 If the controller cannot find any errors using the provided selector, it will hide the controller root element using `display: none` so that the user is not shown buttons that do nothing.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/navigate_form_errors_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <div class="alert alert-danger sticky-flash-alerts">
+    There were errors on this form.
+    <div
+      data-controller="navigate-form-errors"
+      data-navigate-form-errors-selector-value="form .invalid-feedback"
+    >
+      <a
+        class="btn btn-secondary btn-sm"
+        data-navigate-form-errors-target="previous"
+        data-action="navigate-form-errors#previous">
+        Previous error
+      </a>
+      <a
+        class="btn btn-secondary btn-sm"
+        data-navigate-form-errors-target="current"
+        data-action="navigate-form-errors#current">
+        Current error
+      </a>
+      <a
+        class="btn btn-secondary btn-sm"
+        data-navigate-form-errors-target="next"
+        data-action="navigate-form-errors#next">
+        Next error
+      </a>
+    </div>
+  </div>
+
+  <form action="" class="was-validated">
+    <div class="my-5 py-4">
+      <label class="form-label">Lorem</label>
+      <input class="form-control" type="text" required/>
+      <div class="invalid-feedback">Something went wrong</div>
+    </div>
+    <div class="my-5 py-4">
+      <label class="form-label">Lorem</label>
+      <input class="form-control" type="text" required/>
+      <div class="invalid-feedback">Something went wrong</div>
+    </div>
+    <div class="my-5 py-4">
+      <label class="form-label">Lorem</label>
+      <input class="form-control" type="text" required/>
+      <div class="invalid-feedback">Something went wrong</div>
+    </div>
+    <div class="my-5 py-4">
+      <label class="form-label">Lorem</label>
+      <input class="form-control" type="text" required/>
+      <div class="invalid-feedback">Something went wrong</div>
+    </div>
+    <div class="my-5 py-4">
+      <label class="form-label">Lorem</label>
+      <input class="form-control" type="text" required/>
+      <div class="invalid-feedback">Something went wrong</div>
+    </div>
+  </form>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />
 
 

@@ -9,6 +9,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -39,10 +40,96 @@ Inspired by Vue's `v-model` and `v-bind`, you can use this controller to make pa
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/sync_inputs_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="mb-3">
+        <label class="form-label">Sync Group 1</label>
+        <input
+          class="form-control"
+          type="text"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="group1"
+        />
+        <input
+          class="form-control mt-2"
+          type="text"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="group1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Sync Group 2</label>
+        <input
+          class="form-control"
+          type="text"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="group2"
+        />
+        <input
+          class="form-control mt-2"
+          type="text"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="group2"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Different Input Types</label>
+        <input
+          class="form-control"
+          type="text"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="mixed"
+        />
+        <input
+          class="form-control mt-2"
+          type="email"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="mixed"
+        />
+        <textarea
+          class="form-control mt-2"
+          data-controller="sync-inputs"
+          data-sync-inputs-key-value="mixed"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { SyncInputsController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('sync-inputs', SyncInputsController);
+`,
+  }}
 />
+
+The controller syncs input values across multiple fields. In this example:
+
+1. Two groups of synced inputs with different keys
+2. A mixed group showing different input types (text, email, textarea)
+3. Bootstrap styling for consistent appearance
+
+## See Also
 
 

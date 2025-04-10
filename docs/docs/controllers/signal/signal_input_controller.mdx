@@ -7,6 +7,7 @@ title: SignalInputController
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoActions from "../../_partials/no-actions.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -49,10 +50,95 @@ Installs `change` and `input` event handlers on the element this controller is a
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/signal_input_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Synchronized Inputs</h5>
+          <div class="mb-3">
+            <label class="form-label">Input 1</label>
+            <input
+              type="text"
+              class="form-control"
+              data-controller="signal-input"
+              data-signal-input-name-value="sync"
+              data-signal-input-debounce-interval-value="500"
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Input 2 (synchronized)</label>
+            <input
+              type="text"
+              class="form-control"
+              data-controller="signal-input"
+              data-signal-input-name-value="sync"
+              data-signal-input-trigger-input-value="true"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Debounced Search</h5>
+          <div class="mb-3">
+            <label class="form-label">Search (updates after 1 second of inactivity)</label>
+            <input
+              type="text"
+              class="form-control"
+              data-controller="signal-input"
+              data-signal-input-name-value="search"
+              data-signal-input-debounce-interval-value="1000"
+            >
+          </div>
+          <div class="alert alert-info">
+            Search value: <span id="search-value">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { SignalInputController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('signal-input', SignalInputController);
+
+    // Listen for search value changes
+    document.addEventListener('signal:value:search', (event) => {
+      document.getElementById('search-value').textContent = event.detail.value || '-';
+    });
+`,
+  }}
 />
+
+The controller synchronizes input values and provides debounced input handling. In this example:
+
+1. Two different use cases:
+   - Two synchronized text inputs that update each other
+   - A debounced search input that updates a display after 1 second of inactivity
+2. Bootstrap styling for consistent appearance
+3. Event handling to demonstrate value changes
+
+## See Also
 
 

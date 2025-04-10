@@ -6,6 +6,7 @@ title: CharCountController
 
 import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 
 ## Purpose
@@ -47,8 +48,80 @@ The controller will add an event listener for `input` to the `input` target.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/char_count_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div
+        data-controller="char-count"
+        data-char-count-min-value="10"
+        data-char-count-max-value="100"
+        data-char-count-error-class="is-invalid"
+      >
+        <label class="form-label">
+          Enter text (10-100 characters)
+        </label>
+        <textarea
+          class="form-control"
+          data-char-count-target="input"
+        ></textarea>
+        <div class="form-text">
+          Characters: <span data-char-count-target="output">0</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div
+        data-controller="char-count"
+        data-char-count-min-value="5"
+        data-char-count-max-value="50"
+        data-char-count-error-class="is-invalid"
+      >
+        <label class="form-label">
+          Enter text (5-50 characters)
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          data-char-count-target="input"
+        />
+        <div class="form-text">
+          Characters: <span data-char-count-target="output">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { CharCountController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('char-count', CharCountController);
+`,
+  }}
 />
+
+The controller will count characters in text inputs and textareas, with optional min/max limits. In this example:
+
+1. Two different inputs show different configurations:
+   - Textarea with 10-100 character limits
+   - Text input with 5-50 character limits
+2. Both show the current character count and apply error styling when limits are exceeded
+
+## See Also

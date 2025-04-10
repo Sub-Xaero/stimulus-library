@@ -7,6 +7,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoClasses from "../../_partials/no-classes.md";
+import { Sandpack } from '@codesandbox/sandpack-react';
 
 ## Purpose
 
@@ -78,8 +79,153 @@ Stimulus controller to animate a number for visual effect, using a number of pos
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/tween_number_controller.html"
-  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <div class="mb-4">
+    <a class="btn btn-primary" data-action="refresh-page#refresh" data-controller="refresh-page" href="#">
+      Replay
+    </a>
+  </div>
+
+  <div class="accordion accordion-flush" id="tween-number-accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" data-bs-target="#formatted" data-bs-toggle="collapse">
+          With formatting
+        </button>
+      </h2>
+      <div class="accordion-collapse collapse" data-bs-parent="#tween-number-accordion" id="formatted">
+        <div class="accordion-body">
+          <h2
+            data-controller="tween-number"
+            data-tween-number-duration-value="3000"
+            data-tween-number-easing-value="easeOutCubic"
+            data-tween-number-end-value="1000000"
+            data-tween-number-formatting-value='{ "style":"currency", "currency": "USD", "currencyDisplay": "name"  }'
+            data-tween-number-start-value="0"
+          >
+          </h2>
+
+          <h2
+            data-controller="tween-number"
+            data-tween-number-duration-value="3000"
+            data-tween-number-easing-value="easeOutCubic"
+            data-tween-number-end-value="1000000"
+            data-tween-number-formatting-value='{ "style":"currency", "currency": "JPY", "currencyDisplay": "narrowSymbol"  }'
+            data-tween-number-start-value="0"
+          >
+          </h2>
+
+          <h2
+            data-controller="tween-number"
+            data-tween-number-duration-value="3000"
+            data-tween-number-easing-value="easeOutCubic"
+            data-tween-number-end-value="1000000"
+            data-tween-number-formatting-value='{ "style":"unit", "unit": "mile-per-hour"  }'
+            data-tween-number-start-value="0"
+          >
+          </h2>
+
+          <h2
+            data-controller="tween-number"
+            data-tween-number-duration-value="10000"
+            data-tween-number-easing-value="easeOutCubic"
+            data-tween-number-end-value="10000"
+            data-tween-number-formatting-value='{ "notation":"compact", "compactDisplay": "short" }'
+            data-tween-number-start-value="0"
+          >
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" data-bs-target="#easing" data-bs-toggle="collapse">
+          Easing functions
+        </button>
+      </h2>
+      <div class="accordion-collapse collapse" data-bs-parent="#tween-number-accordion" id="easing">
+        <div class="accordion-body">
+          <div class="d-flex flex-column gap-4">
+            <div class="card">
+              <div class="card-body text-black">
+                <p>Linear</p>
+                <h2
+                  data-controller="tween-number"
+                  data-tween-number-duration-value="3000"
+                  data-tween-number-end-value="10"
+                  data-tween-number-start-value="0"
+                >
+                </h2>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body text-black">
+                <p>easeOutCubic</p>
+                <h2
+                  data-controller="tween-number"
+                  data-tween-number-duration-value="3000"
+                  data-tween-number-easing-value="easeOutCubic"
+                  data-tween-number-end-value="10"
+                  data-tween-number-start-value="0"
+                >
+                </h2>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body text-black">
+                <p>easeOutSine</p>
+                <h2
+                  data-controller="tween-number"
+                  data-tween-number-duration-value="3000"
+                  data-tween-number-easing-value="easeOutSine"
+                  data-tween-number-end-value="10"
+                  data-tween-number-start-value="0"
+                >
+                </h2>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body text-black">
+                <p>easeOutElastic</p>
+                <h2
+                  data-controller="tween-number"
+                  data-tween-number-duration-value="3000"
+                  data-tween-number-easing-value="easeOutElastic"
+                  data-tween-number-end-value="10"
+                  data-tween-number-start-value="0"
+                >
+                </h2>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body text-black">
+                <p>easeInCirc</p>
+                <h2
+                  data-controller="tween-number"
+                  data-tween-number-duration-value="5000"
+                  data-tween-number-easing-value="easeInCirc"
+                  data-tween-number-end-value="10000000"
+                  data-tween-number-start-value="0"
+                >
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />

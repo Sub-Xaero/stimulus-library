@@ -3,11 +3,11 @@ id: DetectDirtyController
 title: DetectDirtyController
 ---
 
-
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
 import NoEvents from "../../_partials/no-events.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -44,9 +44,58 @@ Adds `input` and `change` event listeners to the attached input.
 
 
 ## How to Use
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container my-4">
+  <div>
+    <label class="form-label">Text</label>
+    <input
+      class="form-control"
+      type="text"
+      data-controller="detect-dirty"
+    />
+  </div>
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/detect_dirty_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  <div>
+    <label class="form-label">Number</label>
+    <input
+      class="form-control"
+      type="number"
+      data-controller="detect-dirty"
+    />
+  </div>
+
+  <div>
+    <label class="form-check-label">Checkbox</label>
+    <br/>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      data-controller="detect-dirty"
+    />
+  </div>
+
+  <div>
+    <div class="form-check">
+      <label class="form-check-label">Radio</label>
+      <input
+        class="form-check-input"
+        type="radio"
+        data-controller="detect-dirty"
+        name="test-radio"
+        value="1"
+        checked
+      />
+    </div>
+  </div>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />

@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -51,8 +52,98 @@ Drop the controller onto the form element you want to augment with auto-submit b
 Annotate any inputs who changes that you _dont_ want triggering a submit, with `data-no-autosubmit`, and the controller will ignore them.
 All other `<input>`s, `<textarea>`s and `<selects>`s will trigger a form submission.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/auto_submit_form_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container text-center p-4">
+  <div class="d-flex flex-column m-4 justify-content-center align-items-center gap-5">
+    <form
+      action=""
+      class="d-flex flex-column align-items-center"
+      data-auto-submit-form-debounce-value="2000"
+      data-auto-submit-form-event-mode-value="change"
+      data-auto-submit-form-mode-value="direct"
+      data-controller="auto-submit-form"
+      id="quest_form"
+    >
+      <p>
+        The following form will submit as soon as the input loses focus after editing.
+      </p>
+      <label class="form-label">
+        What is your quest?
+        <textarea class="form-control" name="user[quest]"></textarea>
+      </label>
+
+      <p>
+        This input has been annotated with
+        <code>data-no-autosubmit</code>
+        and will not submit the form when it changed.
+      </p>
+      <label class="form-label">
+        What is the capital of Assyria?
+      </label>
+      <div class="d-flex align-items-start justify-content-start gap-4 text-start">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            data-no-autosubmit
+            id="assyria-ninevah"
+            name="user[capital_of_assyria]"
+            type="radio"
+            value="Nineveh"
+          />
+          <label class="form-check-label" for="assyria-ninevah">Nineveh</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            data-no-autosubmit
+            id="assyria-assur"
+            name="user[capital_of_assyria]"
+            type="radio"
+            value="Assur"
+          />
+          <label class="form-check-label" for="assyria-assur">Assur</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            data-no-autosubmit
+            id="assyria-babylon"
+            name="user[capital_of_assyria]"
+            type="radio"
+            value="Babylon"
+          />
+          <label class="form-check-label" for="assyria-babylon">Babylon</label>
+        </div>
+      </div>
+    </form>
+
+    <div class="d-flex flex-column m-4 justify-content-center align-items-center gap-4">
+      <p>
+        It also works with form elements outside of the form that link with the form using the
+        <code>form="form_name"</code>
+        attribute.
+      </p>
+
+      <label class="form-label">
+        What is the airspeed velocity of an unladen swallow?
+        <input class="form-control" form="quest_form" name="user[unladen_swallow_velocity]" type="number"/>
+      </label>
+
+      <p>
+        Unless that input has also been annotated with
+        <code>data-no-autosubmit</code>
+      </p>
+    </div>
+  </div>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />

@@ -8,6 +8,7 @@ import NoValues from "../../_partials/no-values.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
+import { Sandpack } from '@codesandbox/sandpack-react';
 
 ## Purpose
 
@@ -50,10 +51,82 @@ Specify the targets that you require to display the clock as you would like it.
 
 See the `styles.css` in the sandbox/demo for how to control the presentation of the clock.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/clock_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <p>The current time is:</p>
+  <div data-controller="clock" class="clock">
+    <div class="clock-face">
+      <span data-clock-target="hours"></span>
+    </div>
+    <div class="clock-face">
+      <span data-clock-target="minutes"></span>
+    </div>
+    <div class="clock-face">
+      <span data-clock-target="seconds"></span>
+    </div>
+    <div class="clock-face">
+      <span data-clock-target="milliseconds"></span>
+    </div>
+  </div>
+</div>`,
+    "/styles.css": `.clock {
+  border: 1px solid #9a9a9a;
+  border-radius: 0.2em;
+  display: inline-block;
+  background: black;
+  padding: 0.5em;
+}
+
+[data-clock-target] {
+  font-family: Orbitron, sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  width: 1.5em;
+  display: inline-block;
+}
+
+[data-clock-target="milliseconds"] {
+  width: 3.5em;
+}
+
+.clock-face {
+  display: inline-block;
+}
+
+.clock-face + .clock-face::before {
+  content: ":";
+  color: yellowgreen;
+  font-family: Orbitron, sans-serif;
+  font-weight: bold;
+  animation: blink-animation 1s steps(5, start) infinite;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />
 
 

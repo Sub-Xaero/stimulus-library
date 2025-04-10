@@ -6,6 +6,7 @@ title: ValueWarnController
 
 import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -48,9 +49,92 @@ The controller will add an event listener for `input` to the `input` target.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/value_warn_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div
+        data-controller="value-warn"
+        data-value-warn-min-value="0"
+        data-value-warn-max-value="100"
+        data-value-warn-min-message-value="Value must be at least 0"
+        data-value-warn-max-message-value="Value must not exceed 100"
+        data-value-warn-input-warning-class="is-invalid"
+        data-value-warn-warning-hide-class="d-none"
+      >
+        <div class="mb-3">
+          <label class="form-label">Number Input (0-100)</label>
+          <input
+            class="form-control"
+            type="number"
+            data-value-warn-target="input"
+          />
+          <div class="invalid-feedback" data-value-warn-target="warning"></div>
+        </div>
+      </div>
+
+      <div
+        data-controller="value-warn"
+        data-value-warn-min-value="-50"
+        data-value-warn-max-value="50"
+        data-value-warn-min-message-value="Value must be at least -50"
+        data-value-warn-max-message-value="Value must not exceed 50"
+        data-value-warn-input-warning-class="is-invalid"
+        data-value-warn-warning-hide-class="d-none"
+      >
+        <div class="mb-3">
+          <label class="form-label">Number Input (-50 to 50)</label>
+          <input
+            class="form-control"
+            type="number"
+            data-value-warn-target="input"
+          />
+          <div class="invalid-feedback" data-value-warn-target="warning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { ValueWarnController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('value-warn', ValueWarnController);
+`,
+  }}
 />
+
+The controller shows warnings when numeric input values exceed specified bounds. In this example:
+
+1. Two number inputs with different ranges:
+   - 0 to 100
+   - -50 to 50
+2. Custom warning messages for min/max values
+3. Bootstrap styling with invalid state feedback
+
+## See Also
+
+The controller shows warnings when numeric input values exceed specified bounds. In this example:
+
+1. Two number inputs with different ranges:
+   - 0 to 100
+   - -50 to 50
+2. Custom warning messages for min/max values
+3. Bootstrap styling with invalid state feedback
 

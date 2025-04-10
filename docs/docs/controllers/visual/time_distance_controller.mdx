@@ -8,7 +8,7 @@ import NoEvents from "../../_partials/no-events.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoTargets from "../../_partials/no-targets.md";
-
+import { Sandpack } from '@codesandbox/sandpack-react';
 
 ## Purpose
 
@@ -53,10 +53,40 @@ All timeouts are cleaned up when the controller disconnects.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/time_distance_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">
+        Breaking: Your favourite sports team kicked a ball
+      </h5>
+      <p class="card-text">
+        This deserves praise and much celebration.
+      </p>
+      <a href="#" class="btn btn-primary">Read more</a>
+    </div>
+    <div class="card-footer text-muted">
+      Posted
+      <span
+        data-controller="time-distance"
+        data-time-distance-timestamp-value="1619382778"
+      >2 days ago</span>
+    </div>
+  </div>
+</div>`,
+    "/styles.css": `.card {
+  color: black;
+}`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />
 
 

@@ -3,18 +3,17 @@ id: RemoteFormController
 title: RemoteFormController
 ---
 
-
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import RemoteFormControllerHtml from "../../examples/remote_form_controller.mdx";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
 A Stimulus controller to deal with Rails UJS remote forms and their submission responses.
 
 Acts like [LoadBlockController](../ajax/LoadBlockController) in that it will receive an HTML partial in response to a UJS remote-form submission that it can hot-swap into the DOM, but using UJS as a vehicle instead of a GET fetch request.
-
 
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 

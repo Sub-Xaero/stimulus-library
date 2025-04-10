@@ -7,6 +7,7 @@ title: LimitedSelectionCheckboxesController
 import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -46,9 +47,88 @@ To only allow a user to select a limited number of checkboxes
 
 ## How to Use
 
-
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/limited_selection_checkboxes_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <div
+    data-controller="limited-selection-checkboxes"
+    data-limited-selection-checkboxes-max-value="3"
+    data-limited-selection-checkboxes-message-value="Please select a maximum of 3 flavours"
+  >
+    <p>Pick 3 of your favourite ice cream flavours</p>
+    <label class="form-check-label">
+      Chocolate
+      <input
+        name="favourite_flavours[]"
+        value="Chocolate"
+        class="form-check-input"
+        data-limited-selection-checkboxes-target="input"
+        type="checkbox"
+      />
+    </label>
+    <label class="form-check-label">
+      Vanilla
+      <input
+        name="favourite_flavours[]"
+        value="Vanilla"
+        class="form-check-input"
+        data-limited-selection-checkboxes-target="input"
+        type="checkbox"
+      />
+    </label>
+    <label class="form-check-label">
+      Strawberry
+      <input
+        name="favourite_flavours[]"
+        value="Strawberry"
+        class="form-check-input"
+        data-limited-selection-checkboxes-target="input"
+        type="checkbox"
+      />
+    </label>
+    <label class="form-check-label">
+      Coffee
+      <input
+        name="favourite_flavours[]"
+        value="Coffee"
+        class="form-check-input"
+        data-limited-selection-checkboxes-target="input"
+        type="checkbox"
+      />
+    </label>
+    <label class="form-check-label">
+      Mint
+      <input
+        name="favourite_flavours[]"
+        value="Mint"
+        class="form-check-input"
+        data-limited-selection-checkboxes-target="input"
+        type="checkbox"
+      />
+    </label>
+    <label class="form-check-label">
+      Rum and Raisin
+      <input
+        name="favourite_flavours[]"
+        value="Rum and Raisin"
+        class="form-check-input"
+        data-limited-selection-checkboxes-target="input"
+        type="checkbox"
+      />
+    </label>
+    <div
+      class="input error"
+      data-limited-selection-checkboxes-target="error"
+    ></div>
+  </div>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />

@@ -9,6 +9,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import Expressions from "../../_partials/expressions.md";
 import NoClasses from "../../_partials/no-classes.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -57,17 +58,121 @@ the same `nameValue` as the `nameValue` of this controller.
 
 ## How to Use
 
-```html
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">FizzBuzz Game</h5>
+          <div class="mb-3">
+            <label class="form-label">Enter a number</label>
+            <input
+              type="number"
+              class="form-control"
+              data-controller="signal-input"
+              data-signal-input-name-value="number"
+            >
+          </div>
+          <div
+            data-controller="signal-action fizzbuzz"
+            data-signal-action-name-value="number"
+            data-signal-action-when-value="=3 || =5"
+            data-action="signal:match:number->fizzbuzz#play"
+          >
+            <div class="alert alert-info" id="result">
+              Enter a number to play FizzBuzz
+            </div>
+          </div>
+        </div>
+      </div>
 
-<input type="number" name="foo" data-controller="signal-input">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Text Validation</h5>
+          <div class="mb-3">
+            <label class="form-label">Enter text (minimum 5 characters)</label>
+            <input
+              type="text"
+              class="form-control"
+              data-controller="signal-input"
+              data-signal-input-name-value="text"
+            >
+          </div>
+          <div
+            data-controller="signal-action validator"
+            data-signal-action-name-value="text"
+            data-signal-action-when-value=">=5"
+            data-action="signal:match:text->validator#validate"
+          >
+            <div class="alert alert-info" id="text-result">
+              Enter at least 5 characters
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { SignalInputController, SignalActionController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('signal-input', SignalInputController);
+    app.register('signal-action', SignalActionController);
 
-<div
-  data-controller="signal-action bar"
-  data-signal-action-name-value="foo"
-  data-signal-action-when-value="=3 || =5"
-  data-action="signal:match:foo->bar#fizzBuzz"
->
-  <!-- bar controller's `fizzBuzz` action is called when the value of input[name="foo"] is 3 or 5 -->
-</div>
+    // FizzBuzz controller
+    class FizzBuzzController {
+      play(event) {
+        const value = event.detail.value;
+        const result = document.getElementById('result');
+        if (value === 3) {
+          result.textContent = 'Fizz!';
+          result.className = 'alert alert-success';
+        } else if (value === 5) {
+          result.textContent = 'Buzz!';
+          result.className = 'alert alert-success';
+        }
+      }
+    }
 
-```
+    // Validator controller
+    class ValidatorController {
+      validate(event) {
+        const result = document.getElementById('text-result');
+        result.textContent = 'Text is valid!';
+        result.className = 'alert alert-success';
+      }
+    }
+
+    app.register('fizzbuzz', FizzBuzzController);
+    app.register('validator', ValidatorController);
+`,
+  }}
+/>
+
+The controller triggers actions based on input values. In this example:
+
+1. Two different use cases:
+   - A FizzBuzz game that shows "Fizz" for 3 and "Buzz" for 5
+   - A text validator that shows success when text is at least 5 characters
+2. Bootstrap styling for consistent appearance
+3. Custom controllers to handle the triggered actions
+
+## See Also

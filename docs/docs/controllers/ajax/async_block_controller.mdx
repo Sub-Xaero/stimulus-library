@@ -7,6 +7,7 @@ title: AsyncBlockController
 import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -47,12 +48,44 @@ AJAX load heavy content after the initial page load, while showing a placeholder
 
 
 
-## How to Use
+## Sandbox
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/async_block_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="d-flex m-4 justify-content-center align-items-center">
+  <div
+    data-controller="async-block"
+    data-async-block-endpoint-value="/fixtures/remote_content.html"
+    data-async-block-target="replace"
+    data-async-block-selector-value="#output"
+  >
+    <i class="fas fa-spinner fa-spin mr-10"></i>
+    Loading, please wait ...
+  </div>
+</div>
+`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { AsyncBlockController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('async-block', AsyncBlockController);
+`,
+  }}
 />
 
 

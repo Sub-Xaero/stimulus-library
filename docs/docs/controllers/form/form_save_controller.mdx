@@ -6,6 +6,7 @@ title: FormSaveController
 
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -53,11 +54,89 @@ If  the `clearOnSubmit` value is set to `true`, a `submit` event listener will b
 
 ## How to Use
 
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <form id="test-form" data-controller="form-save">
+    <div>
+      <label class="form-label">
+        Name
+        <input class="form-control" type="text" name="name"/>
+      </label>
+    </div>
+    <div>
+      <label class="form-label">
+        Age
+        <input class="form-control" type="number" name="age"/>
+      </label>
+    </div>
+    <div>
+      <label class="form-label">
+        Quest
+        <textarea class="form-control" name="quest"></textarea>
+      </label>
+    </div>
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/form_save_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    <div>
+      <label class="form-check-label">
+        Do you like cake?
+        <input class="form-check-input" type="checkbox" name="gorilla"/>
+      </label>
+    </div>
+    <br/>
+    <div>
+      <p>Favourite Ice Cream</p>
+      <br/>
+      <label class="form-check-label">
+        Mint
+        <input
+          class="form-check-input"
+          type="radio"
+          name="ice_cream"
+          value="Mint"
+        />
+      </label>
+      <label class="form-check-label">
+        Chocolate
+        <input
+          class="form-check-input"
+          type="radio"
+          name="ice_cream"
+          value="Chocolate"
+        />
+      </label>
+      <label class="form-check-label">
+        Vanilla
+        <input
+          class="form-check-input"
+          type="radio"
+          name="ice_cream"
+          value="Vanilla"
+        />
+      </label>
+    </div>
+    <hr/>
+
+    <div>
+      <a class="btn btn-primary" data-action="form-save#restore">Restore saved progress</a>
+      <a class="btn btn-success" data-action="form-save#save">Save your progress</a>
+    </div>
+    <hr/>
+    <div>
+      <button class="btn btn-secondary" type="reset">Reset</button>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />
 
 

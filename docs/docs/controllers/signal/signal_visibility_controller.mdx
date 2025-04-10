@@ -8,6 +8,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import Expressions from "../../_partials/expressions.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -57,10 +58,118 @@ the same `nameValue` as the `nameValue` of this controller.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/signal_input_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Conditional Visibility</h5>
+          <div class="mb-3">
+            <label class="form-label">Select a color</label>
+            <select
+              class="form-select"
+              data-controller="signal-input"
+              data-signal-input-name-value="color"
+            >
+              <option value="">Choose a color</option>
+              <option value="red">Red</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+            </select>
+          </div>
+
+          <div
+            class="alert alert-danger"
+            data-controller="signal-visibility"
+            data-signal-visibility-name-value="color"
+            data-signal-visibility-show-value="=red"
+          >
+            Red is selected!
+          </div>
+
+          <div
+            class="alert alert-primary"
+            data-controller="signal-visibility"
+            data-signal-visibility-name-value="color"
+            data-signal-visibility-show-value="=blue"
+          >
+            Blue is selected!
+          </div>
+
+          <div
+            class="alert alert-success"
+            data-controller="signal-visibility"
+            data-signal-visibility-name-value="color"
+            data-signal-visibility-show-value="=green"
+          >
+            Green is selected!
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Text Length Visibility</h5>
+          <div class="mb-3">
+            <label class="form-label">Enter text (minimum 5 characters)</label>
+            <input
+              type="text"
+              class="form-control"
+              data-controller="signal-input"
+              data-signal-input-name-value="text"
+            >
+          </div>
+          <div
+            class="alert alert-info"
+            data-controller="signal-visibility"
+            data-signal-visibility-name-value="text"
+            data-signal-visibility-show-value=">=5"
+          >
+            Text is long enough!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/styles.css": `.hide {
+  display: none;
+}`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { SignalInputController, SignalVisibilityController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('signal-input', SignalInputController);
+    app.register('signal-visibility', SignalVisibilityController);
+`,
+  }}
 />
+
+The controller shows/hides elements based on input values. In this example:
+
+1. Two different use cases:
+   - Color selection with corresponding alerts
+   - Text length validation with feedback
+2. Bootstrap styling for consistent appearance
+3. Custom hide class for visibility control
+
+## See Also
 
 

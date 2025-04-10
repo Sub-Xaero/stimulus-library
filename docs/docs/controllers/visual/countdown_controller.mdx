@@ -5,6 +5,7 @@ title: CountdownController
 
 
 import NoActions from "../../_partials/no-actions.md";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -56,10 +57,103 @@ The controller will set an interval using `setInterval`. Cleans up on disconnect
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/countdown_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template={"vanilla"}
+  options={{
+    externalResources: [
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ]
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "latest",
+      "stimulus-library": "latest"
+    }
+  }}
+  files={{
+    "/index.html": `<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Countdown to Next Christmas</h5>
+          <div
+            class="countdown-in-words"
+            data-controller="countdown"
+            data-countdown-deadline-value="2024-12-25T00:00:00"
+            data-countdown-pad-zeros-value="false"
+            data-countdown-remove-unused-value="true"
+          >
+            <span data-countdown-target="years"></span>
+            <span data-countdown-target="months"></span>
+            <span data-countdown-target="days"></span>
+            <span data-countdown-target="hours"></span>
+            <span data-countdown-target="minutes"></span>
+            <span data-countdown-target="seconds"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Sale Countdown</h5>
+          <div
+            class="d-flex justify-content-center"
+            data-controller="countdown"
+            data-countdown-deadline-value="2024-04-15T23:59:59"
+            data-countdown-pad-zeros-value="true"
+            data-countdown-remove-unused-value="true"
+          >
+            <span data-countdown-target="hours"></span>:
+            <span data-countdown-target="minutes"></span>:
+            <span data-countdown-target="seconds"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`,
+    "/styles.css": `.countdown-in-words [data-countdown-target] + [data-countdown-target]::before {
+  content: ", ";
+}
+
+.countdown-in-words [data-countdown-target] + [data-countdown-target]:nth-last-child(1)::before {
+  content: ", and ";
+}
+
+.countdown-in-words [data-countdown-target="years"]::after {
+  content: " years";
+}
+
+.countdown-in-words [data-countdown-target="months"]::after {
+  content: " months";
+}
+
+.countdown-in-words [data-countdown-target="days"]::after {
+  content: " days";
+}
+
+.countdown-in-words [data-countdown-target="hours"]::after {
+  content: " hours";
+}
+
+.countdown-in-words [data-countdown-target="minutes"]::after {
+  content: " minutes";
+}
+
+.countdown-in-words [data-countdown-target="seconds"]::after {
+  content: " seconds";
+}`,
+    "/index.js": `
+    import { Application } from '@hotwired/stimulus';
+    import { CountdownController } from 'stimulus-library';
+    
+    const app = Application.start();
+    app.debug = true;
+    app.register('countdown', CountdownController);
+`,
+  }}
 />
 
 The `deadline` date can be changed at any point, during ticking or after a countdown has expired and the clock will restart with the new value.

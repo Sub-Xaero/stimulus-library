@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
 import NoEvents from "../../_partials/no-events.md";
+import {Sandpack} from "@codesandbox/sandpack-react";
 
 ## Purpose
 
@@ -40,9 +41,91 @@ The controller installs `change` events on all inputs that are annotated with `d
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/checkbox_select_all_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<Sandpack
+  template="vanilla"
+  files={{
+    "/index.html": `<div class="container p-4 text-center">
+  <p>How would you like us to contact you?</p>
+
+  <div class="my-4" data-controller="checkbox-select-all">
+    <div>
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-checkbox-select-all-target="selectAll"
+        />
+        <span>Select All / Deselect All</span>
+      </label>
+    </div>
+    <hr/>
+    <div>
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-checkbox-select-all-target="checkbox"
+        />
+        <span>Email</span>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-checkbox-select-all-target="checkbox"
+          checked="checked"
+        />
+        <span>SMS</span>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-checkbox-select-all-target="checkbox"
+        />
+        <span>Email</span>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-checkbox-select-all-target="checkbox"
+          checked="checked"
+          disabled="true"
+        />
+        <span>SMS</span>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-check-label">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          data-checkbox-select-all-target="checkbox"
+          readonly="true"
+        />
+        <span>Postal</span>
+      </label>
+    </div>
+  </div>
+</div>`
+  }}
+  customSetup={{
+    dependencies: {
+      "@hotwired/stimulus": "3.2.2",
+      "@stimulus-library/controllers": "latest"
+    }
+  }}
+  theme="light"
 />
 
