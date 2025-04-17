@@ -7,7 +7,8 @@ slug: /
 
 To get started, you'll need to add the `stimulus-library` package to your project.
 
-To do so, either add `stimulus-library` to your package.json manually
+# Bundling
+For NPM or Yarn users intending to bundle the library using Webpack, Vite, Rollup or similar, add `stimulus-library` to your package.json manually
 
 ```json
 {
@@ -30,4 +31,34 @@ import { AutoSubmitFormController } from "stimulus-library";
 
 const application = Application.start();
 application.register("auto-submit-form", AutoSubmitFormController);
+```
+
+-----
+
+# Import Maps
+For importmap users, you can add the following to your `config/importmap.rb` file:
+
+```ruby
+pin "date-fns/isPast", to: "https://unpkg.com/date-fns@latest/isPast.js"
+pin "date-fns/formatDuration", to: "https://unpkg.com/date-fns@latest/formatDuration.js"
+pin "date-fns/formatDistanceToNow", to: "https://unpkg.com/date-fns@latest/formatDistanceToNow.js"
+pin "date-fns/toDate", to: "https://unpkg.com/date-fns@latest/toDate.js"
+pin "date-fns/intervalToDuration", to: "https://unpkg.com/date-fns@latest/intervalToDuration.js"
+pin "mitt", to: "https://unpkg.com/mitt@latest/dist/mitt.mjs"
+pin "@stimulus-library/utilities", to: "https://unpkg.com/@stimulus-library/utilities@latest/dist/index.js"
+pin "@stimulus-library/mixins", to: "https://unpkg.com/@stimulus-library/mixins@latest/dist/index.js"
+pin "@stimulus-library/controllers", to: "https://unpkg.com/@stimulus-library/controllers@latest/dist/index.js"
+pin "stimulus-library", to: "https://unpkg.com/stimulus-library@latest/dist/index.js"
+```
+
+You can also run `bin/importmap pin stimulus-library` to download the library and all its dependencies to your vendors directory and add them to the
+importmap, but I have encountered issues with vendoring the `date-fns` library this way.
+
+Then, in your `application.js` or similar file, import and register the controllers you want to use.
+
+```js
+import { Application } from "@hotwired/stimulus";
+import { AutosizeController } from "stimulus-library"
+
+application.register("autosize", AutosizeController)
 ```
