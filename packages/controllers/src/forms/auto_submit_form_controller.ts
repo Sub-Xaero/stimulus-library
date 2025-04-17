@@ -1,4 +1,4 @@
-import { BaseController, requestSubmit } from "@stimulus-library/utilities";
+import { BaseController, isHTMLSubmitButtonElement, isHTMLTextAreaElement, requestSubmit } from "@stimulus-library/utilities";
 import { useEventListener } from "@stimulus-library/mixins";
 
 export class AutoSubmitFormController extends BaseController {
@@ -57,7 +57,8 @@ export class AutoSubmitFormController extends BaseController {
 
   connect() {
     this.inputElements.forEach(el => {
-      return useEventListener(
+      useEventListener(this, el as HTMLElement, "keydown", this.preventKeypressSubmit);
+      useEventListener(
         this,
         el as HTMLElement,
         this._eventModes,
@@ -69,6 +70,17 @@ export class AutoSubmitFormController extends BaseController {
 
   _ancestorIsTrix(element: Element) {
     return element.closest("trix-toolbar") !== null && element.closest("trix-editor") !== null;
+  }
+
+  private preventKeypressSubmit(event: KeyboardEvent) {
+    if (event.key === "Enter") {
+      const target = event.target as HTMLInputElement;
+
+      if (!isHTMLTextAreaElement(target) && !this._ancestorIsTrix(target) && !isHTMLSubmitButtonElement(target)) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }
   }
 
   private submit() {
