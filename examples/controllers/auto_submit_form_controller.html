@@ -12,8 +12,8 @@
         <form
           action=""
           class="d-flex flex-column align-items-center"
-          data-auto-submit-form-debounce-value="2000"
-          data-auto-submit-form-event-mode-value="change"
+          data-auto-submit-form-debounce-interval-value="600"
+          data-auto-submit-form-event-mode-value="input"
           data-auto-submit-form-mode-value="direct"
           data-controller="auto-submit-form"
           id="quest_form"
@@ -21,6 +21,11 @@
           <p>
             The following form will submit as soon as the input loses focus after editing.
           </p>
+          <label class="form-label">
+            What is your name?
+            <input class="form-control" name="user[name]" />
+          </label>
+
           <label class="form-label">
             What is your quest?
             <textarea class="form-control" name="user[quest]"></textarea>
