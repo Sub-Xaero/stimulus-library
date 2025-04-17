@@ -1,4 +1,4 @@
-import { BaseController, requestSubmit } from "@stimulus-library/utilities";
+import { BaseController, debounce, isHTMLTextAreaElement, requestSubmit } from "@stimulus-library/utilities";
 import { useEventListener } from "@stimulus-library/mixins";
 
 export class AutoSubmitFormController extends BaseController {
@@ -55,15 +55,16 @@ export class AutoSubmitFormController extends BaseController {
     return subElements;
   }
 
+  initialize() {
+    if (this._debounceTimeout > 0) {
+      this.submit = debounce.call(this, this.submit.bind(this), this._debounceTimeout, false, "autoSubmitTimeout");
+    }
+  }
+
   connect() {
     this.inputElements.forEach(el => {
-      return useEventListener(
-        this,
-        el as HTMLElement,
-        this._eventModes,
-        this.submit,
-        { debounce: this._debounceTimeout && this._debounceTimeout > 0 ? this._debounceTimeout : undefined },
-      );
+      useEventListener(this, el as HTMLElement, "keypress", this.handleDeliberateKeyPress);
+      useEventListener(this, el as HTMLElement, this._eventModes, this.submit);
     });
   }
 
@@ -77,6 +78,21 @@ export class AutoSubmitFormController extends BaseController {
       requestSubmit(el);
     } else {
       el.submit();
+    }
+  }
+
+  handleDeliberateKeyPress(event: KeyboardEvent) {
+    if (event.key === "Enter") {
+      let target = event.target as Element;
+      if (isHTMLTextAreaElement(target) || this._ancestorIsTrix(target)) {
+        return;
+      }
+
+      // @ts-ignore
+      if (this.autoSubmitTimeout) {
+        // @ts-ignore
+        clearTimeout(this.autoSubmitTimeout);
+      }
     }
   }
 }
