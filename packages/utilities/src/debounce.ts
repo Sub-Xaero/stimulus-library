@@ -2,7 +2,9 @@ export function debounce<T extends (...args: any[]) => any>(
   func: T,
   wait: number,
   immediate = false,
+  timoutName?: string,
 ): T {
+  timoutName = timoutName || "activeTimeout";
   let timeout: ReturnType<typeof window.setTimeout> | null;
   return function (this: any, ...args: any[]) {
     const later = () => {
@@ -16,6 +18,7 @@ export function debounce<T extends (...args: any[]) => any>(
       clearTimeout(timeout);
     }
     timeout = setTimeout(later, wait);
+    this[timoutName] = timeout;
     if (callNow) {
       func.apply(this, args);
     }
