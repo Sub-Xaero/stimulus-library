@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/Sub-Xaero/stimulus-library/compare/v1.3.0...v1.3.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* **AutoSubmitFormController:** Pressing enter submits immediately, cancelling timeouts ([#511](https://github.com/Sub-Xaero/stimulus-library/issues/511)) ([0e580fc](https://github.com/Sub-Xaero/stimulus-library/commit/0e580fc46f43cbd6c78997289ed3f43ecad3272a)), closes [#444](https://github.com/Sub-Xaero/stimulus-library/issues/444)
+
+
+
+
+
 # [1.3.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.2.2...v1.3.0) (2025-04-02)
 
 

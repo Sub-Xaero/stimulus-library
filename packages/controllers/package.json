@@ -9,7 +9,7 @@
     "ruby on rails",
     "ruby-on-rails"
   ],
-  "version": "1.3.0",
+  "version": "1.3.1",
   "license": "MIT",
   "author": {
     "name": "Sub-Xaero",
@@ -35,8 +35,8 @@
     "test:treeshake": "agadoo dist"
   },
   "dependencies": {
-    "@stimulus-library/mixins": "^1.3.0",
-    "@stimulus-library/utilities": "^1.3.0",
+    "@stimulus-library/mixins": "^1.3.1",
+    "@stimulus-library/utilities": "^1.3.1",
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
