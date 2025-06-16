@@ -40,7 +40,7 @@
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.17",
+    "@types/node": "^24.0.3",
     "agadoo": "^3.0.0",
     "cypress": "^14.2.1",
     "fast-glob": "^3.2.12",
