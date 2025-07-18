@@ -165,8 +165,8 @@ function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectEleme
   const cacheValue = element.getAttribute(CACHE_ATTR_NAME);
 
   if (isElementCheckable(element)) {
-    element.setAttribute(CACHE_ATTR_NAME, element.checked.toString());
-    element.checked = cacheValue == null ? element.defaultChecked : cacheValue == "true";
+    element.checked =
+      cacheValue == null ? element.defaultChecked : cacheValue == "true";
   } else if (isHTMLSelectElement(element)) {
     if (cacheValue == null) {
       const options = Array.from(element.options);
