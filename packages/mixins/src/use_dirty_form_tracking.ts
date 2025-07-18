@@ -28,7 +28,6 @@ export function useDirtyInputTracking(controller: Controller, element: HTMLInput
   };
 }
 
-
 export function useDirtyFormTracking(controller: Controller, form: HTMLFormElement) {
   const teardowns: (() => void)[] = [];
   const restores: (() => void)[] = [];
@@ -81,52 +80,6 @@ export function useDirtyFormTracking(controller: Controller, form: HTMLFormEleme
   };
 }
 
-function getElementValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
-  if (isElementCheckable(element)) {
-    return element.checked;
-  } else if (isHTMLSelectElement(element) && element.multiple) {
-    return JSON.stringify(getMultiSelectValues(element));
-  } else {
-    return element.value;
-  }
-}
-
-function getMultiSelectLoadValues(element: HTMLSelectElement): string[] {
-  let options = Array.from(element.options);
-  options = options.filter(option => option.defaultSelected);
-  return options.map(option => option.value);
-}
-
-function getMultiSelectValues(element: HTMLSelectElement): string[] {
-  let options = Array.from(element.selectedOptions);
-  return options.map(option => option.value);
-}
-
-function getElementLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
-  const value = element.getAttribute(CACHE_ATTR_NAME);
-  if (isElementCheckable(element)) {
-    return value == null ? element.defaultChecked : value == "true";
-  } else if (isHTMLSelectElement(element) && value == null) {
-    const options = Array.from(element.options);
-    if (element.multiple) {
-      return JSON.stringify(getMultiSelectLoadValues(element));
-    }
-    options.forEach((option) => {
-      if (option.defaultSelected) {
-        return option.value;
-      }
-    });
-  } else if (value !== null) {
-    return value;
-  }
-
-  return value!;
-}
-
-function elementHasCachedLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean {
-  return element.hasAttribute(CACHE_ATTR_NAME);
-}
-
 function checkDirty(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
   if (isHTMLInputElement(element) && element.type == "radio") {
     getOtherRadiosInGroup(element).forEach((radio: Element) => radio.removeAttribute("data-dirty"));
@@ -157,11 +110,59 @@ function checkDirty(element: HTMLInputElement | HTMLSelectElement | HTMLTextArea
   }
 }
 
-function isElementDirty(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean {
+
+export function getElementValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
+  if (isElementCheckable(element)) {
+    return element.checked;
+  } else if (isHTMLSelectElement(element) && element.multiple) {
+    return JSON.stringify(getMultiSelectValues(element));
+  } else {
+    return element.value;
+  }
+}
+
+export function getMultiSelectLoadValues(element: HTMLSelectElement): string[] {
+  let options = Array.from(element.options);
+  options = options.filter(option => option.defaultSelected);
+  return options.map(option => option.value);
+}
+
+export function getMultiSelectValues(element: HTMLSelectElement): string[] {
+  let options = Array.from(element.selectedOptions);
+  return options.map(option => option.value);
+}
+
+export function getElementLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean | string {
+  const value = element.getAttribute(CACHE_ATTR_NAME);
+  if (isElementCheckable(element)) {
+    return value == null ? element.defaultChecked : value == "true";
+  } else if (isHTMLSelectElement(element) && value == null) {
+    const options = Array.from(element.options);
+    if (element.multiple) {
+      return JSON.stringify(getMultiSelectLoadValues(element));
+    }
+    options.forEach((option) => {
+      if (option.defaultSelected) {
+        return option.value;
+      }
+    });
+  } else if (value !== null) {
+    return value;
+  }
+
+  return value!;
+}
+
+export function elementHasCachedLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean {
+  return element.hasAttribute(CACHE_ATTR_NAME);
+}
+
+
+export function isElementDirty(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean {
   return getElementValue(element) !== getElementLoadValue(element);
 }
 
-function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
+export function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
   const cacheValue = element.getAttribute(CACHE_ATTR_NAME);
 
   if (isElementCheckable(element)) {
@@ -184,7 +185,7 @@ function restoreElementFromLoadValue(element: HTMLInputElement | HTMLSelectEleme
   checkDirty(element);
 }
 
-function restoreMultiSelect(element: HTMLSelectElement, cacheValue: string) {
+export function restoreMultiSelect(element: HTMLSelectElement, cacheValue: string) {
   let selectedOptions = JSON.parse(cacheValue);
   Array.from(element.options).forEach((option) =>
     option.selected = selectedOptions.includes(option.value),
