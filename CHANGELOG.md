@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.3.1...v1.4.0) (2025-07-18)
+
+
+### Bug Fixes
+
+* **useDirtyFormTracking mixin:** Fix logic in caching of load values causing checkboxes to cache their value instead of checked ([40a83ce](https://github.com/Sub-Xaero/stimulus-library/commit/40a83ce295be42268edf0d562e68121d0a0492ed)), closes [#535](https://github.com/Sub-Xaero/stimulus-library/issues/535)
+
+
+### Features
+
+* **useDirtyFormTracking mixin:** Export helper methods for users to use in their own logic ([36f8490](https://github.com/Sub-Xaero/stimulus-library/commit/36f849011f09bf5a4b6c568242c4bd19ee6773e9)), closes [#535](https://github.com/Sub-Xaero/stimulus-library/issues/535)
+
+
+
+
+
 ## [1.3.1](https://github.com/Sub-Xaero/stimulus-library/compare/v1.3.0...v1.3.1) (2025-04-30)
 
 
