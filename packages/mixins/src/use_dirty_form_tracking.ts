@@ -204,6 +204,13 @@ export function cacheLoadValues(element: HTMLInputElement | HTMLSelectElement | 
   }
 }
 
+export function resetCachedLoadValues(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): void {
+  if (elementHasCachedLoadValue(element)) {
+    element.removeAttribute(CACHE_ATTR_NAME);
+  }
+  cacheLoadValues(element);
+}
+
 export function isDirty(element: HTMLElement) {
   return element.hasAttribute("data-dirty");
 }
