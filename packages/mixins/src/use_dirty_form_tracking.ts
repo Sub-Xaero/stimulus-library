@@ -191,9 +191,11 @@ function restoreMultiSelect(element: HTMLSelectElement, cacheValue: string) {
   );
 }
 
-function cacheLoadValues(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): void {
-  if (!elementHasCachedLoadValue(element) && isElementCheckable(element)) {
-    element.setAttribute(CACHE_ATTR_NAME, element.checked.toString());
+export function cacheLoadValues(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): void {
+  if (isElementCheckable(element)) {
+    if (!elementHasCachedLoadValue(element)) {
+      element.setAttribute(CACHE_ATTR_NAME, element.checked.toString());
+    }
   } else if (isHTMLSelectElement(element) && element.multiple) {
     element.setAttribute(CACHE_ATTR_NAME, JSON.stringify(getMultiSelectLoadValues(element)));
   } else {
