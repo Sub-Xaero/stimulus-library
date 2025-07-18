@@ -18,7 +18,7 @@ export class TableSortController extends BaseController {
     return head;
   }
 
-  get _tableHeaders(): HTMLTableHeaderCellElement[] {
+  get _tableHeaders(): HTMLTableCellElement[] {
     const rows = this._tableHead.rows;
     if (rows.length == 0) {
       throw new Error("Expected table to have a <thead> element with at least one row.");
@@ -45,11 +45,11 @@ export class TableSortController extends BaseController {
     });
   }
 
-  sort(event_or_target: Event | HTMLTableHeaderCellElement) {
+  sort(event_or_target: Event | HTMLTableCellElement) {
     let headerCell;
     if (event_or_target instanceof Event) {
       event_or_target.preventDefault();
-      headerCell = event_or_target.target! as HTMLTableHeaderCellElement;
+      headerCell = event_or_target.target! as HTMLTableCellElement;
     } else {
       headerCell = event_or_target;
     }
@@ -71,19 +71,19 @@ export class TableSortController extends BaseController {
     }
   }
 
-  private _indexOfHeaderCell(cell: HTMLTableHeaderCellElement): number {
+  private _indexOfHeaderCell(cell: HTMLTableCellElement): number {
     return this._tableHeaders.indexOf(cell);
   }
 
-  private _headerCellByIndex(index: number): HTMLTableHeaderCellElement {
-    const cell = this._tableHeaders.at(index);
+  private _headerCellByIndex(index: number): HTMLTableCellElement {
+    const cell = this._tableHeaders[index];
     if (!cell) {
       throw new Error(`No cell at index ${index}`);
     }
     return cell;
   }
 
-  private _otherHeaderCells(cell: HTMLTableHeaderCellElement): HTMLTableHeaderCellElement[] {
+  private _otherHeaderCells(cell: HTMLTableCellElement): HTMLTableCellElement[] {
     return Array.from(this._tableHeaders).filter(otherCell => otherCell != cell);
   }
 
