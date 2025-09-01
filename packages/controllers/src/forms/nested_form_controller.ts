@@ -43,6 +43,7 @@ export class NestedFormController extends BaseController {
       }
 
       destroyInput.value = "1";
+      destroyInput.dispatchEvent(new Event("input", { bubbles: true }));
     }
   }
 
