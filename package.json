@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",
-    "lerna": "^8.0.0",
+    "lerna": "^9.0.0",
     "sinon": "^21.0.0"
   },
   "workspaces": [
