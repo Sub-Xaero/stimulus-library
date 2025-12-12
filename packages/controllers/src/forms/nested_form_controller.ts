@@ -5,6 +5,7 @@ export class NestedFormController extends BaseController {
   static values = {
     insertMode: { type: String, default: "beforeend" },
     wrapperClass: { type: String, default: "nested-fields" },
+    newRecordPlaceholder: { type: String, default: "NEW_RECORD" },
   };
 
   declare readonly targetTarget: HTMLElement;
@@ -14,6 +15,8 @@ export class NestedFormController extends BaseController {
   declare readonly hasWrapperClassValue: boolean;
   declare readonly insertModeValue: InsertPosition;
   declare readonly hasInsertModeValue: boolean;
+  declare readonly newRecordPlaceholderValue: string;
+  declare readonly hasNewRecordPlaceholderValue: boolean;
 
   connect() {
     this._checkStructure();
@@ -22,7 +25,8 @@ export class NestedFormController extends BaseController {
   add(event?: Event) {
     event?.preventDefault();
 
-    const content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, this._generateID());
+    const pattern = new RegExp(this.newRecordPlaceholderValue, 'g');
+    const content = this.templateTarget.innerHTML.replace(pattern, this._generateID());
     this.targetTarget.insertAdjacentHTML(this.insertModeValue, content);
   }
 
@@ -54,8 +58,8 @@ export class NestedFormController extends BaseController {
   private _checkStructure() {
     const template = this.templateTarget.innerHTML;
 
-    if (!template.includes("NEW_RECORD")) {
-      throw new Error("Could not find 'NEW_RECORD' in the provided template. Please make sure you've passed `child_index: 'NEW_RECORD'` to `fields_for`");
+    if (!template.includes(this.newRecordPlaceholderValue)) {
+      throw new Error(`Could not find '${this.newRecordPlaceholderValue}' in the provided template. Please make sure you've passed 'child_index: ${this.newRecordPlaceholderValue}' to 'fields_for');
     }
   }
 }
