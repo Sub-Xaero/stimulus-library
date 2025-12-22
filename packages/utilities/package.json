@@ -44,7 +44,7 @@
     "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^24.0.7",
-    "@types/sinon": "^17.0.1",
+    "@types/sinon": "^21.0.0",
     "@types/sinon-chai": "^4.0.0",
     "agadoo": "^3.0.0",
     "chai": "^5.1.1",
