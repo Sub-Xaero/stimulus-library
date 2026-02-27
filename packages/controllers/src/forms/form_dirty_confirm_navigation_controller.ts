@@ -8,6 +8,7 @@ export class FormDirtyConfirmNavigationController extends BaseController {
   declare readonly hasMessageValue: boolean;
 
   _enabled = false;
+  _historyTrapActive = false;
   _teardowns: (() => void)[] = [];
 
   get _message(): string {
@@ -31,17 +32,33 @@ export class FormDirtyConfirmNavigationController extends BaseController {
     const { teardown: popstateTeardown } = useEventListener(this, window, "popstate", this._confirmNavigation);
     const { teardown: turbolinksTeardown } = useEventListener(this, window, ["turbolinks:before-visit", "turbo:before-visit"], this._confirmTurboNavigation);
     this._teardowns = [submitTeardown, popstateTeardown, turbolinksTeardown];
+    history.pushState(null, document.title, window.location.href);
+    this._historyTrapActive = true;
   }
 
   private _disable() {
     this._enabled = false;
     window.onbeforeunload = null;
+    const wasTrapped = this._historyTrapActive;
+    this._historyTrapActive = false;
     this._teardowns.forEach(teardown => teardown());
     this._teardowns = [];
+    if (wasTrapped) {
+      // Remove dummy history entry silently — listener is already torn down
+      history.back();
+    }
   }
 
   private _confirmNavigation(_event: Event | PopStateEvent) {
-    return false;
+    if (confirm(this._message)) {
+      // User confirms leaving — disable trap and navigate to the real previous entry
+      this._historyTrapActive = false;
+      this._disable();
+      history.back();
+    } else {
+      // User wants to stay — re-push dummy entry to re-arm the trap
+      history.pushState(null, document.title, window.location.href);
+    }
   }
 
   private _confirmTurboNavigation(event: Event) {
