@@ -211,6 +211,14 @@ export function resetCachedLoadValues(element: HTMLInputElement | HTMLSelectElem
   cacheLoadValues(element);
 }
 
+export function resetFormLoadValues(form: HTMLFormElement): void {
+  form.querySelectorAll("input, select, textarea").forEach((element) => {
+    const el = element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    resetCachedLoadValues(el);
+    checkDirty(el);
+  });
+}
+
 export function isDirty(element: HTMLElement) {
   return element.hasAttribute("data-dirty");
 }
