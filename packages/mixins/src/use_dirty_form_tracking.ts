@@ -204,6 +204,21 @@ export function cacheLoadValues(element: HTMLInputElement | HTMLSelectElement | 
   }
 }
 
+export function resetCachedLoadValues(element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): void {
+  if (elementHasCachedLoadValue(element)) {
+    element.removeAttribute(CACHE_ATTR_NAME);
+  }
+  cacheLoadValues(element);
+}
+
+export function resetFormLoadValues(form: HTMLFormElement): void {
+  form.querySelectorAll("input, select, textarea").forEach((element) => {
+    const el = element as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    resetCachedLoadValues(el);
+    checkDirty(el);
+  });
+}
+
 export function isDirty(element: HTMLElement) {
   return element.hasAttribute("data-dirty");
 }
