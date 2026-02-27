@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nested Form Controller</title>
+  </head>
+  <body>
+    <div class="container my-4">
+      <form data-controller="detect-dirty-form">
+        <div
+          data-controller="nested-form"
+          data-nested-form-event-on-destroy-value="true"
+        >
+          <template data-nested-form-target="template">
+            <div class="nested-fields" data-new-record="true">
+              <div>
+                <label class="form-label">Description</label>
+                <input class="form-control" type="text" name="list[tasks_attributes][NEW_RECORD][description]" placeholder="Task description"/>
+              </div>
+              <input type="hidden" name="list[tasks_attributes][NEW_RECORD][_destroy]" value=""/>
+              <button type="button" class="btn btn-danger btn-sm" data-action="click->nested-form#remove">Remove</button>
+            </div>
+          </template>
+
+          <div data-nested-form-target="target">
+            <div class="nested-fields" data-new-record="false" id="persisted-record-1">
+              <div>
+                <label class="form-label">Description</label>
+                <input class="form-control" type="text" name="list[tasks_attributes][1][description]" value="Existing task 1"/>
+              </div>
+              <input type="hidden" name="list[tasks_attributes][1][_destroy]" value=""/>
+              <button type="button" class="btn btn-danger btn-sm" data-action="click->nested-form#remove">Remove</button>
+            </div>
+
+            <div class="nested-fields" data-new-record="false" id="persisted-record-2">
+              <div>
+                <label class="form-label">Description</label>
+                <input class="form-control" type="text" name="list[tasks_attributes][2][description]" value="Existing task 2"/>
+              </div>
+              <input type="hidden" name="list[tasks_attributes][2][_destroy]" value=""/>
+              <button type="button" class="btn btn-danger btn-sm" data-action="click->nested-form#remove">Remove</button>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary mt-2" data-action="click->nested-form#add">Add Task</button>
+        </div>
+      </form>
+    </div>
+    <style>
+      form {
+        padding: 1em;
+        border: 2px solid transparent;
+      }
+
+      form[data-dirty] {
+        border: 2px solid red;
+      }
+
+      .nested-fields {
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+        border: 1px solid #ccc;
+      }
+
+      input[data-dirty] {
+        border: 2px solid pink;
+      }
+    </style>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

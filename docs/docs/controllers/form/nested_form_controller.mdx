@@ -35,8 +35,9 @@ Primarily for Rails `accepts_nested_attributes_for` associations, enabling a for
 
 | Value          | Type   | Description                                                                                                                                                                              | Default              |
 |----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-| `wrapperClass` | String | The class of the `<div>` that wraps each sub-record.                                                                                                                                     | `nested-fields`      |
-| `insert`       | String | How to insert records around `target`. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | `beforeend` (append) |
+| `wrapperClass`   | String  | The class of the `<div>` that wraps each sub-record.                                                                                                                                     | `nested-fields`      |
+| `insert`         | String  | How to insert records around `target`. Accepts any one of the parameters accepted by [`insertAdjacentHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) | `beforeend` (append) |
+| `eventOnDestroy` | Boolean | When `true`, dispatches an `input` event on the `_destroy` hidden input after marking it for deletion. Enable this to trigger dirty-tracking mixins (e.g. `useDirtyFormTracking`) when a persisted record is removed. | `false` |
 
 ## Events
 <NoEvents/>

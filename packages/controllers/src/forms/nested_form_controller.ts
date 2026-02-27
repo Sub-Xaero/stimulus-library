@@ -6,6 +6,7 @@ export class NestedFormController extends BaseController {
     insertMode: { type: String, default: "beforeend" },
     wrapperClass: { type: String, default: "nested-fields" },
     newRecordPlaceholder: { type: String, default: "NEW_RECORD" },
+    eventOnDestroy: { type: Boolean, default: false },
   };
 
   declare readonly targetTarget: HTMLElement;
@@ -17,6 +18,7 @@ export class NestedFormController extends BaseController {
   declare readonly hasInsertModeValue: boolean;
   declare readonly newRecordPlaceholderValue: string;
   declare readonly hasNewRecordPlaceholderValue: boolean;
+  declare readonly eventOnDestroyValue: boolean;
 
   connect() {
     this._checkStructure();
@@ -47,7 +49,9 @@ export class NestedFormController extends BaseController {
       }
 
       destroyInput.value = "1";
-      destroyInput.dispatchEvent(new Event("input", { bubbles: true }));
+      if (this.eventOnDestroyValue) {
+        destroyInput.dispatchEvent(new Event("input", { bubbles: true }));
+      }
     }
   }
 
