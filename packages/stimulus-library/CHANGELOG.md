@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.4.0...v1.6.0) (2026-03-06)
+
+
+### Features
+
+* **NestedFormController:** add eventOnDestroy option to trigger dirty tracking ([#612](https://github.com/Sub-Xaero/stimulus-library/issues/612)) ([22e9aad](https://github.com/Sub-Xaero/stimulus-library/commit/22e9aad11ea5f2e1a747d2660038972ad8c6f33f)), closes [#563](https://github.com/Sub-Xaero/stimulus-library/issues/563)
+
+
+
+
+
 # [1.5.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.4.0...v1.5.0) (2026-03-06)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.4.0...v1.6.0) (2026-03-06)
+
+
+### Bug Fixes
+
+* **controllers:** implement history trap to intercept browser back button on dirty forms ([#613](https://github.com/Sub-Xaero/stimulus-library/issues/613)) ([da922bb](https://github.com/Sub-Xaero/stimulus-library/commit/da922bbc4ce34088f20816e6ff69074b36440019)), closes [#510](https://github.com/Sub-Xaero/stimulus-library/issues/510)
+
+
+### Features
+
+* **NestedFormController:** add eventOnDestroy option to trigger dirty tracking ([#612](https://github.com/Sub-Xaero/stimulus-library/issues/612)) ([22e9aad](https://github.com/Sub-Xaero/stimulus-library/commit/22e9aad11ea5f2e1a747d2660038972ad8c6f33f)), closes [#563](https://github.com/Sub-Xaero/stimulus-library/issues/563)
+* **useDirtyFormTracking mixin:** add helper functions for resetting dirty tracking state ([#548](https://github.com/Sub-Xaero/stimulus-library/issues/548)) ([9bacc94](https://github.com/Sub-Xaero/stimulus-library/commit/9bacc9400785a142d05290d9753b1145a62da5ef)), closes [#535](https://github.com/Sub-Xaero/stimulus-library/issues/535)
+
+
+
+
+
 # [1.5.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.4.0...v1.5.0) (2026-03-06)
 
 
