@@ -9,6 +9,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -39,10 +40,24 @@ Inspired by Vue's `v-model` and `v-bind`, you can use this controller to make pa
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/sync_inputs_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="SyncInputsController"
+  html={`<p style="margin:0 0 1rem;color:#6b7280;font-size:0.9rem;">
+  Both inputs share the same key — type in either one to sync them:
+</p>
+<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:360px;">
+  <input type="text"
+    data-controller="sync-inputs"
+    data-sync-inputs-key-value="username"
+    placeholder="Primary input"
+    style="padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;" />
+  <input type="text"
+    data-controller="sync-inputs"
+    data-sync-inputs-key-value="username"
+    placeholder="Synced input"
+    style="padding:0.5rem;border:1px solid #6366f1;border-radius:6px;" />
+</div>`}
+  editorHeight={260}
 />
 
 

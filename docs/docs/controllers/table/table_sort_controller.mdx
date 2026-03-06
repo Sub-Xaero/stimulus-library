@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -86,10 +87,35 @@ This row is always at the bottom
 ```
 
 ## Demo
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/table_sort_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+
+<StimulusPlayground
+  controller="TableSortController"
+  html={`<style>
+  table { border-collapse:collapse;width:100%; }
+  th, td { padding:0.6rem 1rem;border:1px solid #e5e7eb;text-align:left; }
+  th { background:#f9fafb;cursor:pointer;user-select:none; }
+  th:hover { background:#f3f4f6; }
+</style>
+<table data-controller="table-sort">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Alice</td><td>32</td><td>London</td></tr>
+    <tr><td>Bob</td><td>24</td><td>Paris</td></tr>
+    <tr><td>Carol</td><td>41</td><td>Berlin</td></tr>
+    <tr><td>Dave</td><td>19</td><td>Madrid</td></tr>
+    <tr><td>Eve</td><td>35</td><td>Rome</td></tr>
+  </tbody>
+</table>
+<p style="color:#6b7280;margin-top:0.75rem;font-size:0.9rem;">
+  Click any column header to sort.
+</p>`}
+  editorHeight={340}
 />
 
 # Notes & Limitations
