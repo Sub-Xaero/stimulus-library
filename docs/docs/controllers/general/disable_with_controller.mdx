@@ -7,6 +7,7 @@ title: DisableWithController
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -48,11 +49,16 @@ Sets a timeout using `setTimeout` with the provided/default `timeoutValue`.
 
 ## How to Use
 
-Example - when creating an event that can have the `end_time` turned off with a boolean:
-
-
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/disable_with_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="DisableWithController"
+  html={`<button data-controller="disable-with"
+  data-disable-with-message-value="Submitting..."
+  style="padding:0.6rem 1.4rem;background:#6366f1;color:white;border:none;
+         border-radius:6px;cursor:pointer;font-size:1rem;">
+  Submit form
+</button>
+<p style="color:#6b7280;margin-top:1rem;font-size:0.9rem;">
+  Click to disable the button and show the loading message (prevents double-submission).
+</p>`}
+  editorHeight={200}
 />

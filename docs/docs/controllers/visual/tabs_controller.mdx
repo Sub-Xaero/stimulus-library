@@ -6,6 +6,7 @@ title: TabsController
 
 import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -46,10 +47,35 @@ The controller will add `aria-selected` to the currently active `link` target.
 
 ## How to Use
 
-
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/tabs_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="TabsController"
+  html={`<style>
+  .tab-btn { padding:0.5rem 1.25rem;border:1px solid #e5e7eb;border-bottom:none;
+             background:#f9fafb;cursor:pointer;border-radius:4px 4px 0 0;font-size:0.9rem; }
+  .tab-btn.is-active { background:white;font-weight:600;border-bottom:1px solid white;
+                       margin-bottom:-1px; }
+  .tab-panel { border:1px solid #e5e7eb;padding:1.25rem;border-radius:0 4px 4px 4px; }
+  .hide { display:none; }
+</style>
+<div data-controller="tabs">
+  <div style="display:flex;">
+    <button data-tabs-target="link" class="tab-btn is-active">Overview</button>
+    <button data-tabs-target="link" class="tab-btn">Details</button>
+    <button data-tabs-target="link" class="tab-btn">Settings</button>
+  </div>
+  <div data-tabs-target="content" class="tab-panel">
+    <strong>Overview</strong>
+    <p>This is the first tab panel. Click a tab above to switch.</p>
+  </div>
+  <div data-tabs-target="content" class="tab-panel hide">
+    <strong>Details</strong>
+    <p>This is the second tab panel.</p>
+  </div>
+  <div data-tabs-target="content" class="tab-panel hide">
+    <strong>Settings</strong>
+    <p>This is the third tab panel.</p>
+  </div>
+</div>`}
+  editorHeight={320}
 />
 

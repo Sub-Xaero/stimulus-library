@@ -9,6 +9,7 @@ import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -42,11 +43,20 @@ Add the ability to dismiss/remove an element from the DOM. i.e. Notifications, F
 
 A good example is a flash message, rather than it staying on the page forever, allowing the user to dismiss it with a little 'X' in the corner.
 
-
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/dismissable_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="DismissableController"
+  html={`<div data-controller="dismissable"
+  style="background:#fee2e2;border:1px solid #fca5a5;padding:1rem;border-radius:8px;
+         display:flex;justify-content:space-between;align-items:center;max-width:420px;">
+  <span>Flash: Your settings were saved successfully.</span>
+  <button data-action="click->dismissable#dismiss"
+    style="background:none;border:none;cursor:pointer;font-size:1.5rem;line-height:1;"
+    aria-label="Dismiss">×</button>
+</div>
+<p style="color:#6b7280;margin-top:1rem;font-size:0.9rem;">
+  Click × — the element is removed from the DOM entirely.
+</p>`}
+  editorHeight={220}
 />
 
 

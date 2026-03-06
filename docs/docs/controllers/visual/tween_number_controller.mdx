@@ -7,6 +7,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -78,8 +79,21 @@ Stimulus controller to animate a number for visual effect, using a number of pos
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/tween_number_controller.html"
-  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="TweenNumberController"
+  html={`<div style="text-align:center;">
+  <div data-controller="tween-number"
+    data-tween-number-start-value="0"
+    data-tween-number-end-value="1000000"
+    data-tween-number-duration-value="2000"
+    data-tween-number-easing-value="easeOutExpo"
+    data-tween-number-formatting-value='{"style":"decimal"}'
+    style="font-size:3rem;font-weight:bold;font-family:monospace;color:#6366f1;">
+    0
+  </div>
+  <p style="color:#6b7280;margin-top:0.5rem;">
+    Animates on load (IntersectionObserver fires when visible)
+  </p>
+</div>`}
+  editorHeight={200}
 />
