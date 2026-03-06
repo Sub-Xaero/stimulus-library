@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.4.0...v1.5.0) (2026-03-06)
+
+**Note:** Version bump only for package @stimulus-library/utilities
+
+
+
+
+
 # [1.4.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.3.1...v1.4.0) (2025-07-18)
 
 **Note:** Version bump only for package @stimulus-library/utilities
