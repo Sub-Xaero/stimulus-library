@@ -6,110 +6,155 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
 
-const features = [
+// Inline SVG icons — no external dependency
+const IconVanilla = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+  </svg>
+);
 
+const IconConfigurable = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
+    <circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/>
+  </svg>
+);
+
+const IconComprehensive = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+  </svg>
+);
+
+const IconFireForget = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+  </svg>
+);
+
+const IconJustWorks = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </svg>
+);
+
+const features = [
   {
-    title: "Vanilla",
-    description: (
-      <>
-        Nobody likes bloat, so wherever possible Stimulus-Library ships with zero third party dependencies. You won't find controllers here that simply wrap up other JS libraries like date-pickers. There are other libraries if that's what you want.
-        <br/>
-        <br/>
-        Stimulus-Library is just simple, vanilla controllers that do one simple thing.
-      </>
-    ),
+    icon: <IconVanilla />,
+    title: "Zero Dependencies",
+    description: "Nobody likes bloat. Stimulus Library ships with zero third-party dependencies — just simple, vanilla controllers that do one thing well.",
   },
   {
-    title: "Configurable",
-    description: (
-      <>
-        While Stimulus Library sets sensible defaults for all controllers, not all use-cases are the same. All of our controllers are built to to be as flexible and configurable as possible to enable your application. Found a use-case we didn't consider? Open a Github issue and let us know!
-      </>
-    ),
+    icon: <IconConfigurable />,
+    title: "Highly Configurable",
+    description: "Sensible defaults out of the box, but flexible enough for any use case. All controllers expose values and classes for fine-grained control.",
   },
   {
+    icon: <IconComprehensive />,
     title: "Comprehensive",
-    description: (
-      <>
-        Hate installing ~50 different node packages just to get ~50 different Javascript ✨Sprinkles✨? We provide you with a comprehensive set of lightweight controllers with the hope that when you find yourself needing a new behaviour, that we already have a controller that does it for you, without you having to install more packages.
-        <br/>
-        <br/>
-        The library is fully tree-shakable, so install Stimulus-Library guilt free - only the controllers that you use are bundled into your application.
-      </>
-    ),
+    description: "One package covers forms, modals, tables, media, scroll, AJAX, and more. Stop installing 50 separate packages for 50 behaviours.",
   },
   {
+    icon: <IconFireForget />,
     title: "Fire and Forget",
-    description: (
-      <>
-        While all controllers in Stimulus-Library are composable and provide a comprehensive set of events that you can use to wire together multiple controllers - for simple things like auto-sizing text-areas, you shouldn't have to remember to wire up the various DOM events to the corresponding Stimulus action, you should be able to just drop it in and forget about it.
-        <br/>
-        <br/>
-        Stimulus-Library, where it seems sensible, creates controllers that you can just "Fire and Forget". If you don't like that, you can turn it off and wire things up yourself. You're the boss. </>
-    ),
+    description: "Drop a controller in and forget about it. Stimulus Library handles event wiring for you — though you can always take control when you need it.",
   },
   {
-    title: "Just Works (TM)",
-    description: (
-      <>
-        Stimulus Library aims to provide you with a toolbox of useful controllers that you can just drop into your application and they just work, seamlessly. </>
-    ),
+    icon: <IconJustWorks />,
+    title: "Tree-Shakable",
+    description: "Only the controllers you import are bundled. Add the entire library to your project with zero guilt — your bundle only grows when you use it.",
   },
 ];
 
-function Feature({imageUrl, title, description}) {
-  const imgUrl = useBaseUrl(imageUrl);
+function FeatureCard({ icon, title, description }) {
   return (
-    <div className={clsx("col col--4", styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title}/>
-        </div>
-      )}<h3>{title}</h3>
-      <p>{description}</p>
+    <div className={styles.featureCard}>
+      <div className={styles.featureIcon}>{icon}</div>
+      <h3 className={styles.featureTitle}>{title}</h3>
+      <p className={styles.featureDescription}>{description}</p>
     </div>
   );
 }
 
-export default function Home() {
-  const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
-  return (
-    <Layout
-      title={`${siteConfig.title}`} description={siteConfig.tagline}
-    >
-      <header className={clsx("hero hero--primary", styles.heroBanner)}>
-        <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+const steps = [
+  {
+    number: "01",
+    title: "Install",
+    code: "npm install stimulus-library",
+  },
+  {
+    number: "02",
+    title: "Register",
+    code: 'application.register("autosize", AutosizeController)',
+  },
+  {
+    number: "03",
+    title: "Use",
+    code: '<textarea data-controller="autosize"></textarea>',
+  },
+];
 
-          <div className={styles.badges}>
-            <img className={styles.badge} alt={"NPM Downloads"} src={"https://img.shields.io/npm/dt/stimulus-library"}/>
-            <img className={styles.badge} alt={"Minified Size"} src={"https://img.shields.io/bundlephobia/minzip/stimulus-library/latest?label=minified%20size"}/>
+export default function Home() {
+  const { siteConfig = {} } = useDocusaurusContext();
+  return (
+    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+
+      {/* ── Hero ── */}
+      <header className={styles.hero}>
+        <div className={styles.heroInner}>
+          <div className={styles.heroBadge}>Stimulus.js Controllers</div>
+          <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
+          <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+
+          <div className={styles.heroBadges}>
+            <img alt="NPM Downloads" src="https://img.shields.io/npm/dt/stimulus-library?style=flat-square&color=6366f1&labelColor=1e293b" />
+            <img alt="Minified Size" src="https://img.shields.io/bundlephobia/minzip/stimulus-library/latest?label=minified&style=flat-square&color=6366f1&labelColor=1e293b" />
+            <img alt="NPM Version" src="https://img.shields.io/npm/v/stimulus-library?style=flat-square&color=6366f1&labelColor=1e293b" />
           </div>
 
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                "button button button--secondary button--lg",
-                styles.getStarted,
-              )} to={useBaseUrl("docs/")}
-            > Get Started </Link>
+          <div className={styles.heroInstall}>
+            <code className={styles.heroInstallCode}>npm install stimulus-library</code>
+          </div>
+
+          <div className={styles.heroActions}>
+            <Link className={clsx("button button--primary button--lg", styles.primaryBtn)} to={useBaseUrl("docs/")}>
+              Get Started
+            </Link>
+            <Link className={clsx("button button--outline button--lg", styles.secondaryBtn)} href="https://github.com/Sub-Xaero/stimulus-library">
+              View on GitHub
+            </Link>
           </div>
         </div>
       </header>
+
       <main>
-        {features && features.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
+        {/* ── Features ── */}
+        <section className={styles.featuresSection}>
+          <div className="container">
+            <div className={styles.featuresGrid}>
+              {features.map((feat, idx) => (
+                <FeatureCard key={idx} {...feat} />
+              ))}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+
+        {/* ── How it works ── */}
+        <section className={styles.howSection}>
+          <div className="container">
+            <h2 className={styles.sectionTitle}>Up and running in minutes</h2>
+            <p className={styles.sectionSubtitle}>Three steps from install to working controller</p>
+            <div className={styles.stepsGrid}>
+              {steps.map((step) => (
+                <div key={step.number} className={styles.stepCard}>
+                  <span className={styles.stepNumber}>{step.number}</span>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <code className={styles.stepCode}>{step.code}</code>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     </Layout>
   );

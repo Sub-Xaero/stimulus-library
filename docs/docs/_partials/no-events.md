@@ -1,3 +1,1 @@
-| Event | When | Dispatched on | `event.detail` |
-|-------|------|---------------|----------------|
-| `-`   | -    | -             | -              |
+<p style={{padding:"0.6rem 1rem",borderRadius:"0.5rem",background:"var(--ifm-color-emphasis-100)",color:"var(--ifm-color-emphasis-700)",fontSize:"0.875rem",margin:"0 0 1rem"}}>This controller emits no events.</p>
