@@ -69,7 +69,12 @@ import {
   ScrollToTopController,
   SelfDestructController,
   SignalActionController,
+  SignalAttributeSyncController,
+  SignalClassController,
+  SignalContentSyncController,
+  SignalDisableController,
   SignalDomChildrenController,
+  SignalEnableController,
   SignalInputController,
   SignalVisibilityController,
   StickyController,
@@ -158,7 +163,12 @@ app.register('refresh-page', RefreshPageController);
 app.register('responsive-iframe-body', ResponsiveIframeBodyController);
 app.register('responsive-iframe-wrapper', ResponsiveIframeWrapperController);
 app.register('signal-action', SignalActionController);
+app.register('signal-attribute-sync', SignalAttributeSyncController);
+app.register('signal-class', SignalClassController);
+app.register('signal-content-sync', SignalContentSyncController);
+app.register('signal-disable', SignalDisableController);
 app.register('signal-dom-children', SignalDomChildrenController);
+app.register('signal-enable', SignalEnableController);
 app.register('signal-input', SignalInputController);
 app.register('signal-visibility', SignalVisibilityController);
 app.register('scroll-container', ScrollContainerController);

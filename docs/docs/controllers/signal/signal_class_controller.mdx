@@ -1,0 +1,79 @@
+---
+id: SignalClassController
+title: SignalClassController
+---
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+import Expressions from "../../_partials/expressions.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+A controller that responds to SignalInputController notifications. This controller adds or removes an arbitrary CSS class on its element based on the expression given in `whenValue`, evaluated against the current signal value.
+
+This controller can be anywhere in the DOM tree and it will receive notifications from any SignalInputController with
+the same `nameValue` as the `nameValue` of this controller.
+
+See also: `SignalVisibilityController` if you only need to toggle visibility using a `hide` class.
+
+### Example Use Cases
+- Highlight a field with an `error` class when a related input has an out-of-range value
+- Add an `active` class to a nav item when a signal matches a specific value
+- Apply a `warning` class when a numeric threshold is exceeded
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value   | Type   | Description                                                                                                                                                                                                                         | Default |
+|---------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `name`  | String | The name of the signal to react to. This should match the `nameValue` of the SignalInputController you want to sync with.                                                                                         | `-`     |
+| `when`  | String | A simple _expression_ which will be evaluated against the value received from SignalInputController. If the expression evaluates to true, the class in `classValue` is added to the element; otherwise it is removed. | `-`     |
+| `class` | String | The CSS class name to add or remove on the controller element.                                                                                                                                                                       | `-`     |
+
+<Expressions/>
+
+## Events
+
+| Event                                  | When                                                                                                                                       | Dispatched on               | `event.detail` |                                                               |
+|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|----------------|---------------------------------------------------------------|
+| `signal:class-add:${nameValue}`    | When the signal value matches the `whenValue` expression and the class is added     | The controller root element |                |                                                               |
+|                                        |                                                                                                                                            |                             | `predicate`    | the expression the controller used to try and match the value |
+|                                        |                                                                                                                                            |                             | `value`        | the value that was received                                   |
+|                                        |                                                                                                                                            |                             | `class`        | the CSS class that was added                                  |
+| `signal:class-remove:${nameValue}` | When the signal value does not match the `whenValue` expression and the class is removed | The controller root element |                |                                                               |
+|                                        |                                                                                                                                            |                             | `predicate`    | the expression the controller used to try and match the value |
+|                                        |                                                                                                                                            |                             | `value`        | the value that was received                                   |
+|                                        |                                                                                                                                            |                             | `class`        | the CSS class that was removed                                |
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+```html
+<input
+  type="number"
+  data-controller="signal-input"
+  data-signal-input-name-value="age"
+  placeholder="Enter your age"
+/>
+
+<div
+  data-controller="signal-class"
+  data-signal-class-name-value="age"
+  data-signal-class-when-value=">=18"
+  data-signal-class-class-value="eligible"
+>
+  <!-- the "eligible" class is added when the age input is 18 or over -->
+</div>
+```
