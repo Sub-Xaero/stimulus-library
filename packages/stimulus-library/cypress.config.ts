@@ -2,7 +2,6 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   video: false,
-  experimentalStudio: true,
   blockHosts: [
     "*.google-analytics.com",
     "googleads.g.doubleclick.net",
@@ -27,6 +26,6 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       return require("./cypress/plugins/index.js")(on, config);
     },
-    baseUrl: "http://localhost:3000/",
+    baseUrl: "http://localhost:3030/",
   },
 });

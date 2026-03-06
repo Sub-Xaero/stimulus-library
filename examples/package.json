@@ -16,7 +16,10 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "sass": "^1.58.0",
-    "stimulus-library": "latest",
+    "@stimulus-library/controllers": "file:../packages/controllers",
+    "@stimulus-library/mixins": "file:../packages/mixins",
+    "@stimulus-library/utilities": "file:../packages/utilities",
+    "stimulus-library": "file:../packages/stimulus-library",
     "trix": "^2.1.16",
     "tiny-glob": "^0.2.9",
     "vite": "^6.4.1"

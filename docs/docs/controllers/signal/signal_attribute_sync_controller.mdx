@@ -1,0 +1,64 @@
+---
+id: SignalAttributeSyncController
+title: SignalAttributeSyncController
+---
+
+import NoTargets from "../../_partials/no-targets.md";
+import NoActions from "../../_partials/no-actions.md";
+import NoSideEffects from "../../_partials/no-side-effects.md";
+import NoClasses from "../../_partials/no-classes.md";
+
+## Purpose
+
+A controller that responds to SignalInputController notifications. This controller unconditionally sets an HTML attribute on its element to the current signal value.
+
+This controller can be anywhere in the DOM tree and it will receive notifications from any SignalInputController with
+the same `nameValue` as the `nameValue` of this controller.
+
+### Example Use Cases
+- Set `href`, `src`, `placeholder`, or any other attribute dynamically based on an input value
+- Set `readonly` on an input based on another input's value (e.g. `data-signal-attribute-sync-attribute-value="readonly"`)
+- Update `aria-*` attributes reactively
+
+## [Actions](https://stimulus.hotwire.dev/reference/actions)
+<NoActions/>
+
+## [Targets](https://stimulus.hotwire.dev/reference/targets)
+<NoTargets/>
+
+## [Classes](https://stimulus.hotwire.dev/reference/classes)
+<NoClasses/>
+
+## [Values](https://stimulus.hotwire.dev/reference/values)
+
+| Value       | Type   | Description                                                                                                                             | Default |
+|-------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `name`      | String | The name of the signal to react to. This should match the `nameValue` of the SignalInputController you want to sync with. | `-`     |
+| `attribute` | String | The name of the HTML attribute to set on the controller element.                                                                        | `-`     |
+
+## Events
+
+This controller does not dispatch any events.
+
+## Side Effects
+<NoSideEffects/>
+
+## How to Use
+
+```html
+<input
+  type="text"
+  data-controller="signal-input"
+  data-signal-input-name-value="label"
+  placeholder="Enter a label..."
+/>
+
+<button
+  data-controller="signal-attribute-sync"
+  data-signal-attribute-sync-name-value="label"
+  data-signal-attribute-sync-attribute-value="aria-label"
+>
+  <!-- aria-label is kept in sync with the input value -->
+  Click me
+</button>
+```

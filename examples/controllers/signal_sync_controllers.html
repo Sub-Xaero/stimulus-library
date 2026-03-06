@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Signal Sync Controllers</title>
+  </head>
+  <body>
+    <div class="container p-4">
+
+      <!-- SignalContentSyncController: mirrors input value as text -->
+      <section id="content-sync-section">
+        <input
+          id="content-sync-input"
+          type="text"
+          data-controller="signal-input"
+          data-signal-input-name-value="greeting"
+        />
+        <p
+          id="content-sync-output"
+          data-controller="signal-content-sync"
+          data-signal-content-sync-name-value="greeting"
+        ></p>
+      </section>
+
+      <!-- SignalAttributeSyncController: sets an attribute from signal value -->
+      <section id="attribute-sync-section">
+        <input
+          id="attribute-sync-input"
+          type="text"
+          data-controller="signal-input"
+          data-signal-input-name-value="placeholder-text"
+        />
+        <input
+          id="attribute-sync-target"
+          type="text"
+          data-controller="signal-attribute-sync"
+          data-signal-attribute-sync-name-value="placeholder-text"
+          data-signal-attribute-sync-attribute-value="placeholder"
+        />
+      </section>
+
+      <!-- SignalClassController: toggles a CSS class based on a predicate -->
+      <section id="class-section">
+        <input
+          id="class-input"
+          type="number"
+          data-controller="signal-input"
+          data-signal-input-name-value="score"
+        />
+        <div
+          id="class-target"
+          data-controller="signal-class"
+          data-signal-class-name-value="score"
+          data-signal-class-when-value=">=50"
+          data-signal-class-class-value="passing"
+        >Result</div>
+      </section>
+
+      <!-- SignalClassController: default predicate (non-empty value) -->
+      <section id="class-default-section">
+        <input
+          id="class-default-input"
+          type="text"
+          data-controller="signal-input"
+          data-signal-input-name-value="name-field"
+        />
+        <div
+          id="class-default-target"
+          data-controller="signal-class"
+          data-signal-class-name-value="name-field"
+          data-signal-class-when-value="default"
+          data-signal-class-class-value="has-value"
+        >Name field status</div>
+      </section>
+
+    </div>
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>
