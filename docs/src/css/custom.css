@@ -1,25 +1,190 @@
-/* stylelint-disable docusaurus/copyright-header */
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* ============================================================
+   Typography — load Inter + JetBrains Mono from Google Fonts
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
-/* You can override the default Infima variables here. */
+/* ============================================================
+   Infima design tokens — light mode
+   ============================================================ */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
-  --ifm-code-font-size: 95%;
+  /* Brand — Indigo 400–900 */
+  --ifm-color-primary: #6366f1;
+  --ifm-color-primary-dark: #4f46e5;
+  --ifm-color-primary-darker: #4338ca;
+  --ifm-color-primary-darkest: #3730a3;
+  --ifm-color-primary-light: #818cf8;
+  --ifm-color-primary-lighter: #a5b4fc;
+  --ifm-color-primary-lightest: #c7d2fe;
+
+  /* Typography */
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  --ifm-code-font-size: 90%;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+  --ifm-heading-font-weight: 600;
+
+  /* Spacing */
+  --ifm-global-radius: 0.5rem;
+
+  /* Code blocks */
+  --ifm-code-border-radius: 0.375rem;
+  --ifm-pre-border-radius: 0.5rem;
+
+  /* Tables */
+  --sl-table-border: #e2e8f0;
+  --sl-table-stripe: #f8fafc;
+  --sl-badge-bg: #eff6ff;
+  --sl-badge-text: #3b82f6;
 }
 
+/* ============================================================
+   Dark mode overrides
+   ============================================================ */
+[data-theme="dark"] {
+  --ifm-color-primary: #818cf8;
+  --ifm-color-primary-dark: #6366f1;
+  --ifm-color-primary-darker: #4f46e5;
+  --ifm-color-primary-darkest: #4338ca;
+  --ifm-color-primary-light: #a5b4fc;
+  --ifm-color-primary-lighter: #c7d2fe;
+  --ifm-color-primary-lightest: #e0e7ff;
+
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --ifm-navbar-background-color: #0f172a;
+  --ifm-footer-background-color: #020617;
+  --ifm-toc-border-color: #334155;
+  --ifm-color-emphasis-300: #475569;
+
+  --sl-table-border: #334155;
+  --sl-table-stripe: #1e293b;
+  --sl-badge-bg: #1e1b4b;
+  --sl-badge-text: #a5b4fc;
+}
+
+/* ============================================================
+   Code block highlight line
+   ============================================================ */
 .docusaurus-highlight-code-line {
-  background-color: rgb(72, 77, 91);
+  background-color: rgba(99, 102, 241, 0.12);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: rgba(129, 140, 248, 0.15);
+}
+
+/* ============================================================
+   Navbar
+   ============================================================ */
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+.menu__link {
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.875rem;
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+/* ============================================================
+   Tables — used in API reference docs
+   ============================================================ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  border: 1px solid var(--sl-table-border);
+  display: table;
+}
+
+table thead tr {
+  background: var(--sl-table-stripe);
+  border-bottom: 2px solid var(--sl-table-border);
+}
+
+[data-theme="dark"] table thead tr {
+  background: #1e293b;
+}
+
+table th {
+  font-weight: 600;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-700);
+  padding: 0.7rem 1rem;
+  border: none;
+}
+
+table td {
+  padding: 0.65rem 1rem;
+  border: none;
+  border-top: 1px solid var(--sl-table-border);
+  vertical-align: top;
+}
+
+table tr:nth-child(even) {
+  background: var(--sl-table-stripe);
+}
+
+[data-theme="dark"] table tr:nth-child(even) {
+  background: #1a2332;
+}
+
+/* Type badges used in value/target tables */
+.sl-type-badge {
+  display: inline-block;
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  font-size: 0.75em;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-monospace);
+  background: var(--sl-badge-bg);
+  color: var(--sl-badge-text);
+}
+
+/* ============================================================
+   Admonitions — rounded corners
+   ============================================================ */
+.alert {
+  border-radius: var(--ifm-global-radius);
+}
+
+/* ============================================================
+   Doc content
+   ============================================================ */
+.markdown h2 {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.markdown h2:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--ifm-toc-border-color);
 }
