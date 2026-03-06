@@ -63,7 +63,7 @@ export class NestedFormController extends BaseController {
     const template = this.templateTarget.innerHTML;
 
     if (!template.includes(this.newRecordPlaceholderValue)) {
-      throw new Error(`Could not find '${this.newRecordPlaceholderValue}' in the provided template. Please make sure you've passed 'child_index: ${this.newRecordPlaceholderValue}' to 'fields_for');
+      throw new Error(`Could not find '${this.newRecordPlaceholderValue}' in the provided template. Please make sure you've passed 'child_index: ${this.newRecordPlaceholderValue}' to 'fields_for'`);
     }
   }
 }
