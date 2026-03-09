@@ -6,6 +6,7 @@ title: FormRcController
 
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -61,9 +62,43 @@ Put the controller in a scope that can see a `formTarget`, and wire up some link
 Put the controller in a scope with some links with actions to `form-rc#submit`, and a CSS selector
 provided to the controller via `formSelectorValue` that it can use to find the form in the page,
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/form_rc_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="FormRcController"
+  html={`<div data-controller="form-rc" style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <form data-form-rc-target="form"
+    style="display:flex;flex-direction:column;gap:0.5rem;border:1px solid #e5e7eb;border-radius:8px;padding:1rem;">
+    <label style="font-size:0.9rem;color:#374151;">
+      Name
+      <input type="text" name="name" placeholder="Your name"
+        style="display:block;width:100%;margin-top:0.25rem;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+    </label>
+    <label style="font-size:0.9rem;color:#374151;">
+      Role
+      <select name="role" style="display:block;width:100%;margin-top:0.25rem;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+        <option value="">Select role...</option>
+        <option value="admin">Admin</option>
+        <option value="editor">Editor</option>
+        <option value="viewer">Viewer</option>
+      </select>
+    </label>
+  </form>
+  <div style="display:flex;gap:0.5rem;">
+    <button data-action="click->form-rc#submit"
+      style="padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+      Submit form
+    </button>
+    <button data-action="click->form-rc#reset"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;">
+      Reset form
+    </button>
+  </div>
+  <div id="result" style="font-size:0.85rem;color:#6b7280;"></div>
+</div>`}
+  js={`document.querySelector('[data-form-rc-target="form"]').addEventListener('submit', e => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  document.getElementById('result').textContent = 'Submitted: name=' + fd.get('name') + ', role=' + (fd.get('role') || 'none');
+});`}
+  editorHeight={290}
 />
 

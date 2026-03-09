@@ -8,6 +8,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -43,10 +44,24 @@ A utility controller to fire an `alert()` in response to an event.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/alert_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="AlertController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:360px;">
+  <p style="font-size:0.9rem;color:#374151;margin:0;">Click the button to trigger an alert dialog.</p>
+  <button data-controller="alert"
+    data-action="click->alert#alert"
+    data-alert-message-value="Hello from Stimulus!"
+    style="align-self:flex-start;padding:0.5rem 1rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+    Show alert
+  </button>
+  <button data-controller="alert"
+    data-action="click->alert#alert"
+    data-alert-message-value="Action completed successfully."
+    style="align-self:flex-start;padding:0.5rem 1rem;background:#16a34a;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+    Show success alert
+  </button>
+</div>`}
+  editorHeight={200}
 />
 
 

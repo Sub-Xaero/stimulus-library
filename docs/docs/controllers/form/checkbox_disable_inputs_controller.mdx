@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -44,10 +45,32 @@ Disable other inputs if a checkbox is ticked.
 
 Example - when creating an event that can have the `end_time` turned off with a boolean:
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/checkbox_disable_inputs_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="CheckboxDisableInputsController"
+  html={`<div data-controller="checkbox-disable-inputs"
+  style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+    <input type="checkbox" data-checkbox-disable-inputs-target="disabler"
+      style="width:1rem;height:1rem;cursor:pointer;">
+    All day event (check to disable time inputs)
+  </label>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;padding-left:1.5rem;">
+    <div>
+      <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">Start time</label>
+      <input type="time" data-checkbox-disable-inputs-target="disable"
+        value="09:00"
+        style="width:100%;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+    </div>
+    <div>
+      <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">End time</label>
+      <input type="time" data-checkbox-disable-inputs-target="disable"
+        value="17:00"
+        style="width:100%;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+    </div>
+  </div>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">Check the box — the time inputs become disabled.</p>
+</div>`}
+  editorHeight={260}
 />
 
 # See also

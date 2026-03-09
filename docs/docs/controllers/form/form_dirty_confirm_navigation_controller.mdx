@@ -7,6 +7,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
 import NoActions from "../../_partials/no-actions.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -55,8 +56,27 @@ Also adds a native confirmation dialogue using `window.onbeforeunload`, to detec
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/form_dirty_confirm_navigation_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="FormDirtyConfirmNavigationController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <div id="status" style="padding:0.75rem;background:#fef9c3;border:1px solid #fde047;border-radius:6px;color:#713f12;font-size:0.9rem;">
+    Modify the form below to mark it as dirty.
+  </div>
+  <form data-controller="form-dirty-confirm-navigation"
+    style="display:flex;flex-direction:column;gap:0.5rem;">
+    <input type="text" name="title" placeholder="Article title"
+      style="padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+    <textarea name="body" placeholder="Content..." rows="3"
+      style="padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;resize:vertical;"></textarea>
+    <button type="submit"
+      style="align-self:flex-start;padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+      Save
+    </button>
+  </form>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    In a real app, navigating away after editing would trigger a browser confirmation dialog.
+    Sandboxed previews restrict <code>beforeunload</code>, so the dialog is suppressed here.
+  </p>
+</div>`}
+  editorHeight={270}
 />

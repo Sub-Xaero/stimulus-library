@@ -7,6 +7,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -40,9 +41,28 @@ fallback in contexts where third-party libraries mean that flexbox doesn't work 
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/equalize_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="EqualizeController"
+  html={`<div data-controller="equalize" style="display:flex;gap:0.75rem;max-width:500px;">
+  <div data-equalize-target="watch"
+    style="flex:1;padding:0.75rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;">
+    <strong>Card A</strong>
+    <p style="margin:0.5rem 0 0;font-size:0.85rem;color:#4b5563;">Short content.</p>
+  </div>
+  <div data-equalize-target="watch"
+    style="flex:1;padding:0.75rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;">
+    <strong>Card B</strong>
+    <p style="margin:0.5rem 0 0;font-size:0.85rem;color:#4b5563;">This card has significantly more content so it is naturally taller than the others.</p>
+  </div>
+  <div data-equalize-target="watch"
+    style="flex:1;padding:0.75rem;background:#fef9c3;border:1px solid #fde047;border-radius:8px;">
+    <strong>Card C</strong>
+    <p style="margin:0.5rem 0 0;font-size:0.85rem;color:#4b5563;">Medium length content here.</p>
+  </div>
+</div>
+<p style="font-size:0.85rem;color:#6b7280;margin-top:0.75rem;">
+  All three cards are equalized to the tallest card's height via <code>style.minHeight</code>.
+</p>`}
+  editorHeight={250}
 />
 

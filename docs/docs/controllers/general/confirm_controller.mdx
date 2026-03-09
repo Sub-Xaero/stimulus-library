@@ -7,6 +7,7 @@ title: ConfirmController
 import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -45,8 +46,38 @@ Shows a native confirmation dialogue using `window.confirm` to the user with the
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/confirm_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="ConfirmController"
+  html={`<div style="display:flex;flex-direction:column;gap:1rem;max-width:400px;">
+  <div id="log" style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;font-size:0.85rem;color:#374151;min-height:2.5rem;">
+    Click a button to see the confirmation dialog.
+  </div>
+  <button data-controller="confirm"
+    data-confirm-message-value="Are you sure you want to delete this item?"
+    style="padding:0.5rem 1rem;background:#ef4444;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+    Delete item
+  </button>
+  <a href="#" data-controller="confirm"
+    data-confirm-message-value="Leave this page?"
+    style="display:inline-block;padding:0.5rem 1rem;background:#f59e0b;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;width:fit-content;">
+    Navigate away
+  </a>
+</div>`}
+  js={`document.querySelectorAll('[data-controller="confirm"]').forEach(el => {
+  el.addEventListener('confirm:cancelled', () => {
+    const log = document.getElementById('log');
+    log.textContent = 'Action cancelled by user.';
+    log.style.color = '#dc2626';
+  });
+  el.addEventListener('click', () => {
+    setTimeout(() => {
+      const log = document.getElementById('log');
+      if (log.style.color !== 'rgb(220, 38, 38)') {
+        log.textContent = 'Confirmed! Action would proceed.';
+        log.style.color = '#16a34a';
+      }
+    }, 50);
+  });
+});`}
+  editorHeight={250}
 />

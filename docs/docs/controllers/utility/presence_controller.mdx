@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -41,10 +42,61 @@ A utility controller to wire up other stimulus actions when an element comes int
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/presence_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="PresenceController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:420px;">
+  <div id="event-log"
+    style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;font-size:0.85rem;color:#6b7280;min-height:3rem;">
+    Waiting for presence events...
+  </div>
+  <div style="display:flex;gap:0.5rem;align-items:center;">
+    <div data-controller="presence"
+      data-presence-name-value="demo"
+      id="tracked-element"
+      style="padding:0.75rem 1rem;background:#eef2ff;border:2px solid #6366f1;border-radius:8px;font-size:0.9rem;color:#4338ca;font-weight:500;">
+      Tracked element (connected)
+    </div>
+  </div>
+  <button id="toggle-btn"
+    style="align-self:flex-start;padding:0.5rem 1rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+    Remove element from DOM
+  </button>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    Toggle the element to observe <code>presence:added</code> and <code>presence:removed</code> events.
+  </p>
+</div>`}
+  js={`const log = document.getElementById('event-log');
+const btn = document.getElementById('toggle-btn');
+const tracked = document.getElementById('tracked-element');
+let parent = tracked.parentNode;
+let removed = false;
+
+document.addEventListener('demo:presence:added', (e) => {
+  log.textContent = 'Event fired: demo:presence:added — element entered the DOM.';
+  log.style.color = '#166534';
+  log.style.background = '#f0fdf4';
+  log.style.borderColor = '#bbf7d0';
+});
+
+document.addEventListener('demo:presence:removed', (e) => {
+  log.textContent = 'Event fired: demo:presence:removed — element left the DOM.';
+  log.style.color = '#dc2626';
+  log.style.background = '#fef2f2';
+  log.style.borderColor = '#fecaca';
+});
+
+btn.addEventListener('click', () => {
+  if (removed) {
+    parent.insertBefore(tracked, btn);
+    btn.textContent = 'Remove element from DOM';
+    removed = false;
+  } else {
+    tracked.remove();
+    btn.textContent = 'Add element back to DOM';
+    removed = true;
+  }
+});`}
+  editorHeight={300}
 />
 
 

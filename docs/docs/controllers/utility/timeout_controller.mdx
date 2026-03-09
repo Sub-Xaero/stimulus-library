@@ -7,6 +7,7 @@ title: TimeoutController
 import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -49,3 +50,29 @@ An example: Show a marketing popup after 30 seconds.
   <a data-action="click->dismissable#dismiss">No thanks</a>
 </div>
 ```
+
+<StimulusPlayground
+  controller="TimeoutController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <div id="countdown-display"
+    style="padding:1rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;text-align:center;font-size:0.9rem;color:#374151;">
+    Waiting for timeout (3 seconds)...
+  </div>
+  <div data-controller="timeout"
+    data-timeout-seconds-value="3"
+    id="timer">
+  </div>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    After 3 seconds, the <code>timeout</code> event fires once.
+  </p>
+</div>`}
+  js={`document.getElementById('timer').addEventListener('timeout', () => {
+  const display = document.getElementById('countdown-display');
+  display.textContent = 'Timeout fired!';
+  display.style.background = '#f0fdf4';
+  display.style.borderColor = '#bbf7d0';
+  display.style.color = '#166534';
+  display.style.fontWeight = '600';
+});`}
+  editorHeight={220}
+/>

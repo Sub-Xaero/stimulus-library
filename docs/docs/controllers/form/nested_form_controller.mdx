@@ -8,6 +8,7 @@ import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
 import NestedFormControllerHtml from "../../examples/nested_form_controller.mdx";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -65,3 +66,31 @@ specifying `f.simple_fields_for ..., child_index: 'NEW_RECORD' `
 ## HTML / ERB
 
 <NestedFormControllerHtml/>
+
+## Interactive Demo
+
+<StimulusPlayground
+  controller="NestedFormController"
+  html={`<div data-controller="nested-form" style="max-width:400px;">
+  <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.75rem;" data-nested-form-target="target">
+  </div>
+  <template data-nested-form-target="template">
+    <div class="nested-fields" data-new-record="true"
+      style="display:flex;gap:0.5rem;align-items:center;padding:0.4rem;border:1px solid #e5e7eb;border-radius:6px;">
+      <input type="text" name="tags[NEW_RECORD][name]" placeholder="Tag name"
+        style="flex:1;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+      <input type="color" name="tags[NEW_RECORD][color]" value="#6366f1"
+        style="width:2.5rem;height:2rem;border:1px solid #d1d5db;border-radius:6px;cursor:pointer;padding:0.1rem;">
+      <button type="button" data-action="click->nested-form#remove"
+        style="padding:0.25rem 0.5rem;background:#fee2e2;color:#dc2626;border:none;border-radius:6px;cursor:pointer;">
+        X
+      </button>
+    </div>
+  </template>
+  <button type="button" data-action="click->nested-form#add"
+    style="padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+    + Add tag
+  </button>
+</div>`}
+  editorHeight={270}
+/>

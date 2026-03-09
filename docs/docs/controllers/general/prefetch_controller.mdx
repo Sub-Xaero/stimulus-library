@@ -9,6 +9,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -41,8 +42,41 @@ The controller will preload links by injecting a `<link rel="prefetch" as="docum
 
 It will only do so if there is not already a prefetch link with the same `href` already in the `<head>`.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/preload_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="PrefetchController"
+  html={`<div style="display:flex;flex-direction:column;gap:1rem;max-width:420px;">
+  <p style="font-size:0.9rem;color:#374151;margin:0;">
+    Hover over either link below. The controller will inject a
+    <code>&lt;link rel="prefetch"&gt;</code> into <code>&lt;head&gt;</code> the first time
+    you hover.
+  </p>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;">
+    <a href="https://example.com/page-one"
+      data-controller="prefetch"
+      data-prefetch-mode-value="mouseover"
+      style="padding:0.5rem 1rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:6px;color:#4f46e5;text-decoration:none;font-size:0.9rem;">
+      Hover to prefetch: /page-one (mouseover mode)
+    </a>
+    <a href="https://example.com/page-two"
+      data-controller="prefetch"
+      data-prefetch-mode-value="intersect"
+      style="padding:0.5rem 1rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;color:#16a34a;text-decoration:none;font-size:0.9rem;">
+      Auto-prefetch on visibility: /page-two (intersect mode)
+    </a>
+  </div>
+  <div id="prefetch-log" style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;font-size:0.85rem;color:#374151;">
+    Prefetch links in &lt;head&gt;: <span id="prefetch-count">0</span>
+  </div>
+</div>`}
+  js={`function updateCount() {
+  const links = document.head.querySelectorAll('link[rel="prefetch"]');
+  document.getElementById('prefetch-count').textContent = links.length;
+  if (links.length > 0) {
+    const hrefs = Array.from(links).map(l => l.href).join(', ');
+    document.getElementById('prefetch-log').innerHTML =
+      'Prefetch links in &lt;head&gt;: <strong>' + links.length + '</strong><br><small style="color:#6b7280;">' + hrefs + '</small>';
+  }
+}
+setInterval(updateCount, 500);`}
+  editorHeight={250}
 />

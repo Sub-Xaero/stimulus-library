@@ -9,6 +9,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import Expressions from "../../_partials/expressions.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -73,3 +74,38 @@ the same `nameValue` as the `nameValue` of this controller.
 </div>
 
 ```
+
+<StimulusPlayground
+  controller="SignalDisableController"
+  js={`const { SignalInputController } = await import("https://esm.sh/stimulus-library");
+application.register("signal-input", SignalInputController);`}
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <p style="font-size:0.9rem;color:#374151;margin:0;">
+    Select "Free" plan — the checkout button becomes disabled.
+  </p>
+  <div style="display:flex;gap:0.5rem;">
+    <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;">
+      <input type="radio" name="plan" value="free"
+        data-controller="signal-input"
+        data-signal-input-name-value="plan"> Free
+    </label>
+    <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;">
+      <input type="radio" name="plan" value="pro"
+        data-controller="signal-input"
+        data-signal-input-name-value="plan"> Pro
+    </label>
+    <label style="display:flex;align-items:center;gap:0.4rem;cursor:pointer;">
+      <input type="radio" name="plan" value="enterprise"
+        data-controller="signal-input"
+        data-signal-input-name-value="plan"> Enterprise
+    </label>
+  </div>
+  <button data-controller="signal-disable"
+    data-signal-disable-name-value="plan"
+    data-signal-disable-when-value="free"
+    style="align-self:flex-start;padding:0.5rem 1.25rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+    Checkout →
+  </button>
+</div>`}
+  editorHeight={250}
+/>

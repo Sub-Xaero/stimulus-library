@@ -7,8 +7,8 @@ title: TeleportController
 import Ephemeral from "../../_partials/ephemeral.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
-import TeleportControllerHtml from "../../examples/teleport_controller.mdx";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -57,8 +57,26 @@ Mostly useful for AJAX loaded/"HTML over the wire" elements that need to be plac
 
 ## How to Use
 
-
-## HTML
-
-<TeleportControllerHtml/>
+<StimulusPlayground
+  controller="TeleportController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:420px;">
+  <div style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
+    <p style="margin:0 0 0.5rem;font-size:0.85rem;font-weight:500;color:#374151;">Destination:</p>
+    <div id="destination" style="min-height:40px;padding:0.5rem;background:#eef2ff;border:1px dashed #c7d2fe;border-radius:6px;font-size:0.85rem;color:#6b7280;">
+      Teleported content will appear here
+    </div>
+  </div>
+  <div data-controller="teleport"
+    data-teleport-target-value="#destination"
+    data-teleport-insert-value="beforeend"
+    style="padding:0.75rem;background:#fef9c3;border:1px solid #fde047;border-radius:8px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:0.9rem;color:#713f12;">This element will be teleported</span>
+    <button data-action="click->teleport#execute"
+      style="padding:0.35rem 0.75rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;">
+      Teleport
+    </button>
+  </div>
+</div>`}
+  editorHeight={250}
+/>
 

@@ -9,6 +9,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -39,9 +40,29 @@ Sets an event listener for `fullscreenchange` to keep track of the fullscreen st
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/fullscreen_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="FullscreenController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <div data-controller="fullscreen"
+    style="padding:1.5rem;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:12px;color:#fff;text-align:center;">
+    <p style="margin:0 0 1rem;font-size:1rem;font-weight:500;">Fullscreen Demo</p>
+    <button data-action="click->fullscreen#enter"
+      style="padding:0.5rem 1rem;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:6px;cursor:pointer;margin-right:0.5rem;">
+      Enter fullscreen
+    </button>
+    <button data-action="click->fullscreen#toggle"
+      style="padding:0.5rem 1rem;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:6px;cursor:pointer;margin-right:0.5rem;">
+      Toggle fullscreen
+    </button>
+    <button data-action="click->fullscreen#exit"
+      style="padding:0.5rem 1rem;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.4);border-radius:6px;cursor:pointer;">
+      Exit fullscreen
+    </button>
+  </div>
+  <p style="font-size:0.85rem;color:#9ca3af;margin:0;">
+    Note: Fullscreen may be restricted in embedded previews depending on browser settings.
+  </p>
+</div>`}
+  editorHeight={240}
 />
 
