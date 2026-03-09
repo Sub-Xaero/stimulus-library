@@ -8,6 +8,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import RemoteFormControllerHtml from "../../examples/remote_form_controller.mdx";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -53,3 +54,50 @@ When listening for `remote-form:replace`, it's worth noting that because the `<f
 
 ## HTML / ERB
 <RemoteFormControllerHtml/>
+
+## Interactive Demo
+
+The `RemoteFormController` is designed for Rails UJS remote forms. The demo below simulates the `ajax:success` event that Rails UJS fires, showing how the controller replaces the form with server-returned HTML.
+
+<StimulusPlayground
+  controller="RemoteFormController"
+  js={`const form = document.querySelector('[data-controller="remote-form"]');
+
+document.getElementById('simulate-btn').addEventListener('click', () => {
+  const responseHtml = \`<form data-controller="remote-form"
+    data-action="ajax:success->remote-form#replace"
+    style="padding:1rem;background:#f0fdf4;border:2px solid #bbf7d0;border-radius:8px;display:flex;flex-direction:column;gap:0.75rem;">
+    <p style="margin:0;font-weight:600;color:#166534;">Form submitted successfully!</p>
+    <p style="margin:0;font-size:0.85rem;color:#166534;">The form was replaced with this response from the server.</p>
+    <button id="simulate-btn" style="align-self:flex-start;padding:0.4rem 0.9rem;background:#16a34a;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+      Submit again
+    </button>
+  </form>\`;
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(responseHtml, 'text/html');
+
+  const event = new CustomEvent('ajax:success', {
+    bubbles: true,
+    detail: [doc, 'OK', null]
+  });
+  form.dispatchEvent(event);
+});`}
+  html={`<div style="max-width:420px;display:flex;flex-direction:column;gap:0.75rem;">
+  <form data-controller="remote-form"
+    data-action="ajax:success->remote-form#replace"
+    style="padding:1rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;display:flex;flex-direction:column;gap:0.75rem;">
+    <label style="font-size:0.9rem;font-weight:500;color:#374151;">Email address</label>
+    <input type="email" placeholder="you@example.com"
+      style="padding:0.5rem 0.75rem;border:1px solid #d1d5db;border-radius:6px;font-size:0.9rem;width:100%;box-sizing:border-box;">
+    <button id="simulate-btn"
+      style="align-self:flex-start;padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+      Submit (simulate ajax:success)
+    </button>
+  </form>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    Clicking submit fires a simulated <code>ajax:success</code> event, triggering the replace action.
+  </p>
+</div>`}
+  editorHeight={300}
+/>

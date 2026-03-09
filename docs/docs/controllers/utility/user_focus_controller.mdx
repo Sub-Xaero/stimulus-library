@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -48,10 +49,32 @@ The controller will install event listeners for:
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/user_focus_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="UserFocusController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <div data-controller="user-focus"
+    id="focus-indicator"
+    style="padding:1rem;background:#f0fdf4;border:2px solid #bbf7d0;border-radius:8px;text-align:center;font-size:0.9rem;color:#166534;font-weight:500;transition:all 0.3s;">
+    Window is focused
+  </div>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    Click outside this preview window, then back in — the indicator updates.
+  </p>
+</div>`}
+  js={`const indicator = document.getElementById('focus-indicator');
+document.getElementById('focus-indicator').addEventListener('user-focus:active', () => {
+  indicator.style.background = '#f0fdf4';
+  indicator.style.borderColor = '#bbf7d0';
+  indicator.style.color = '#166534';
+  indicator.textContent = 'Window is focused';
+});
+document.getElementById('focus-indicator').addEventListener('user-focus:away', () => {
+  indicator.style.background = '#fef2f2';
+  indicator.style.borderColor = '#fecaca';
+  indicator.style.color = '#dc2626';
+  indicator.textContent = 'Window lost focus';
+});`}
+  editorHeight={220}
 />
 
 

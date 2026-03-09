@@ -6,6 +6,7 @@ title: EmptyDomController
 
 import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -57,9 +58,61 @@ You can also scope what the controller watches for inside the container using a 
 The selector you specify will be used to `querySelectorAll` the children/subtree of the container you attach the controller too, and fire the
 `dom:empty` and `dom:not-empty` events when the results of the query are empty/not empty.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/empty_dom_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="EmptyDomController"
+  html={`<style>
+  .list-empty { opacity: 0.5; }
+  .list-has-items { opacity: 1; }
+</style>
+<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <div
+    data-controller="empty-dom"
+    data-empty-dom-empty-class="list-empty"
+    data-empty-dom-not-empty-class="list-has-items"
+    style="min-height:80px;border:1px dashed #d1d5db;border-radius:8px;padding:0.75rem;transition:opacity 0.2s;">
+    <div id="items-list"></div>
+  </div>
+  <div id="status-msg" style="padding:0.5rem 0.75rem;background:#fef9c3;border:1px solid #fde047;border-radius:6px;font-size:0.85rem;color:#713f12;">
+    Container is empty — empty-dom:empty event fired
+  </div>
+  <div style="display:flex;gap:0.5rem;">
+    <button id="add-btn"
+      style="padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+      + Add item
+    </button>
+    <button id="remove-btn"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+      Remove last
+    </button>
+  </div>
+</div>`}
+  js={`let count = 0;
+const container = document.querySelector('[data-controller="empty-dom"]');
+
+container.addEventListener('empty-dom:empty', () => {
+  document.getElementById('status-msg').textContent = 'Container is empty — empty-dom:empty event fired';
+  document.getElementById('status-msg').style.background = '#fef9c3';
+  document.getElementById('status-msg').style.borderColor = '#fde047';
+  document.getElementById('status-msg').style.color = '#713f12';
+});
+container.addEventListener('empty-dom:not-empty', (e) => {
+  document.getElementById('status-msg').textContent = 'Container has ' + e.detail.count + ' item(s) — empty-dom:not-empty event fired';
+  document.getElementById('status-msg').style.background = '#f0fdf4';
+  document.getElementById('status-msg').style.borderColor = '#bbf7d0';
+  document.getElementById('status-msg').style.color = '#166534';
+});
+
+document.getElementById('add-btn').addEventListener('click', () => {
+  count++;
+  const item = document.createElement('div');
+  item.style.cssText = 'padding:0.35rem 0.5rem;background:#eef2ff;border-radius:4px;margin-bottom:0.25rem;font-size:0.9rem;color:#374151;';
+  item.textContent = 'Item ' + count;
+  document.getElementById('items-list').appendChild(item);
+});
+document.getElementById('remove-btn').addEventListener('click', () => {
+  const list = document.getElementById('items-list');
+  if (list.lastElementChild) list.removeChild(list.lastElementChild);
+});`}
+  editorHeight={280}
 />
 

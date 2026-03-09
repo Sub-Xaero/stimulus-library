@@ -6,6 +6,7 @@ title: FallbackImageController
 
 import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -52,10 +53,34 @@ If an image fails to load, the controller will either try to set the `src` to a 
 
 If the placeholder URL you provide *also* fails to load, the controller will fall back to the default behaviour of hiding the element.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/fallback_image_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="FallbackImageController"
+  html={`<div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;max-width:420px;">
+  <div style="text-align:center;">
+    <p style="font-size:0.8rem;color:#6b7280;margin:0 0 0.4rem;">With placeholder</p>
+    <img data-controller="fallback-image"
+      data-fallback-image-placeholder-value="https://placehold.co/120x80?text=Fallback"
+      src="https://this-url-does-not-exist.example.com/image.jpg"
+      alt="Broken image with fallback"
+      style="width:120px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;">
+  </div>
+  <div style="text-align:center;">
+    <p style="font-size:0.8rem;color:#6b7280;margin:0 0 0.4rem;">Without placeholder (hidden)</p>
+    <img data-controller="fallback-image"
+      src="https://this-url-does-not-exist.example.com/other.jpg"
+      alt="Broken image hidden"
+      style="width:120px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;">
+  </div>
+  <div style="text-align:center;">
+    <p style="font-size:0.8rem;color:#6b7280;margin:0 0 0.4rem;">Working image</p>
+    <img data-controller="fallback-image"
+      data-fallback-image-placeholder-value="https://placehold.co/120x80?text=Fallback"
+      src="https://placehold.co/120x80?text=OK"
+      alt="Working image"
+      style="width:120px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;">
+  </div>
+</div>`}
+  editorHeight={230}
 />
 
 

@@ -8,6 +8,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -45,10 +46,28 @@ Set the user's focus to the attached input, on load, or on the firing of an acti
 ## How to Use
 
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/focus_steal_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="FocusStealController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <p style="font-size:0.9rem;color:#374151;margin:0;">
+    The first input is automatically focused when the page loads (<code>mode="immediate"</code>).
+  </p>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;">
+    <input data-controller="focus-steal"
+      data-focus-steal-mode-value="immediate"
+      type="text" placeholder="Auto-focused (first name)"
+      style="padding:0.5rem 0.75rem;border:2px solid #d1d5db;border-radius:6px;">
+    <input type="text" placeholder="Last name"
+      style="padding:0.5rem 0.75rem;border:2px solid #d1d5db;border-radius:6px;">
+    <input type="email" placeholder="Email"
+      style="padding:0.5rem 0.75rem;border:2px solid #d1d5db;border-radius:6px;">
+  </div>
+  <button data-action="click->focus-steal#steal"
+    style="align-self:flex-start;padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+    Re-focus first input
+  </button>
+</div>`}
+  editorHeight={230}
 />
 
 

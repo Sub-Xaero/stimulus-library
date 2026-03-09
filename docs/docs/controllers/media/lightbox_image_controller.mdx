@@ -6,6 +6,7 @@ title: LightboxImageController
 
 import NoTargets from "../../_partials/no-targets.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -64,8 +65,28 @@ you will need to include the [dialog-polyfill](https://github.com/GoogleChrome/d
 This is not included in the Stimulus library.
 
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/lightbox_image_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="LightboxImageController"
+  html={`<div style="display:flex;gap:1rem;flex-wrap:wrap;max-width:480px;">
+  <div style="text-align:center;">
+    <p style="font-size:0.8rem;color:#6b7280;margin:0 0 0.4rem;">Click to expand</p>
+    <img data-controller="lightbox-image"
+      data-action="click->lightbox-image#open"
+      src="https://placehold.co/150x100?text=Image+1"
+      alt="Demo image 1"
+      style="width:150px;height:100px;object-fit:cover;border-radius:8px;border:2px solid #e5e7eb;cursor:zoom-in;">
+  </div>
+  <div style="text-align:center;">
+    <p style="font-size:0.8rem;color:#6b7280;margin:0 0 0.4rem;">Click to expand</p>
+    <img data-controller="lightbox-image"
+      data-action="click->lightbox-image#open"
+      src="https://placehold.co/150x100/6366f1/ffffff?text=Image+2"
+      alt="Demo image 2"
+      style="width:150px;height:100px;object-fit:cover;border-radius:8px;border:2px solid #e5e7eb;cursor:zoom-in;">
+  </div>
+  <p style="width:100%;font-size:0.85rem;color:#6b7280;margin:0;">
+    Click an image to open it in a lightbox dialog. Press Esc or click outside to close.
+  </p>
+</div>`}
+  editorHeight={240}
 />

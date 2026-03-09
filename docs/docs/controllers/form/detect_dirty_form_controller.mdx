@@ -7,6 +7,7 @@ title: DetectDirtyFormController
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoValues from "../../_partials/no-values.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -49,8 +50,48 @@ Adds `input` and `change` event listeners to the attached form, bubbled up from 
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/detect_dirty_form_controller.html"
-  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="DetectDirtyFormController"
+  html={`<style>
+  [data-dirty] input, [data-dirty] textarea, [data-dirty] select { border-color: #f59e0b !important; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
+  form[data-dirty] .form-status { background:#fefce8;border-color:#fde68a;color:#92400e; }
+</style>
+<form data-controller="detect-dirty-form"
+  style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <div class="form-status"
+    style="padding:0.6rem 0.75rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;font-size:0.85rem;color:#166534;transition:background 0.2s,border-color 0.2s,color 0.2s;">
+    Form is clean — edit any field to see it turn dirty.
+  </div>
+  <div>
+    <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">Full name</label>
+    <input type="text" name="name" value="Jane Smith"
+      style="width:100%;padding:0.4rem 0.5rem;border:2px solid #d1d5db;border-radius:6px;transition:border-color 0.2s,box-shadow 0.2s;">
+  </div>
+  <div>
+    <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">Email</label>
+    <input type="email" name="email" value="jane@example.com"
+      style="width:100%;padding:0.4rem 0.5rem;border:2px solid #d1d5db;border-radius:6px;transition:border-color 0.2s,box-shadow 0.2s;">
+  </div>
+  <div>
+    <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">Role</label>
+    <select name="role"
+      style="width:100%;padding:0.4rem 0.5rem;border:2px solid #d1d5db;border-radius:6px;transition:border-color 0.2s,box-shadow 0.2s;">
+      <option value="admin">Admin</option>
+      <option value="editor" selected>Editor</option>
+      <option value="viewer">Viewer</option>
+    </select>
+  </div>
+  <div style="display:flex;gap:0.5rem;">
+    <button type="submit"
+      style="padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+      Save
+    </button>
+    <button type="button" data-action="click->detect-dirty-form#restore"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+      ↺ Restore original
+    </button>
+  </div>
+</form>`}
+  js={`document.querySelector('form').addEventListener('submit', e => e.preventDefault());`}
+  editorHeight={300}
 />

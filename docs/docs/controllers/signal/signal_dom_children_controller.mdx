@@ -8,6 +8,7 @@ import NoTargets from "../../_partials/no-targets.md";
 import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -72,8 +73,51 @@ Other use cases might be to show or hide elements when there is a specific numbe
     </div>
 ```
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/signal_dom_children_controller.html"
-  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="SignalDomChildrenController"
+  js={`const { SignalVisibilityController } = await import("https://esm.sh/stimulus-library");
+application.register("signal-visibility", SignalVisibilityController);
+
+let count = 0;
+document.getElementById('add-item').addEventListener('click', () => {
+  count++;
+  const li = document.createElement('li');
+  li.style.cssText = 'padding:0.35rem 0.5rem;background:#eef2ff;border-radius:4px;font-size:0.9rem;';
+  li.textContent = 'Item ' + count;
+  document.getElementById('item-list').appendChild(li);
+});
+document.getElementById('remove-item').addEventListener('click', () => {
+  const list = document.getElementById('item-list');
+  if (list.lastElementChild) list.removeChild(list.lastElementChild);
+});`}
+  html={`<style>
+  .hidden { display: none; }
+</style>
+<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <div>
+    <ul data-controller="signal-dom-children"
+      data-signal-dom-children-name-value="item-count"
+      id="item-list"
+      style="list-style:none;margin:0;padding:0.5rem;border:1px solid #e5e7eb;border-radius:8px;min-height:60px;display:flex;flex-direction:column;gap:0.25rem;">
+    </ul>
+    <div data-controller="signal-visibility"
+      data-signal-visibility-name-value="item-count"
+      data-signal-visibility-show-value="<=0"
+      data-signal-visibility-hide-class="hidden"
+      style="padding:0.5rem;text-align:center;color:#9ca3af;font-size:0.9rem;font-style:italic;">
+      No items yet. Add some below!
+    </div>
+  </div>
+  <div style="display:flex;gap:0.5rem;">
+    <button id="add-item"
+      style="padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+      + Add item
+    </button>
+    <button id="remove-item"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;">
+      Remove last
+    </button>
+  </div>
+</div>`}
+  editorHeight={290}
 />

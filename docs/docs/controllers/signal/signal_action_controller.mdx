@@ -9,6 +9,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import Expressions from "../../_partials/expressions.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -71,3 +72,40 @@ the same `nameValue` as the `nameValue` of this controller.
 </div>
 
 ```
+
+<StimulusPlayground
+  controller="SignalActionController"
+  js={`const { SignalInputController } = await import("https://esm.sh/stimulus-library");
+application.register("signal-input", SignalInputController);
+
+document.querySelector('[data-controller="signal-action"]').addEventListener('signal:match:choice', e => {
+  document.getElementById('action-log').innerHTML = '✓ Match! Value matched the predicate.';
+  document.getElementById('action-log').style.color = '#16a34a';
+});
+document.querySelector('[data-controller="signal-action"]').addEventListener('signal:no-match:choice', e => {
+  document.getElementById('action-log').innerHTML = '✗ No match. Value did not match.';
+  document.getElementById('action-log').style.color = '#dc2626';
+});`}
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <div>
+    <label style="display:block;font-size:0.9rem;color:#374151;margin-bottom:0.25rem;">Select a value:</label>
+    <select data-controller="signal-input"
+      data-signal-input-name-value="choice"
+      style="width:100%;padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+      <option value="maybe">Maybe</option>
+    </select>
+  </div>
+  <div data-controller="signal-action"
+    data-signal-action-name-value="choice"
+    data-signal-action-when-value="yes"
+    style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;font-size:0.85rem;color:#374151;">
+    Listening for signal "choice" with predicate "yes"
+  </div>
+  <div id="action-log" style="font-size:0.9rem;color:#6b7280;">
+    Select a value to trigger the signal action.
+  </div>
+</div>`}
+  editorHeight={270}
+/>

@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -38,8 +39,22 @@ A controller to enable a link to navigate back 1 page using the user's browser h
 - When a click occurs, if there is an `href` present on the link: sets a `setTimeout` for `timeoutValue` milliseconds so that if navigation fails, the page will instead navigate to the `href` of the link.
 
 ## How to Use
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/back_link_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+
+<StimulusPlayground
+  controller="BackLinkController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:360px;">
+  <p style="font-size:0.9rem;color:#374151;margin:0;">
+    Click the link to go back in browser history. If there is no previous page, the controller
+    falls back to navigating to the link's <code>href</code>.
+  </p>
+  <a href="#fallback" data-controller="back-link"
+    style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:#6366f1;color:#fff;border-radius:6px;text-decoration:none;font-size:0.9rem;width:fit-content;">
+    &#8592; Go back
+  </a>
+  <p style="font-size:0.85rem;color:#9ca3af;margin:0;">
+    Note: <code>history.back()</code> has no effect in a sandboxed preview with no prior history.
+    The fallback href would be followed after the timeout (default 1500ms).
+  </p>
+</div>`}
+  editorHeight={200}
 />

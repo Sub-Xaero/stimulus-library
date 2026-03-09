@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import Expressions from "../../_partials/expressions.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -72,3 +73,28 @@ the same `nameValue` as the `nameValue` of this controller.
 </div>
 
 ```
+
+<StimulusPlayground
+  controller="SignalEnableController"
+  js={`const { SignalInputController } = await import("https://esm.sh/stimulus-library");
+application.register("signal-input", SignalInputController);`}
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+    <input type="checkbox" value="true"
+      data-controller="signal-input"
+      data-signal-input-name-value="agreed"
+      style="width:1rem;height:1rem;">
+    I agree to the terms and conditions
+  </label>
+  <button data-controller="signal-enable"
+    data-signal-enable-name-value="agreed"
+    data-signal-enable-when-value="true"
+    style="align-self:flex-start;padding:0.5rem 1.25rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+    Continue →
+  </button>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    The button is enabled only when the checkbox is checked.
+  </p>
+</div>`}
+  editorHeight={230}
+/>
