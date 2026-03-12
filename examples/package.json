@@ -20,7 +20,7 @@
     "@stimulus-library/mixins": "file:../packages/mixins",
     "@stimulus-library/utilities": "file:../packages/utilities",
     "stimulus-library": "file:../packages/stimulus-library",
-    "trix": "^2.1.16",
+    "trix": "^2.1.17",
     "tiny-glob": "^0.2.9",
     "vite": "^6.4.1"
   }
