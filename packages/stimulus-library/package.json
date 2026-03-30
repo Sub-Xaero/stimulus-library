@@ -46,7 +46,7 @@
   "devDependencies": {
     "@types/node": "^25.3.5",
     "agadoo": "^3.0.0",
-    "cypress": "^15.11.0",
+    "cypress": "^15.13.0",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",
     "rimraf": "^6.0.1",
