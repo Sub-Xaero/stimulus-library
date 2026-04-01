@@ -68,7 +68,7 @@ the same `nameValue` as the `nameValue` of this controller.
 <div
   data-controller="signal-disable bar"
   data-signal-disable-name-value="foo"
-  data-signal-disable-when-value="=3 || =5"
+  data-signal-disable-when-value="==3 || ==5"
 >
   <!-- the element will have the [disabled] attribute if the value of input[name="foo"] is 3 or 5 -->
 </div>
@@ -79,7 +79,11 @@ the same `nameValue` as the `nameValue` of this controller.
   controller="SignalDisableController"
   js={`const { SignalInputController } = await import("https://esm.sh/stimulus-library");
 application.register("signal-input", SignalInputController);`}
-  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  html={`<style>
+  .checkout-btn { align-self:flex-start;padding:0.5rem 1.25rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;transition:background 0.15s,opacity 0.15s; }
+  .checkout-btn:disabled { background:#9ca3af;cursor:not-allowed;opacity:0.6; }
+</style>
+<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
   <p style="font-size:0.9rem;color:#374151;margin:0;">
     Select "Free" plan — the checkout button becomes disabled.
   </p>
@@ -100,10 +104,10 @@ application.register("signal-input", SignalInputController);`}
         data-signal-input-name-value="plan"> Enterprise
     </label>
   </div>
-  <button data-controller="signal-disable"
+  <button class="checkout-btn"
+    data-controller="signal-disable"
     data-signal-disable-name-value="plan"
-    data-signal-disable-when-value="free"
-    style="align-self:flex-start;padding:0.5rem 1.25rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+    data-signal-disable-when-value="== free">
     Checkout →
   </button>
 </div>`}

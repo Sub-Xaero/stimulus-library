@@ -67,7 +67,7 @@ the same `nameValue` as the `nameValue` of this controller.
 <div
   data-controller="signal-enable bar"
   data-signal-enable-name-value="foo"
-  data-signal-enable-when-value="=3 || =5"
+  data-signal-enable-when-value="==3 || ==5"
 >
   <!-- the element will have the [disabled] attribute unless the value of input[name="foo"] is 3 or 5 -->
 </div>
@@ -88,7 +88,7 @@ application.register("signal-input", SignalInputController);`}
   </label>
   <button data-controller="signal-enable"
     data-signal-enable-name-value="agreed"
-    data-signal-enable-when-value="true"
+    data-signal-enable-when-value="== true"
     style="align-self:flex-start;padding:0.5rem 1.25rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
     Continue →
   </button>

@@ -65,7 +65,7 @@ the same `nameValue` as the `nameValue` of this controller.
 <div
   data-controller="signal-action bar"
   data-signal-action-name-value="foo"
-  data-signal-action-when-value="=3 || =5"
+  data-signal-action-when-value="==3 || ==5"
   data-action="signal:match:foo->bar#fizzBuzz"
 >
   <!-- bar controller's `fizzBuzz` action is called when the value of input[name="foo"] is 3 or 5 -->
@@ -99,9 +99,9 @@ document.querySelector('[data-controller="signal-action"]').addEventListener('si
   </div>
   <div data-controller="signal-action"
     data-signal-action-name-value="choice"
-    data-signal-action-when-value="yes"
+    data-signal-action-when-value="== yes"
     style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;font-size:0.85rem;color:#374151;">
-    Listening for signal "choice" with predicate "yes"
+    Listening for signal "choice" with predicate "== yes"
   </div>
   <div id="action-log" style="font-size:0.9rem;color:#6b7280;">
     Select a value to trigger the signal action.
