@@ -20,8 +20,17 @@ export class NestedFormController extends BaseController {
   declare readonly hasNewRecordPlaceholderValue: boolean;
   declare readonly eventOnDestroyValue: boolean;
 
+  private _graveyard!: HTMLDivElement;
+
   connect() {
     this._checkStructure();
+    this._graveyard = document.createElement("div");
+    this._graveyard.style.display = "none";
+    this.el.appendChild(this._graveyard);
+  }
+
+  disconnect() {
+    this._graveyard.remove();
   }
 
   add(event?: Event) {
@@ -52,6 +61,11 @@ export class NestedFormController extends BaseController {
       if (this.eventOnDestroyValue) {
         destroyInput.dispatchEvent(new Event("input", { bubbles: true }));
       }
+
+      // Move the wrapper out of the target container and into a hidden graveyard element.
+      // This ensures that DOM-based observers (e.g. MutationObserver with childList: true)
+      // detect the removal, while keeping the _destroy input within the form for submission.
+      this._graveyard.appendChild(wrapper);
     }
   }
 
