@@ -7,6 +7,7 @@ title: IntervalController
 import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -47,3 +48,26 @@ An example: Save the progress of your users through a particularly lengthy form 
   <meta data-controller="interval" data-interval-seconds-value="30" />
 </form>
 ```
+
+<StimulusPlayground
+  controller="IntervalController"
+  html={`<div style="display:flex;flex-direction:column;gap:0.75rem;max-width:360px;">
+  <div data-controller="interval"
+    data-interval-seconds-value="1"
+    id="ticker">
+  </div>
+  <div id="counter-display"
+    style="font-size:2.5rem;font-weight:700;color:#6366f1;text-align:center;padding:1rem;background:#eef2ff;border-radius:12px;">
+    0
+  </div>
+  <p style="font-size:0.85rem;color:#6b7280;text-align:center;margin:0;">
+    Counter increments every second via the <code>interval:action</code> event.
+  </p>
+</div>`}
+  js={`let count = 0;
+document.getElementById('ticker').addEventListener('interval:action', () => {
+  count++;
+  document.getElementById('counter-display').textContent = count;
+});`}
+  editorHeight={210}
+/>

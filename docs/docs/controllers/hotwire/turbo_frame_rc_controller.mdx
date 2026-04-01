@@ -53,7 +53,28 @@ out the frame widget, or selectively load/unload it.
 
 ## How to Use
 
+:::note
+This controller requires a [Turbo](https://turbo.hotwired.dev/) / Rails environment and cannot be demonstrated in a standalone browser sandbox.
+See the usage example in the code block below.
+:::
 
-## HTML
-Example WIP
+```html
+<!-- A link that sets the src of a turbo-frame to load its content -->
+<a href="/widgets/42"
+  data-controller="turbo-frame-rc"
+  data-action="click->turbo-frame-rc#setSrc"
+  data-turbo-frame-rc-frame-id-value="widget-frame">
+  Load Widget
+</a>
+
+<!-- A button that clears the turbo-frame -->
+<button
+  data-controller="turbo-frame-rc"
+  data-action="click->turbo-frame-rc#clear"
+  data-turbo-frame-rc-frame-id-value="widget-frame">
+  Close
+</button>
+
+<turbo-frame id="widget-frame"></turbo-frame>
+```
 

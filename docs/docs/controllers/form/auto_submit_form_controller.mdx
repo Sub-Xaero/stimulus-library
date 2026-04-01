@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -51,8 +52,35 @@ Drop the controller onto the form element you want to augment with auto-submit b
 Annotate any inputs who changes that you _dont_ want triggering a submit, with `data-no-autosubmit`, and the controller will ignore them.
 All other `<input>`s, `<textarea>`s and `<selects>`s will trigger a form submission.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/auto_submit_form_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="AutoSubmitFormController"
+  html={`<div id="result" style="padding:0.75rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;margin-bottom:1rem;color:#166534;font-size:0.9rem;">
+  Change a dropdown — the form auto-submits on <code>change</code>.
+</div>
+<form id="filter-form" data-controller="auto-submit-form"
+  data-auto-submit-form-event-mode-value="change"
+  style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <div>
+    <label for="status" style="display:block;margin-bottom:0.25rem;font-size:0.9rem;color:#374151;">Status</label>
+    <select id="status" name="status" style="width:100%;padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+      <option value="all">All</option>
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+  </div>
+  <div>
+    <label for="category" style="display:block;margin-bottom:0.25rem;font-size:0.9rem;color:#374151;">Category</label>
+    <select id="category" name="category" style="width:100%;padding:0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+      <option value="">Any</option>
+      <option value="a">Category A</option>
+      <option value="b">Category B</option>
+    </select>
+  </div>
+</form>`}
+  js={`document.getElementById('filter-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  document.getElementById('result').innerHTML = '✓ Submitted — Status: <strong>' + fd.get('status') + '</strong>, Category: <strong>' + (fd.get('category') || 'Any') + '</strong>';
+});`}
+  editorHeight={300}
 />

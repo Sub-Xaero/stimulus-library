@@ -3,64 +3,67 @@ id: CountdownController
 title: CountdownController
 ---
 
-
 import NoActions from "../../_partials/no-actions.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
 A controller that displays a countdown clock to a specified date/time.
 
-
 ## [Actions](https://stimulus.hotwire.dev/reference/actions)
 <NoActions/>
 
-
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
-| Target               | Purpose                                                           | Default |
-|----------------------|-------------------------------------------------------------------|---------|
-| `years` (Optional)   | The target to display the number of years left in the countdown   | -       |
-| `months` (Optional)  | The target to display the number of months left in the countdown  | -       |
-| `days` (Optional)    | The target to display the number of days left in the countdown    | -       |
-| `hours` (Optional)   | The target to display the number of hours left in the countdown   | -       |
-| `minutes` (Optional) | The target to display the number of minutes left in the countdown | -       |
-| `seconds` (Optional) | The target to display the number of seconds left in the countdown | -       |
-
+| Target | Purpose | Default |
+|--------|---------|---------|
+| `years` (Optional) | The target to display the number of years left in the countdown | - |
+| `months` (Optional) | The target to display the number of months left in the countdown | - |
+| `days` (Optional) | The target to display the number of days left in the countdown | - |
+| `hours` (Optional) | The target to display the number of hours left in the countdown | - |
+| `minutes` (Optional) | The target to display the number of minutes left in the countdown | - |
+| `seconds` (Optional) | The target to display the number of seconds left in the countdown | - |
 
 ## [Classes](https://stimulus.hotwire.dev/reference/classes)
 
-| Class                     | Purpose                                           | Default |
-|---------------------------|---------------------------------------------------|---------|
-| `countingDown` (Optional) | The class to apply while the countdown is running | -       |
-| `ended` (Optional)        | The class to apply when the countdown has ended   | -       |
-
+| Class | Purpose | Default |
+|-------|---------|---------|
+| `countingDown` (Optional) | The class to apply while the countdown is running | - |
+| `ended` (Optional) | The class to apply when the countdown has ended | - |
 
 ## [Values](https://stimulus.hotwire.dev/reference/values)
 
-| Value          | Type    | Description                                                                                             | Default |
-|----------------|---------|---------------------------------------------------------------------------------------------------------|---------|
-| `deadline`     | Date    | The date/time to count down to                                                                          | -       |
-| `removeUnused` | Boolean | Whether to remove unused targets. i.e. if there are no years in the countdown                           | `false` |
-| `padZeros`     | Boolean | Whether to pad the countdown values for hours, minutes, and seconds with zeros i.e. "06" instead of "6" | `true`  |
+| Value | Type | Description | Default |
+|-------|------|-------------|---------|
+| `deadline` | Date | The date/time to count down to | - |
+| `removeUnused` | Boolean | Whether to remove unused targets when they reach zero | `false` |
+| `padZeros` | Boolean | Pad hours, minutes, and seconds with zeros (e.g. "06" instead of "6") | `true` |
 
 ## Events
 
-| Event             | When                    | Dispatched on               | `event.detail` |
-|-------------------|-------------------------|-----------------------------|----------------|
-| `countdown:ended` | When the countdown ends | The controller root element | -              |
+| Event | When | Dispatched on | `event.detail` |
+|-------|------|---------------|----------------|
+| `countdown:ended` | When the countdown ends | The controller root element | - |
 
 ## Side Effects
 
-The controller will set an interval using `setInterval`. Cleans up on disconnect and countdown end.
-
+The controller will set an interval using `setInterval`. Cleans up on disconnect and when the countdown ends.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/countdown_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+The `deadline` value accepts any date string parseable by `new Date()`. The countdown restarts automatically if `deadline` is updated.
+
+<StimulusPlayground
+  controller="CountdownController"
+  html={`<div
+  data-controller="countdown"
+  data-countdown-deadline-value="2026-12-31T23:59:59"
+  style="display:flex;gap:1rem;font-size:2rem;font-weight:bold;font-family:monospace;"
+>
+  <span><span data-countdown-target="days">--</span>d</span>
+  <span><span data-countdown-target="hours">--</span>h</span>
+  <span><span data-countdown-target="minutes">--</span>m</span>
+  <span><span data-countdown-target="seconds">--</span>s</span>
+</div>`}
+  editorHeight={160}
 />
-
-The `deadline` date can be changed at any point, during ticking or after a countdown has expired and the clock will restart with the new value.
-

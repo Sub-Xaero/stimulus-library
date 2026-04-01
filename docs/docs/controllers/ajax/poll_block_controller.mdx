@@ -7,6 +7,7 @@ title: PollBlockController
 import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -50,10 +51,28 @@ AJAX load/refresh content periodically, at a configurable interval.
 
 ## How to Use
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/poll_block_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="PollBlockController"
+  js={`let pollCount = 0;
+window.fetch = async (url) => {
+  pollCount++;
+  return new Response('<p style="margin:0;font-size:0.9rem;color:#374151;">Poll #' + pollCount + ' — Server time: ' + new Date().toLocaleTimeString() + '</p>', {
+    status: 200,
+    headers: { 'Content-Type': 'text/html' }
+  });
+};`}
+  html={`<div style="max-width:420px;display:flex;flex-direction:column;gap:0.75rem;">
+  <div data-controller="poll-block"
+    data-poll-block-endpoint-value="/api/status"
+    data-poll-block-seconds-value="2"
+    style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;">
+    Waiting for first poll...
+  </div>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">
+    Content updates every 2 seconds via polling.
+  </p>
+</div>`}
+  editorHeight={230}
 />
 
 

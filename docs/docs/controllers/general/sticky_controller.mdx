@@ -7,6 +7,7 @@ title: StickyController
 import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -57,8 +58,29 @@ sticky element is "unstuck". When the element leaves the view, we know the stick
 We can then apply CSS classes to take advantage of this.
 
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/sticky_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="StickyController"
+  html={`<style>
+  .stuck { background: #4f46e5 !important; color: #fff !important; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .stuck .stuck-indicator { display: inline; }
+  .stuck-indicator { display: none; }
+</style>
+<div style="height:280px;overflow-y:auto;border:1px solid #e5e7eb;border-radius:8px;">
+  <div style="height:120px;padding:1rem;background:#f9fafb;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:0.9rem;">
+    Scroll down
+  </div>
+  <div data-controller="sticky"
+    data-sticky-mode-value="top"
+    data-sticky-stuck-class="stuck"
+    style="position:sticky;top:0;padding:0.6rem 1rem;background:#eef2ff;border-bottom:1px solid #c7d2fe;font-weight:500;color:#4f46e5;transition:all 0.2s;z-index:10;">
+    Sticky header <span class="stuck-indicator">(stuck!)</span>
+  </div>
+  <div style="padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+    <p style="margin:0;color:#374151;font-size:0.9rem;">Scroll down to see the header get the "stuck" class applied.</p>
+    <p style="margin:0;color:#374151;font-size:0.9rem;">The class changes the background to indigo when the header is pinned to the top.</p>
+    <p style="margin:0;color:#374151;font-size:0.9rem;">Keep scrolling to confirm the style change.</p>
+    <p style="margin:0;color:#374151;font-size:0.9rem;">Scroll back up to see it return to normal.</p>
+  </div>
+</div>`}
+  editorHeight={300}
 />

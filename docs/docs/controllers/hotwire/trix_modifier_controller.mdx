@@ -42,9 +42,18 @@ If `data-no-file-uploads` is enabled, the controller will install event listener
 
 
 ## How to Use
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/trix_modifier_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
+
+:::note
+This controller requires a [Turbo](https://turbo.hotwired.dev/) / Rails environment and cannot be demonstrated in a standalone browser sandbox.
+See the usage example in the code block below.
+:::
+
+```html
+<div data-controller="trix-modifier"
+  data-no-bold
+  data-no-italic
+  data-no-file-uploads>
+  <%= f.rich_text_area :content %>
+</div>
+```
 

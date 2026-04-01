@@ -7,6 +7,7 @@ title: IntersectionController
 import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -43,10 +44,37 @@ Installs an IntersectionObserver to watch the controller element
 
 ## How to Use
 
-
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/intersection_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="IntersectionController"
+  html={`<div style="max-width:420px;">
+  <div id="status" style="padding:0.75rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;font-size:0.9rem;color:#374151;margin-bottom:0.75rem;">
+    Scroll down to observe the target element.
+  </div>
+  <div style="height:150px;overflow-y:auto;border:1px solid #e5e7eb;border-radius:8px;padding:0.75rem;">
+    <p style="margin:0 0 1rem;color:#9ca3af;font-size:0.9rem;">Scroll down inside this box</p>
+    <div style="height:80px;"></div>
+    <div data-controller="intersection"
+      data-intersection-threshold-value="0.5"
+      style="padding:0.75rem;background:#eef2ff;border:2px solid #6366f1;border-radius:8px;text-align:center;font-size:0.9rem;color:#4338ca;">
+      Observed element
+    </div>
+    <div style="height:80px;"></div>
+  </div>
+</div>`}
+  js={`document.querySelector('[data-controller="intersection"]').addEventListener('intersection:appear', () => {
+  const status = document.getElementById('status');
+  status.textContent = 'Element is visible!';
+  status.style.background = '#f0fdf4';
+  status.style.borderColor = '#bbf7d0';
+  status.style.color = '#166534';
+});
+document.querySelector('[data-controller="intersection"]').addEventListener('intersection:disappear', () => {
+  const status = document.getElementById('status');
+  status.textContent = 'Element is out of view.';
+  status.style.background = '#fef2f2';
+  status.style.borderColor = '#fecaca';
+  status.style.color = '#dc2626';
+});`}
+  editorHeight={300}
 />
 

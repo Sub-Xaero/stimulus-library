@@ -10,6 +10,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoTargets from "../../_partials/no-targets.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -49,10 +50,33 @@ See [scrollIntoView documentation](https://developer.mozilla.org/en-US/docs/Web/
 ## How to Use
 
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/scroll_into_focus_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="ScrollIntoFocusController"
+  html={`<div style="max-width:420px;">
+  <p style="font-size:0.9rem;color:#374151;margin:0 0 0.5rem;">Click a button to add a highlighted item — it scrolls into view automatically on connect.</p>
+  <div id="item-list" style="height:200px;overflow-y:auto;border:1px solid #e5e7eb;border-radius:8px;padding:0.75rem;display:flex;flex-direction:column;gap:0.5rem;">
+    <div style="padding:0.5rem 0.75rem;background:#f9fafb;border-radius:6px;font-size:0.9rem;color:#6b7280;">Item 1</div>
+    <div style="padding:0.5rem 0.75rem;background:#f9fafb;border-radius:6px;font-size:0.9rem;color:#6b7280;">Item 2</div>
+    <div style="padding:0.5rem 0.75rem;background:#f9fafb;border-radius:6px;font-size:0.9rem;color:#6b7280;">Item 3</div>
+    <div style="padding:0.5rem 0.75rem;background:#f9fafb;border-radius:6px;font-size:0.9rem;color:#6b7280;">Item 4</div>
+    <div style="padding:0.5rem 0.75rem;background:#f9fafb;border-radius:6px;font-size:0.9rem;color:#6b7280;">Item 5</div>
+  </div>
+  <button id="add-item"
+    style="margin-top:0.75rem;padding:0.5rem 1rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">
+    + Add item (scrolls into view)
+  </button>
+</div>`}
+  js={`let count = 5;
+document.getElementById('add-item').addEventListener('click', () => {
+  count++;
+  const div = document.createElement('div');
+  div.setAttribute('data-controller', 'scroll-into-focus');
+  div.setAttribute('data-scroll-into-focus-behavior-value', 'smooth');
+  div.style.cssText = 'padding:0.5rem 0.75rem;background:#eef2ff;border:1px solid #c7d2fe;border-radius:6px;font-size:0.9rem;color:#4338ca;';
+  div.textContent = 'New Item ' + count + ' (scrolled into view)';
+  document.getElementById('item-list').appendChild(div);
+});`}
+  editorHeight={240}
 />
 
 ## See Also

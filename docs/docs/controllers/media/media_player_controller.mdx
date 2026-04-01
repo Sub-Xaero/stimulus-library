@@ -8,6 +8,7 @@ import NoValues from "../../_partials/no-values.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -53,8 +54,41 @@ See https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ for more 
 
 This controller is just a thin wrapper around the Javascript controls for HTML5 `<video>` and `<audio>` tags.
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/media_player_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="MediaPlayerController"
+  html={`<div data-controller="media-player"
+  style="display:flex;flex-direction:column;gap:0.75rem;max-width:400px;">
+  <audio data-media-player-target="media"
+    src="https://upload.wikimedia.org/wikipedia/commons/2/2d/MIDI_sample.mid"
+    crossorigin="anonymous"
+    preload="auto"
+    style="display:none;">
+  </audio>
+  <div style="padding:1rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;display:flex;align-items:center;gap:0.75rem;">
+    <div style="font-size:2rem;">🎵</div>
+    <div>
+      <p style="margin:0 0 0.25rem;font-weight:500;font-size:0.9rem;">Audio controls demo</p>
+      <p style="margin:0;font-size:0.8rem;color:#6b7280;">Use the buttons to control playback</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+    <button data-action="click->media-player#play"
+      style="padding:0.4rem 0.9rem;background:#6366f1;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+      Play
+    </button>
+    <button data-action="click->media-player#pause"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;">
+      Pause
+    </button>
+    <button data-action="click->media-player#restart"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;">
+      Restart
+    </button>
+    <button data-action="click->media-player#seek"
+      style="padding:0.4rem 0.9rem;background:#e5e7eb;color:#374151;border:none;border-radius:6px;cursor:pointer;">
+      +5s
+    </button>
+  </div>
+</div>`}
+  editorHeight={280}
 />

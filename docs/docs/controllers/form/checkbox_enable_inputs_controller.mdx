@@ -8,6 +8,7 @@ import NoActions from "../../_partials/no-actions.md";
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -46,10 +47,41 @@ Enable other inputs if a checkbox is ticked.
 Example - preventing inputs until T&Cs are checked
 
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/checkbox_enable_inputs_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="CheckboxEnableInputsController"
+  html={`<div data-controller="checkbox-enable-inputs"
+  style="display:flex;flex-direction:column;gap:0.75rem;max-width:380px;">
+  <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+    <input type="checkbox" data-checkbox-enable-inputs-target="enabler"
+      style="width:1rem;height:1rem;cursor:pointer;">
+    Ship to a different address
+  </label>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;padding-left:1.5rem;">
+    <div>
+      <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">Address</label>
+      <input type="text" data-checkbox-enable-inputs-target="enable"
+        placeholder="123 Main St"
+        style="width:100%;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+    </div>
+    <div>
+      <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">City</label>
+      <input type="text" data-checkbox-enable-inputs-target="enable"
+        placeholder="New York"
+        style="width:100%;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+    </div>
+    <div>
+      <label style="display:block;font-size:0.85rem;color:#374151;margin-bottom:0.25rem;">Country</label>
+      <select data-checkbox-enable-inputs-target="enable"
+        style="width:100%;padding:0.4rem 0.5rem;border:1px solid #d1d5db;border-radius:6px;">
+        <option>United States</option>
+        <option>Canada</option>
+        <option>United Kingdom</option>
+      </select>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;color:#6b7280;margin:0;">Check the box — address fields become enabled.</p>
+</div>`}
+  editorHeight={270}
 />
 
 

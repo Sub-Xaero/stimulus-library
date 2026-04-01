@@ -6,9 +6,8 @@ title: ToggleClassController
 
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
-import ToggleClassControllerClickHtml from "../../examples/toggle_class_controller_click.mdx";
-import ToggleClassControllerHoverHtml from "../../examples/toggle_class_controller_hover.mdx";
 import NoSideEffects from "../../_partials/no-side-effects.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -54,20 +53,33 @@ To toggle a class on an element, based on various optional interactions i.e. On 
 
 ## How to Use
 
-### Example - showing a dropdown menu on a click, and hiding it again if the user clicks away.
-
-## HTML
-
-<ToggleClassControllerClickHtml/>
-
-
-![ezgif-3-697e3a644da7](https://user-images.githubusercontent.com/9960703/104182368-450ec700-5408-11eb-920b-becec527311d.gif)
-
-### Example, showing an action button on hover
-
-## HTML
-<ToggleClassControllerHoverHtml/>
-
-
-
-![ezgif-3-dd9317a73732](https://user-images.githubusercontent.com/9960703/104182370-45a75d80-5408-11eb-8b3d-8feae48bbc5a.gif)
+<StimulusPlayground
+  controller="ToggleClassController"
+  html={`<style>
+  .highlighted { background:#fef3c7;border-color:#f59e0b !important;
+                 box-shadow:0 0 0 3px #fde68a; }
+</style>
+<div data-controller="toggle-class"
+  data-toggle-class-class-value="highlighted"
+  style="display:flex;flex-direction:column;gap:1rem;">
+  <div data-toggle-class-target="toggle"
+    style="padding:1rem;border:2px solid #e5e7eb;border-radius:8px;transition:all 0.2s;">
+    This box responds to the buttons below.
+  </div>
+  <div style="display:flex;gap:0.5rem;">
+    <button data-action="click->toggle-class#toggle"
+      style="padding:0.5rem 1rem;background:#6366f1;color:white;border:none;border-radius:6px;cursor:pointer;">
+      Toggle
+    </button>
+    <button data-action="click->toggle-class#on"
+      style="padding:0.5rem 1rem;background:#10b981;color:white;border:none;border-radius:6px;cursor:pointer;">
+      On
+    </button>
+    <button data-action="click->toggle-class#off"
+      style="padding:0.5rem 1rem;background:#ef4444;color:white;border:none;border-radius:6px;cursor:pointer;">
+      Off
+    </button>
+  </div>
+</div>`}
+  editorHeight={300}
+/>

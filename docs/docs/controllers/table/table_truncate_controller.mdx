@@ -6,6 +6,7 @@ title: TableTruncateController
 
 import NoClasses from "../../_partials/no-classes.md";
 import NoEvents from "../../_partials/no-events.md";
+import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 ## Purpose
 
@@ -45,8 +46,39 @@ Allow the collapsing of long tables, down to a specified number of rows, and a b
 ## How to Use
 
 
-<iframe
-  src="https://stimulus-library.netlify.app/controllers/table_truncate_controller.html"
-  style={{width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden"}}
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+<StimulusPlayground
+  controller="TableTruncateController"
+  html={`<div style="max-width:420px;">
+  <table data-controller="table-truncate"
+    data-table-truncate-limit-value="5"
+    style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+    <thead>
+      <tr style="background:#f9fafb;">
+        <th style="text-align:left;padding:0.5rem 0.75rem;border:1px solid #e5e7eb;">#</th>
+        <th style="text-align:left;padding:0.5rem 0.75rem;border:1px solid #e5e7eb;">Name</th>
+        <th style="text-align:left;padding:0.5rem 0.75rem;border:1px solid #e5e7eb;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">1</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Alice</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">2</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Bob</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">3</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Carol</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Inactive</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">4</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Dave</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">5</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Eve</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">6</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Frank</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Inactive</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">7</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Grace</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">8</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Hank</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">9</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Ivy</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Inactive</td></tr>
+      <tr><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">10</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Jack</td><td style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;">Active</td></tr>
+      <tr data-table-truncate-target="showMore" style="background:#f9fafb;">
+        <td colspan="3" style="padding:0.4rem 0.75rem;border:1px solid #e5e7eb;text-align:center;">
+          <button data-action="click->table-truncate#expand" style="background:none;border:none;color:#6366f1;cursor:pointer;font-size:0.9rem;">
+            Show 5 more rows ↓
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>`}
+  editorHeight={310}
 />
