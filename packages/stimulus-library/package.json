@@ -52,7 +52,7 @@
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
     "typescript": "^6.0.2",
-    "vite": "^7.3.2"
+    "vite": "^8.0.8"
   },
   "gitHead": "f302706a564cd81fd49936431fc1777096e730c5"
 }
