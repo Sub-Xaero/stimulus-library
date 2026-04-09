@@ -3,7 +3,7 @@
     "strict": true,
     "declaration": true,
     "declarationMap": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "isolatedModules": true,
     "esModuleInterop": true,
     "module": "ES6",
@@ -11,13 +11,7 @@
     "removeComments": true,
     "sourceMap": false,
     "outDir": "dist",
-    "rootDir": "src",
-    "baseUrl": "../..",
-    "paths": {
-      "src/*": [
-        "src/index.ts"
-      ]
-    }
+    "rootDir": "src"
   },
   "include": [
     "./src/**/*.js",

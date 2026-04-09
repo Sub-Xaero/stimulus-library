@@ -53,5 +53,6 @@
     "standard-version": "^9.5.0",
     "typescript": "^6.0.2",
     "vite": "^7.3.2"
-  }
+  },
+  "gitHead": "b34cd27621cdc72e98d8907d6d6d7d53d1efad5c"
 }
