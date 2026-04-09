@@ -4,6 +4,7 @@
     "declaration": true,
     "declarationMap": false,
     "moduleResolution": "bundler",
+    "lib": ["ES2019", "ES2020.Intl", "DOM"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "module": "ES6",
