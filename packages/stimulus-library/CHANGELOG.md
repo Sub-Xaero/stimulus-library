@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.6.0...v1.7.0) (2026-04-09)
+
+
+### Features
+
+* Add signal sync controllers and expand signal system ([#625](https://github.com/Sub-Xaero/stimulus-library/issues/625)) ([c93b7ce](https://github.com/Sub-Xaero/stimulus-library/commit/c93b7ce085b4c3578c86e49c9502c77446d80a2e))
+
+
+
+
+
 # [1.6.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.4.0...v1.6.0) (2026-03-06)
 
 
