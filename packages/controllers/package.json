@@ -37,7 +37,7 @@
   "dependencies": {
     "@stimulus-library/mixins": "^1.7.0",
     "@stimulus-library/utilities": "^1.7.0",
-    "date-fns": "^4.3.0"
+    "date-fns": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
