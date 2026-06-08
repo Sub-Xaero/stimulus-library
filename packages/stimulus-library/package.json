@@ -44,7 +44,7 @@
     "@stimulus-library/utilities": "^1.7.0"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
+    "@types/node": "^25.9.2",
     "agadoo": "^3.0.0",
     "cypress": "^15.16.0",
     "fast-glob": "^3.2.12",
