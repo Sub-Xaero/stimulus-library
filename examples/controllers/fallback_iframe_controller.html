@@ -1,0 +1,22 @@
+<!-- Example 1: No fallback, just hide -->
+<iframe
+  id="iframe-1"
+  src="https://localhost/nonexistent-page"
+  data-controller="fallback-iframe"
+></iframe>
+
+<!-- Example 2: Fallback that also fails -->
+<iframe
+  id="iframe-2"
+  src="https://localhost/nonexistent-page"
+  data-fallback-iframe-placeholder-value="https://localhost/also-missing"
+  data-controller="fallback-iframe"
+></iframe>
+
+<!-- Example 3: Successful fallback -->
+<iframe
+  id="iframe-3"
+  src="https://localhost/nonexistent-page"
+  data-fallback-iframe-placeholder-value="https://example.com/"
+  data-controller="fallback-iframe"
+></iframe>
