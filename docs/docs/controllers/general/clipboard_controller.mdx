@@ -5,7 +5,6 @@ title: ClipboardController
 
 
 import NoClasses from "../../_partials/no-classes.md";
-import NoEvents from "../../_partials/no-events.md";
 import NoSideEffects from "../../_partials/no-side-effects.md";
 import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
@@ -13,9 +12,9 @@ import StimulusPlayground from "@site/src/components/StimulusPlayground";
 
 Controller for adding 'copy-to-clipboard' functionality to a link/button/etc, with support for progressive enhancement.
 
-If 'copy' is supported, the controller will select the contents of the given input and execute a "copy".
+If the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText) is available, the controller writes the text of the `source` target to the clipboard and dispatches `clipboard:copied` once the browser confirms the write. If the browser refuses the write (for example, the page is not focused or permission is denied), it dispatches `clipboard:copy-failed` instead and leaves the text selected so the user can copy it by hand.
 
-If 'copy' is NOT supported by the browser the controller will simply select the contents of the given input for the user to be able to copy manually.
+If the Clipboard API is NOT available, the controller will simply select the contents of the given input for the user to be able to copy manually.
 
 You can also wire up the controller to have a copy button, and an optional fallback button (i.e. "Select this text") to show if clipboard controls are not supported by the user's browser. Setting the `removeUnused` value to `true` will make the controller remove whichever target is unused.
 
@@ -25,13 +24,13 @@ You can also wire up the controller to have a copy button, and an optional fallb
 | Action   | Purpose                                                                       |
 |----------|-------------------------------------------------------------------------------|
 | `select` | Selects the content of the `source` target                                    |
-| `copy`   | Selects the content of the `source` target, and executes a copy, if supported |
+| `copy`   | Copies the text of the `source` target to the clipboard, if supported         |
 
 ## [Targets](https://stimulus.hotwire.dev/reference/targets)
 
 | Target                | Purpose                                                                                | Default |
 |-----------------------|----------------------------------------------------------------------------------------|---------|
-| `source`              | The `<input>`, `<select>` or `<textarea>` to select/copy the value from                | -       |
+| `source`              | The element whose text is copied: the `value` of a form field, otherwise its text content | -       |
 | `copy` (Optional)     | The element to remove if `removeUnused`  value is `true` and copy **is** supported     | -       |
 | `fallback` (Optional) | The element to remove if `removeUnused` value  is `true` and copy is **not** supported | -       |
 
@@ -45,7 +44,11 @@ You can also wire up the controller to have a copy button, and an optional fallb
 | `removeUnusedValue` | Boolean | If `copy` is not supported by the browser, remove the `copy` target from the DOM. Otherwise remove the `fallback` target | false   |
 
 ## Events
-<NoEvents/>
+
+| Event                   | When                                              | Dispatched on          | `event.detail`          |
+|-------------------------|---------------------------------------------------|------------------------|-------------------------|
+| `clipboard:copied`      | The browser confirmed the text was copied         | The controller element | -                       |
+| `clipboard:copy-failed` | The browser refused to write to the clipboard     | The controller element | `{ error }`             |
 
 ## Side Effects
 <NoSideEffects/>
