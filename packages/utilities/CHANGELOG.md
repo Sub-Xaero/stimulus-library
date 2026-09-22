@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/Sub-Xaero/stimulus-library/compare/v1.7.0...v1.7.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* make dist tree-shakeable and loadable via importmaps ([#777](https://github.com/Sub-Xaero/stimulus-library/issues/777)) ([a35e180](https://github.com/Sub-Xaero/stimulus-library/commit/a35e180f871a80209739f5bf9efc330b48938553)), closes [#740](https://github.com/Sub-Xaero/stimulus-library/issues/740)
+
+
+
+
+
 # [1.7.0](https://github.com/Sub-Xaero/stimulus-library/compare/v1.6.0...v1.7.0) (2026-04-09)
 
 **Note:** Version bump only for package @stimulus-library/utilities
