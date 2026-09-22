@@ -17,31 +17,58 @@ export class ClipboardController extends BaseController {
   _supported = false;
 
   connect() {
-    this._supported = document.queryCommandSupported("copy");
+    this._supported = this._clipboardSupported();
 
     if (this.hasRemoveUnusedValue && this.removeUnusedValue) {
       if (this._supported && this.hasFallbackTarget) {
         this.fallbackTarget.remove();
-      } else if (this.hasCopyTarget) {
+      } else if (!this._supported && this.hasCopyTarget) {
         this.copyTarget.remove();
       }
     }
   }
 
-  select(event: MouseEvent) {
-    if (event) {
-      event.preventDefault();
-    }
-    (this.sourceTarget as HTMLInputElement | HTMLTextAreaElement).select();
+  select(event?: Event) {
+    event?.preventDefault();
+    this._selectSource();
   }
 
-  copy(event: ClipboardEvent) {
-    if (event) {
-      event.preventDefault();
+  async copy(event?: Event) {
+    event?.preventDefault();
+
+    if (!this._supported) {
+      this._selectSource();
+      return;
     }
-    (this.sourceTarget as HTMLInputElement | HTMLTextAreaElement).select();
-    if (this._supported) {
-      document.execCommand("copy");
+
+    try {
+      await navigator.clipboard.writeText(this._sourceText());
+      this.dispatchEvent(this.el, this.eventName("copied"));
+    } catch (error) {
+      // Leave the text selected so the user can still copy it by hand, and say so.
+      this._selectSource();
+      this.dispatchEvent(this.el, this.eventName("copy-failed"), { detail: { error } });
+    }
+  }
+
+  private _clipboardSupported(): boolean {
+    return typeof navigator !== "undefined" &&
+      !!navigator.clipboard &&
+      typeof navigator.clipboard.writeText === "function";
+  }
+
+  private _sourceText(): string {
+    const source = this.sourceTarget as HTMLInputElement | HTMLTextAreaElement | HTMLElement;
+    if ("value" in source && typeof source.value === "string") {
+      return source.value;
+    }
+    return source.textContent ?? "";
+  }
+
+  private _selectSource() {
+    const source = this.sourceTarget as HTMLInputElement | HTMLTextAreaElement | HTMLElement;
+    if ("select" in source && typeof source.select === "function") {
+      source.select();
     }
   }
 }
