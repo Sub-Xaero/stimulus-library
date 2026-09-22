@@ -1,5 +1,5 @@
 import { BaseController } from "@stimulus-library/utilities";
-import { useInjectedElement } from "@stimulus-library/mixins";
+import { installClassMethods, useInjectedElement, useIntersection } from "@stimulus-library/mixins";
 
 export class StickyController extends BaseController {
 
@@ -9,7 +9,7 @@ export class StickyController extends BaseController {
   declare addStuckClasses: (el?: HTMLElement) => void;
   declare removeStuckClasses: (el?: HTMLElement) => void;
 
-  declare readonly hasModeValue: "top" | "bottom";
+  declare readonly hasModeValue: boolean;
   declare readonly modeValue: "top" | "bottom";
 
   _magicElement: HTMLDivElement | null = null;
@@ -23,33 +23,19 @@ export class StickyController extends BaseController {
       if (!["top", "bottom"].includes(this.modeValue)) {
         throw new Error(`The modeValue provided '${this.modeValue}' is not one of the recognised configuration options`);
       }
-      if (this.modeValue === "top") {
-        return "beforebegin";
+      if (this.modeValue === "bottom") {
+        return "afterend";
       }
     }
-    return "afterend";
+    return "beforebegin";
   }
 
   connect() {
+    installClassMethods(this);
     this._magicElement = document.createElement("div");
-    useInjectedElement(this, this.el, this._mode, this._magicElement);
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.target !== this._magicElement) {
-          return;
-        }
-        if (entry.intersectionRatio === 0) {
-          this.addStuckClasses();
-        } else if (entry.intersectionRatio === 1) {
-          this.removeStuckClasses();
-        }
-      });
-
-    }, {
-      threshold: [0, 1],
-    });
-    observer.observe(this._magicElement!);
+    useInjectedElement(this, this.el, this._mode, this._magicElement, { cleanup: true });
+    // The magic element sits at the sticky element's natural position, so when it scrolls out of view the element is stuck
+    useIntersection(this, this._magicElement, () => this.removeStuckClasses(), () => this.addStuckClasses());
   }
 
 }

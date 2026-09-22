@@ -7,7 +7,7 @@ export function useInjectedFragment(controller: Controller, targetElement: HTMLE
   const setup = () => {
     const parent = targetElement.parentElement;
     if (["beforebegin", "afterend"].includes(insertPosition) && parent == null) {
-      throw new Error("Cannot insert beforebegin into a node with no parent");
+      throw new Error(`Cannot insert ${insertPosition} into a node with no parent`);
     }
 
     switch (insertPosition) {
@@ -21,7 +21,7 @@ export function useInjectedFragment(controller: Controller, targetElement: HTMLE
         parent!.insertBefore(fragment, targetElement);
         break;
       case "afterend":
-        parent!.insertBefore(fragment, targetElement);
+        parent!.insertBefore(fragment, targetElement.nextSibling);
         break;
     }
   };
