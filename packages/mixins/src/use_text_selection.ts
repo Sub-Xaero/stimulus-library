@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useEventListener } from "./use_event_listener";
+import { useEventListener } from "./use_event_listener.js";
 
 export function useTextSelection(controller: Controller, handler: (selectedString: Selection | null) => void) {
   handler = handler.bind(controller);

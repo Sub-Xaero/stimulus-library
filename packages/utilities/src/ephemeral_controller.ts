@@ -1,5 +1,5 @@
-import { camelCase } from "./strings";
-import { BaseController } from "./base_controller";
+import { camelCase } from "./strings.js";
+import { BaseController } from "./base_controller.js";
 
 export class EphemeralController extends BaseController {
 

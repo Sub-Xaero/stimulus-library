@@ -1,4 +1,4 @@
-import { LoadBlockController } from "./load_block_controller";
+import { LoadBlockController } from "./load_block_controller.js";
 import { useInterval } from "@stimulus-library/mixins";
 
 export class PollBlockController extends LoadBlockController {

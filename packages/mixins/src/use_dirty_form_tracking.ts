@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./use_mixin";
+import { useMixin } from "./use_mixin.js";
 import { getOtherRadiosInGroup, isElementCheckable, isHTMLInputElement, isHTMLSelectElement } from "@stimulus-library/utilities";
-import { useEventListener } from "./use_event_listener";
+import { useEventListener } from "./use_event_listener.js";
 
 const CACHE_ATTR_NAME = "data-detect-dirty-load-value";
 

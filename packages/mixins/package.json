@@ -26,14 +26,14 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "clean": "rimraf dist",
     "prepack": "npm run build",
     "release": "standard-version",
-    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --parallel -r ts-node/register 'test/**/*.test.ts' -R dot",
-    "test:treeshake": "agadoo dist"
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --parallel -r ts-node/register 'test/**/*.test.ts' -R dot"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.0.0",
@@ -45,7 +45,6 @@
     "@types/node": "^26.6.1",
     "@types/sinon": "^22.0.0",
     "@types/sinon-chai": "^4.0.0",
-    "agadoo": "^3.0.0",
     "chai": "^6.2.2",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",

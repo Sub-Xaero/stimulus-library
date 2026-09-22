@@ -1,6 +1,6 @@
-import { SignalPayload } from "./signal_input_controller";
-import { signalEventName } from "./events";
-import { SignalBaseController } from "./base_controller";
+import { SignalPayload } from "./signal_input_controller.js";
+import { signalEventName } from "./events.js";
+import { SignalBaseController } from "./base_controller.js";
 
 export class SignalClassController extends SignalBaseController {
 

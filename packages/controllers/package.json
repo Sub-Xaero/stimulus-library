@@ -26,13 +26,13 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "clean": "rimraf dist",
     "prepack": "npm run build",
-    "release": "standard-version",
-    "test:treeshake": "agadoo dist"
+    "release": "standard-version"
   },
   "dependencies": {
     "@stimulus-library/mixins": "^1.7.0",
@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.1",
-    "agadoo": "^3.0.0",
     "cypress": "^15.21.1",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",

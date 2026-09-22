@@ -1,6 +1,6 @@
 import { BaseController, EventBus, getAllRadiosInGroup, isHTMLInputElement } from "@stimulus-library/utilities";
 import { useEventBus, useEventListeners } from "@stimulus-library/mixins";
-import { signalConnectEvent, signalValueEvent } from "./events";
+import { signalConnectEvent, signalValueEvent } from "./events.js";
 
 export interface SignalPayload {
   element: HTMLElement;

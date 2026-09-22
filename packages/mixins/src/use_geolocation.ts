@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { reactive } from "@stimulus-library/utilities";
-import { useMixin } from "./use_mixin";
+import { useMixin } from "./use_mixin.js";
 
 export interface GeolocationOptions extends Partial<PositionOptions> {
 }

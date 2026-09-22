@@ -1,4 +1,4 @@
-import { LoadBlockController } from "./load_block_controller";
+import { LoadBlockController } from "./load_block_controller.js";
 
 export class AsyncBlockController extends LoadBlockController {
 

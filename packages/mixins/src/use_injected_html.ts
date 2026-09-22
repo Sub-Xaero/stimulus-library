@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./use_mixin";
+import { useMixin } from "./use_mixin.js";
 
 export function useInjectedFragment(controller: Controller, targetElement: HTMLElement, insertPosition: InsertPosition, fragment: DocumentFragment, options: { cleanup?: boolean } = {}): [ChildNode[], () => void] {
   const nodes = Array.from(fragment.childNodes);

@@ -1,6 +1,6 @@
 import { BaseController, EventBus } from "@stimulus-library/utilities";
-import { SignalPayload } from "./signal_input_controller";
-import { signalConnectEvent, signalValueEvent } from "./events";
+import { SignalPayload } from "./signal_input_controller.js";
+import { signalConnectEvent, signalValueEvent } from "./events.js";
 import { useEventBus, useMutationObserver } from "@stimulus-library/mixins";
 
 export class SignalDomChildrenController extends BaseController {

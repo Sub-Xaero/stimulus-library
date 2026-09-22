@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { useMixin } from "./use_mixin";
+import { useMixin } from "./use_mixin.js";
 
 export function useFullscreen(controller: Controller, el?: Element) {
   const element = el || document.documentElement;

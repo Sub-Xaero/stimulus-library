@@ -1,4 +1,4 @@
-import { insertHiddenButton } from "./elements";
+import { insertHiddenButton } from "./elements.js";
 
 export function requestSubmit(form: HTMLFormElement) {
   if (form.requestSubmit) {

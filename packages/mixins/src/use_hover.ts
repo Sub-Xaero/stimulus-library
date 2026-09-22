@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import { useEventListener } from "./use_event_listener";
-import { useMixin } from "./use_mixin";
+import { useEventListener } from "./use_event_listener.js";
+import { useMixin } from "./use_mixin.js";
 
 export function useHover(controller: Controller, element: HTMLElement, enter?: ((event: Event) => void) | null, leave?: ((event: Event) => void) | null) {
   let teardownEnter: null | (() => void) = null;

@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dist:
+    name: Build and check dist
+    runs-on: ubuntu-latest
+    env:
+      CYPRESS_INSTALL_BINARY: "0"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check dist loads as native ESM (importmaps)
+        run: npm run test:esm
+      - name: Check dist is tree-shakeable
+        run: npm run test:treeshake
