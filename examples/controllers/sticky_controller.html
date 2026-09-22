@@ -8,6 +8,13 @@
   </head>
   <body>
     <div class="container p-4 text-center">
+      <div
+        id="sticky-header"
+        data-controller="sticky"
+        data-sticky-mode-value="bottom"
+      >
+        Sticky header
+      </div>
       <div>
         <p>
           In platea dolor culpa soluta, velit nostrud taciti aliquet, dolores.
@@ -177,6 +184,19 @@
       </div>
     </div>
     <style>
+
+      #sticky-header {
+        position: sticky;
+        top: 0;
+        padding: 1em;
+        background: white;
+        z-index: 1;
+      }
+
+      #sticky-header.stuck {
+        background: aliceblue;
+        border-bottom: 1px solid black;
+      }
 
       #action-bar {
         color: black;
