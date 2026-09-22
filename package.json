@@ -34,11 +34,14 @@
     "build:watch": "rm -rf packages/**/dist/** && chokidar chokidar --silent --initial 'packages/*/src/**/*.ts' -c 'npm run build'",
     "test": "lerna run test",
     "prepack": "npm run build",
-    "publish": "lerna publish --conventional-commits"
+    "publish": "lerna publish --conventional-commits",
+    "test:treeshake": "node scripts/check-treeshake.mjs",
+    "test:esm": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-native-esm.mjs"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",
     "lerna": "^9.0.4",
+    "rolldown": "^1.2.8",
     "sinon": "^22.0.0"
   },
   "workspaces": [

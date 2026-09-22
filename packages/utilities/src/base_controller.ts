@@ -1,6 +1,6 @@
 import { Context, Controller } from "@hotwired/stimulus";
-import { log, logProperty } from "./logging";
-import { dispatchEvent } from "./events";
+import { log, logProperty } from "./logging.js";
+import { dispatchEvent } from "./events.js";
 
 export class BaseController extends Controller {
 

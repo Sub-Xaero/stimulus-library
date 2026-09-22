@@ -26,6 +26,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
@@ -34,8 +35,7 @@
     "release": "standard-version",
     "pretest": "cd ../../examples && npm install && npm run dev &",
     "test": "cd ../../packages/stimulus-library && cypress run -q -C cypress.config.ts",
-    "posttest": "kill $(lsof -t -i:3000)",
-    "test:treeshake": "agadoo dist"
+    "posttest": "kill $(lsof -t -i:3000)"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
@@ -45,7 +45,6 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.1",
-    "agadoo": "^3.0.0",
     "cypress": "^15.21.1",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",

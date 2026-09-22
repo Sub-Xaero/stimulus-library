@@ -1,5 +1,5 @@
-import { SignalPayload } from "./signal_input_controller";
-import { SignalBaseController } from "./base_controller";
+import { SignalPayload } from "./signal_input_controller.js";
+import { SignalBaseController } from "./base_controller.js";
 
 export class SignalAttributeSyncController extends SignalBaseController {
 

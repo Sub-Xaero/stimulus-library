@@ -1,4 +1,4 @@
-import { PrintController } from "./utility/print_controller";
+import { PrintController } from "./utility/print_controller.js";
 import { installClassMethods, useEventListener } from "@stimulus-library/mixins";
 
 export class PrintButtonController extends PrintController {

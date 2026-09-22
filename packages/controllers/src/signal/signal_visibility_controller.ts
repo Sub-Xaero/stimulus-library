@@ -1,6 +1,6 @@
-import { SignalPayload } from "./signal_input_controller";
-import { signalVisibilityEvent } from "./events";
-import { SignalBaseController } from "./base_controller";
+import { SignalPayload } from "./signal_input_controller.js";
+import { signalVisibilityEvent } from "./events.js";
+import { SignalBaseController } from "./base_controller.js";
 import { installClassMethods } from "@stimulus-library/mixins";
 
 export class SignalVisibilityController extends SignalBaseController {

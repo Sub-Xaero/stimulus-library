@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { reactive } from "@stimulus-library/utilities";
-import { useEventListener } from "./use_event_listener";
+import { useEventListener } from "./use_event_listener.js";
 
 
 export type Serializer<T> = {

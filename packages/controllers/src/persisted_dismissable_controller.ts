@@ -1,4 +1,4 @@
-import { DismissableController } from "./dismissable_controller";
+import { DismissableController } from "./dismissable_controller.js";
 import { useLocalStorage } from "@stimulus-library/mixins";
 
 export class PersistedDismissableController extends DismissableController {

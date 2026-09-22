@@ -1,7 +1,7 @@
 import { BaseController, EventBus } from "@stimulus-library/utilities";
-import { SignalPayload } from "./signal_input_controller";
-import { extractExpressions, extractPredicates } from "./expressions";
-import { signalConnectEvent, signalValueEvent } from "./events";
+import { SignalPayload } from "./signal_input_controller.js";
+import { extractExpressions, extractPredicates } from "./expressions.js";
+import { signalConnectEvent, signalValueEvent } from "./events.js";
 import { useEventBus } from "@stimulus-library/mixins";
 
 export abstract class SignalBaseController extends BaseController {
