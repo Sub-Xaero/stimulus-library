@@ -59,4 +59,24 @@ describe("Detect dirty form controller", () => {
     });
 
   });
+
+  it("Should keep restoring checkboxes to their load value across repeated restores", () => {
+    const selector = "input[type=\"checkbox\"]";
+    cy.get(selector).should("not.be.checked");
+    cy.get(selector).should("have.attr", "data-detect-dirty-load-value", "false");
+
+    for (let i = 0; i < 3; i++) {
+      cy.get(selector).check();
+      cy.get(selector).should("have.attr", "data-dirty");
+      cy.get("#restore-button").click();
+      cy.get(selector).should("not.be.checked");
+      cy.get(selector).should("have.attr", "data-detect-dirty-load-value", "false");
+      cy.get(selector).should("not.have.attr", "data-dirty");
+    }
+
+    // Restoring an already-clean form must not flip the checkbox either
+    cy.get("#restore-button").click();
+    cy.get(selector).should("not.be.checked");
+    cy.get(selector).should("not.have.attr", "data-dirty");
+  });
 });
