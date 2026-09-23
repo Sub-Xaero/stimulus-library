@@ -33,9 +33,7 @@
     "clean": "rimraf dist",
     "prepack": "npm run build",
     "release": "standard-version",
-    "pretest": "cd ../../examples && npm install && npm run dev &",
-    "test": "cd ../../packages/stimulus-library && cypress run -q -C cypress.config.ts",
-    "posttest": "kill $(lsof -t -i:3000)"
+    "test": "start-server-and-test 'npm --prefix ../../examples run dev' http://localhost:3030 'cypress run -q -C cypress.config.ts'"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
@@ -50,6 +48,7 @@
     "lerna": "^9.0.4",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
+    "start-server-and-test": "^2.1.5",
     "typescript": "^7.0.2",
     "vite": "^8.3.0"
   },
