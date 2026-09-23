@@ -16,6 +16,13 @@ export default defineConfig({
     "www.google-analytics.com",
   ],
   reporter: "dot",
+  // Bound every command so a wedged spec fails by name instead of hanging the
+  // whole run, which previously required force-killing the process.
+  defaultCommandTimeout: 10000,
+  pageLoadTimeout: 30000,
+  requestTimeout: 15000,
+  responseTimeout: 30000,
+  taskTimeout: 30000,
   retries: {
     runMode: 0,
     openMode: 0,
