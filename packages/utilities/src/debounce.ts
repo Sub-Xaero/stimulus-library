@@ -18,7 +18,9 @@ export function debounce<T extends (...args: any[]) => any>(
       clearTimeout(timeout);
     }
     timeout = setTimeout(later, wait);
-    this[timoutName] = timeout;
+    if (this != null) {
+      this[timoutName] = timeout;
+    }
     if (callNow) {
       func.apply(this, args);
     }
