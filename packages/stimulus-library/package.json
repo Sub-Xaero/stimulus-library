@@ -48,7 +48,7 @@
     "lerna": "^9.0.4",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
-    "start-server-and-test": "^2.1.5",
+    "start-server-and-test": "^3.0.12",
     "typescript": "^7.0.2",
     "vite": "^8.3.1"
   },
