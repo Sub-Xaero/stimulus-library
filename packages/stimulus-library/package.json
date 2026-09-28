@@ -42,7 +42,7 @@
     "@stimulus-library/utilities": "^1.7.1"
   },
   "devDependencies": {
-    "@types/node": "^26.6.1",
+    "@types/node": "^26.6.2",
     "cypress": "^15.21.1",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",

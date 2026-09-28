@@ -42,7 +42,7 @@
   "devDependencies": {
     "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^26.6.1",
+    "@types/node": "^26.6.2",
     "@types/sinon": "^22.0.0",
     "@types/sinon-chai": "^4.0.0",
     "chai": "^6.2.2",
