@@ -40,7 +40,7 @@
     "date-fns": "^4.4.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.1",
+    "@types/node": "^26.6.2",
     "cypress": "^15.21.1",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",
