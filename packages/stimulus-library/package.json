@@ -45,7 +45,7 @@
     "@types/node": "^26.6.5",
     "cypress": "^15.21.1",
     "fast-glob": "^3.2.12",
-    "lerna": "^9.0.4",
+    "lerna": "^10.1.1",
     "rimraf": "^6.0.1",
     "standard-version": "^9.5.0",
     "start-server-and-test": "^2.1.5",
