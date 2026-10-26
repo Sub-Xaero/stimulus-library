@@ -43,7 +43,7 @@
     "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^26.6.5",
-    "@types/sinon": "^22.0.0",
+    "@types/sinon": "^22.0.1",
     "@types/sinon-chai": "^4.0.0",
     "chai": "^6.3.0",
     "fast-glob": "^3.2.12",
