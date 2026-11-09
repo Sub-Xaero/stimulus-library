@@ -50,7 +50,7 @@
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",
     "mocha": "^11.8.0",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.4",
     "sinon": "^22.0.0",
     "sinon-chai": "^4.0.0",
     "standard-version": "^9.5.0",
