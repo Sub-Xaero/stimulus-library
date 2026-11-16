@@ -46,7 +46,7 @@
     "cypress": "^15.21.1",
     "fast-glob": "^3.2.12",
     "lerna": "^9.0.4",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.4",
     "standard-version": "^9.5.0",
     "start-server-and-test": "^2.1.5",
     "typescript": "^7.0.2",
